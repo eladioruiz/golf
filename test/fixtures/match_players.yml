@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  match: 
+  player: 
+  tee: 
+
+two:
+  match: 
+  player: 
+  tee: 

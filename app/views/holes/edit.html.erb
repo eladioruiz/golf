@@ -1,0 +1,36 @@
+<h1>Editing hole</h1>
+
+<% form_for(@hole) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :course %><br />
+    <%= f.text_field :course %>
+  </p>
+  <p>
+    <%= f.label :tee %><br />
+    <%= f.text_field :tee %>
+  </p>
+  <p>
+    <%= f.label :par %><br />
+    <%= f.text_field :par %>
+  </p>
+  <p>
+    <%= f.label :handicap %><br />
+    <%= f.text_field :handicap %>
+  </p>
+  <p>
+    <%= f.label :lenght %><br />
+    <%= f.text_field :lenght %>
+  </p>
+  <p>
+    <%= f.label :enabled %><br />
+    <%= f.check_box :enabled %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @hole %> |
+<%= link_to 'Back', holes_path %>

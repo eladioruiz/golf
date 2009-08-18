@@ -1,0 +1,30 @@
+<h1>Listing players</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Handicap</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Enabled</th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%=h player.name %></td>
+    <td><%=h player.handicap %></td>
+    <td><%=h player.login %></td>
+    <td><%=h player.password %></td>
+    <td><%=h player.email %></td>
+    <td><%=h player.enabled %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New player', new_player_path %>

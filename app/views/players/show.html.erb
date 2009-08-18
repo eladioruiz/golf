@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @player.name %>
+</p>
+
+<p>
+  <b>Handicap:</b>
+  <%=h @player.handicap %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @player.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @player.password %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @player.email %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%=h @player.enabled %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

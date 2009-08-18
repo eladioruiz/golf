@@ -1,0 +1,23 @@
+<h1>New match_player</h1>
+
+<% form_for(@match_player) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :match %><br />
+    <%= f.text_field :match %>
+  </p>
+  <p>
+    <%= f.label :player %><br />
+    <%= f.text_field :player %>
+  </p>
+  <p>
+    <%= f.label :tee %><br />
+    <%= f.text_field :tee %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', match_players_path %>

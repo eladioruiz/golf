@@ -1,0 +1,20 @@
+<h1>Editing tee</h1>
+
+<% form_for(@tee) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :barras %><br />
+    <%= f.text_field :barras %>
+  </p>
+  <p>
+    <%= f.label :enabled %><br />
+    <%= f.check_box :enabled %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tee %> |
+<%= link_to 'Back', tees_path %>

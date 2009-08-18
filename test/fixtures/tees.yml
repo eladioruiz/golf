@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  barras: MyString
+  enabled: false
+
+two:
+  barras: MyString
+  enabled: false

@@ -1,0 +1,33 @@
+<p>
+  <b>Course:</b>
+  <%=h @hole.course %>
+</p>
+
+<p>
+  <b>Tee:</b>
+  <%=h @hole.tee %>
+</p>
+
+<p>
+  <b>Par:</b>
+  <%=h @hole.par %>
+</p>
+
+<p>
+  <b>Handicap:</b>
+  <%=h @hole.handicap %>
+</p>
+
+<p>
+  <b>Lenght:</b>
+  <%=h @hole.lenght %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%=h @hole.enabled %>
+</p>
+
+
+<%= link_to 'Edit', edit_hole_path(@hole) %> |
+<%= link_to 'Back', holes_path %>

@@ -1,0 +1,30 @@
+<h1>Listing holes</h1>
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Tee</th>
+    <th>Par</th>
+    <th>Handicap</th>
+    <th>Lenght</th>
+    <th>Enabled</th>
+  </tr>
+
+<% @holes.each do |hole| %>
+  <tr>
+    <td><%=h hole.course %></td>
+    <td><%=h hole.tee %></td>
+    <td><%=h hole.par %></td>
+    <td><%=h hole.handicap %></td>
+    <td><%=h hole.lenght %></td>
+    <td><%=h hole.enabled %></td>
+    <td><%= link_to 'Show', hole %></td>
+    <td><%= link_to 'Edit', edit_hole_path(hole) %></td>
+    <td><%= link_to 'Destroy', hole, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New hole', new_hole_path %>

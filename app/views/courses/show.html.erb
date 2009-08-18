@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @course.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @course.address %>
+</p>
+
+<p>
+  <b>Handicap:</b>
+  <%=h @course.handicap %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%=h @course.enabled %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  course: 
+  tee: 
+  par: 1
+  handicap: 1
+  lenght: 9.99
+  enabled: false
+
+two:
+  course: 
+  tee: 
+  par: 1
+  handicap: 1
+  lenght: 9.99
+  enabled: false

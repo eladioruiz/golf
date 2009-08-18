@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  player: 
+  course: 
+  date_hour_match: 2009-08-08 20:38:23
+  holes: 1
+
+two:
+  player: 
+  course: 
+  date_hour_match: 2009-08-08 20:38:23
+  holes: 1

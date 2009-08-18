@@ -1,0 +1,19 @@
+
+<p>
+  <b>Course:</b>
+  <%=h @match.course.name %>
+</p>
+
+<p>
+  <b>Date hour match:</b>
+  <%=h @match.date_hour_match %>
+</p>
+
+<p>
+  <b>Holes:</b>
+  <%=h @match.holes %>
+</p>
+
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>

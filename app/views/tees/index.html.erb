@@ -1,0 +1,22 @@
+<h1>Listing tees</h1>
+
+<table>
+  <tr>
+    <th>Barras</th>
+    <th>Enabled</th>
+  </tr>
+
+<% @tees.each do |tee| %>
+  <tr>
+    <td><%=h tee.barras %></td>
+    <td><%=h tee.enabled %></td>
+    <td><%= link_to 'Show', tee %></td>
+    <td><%= link_to 'Edit', edit_tee_path(tee) %></td>
+    <td><%= link_to 'Destroy', tee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tee', new_tee_path %>
