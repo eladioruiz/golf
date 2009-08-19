@@ -3764,3 +3764,246 @@ ActionView::TemplateError (undefined method `name' for #<Player:0xb690df4c>) on 
 Rendered rescues/_trace (66.7ms)
 Rendered rescues/_request_and_response (1.3ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-19 18:31:07) [GET]
+
+ActionController::RoutingError (No route matches "/colurses" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:31:13) [GET]
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+Completed in 47ms (View: 39, DB: 1) | 200 OK [http://0.0.0.0/courses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-08-19 18:31:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+Rendering template within layouts/courses
+Rendering courses/show
+Completed in 14ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/courses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#edit (for 127.0.0.1 at 2009-08-19 18:31:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+Rendering template within layouts/courses
+Rendering courses/edit
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/courses/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#update (for 127.0.0.1 at 2009-08-19 18:31:38) [PUT]
+  Parameters: {"course"=>{"address"=>"Carretera Burgos km.27", "name"=>"RACE", "enabled"=>"1"}, "commit"=>"Update", "authenticity_token"=>"kxFa3WVbdgZLfk4RN0D0DLEODBkv7OZkNfXk3MS246w=", "id"=>"1"}
+  [4;36;1mCourse Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Update (0.6ms)[0m   [0mUPDATE `courses` SET `updated_at` = '2009-08-19 16:31:38', `address` = 'Carretera Burgos km.27' WHERE `id` = 1[0m
+  [4;36;1mSQL (61.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/courses/1
+Completed in 94ms (DB: 64) | 302 Found [http://0.0.0.0/courses/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-08-19 18:31:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+Rendering template within layouts/courses
+Rendering courses/show
+Completed in 11ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/courses/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:32:17) [GET]
+  [4;35;1mCourse Load (0.5ms)[0m   [0mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;36;1mCourse Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+Completed in 34ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/courses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#edit (for 127.0.0.1 at 2009-08-19 18:32:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+Rendering template within layouts/courses
+Rendering courses/edit
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/courses/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#update (for 127.0.0.1 at 2009-08-19 18:32:25) [PUT]
+  Parameters: {"course"=>{"address"=>"Carretera Burgos km.27", "name"=>"RACE", "handicap"=>"72", "enabled"=>"1"}, "commit"=>"Update", "authenticity_token"=>"kxFa3WVbdgZLfk4RN0D0DLEODBkv7OZkNfXk3MS246w=", "id"=>"1"}
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Update (0.2ms)[0m   [0;1mUPDATE `courses` SET `updated_at` = '2009-08-19 16:32:25', `handicap` = 72 WHERE `id` = 1[0m
+  [4;35;1mSQL (49.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/courses/1
+Completed in 63ms (DB: 51) | 302 Found [http://0.0.0.0/courses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-08-19 18:32:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCourse Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.5ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+Rendering template within layouts/courses
+Rendering courses/show
+Completed in 30ms (View: 8, DB: 2) | 200 OK [http://0.0.0.0/courses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:32:28) [GET]
+  [4;36;1mCourse Load (0.5ms)[0m   [0;1mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;35;1mCourse Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+Completed in 35ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/courses]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#edit (for 127.0.0.1 at 2009-08-19 18:32:30) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCourse Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.4ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 2) [0m
+Rendering template within layouts/courses
+Rendering courses/edit
+Completed in 35ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/courses/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#update (for 127.0.0.1 at 2009-08-19 18:32:34) [PUT]
+  Parameters: {"course"=>{"address"=>"", "name"=>"La Duquesa", "handicap"=>"72", "enabled"=>"1"}, "commit"=>"Update", "authenticity_token"=>"kxFa3WVbdgZLfk4RN0D0DLEODBkv7OZkNfXk3MS246w=", "id"=>"2"}
+  [4;36;1mCourse Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Update (0.5ms)[0m   [0mUPDATE `courses` SET `updated_at` = '2009-08-19 16:32:34', `handicap` = 72, `address` = '' WHERE `id` = 2[0m
+  [4;36;1mSQL (82.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/courses/2
+Completed in 116ms (DB: 85) | 302 Found [http://0.0.0.0/courses/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-08-19 18:32:34) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCourse Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.4ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 2) [0m
+Rendering template within layouts/courses
+Rendering courses/show
+Completed in 29ms (View: 7, DB: 2) | 200 OK [http://0.0.0.0/courses/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:32:36) [GET]
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://0.0.0.0/courses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#new (for 127.0.0.1 at 2009-08-19 18:32:40) [GET]
+  [4;35;1mCourse Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+Rendering template within layouts/courses
+Rendering courses/new
+Completed in 41ms (View: 20, DB: 2) | 200 OK [http://0.0.0.0/courses/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#create (for 127.0.0.1 at 2009-08-19 18:33:01) [POST]
+  Parameters: {"course"=>{"address"=>"What the hell?", "name"=>"What the fuck?", "handicap"=>"1000", "enabled"=>"1"}, "commit"=>"Create", "authenticity_token"=>"kxFa3WVbdgZLfk4RN0D0DLEODBkv7OZkNfXk3MS246w="}
+  [4;36;1mCourse Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCourse Create (0.4ms)[0m   [0;1mINSERT INTO `courses` (`name`, `address`, `length_blue`, `created_at`, `updated_at`, `handicap`, `length_yellow`, `length_red`, `enabled`, `length_white`) VALUES('What the fuck?', 'What the hell?', NULL, '2009-08-19 16:33:01', '2009-08-19 16:33:01', 1000, NULL, NULL, 1, NULL)[0m
+  [4;35;1mSQL (60.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/courses/3
+Completed in 96ms (DB: 63) | 302 Found [http://0.0.0.0/courses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-08-19 18:33:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Rendering template within layouts/courses
+Rendering courses/show
+Completed in 11ms (View: 3, DB: 1) | 200 OK [http://0.0.0.0/courses/3]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:33:04) [GET]
+  [4;36;1mCourse Load (0.5ms)[0m   [0;1mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;35;1mCourse Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+Completed in 38ms (View: 18, DB: 2) | 200 OK [http://0.0.0.0/courses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#destroy (for 127.0.0.1 at 2009-08-19 18:33:11) [DELETE]
+  Parameters: {"authenticity_token"=>"kxFa3WVbdgZLfk4RN0D0DLEODBkv7OZkNfXk3MS246w=", "id"=>"3"}
+  [4;36;1mCourse Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCourse Destroy (0.2ms)[0m   [0mDELETE FROM `courses` WHERE `id` = 3[0m
+  [4;36;1mSQL (80.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/courses
+Completed in 90ms (DB: 82) | 302 Found [http://0.0.0.0/courses/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2009-08-19 18:33:11) [GET]
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM `courses` [0m
+Rendering template within layouts/courses
+Rendering courses/index
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+Completed in 13ms (View: 5, DB: 1) | 200 OK [http://0.0.0.0/courses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-08-19 18:42:05) [GET]
+
+ActionController::RoutingError (No route matches "/users" with {:method=>:get}):
+  -e:2:in `load'
+  -e:2
+
+Rendering rescues/layout (not_found)
