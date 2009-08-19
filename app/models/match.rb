@@ -1,5 +1,4 @@
 class Match < ActiveRecord::Base
   belongs_to :course
-  has_many :player
-  has_many :cards
+  has_many :players
 end
