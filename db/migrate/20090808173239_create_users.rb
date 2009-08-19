@@ -16,13 +16,3 @@ class CreateUsers < ActiveRecord::Migration
     drop_table :users
   end
 end
-
-class CreatePlayers < ActiveRecord::Migration
-  def self.up
-    create_table :players do |t|
-      t.reference :user
-      t.reference :match
-      t.reference :tee
-    end
-  end
-end

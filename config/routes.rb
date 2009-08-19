@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :match_cards
-
-  map.resources :match_players
+  map.resources :users
 
   map.resources :matches
 
