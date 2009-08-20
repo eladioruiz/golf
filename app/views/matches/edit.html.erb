@@ -17,11 +17,11 @@
   </p>
   
   <h2>Players</h2>
-  <% match_form.fields_for :match_player do |match_player_form| %>
+  <% match_form.fields_for :player do |player_form| %>
   	<p>
-  		<%= match_player_form.label :name, 'Player1' %>
-		<%= match_player_form.text_field :name %>
-		<%= collection_select(match_player_form, :player_id, Player.all, :id, :name) %>
+  		<%= player_form.label :name, 'Player1' %>
+		<%= player_form.text_field :name %>
+		<%= collection_select(player_form, :user_id, User.all, :id, :name) %>
   	</p>
   <% end %>
   

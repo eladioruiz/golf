@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090810184823) do
-
-  create_table "cards", :force => true do |t|
-    t.integer  "player_id"
-    t.integer  "hole_id"
-    t.integer  "strokes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20090808183823) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -37,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20090810184823) do
     t.integer  "number"
     t.integer  "par"
     t.integer  "handicap"
+    t.boolean  "enabled",    :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "holes_tees", :id => false, :force => true do |t|
+    t.integer  "hole_id"
+    t.integer  "tee_id"
+    t.integer  "length"
     t.boolean  "enabled",    :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
