@@ -1,3 +1,9 @@
+# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
+# License::       Distributes under the same terms as Ruby
+# Last revision:: 22/08/2009 by Eladio Ruiz
+# Status::        Checked
+# Comments::
+
 class CreateHoles < ActiveRecord::Migration
   def self.up
     create_table :holes do |t|
@@ -13,20 +19,5 @@ class CreateHoles < ActiveRecord::Migration
 
   def self.down
     drop_table :holes
-  end
-end
-
-class CreateHolesTees < ActiveRecord::Migration
-  def self.up
-    create table :holes_tees, :id => false do |t|
-      t.references :hole
-      t.references :tee
-      t.integer :length
-      t.boolean :enabled, :default=>true
-    end
-  end
-  
-  def self.down
-    drop_table :holes_tees
   end
 end
