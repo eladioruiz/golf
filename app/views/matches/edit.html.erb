@@ -20,7 +20,6 @@
   <% match_form.fields_for :player do |player_form| %>
   	<p>
   		<%= player_form.label :name, 'Player1' %>
-		<%= player_form.text_field :name %>
 		<%= collection_select(player_form, :user_id, User.all, :id, :name) %>
   	</p>
   <% end %>

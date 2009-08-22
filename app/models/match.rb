@@ -1,6 +1,6 @@
 class Match < ActiveRecord::Base
-  belongs_to :course
-  has_many :players
+  belongs_to :course  # Check it
+  has_many :users, :through => :players  # Check it
 
-  accepts_nested_attributes_for :players, :allow_destroy => :true 
+  accepts_nested_attributes_for :players, :allow_destroy => :true  # Check it
 end
