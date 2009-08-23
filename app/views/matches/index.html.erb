@@ -2,13 +2,22 @@
 
 <table>
   <tr>
+  	<th>Course</th>
+	<th>Date</th>
+	<th>Holes</th>
+	<th>Enabled</th>
   </tr>
 
 <% @matches.each do |match| %>
   <tr>
+  	<td><%=h match.course.name %></td>
+	<td><%=h match.date_hour_match %></td>
+	<td><%=h match.holes %></td>
+	<td><%=h match.enabled %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'Add detail', new_player_path(:match_id => match.id) %></td>
+    <td><%= link_to 'Delete', match, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

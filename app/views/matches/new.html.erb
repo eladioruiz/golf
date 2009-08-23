@@ -4,6 +4,26 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :course %><br />
+    <%= f.select(:course_id,@courses) %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :handicap %><br />
+    <%= f.text_field :handicap %>
+  </p>
+  <p>
+    <%= f.label :enabled %><br />
+    <%= f.check_box :enabled %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
