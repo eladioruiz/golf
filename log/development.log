@@ -6952,3 +6952,1193 @@ Rendering matches/index
   [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
   [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
 Completed in 68ms (View: 60, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 20:56:46) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW TABLES[0m
+
+NoMethodError (undefined method `find_by_form_id' for #<Class:0xb6825530>):
+  app/controllers/players_controller.rb:29:in `new'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (35.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 20:56:55) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb67184bc>) on line #8 of app/views/players/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :name %><br />
+8:     <%= f.text_field :name %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :handicap %><br />
+
+    app/views/players/new.html.erb:8
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (108.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:00:30) [GET]
+  Parameters: {"APTANA_NOCACHE_1251054030038"=>"1251054030038"}
+  [4;35;1mPlayer Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` [0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #6 of app/views/players/new.html.erb:
+3: <% form_for(@player) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <h2><%= f.label :player%>: <%= h Match.find(params[:form_id]).course.name %> - <%= h Match.find(params[:form_id]).date_hour_match %></h2>
+7:   <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
+8: 
+9:   <p>
+
+    app/views/players/new.html.erb:6
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (51.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:01:07) [GET]
+  Parameters: {"APTANA_NOCACHE_1251054067201"=>"1251054067201"}
+  [4;35;1mPlayer Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` IS NULL) LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #6 of app/views/players/new.html.erb:
+3: <% form_for(@player) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <h2><%= f.label :player%>: <%= h Match.find(params[:form_id]).course.name %> - <%= h Match.find(params[:form_id]).date_hour_match %></h2>
+7:   <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
+8: 
+9: 
+
+    app/views/players/new.html.erb:6
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:05:29) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #6 of app/views/players/new.html.erb:
+3: <% form_for(@player) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <h2><%= f.label :player%>: <%= h Match.find(params[:form_id]).course.name %> - <%= h Match.find(params[:form_id]).date_hour_match %></h2>
+7:   <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
+8: 
+9: 
+
+    app/views/players/new.html.erb:6
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (50.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:06:21) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (41.8ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;36;1mUser Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;35;1mMatch Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.2ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.>) on line #10 of app/views/players/new.html.erb:
+7:   <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
+8: 
+9: 
+10:  	<%if @numplayers >0%>
+11: 		<p>
+12: 			<%= f.label :name %><br />
+13: 			<%= f.text_field :name %>
+
+    app/views/players/new.html.erb:10
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (104.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:08:52) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;35;1mUser Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.inject) on line #17 of app/views/players/new.html.erb:
+14: 		</p>
+15: 		<p>
+16: 			<%= f.label :tee %><br />
+17: 			<%= select :player, :tee_id, @tees %>
+18: 		</p>
+19: 	  
+20: 		<p>
+
+    app/views/players/new.html.erb:17
+    app/views/players/new.html.erb:3
+    app/controllers/players_controller.rb:37:in `new'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:09:51) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mTee Load (0.2ms)[0m   [0mSELECT * FROM `tees` [0m
+  [4;36;1mTee Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;35;1mMatch Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 72ms (View: 50, DB: 4) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#create (for 127.0.0.1 at 2009-08-23 21:10:02) [POST]
+  Parameters: {"player"=>{"match_id"=>"1", "user_id"=>"3", "tee_id"=>"4"}, "commit"=>"Create", "authenticity_token"=>"Z5QyoiaFmNa/zUBrOfi1W33VmCqjIkwnOjn3jJLN70c="}
+  [4;36;1mPlayer Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPlayer Create (0.2ms)[0m   [0;1mINSERT INTO `players` (`created_at`, `match_id`, `updated_at`, `user_id`, `tee_id`) VALUES('2009-08-23 19:10:02', 1, '2009-08-23 19:10:02', 3, 4)[0m
+  [4;35;1mSQL (42.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/players/7
+Completed in 57ms (DB: 44) | 302 Found [http://0.0.0.0/players]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2009-08-23 21:10:02) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`id` = 7) [0m
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb6721d14>) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @player.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+    app/controllers/players_controller.rb:18:in `show'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (104.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:11:22) [GET]
+  [4;36;1mMatch Load (0.2ms)[0m   [0;1mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;35;1mMatch Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mCourse Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 26ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:11:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMatch Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;35;1mPlayer Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '2') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.match_id = 2) [0m
+  [4;36;1mUser Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mTee Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 2) [0m
+Completed in 36ms (View: 21, DB: 4) | 200 OK [http://0.0.0.0/matches/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:11:26) [GET]
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;35;1mMatch Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 21ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:11:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMatch Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mPlayer Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mTee Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+Completed in 41ms (View: 24, DB: 4) | 200 OK [http://0.0.0.0/matches/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:11:31) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;36;1mPlayer Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 38ms (View: 17, DB: 4) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:11:36) [GET]
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb66f00e8>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (100.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:11:55) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.2ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 25ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:11:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMatch Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+Completed in 42ms (View: 25, DB: 4) | 200 OK [http://0.0.0.0/matches/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:12:03) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 22ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:12:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMatch Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.0ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+Completed in 39ms (View: 23, DB: 4) | 200 OK [http://0.0.0.0/matches/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:12:07) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 20ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:12:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mPlayer Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.0ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '2') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 2) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 2) [0m
+Completed in 81ms (View: 66, DB: 4) | 200 OK [http://0.0.0.0/matches/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:12:10) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 22ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:12:12) [GET]
+  Parameters: {"match_id"=>"2"}
+  [4;36;1mPlayer Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+Completed in 40ms (View: 17, DB: 4) | 200 OK [http://0.0.0.0/players/new?match_id=2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:12:15) [GET]
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb66ea0bc>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (99.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:12:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMatch Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mPlayer Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;35;1mCourse Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mTee Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+Completed in 45ms (View: 25, DB: 5) | 200 OK [http://0.0.0.0/matches/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:12:28) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 38ms (View: 18, DB: 3) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:13:21) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=1) order by users.name[0m
+  [4;36;1mUser Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` [0m
+  [4;36;1mTee Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;35;1mMatch Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCourse Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 40ms (View: 18, DB: 4) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#create (for 127.0.0.1 at 2009-08-23 21:13:25) [POST]
+  Parameters: {"player"=>{"match_id"=>"1", "user_id"=>"5", "tee_id"=>"3"}, "commit"=>"Create", "authenticity_token"=>"Z5QyoiaFmNa/zUBrOfi1W33VmCqjIkwnOjn3jJLN70c="}
+  [4;36;1mPlayer Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPlayer Create (0.2ms)[0m   [0;1mINSERT INTO `players` (`created_at`, `match_id`, `updated_at`, `user_id`, `tee_id`) VALUES('2009-08-23 19:13:25', 1, '2009-08-23 19:13:25', 5, 3)[0m
+  [4;35;1mSQL (63.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://0.0.0.0:3003/players/8
+Completed in 77ms (DB: 64) | 302 Found [http://0.0.0.0/players]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2009-08-23 21:13:25) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`id` = 8) [0m
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb672ce80>) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @player.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+    app/controllers/players_controller.rb:18:in `show'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (105.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:13:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMatch Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mPlayer Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.3ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+Completed in 46ms (View: 26, DB: 5) | 200 OK [http://0.0.0.0/matches/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:13:40) [GET]
+  [4;35;1mMatch Load (0.2ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 25ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/matches/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:13:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mPlayer Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.0ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 1) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+Completed in 86ms (View: 70, DB: 4) | 200 OK [http://0.0.0.0/matches/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:13:44) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.2ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 22ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2009-08-23 21:13:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '2') [0m
+Rendering template within layouts/matches
+Rendering matches/show
+  [4;36;1mCourse Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.match_id = 2) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 2) [0m
+Completed in 38ms (View: 22, DB: 4) | 200 OK [http://0.0.0.0/matches/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:13:48) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 22ms (View: 12, DB: 3) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:14:39) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;36;1mPlayer Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=1) order by users.name[0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` [0m
+  [4;36;1mTee Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;35;1mMatch Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mMatch Load (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCourse Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 85ms (View: 18, DB: 3) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:14:50) [GET]
+  [4;36;1mPlayer Load (0.3ms)[0m   [0;1mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;35;1mPlayer Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb67d353c>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (46.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:14:58) [GET]
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;35;1mMatch Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `matches`[0m
+  [4;36;1mCourse Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 83ms (View: 74, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:15:01) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=1) order by users.name[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 35ms (View: 17, DB: 3) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2009-08-23 21:15:45) [GET]
+  Parameters: {"id"=>"show", "APTANA_NOCACHE_1251054945484"=>"1251054945484"}
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.2ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Player with ID=show):
+  app/controllers/players_controller.rb:16:in `show'
+  -e:2:in `load'
+  -e:2
+
+Rendered rescues/_trace (33.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:15:56) [GET]
+  Parameters: {"APTANA_NOCACHE_1251054956174"=>"1251054956174"}
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb688e9e0>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:20:00) [GET]
+  Parameters: {"match_id"=>"1"}
+  [4;35;1mPlayer Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` WHERE (`players`.`match_id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mselect users.id, users.name from users where not id in (select user_id from players where match_id=1) order by users.name[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+Completed in 36ms (View: 19, DB: 3) | 200 OK [http://0.0.0.0/players/new?match_id=1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:20:03) [GET]
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb688ed8c>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (48.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2009-08-23 21:20:50) [GET]
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` [0m
+Rendering template within layouts/matches
+Rendering matches/index
+  [4;36;1mMatch Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mCourse Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `courses`[0m
+  [4;36;1mCourse Load (0.1ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+Completed in 25ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/matches]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#new (for 127.0.0.1 at 2009-08-23 21:20:53) [GET]
+  Parameters: {"match_id"=>"2"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`match_id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mselect users.id, users.name from users where not id in (select user_id from players where match_id=2) order by users.name[0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` [0m
+  [4;35;1mTee Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+Rendering template within layouts/players
+Rendering players/new
+  [4;36;1mMatch Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+Completed in 87ms (View: 67, DB: 4) | 200 OK [http://0.0.0.0/players/new?match_id=2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:21:03) [GET]
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+
+ActionView::TemplateError (undefined method `name' for #<Player:0xb6811a1c>) on line #15 of app/views/players/index.html.erb:
+12: 
+13: <% @players.each do |player| %>
+14:   <tr>
+15:     <td><%=h player.name %></td>
+16:     <td><%=h player.handicap %></td>
+17:     <td><%=h player.login %></td>
+18:     <td><%=h player.password %></td>
+
+    app/views/players/index.html.erb:15
+    app/views/players/index.html.erb:13:in `each'
+    app/views/players/index.html.erb:13
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:22:11) [GET]
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #12 of app/views/players/index.html.erb:
+9: 
+10: <% @players.each do |player| %>
+11:   <tr>
+12:     <td><%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %></td>
+13:     <td><%= h player.user.name %></td>
+14:     <td><%= h player.tee.barras %></td>
+15:     <td><%= link_to 'Show', player %></td>
+
+    app/views/players/index.html.erb:12
+    app/views/players/index.html.erb:10:in `each'
+    app/views/players/index.html.erb:10
+    app/controllers/players_controller.rb:7:in `index'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (50.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:22:52) [GET]
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mMatch Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;36;1mMatch Load (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+Completed in 52ms (View: 43, DB: 4) | 200 OK [http://0.0.0.0/players]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#index (for 127.0.0.1 at 2009-08-23 21:24:05) [GET]
+  [4;36;1mPlayer Load (0.1ms)[0m   [0;1mSELECT * FROM `players` [0m
+Rendering template within layouts/players
+Rendering players/index
+  [4;35;1mPlayer Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `players`[0m
+  [4;36;1mMatch Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `matches`[0m
+  [4;35;1mMatch Load (0.1ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCourse Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `courses`[0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mUser Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mTee Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tees`[0m
+  [4;36;1mTee Load (0.1ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;36;1mMatch Load (0.1ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;35;1mCourse Load (0.1ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mTee Load (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mTee Load (0.1ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `tees` WHERE (`tees`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `courses` WHERE (`courses`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `matches` WHERE (`matches`.`id` = 1) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `tees` WHERE (`tees`.`id` = 3) [0m
+Completed in 101ms (View: 91, DB: 4) | 200 OK [http://0.0.0.0/players]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2009-08-23 21:25:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.2ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`id` = 1) [0m
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Match:</b>
+3:   <%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+    app/controllers/players_controller.rb:18:in `show'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PlayersController#show (for 127.0.0.1 at 2009-08-23 21:25:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlayer Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `players`[0m
+  [4;35;1mPlayer Load (0.1ms)[0m   [0mSELECT * FROM `players` WHERE (`players`.`id` = 1) [0m
+Rendering template within layouts/players
+Rendering players/show
+
+ActionView::TemplateError (Couldn't find Match without an ID) on line #3 of app/views/players/show.html.erb:
+1: <p>
+2:   <b>Match:</b>
+3:   <%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/players/show.html.erb:3
+    app/controllers/players_controller.rb:18:in `show'
+    -e:2:in `load'
+    -e:2
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
