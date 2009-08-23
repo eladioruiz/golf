@@ -8,24 +8,17 @@
     <%= f.select(:course_id,@courses) %>
   </p>
   <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.label :date_hour_match %><br />
+    <%= f.datetime_select :date_hour_match %>
   </p>
   <p>
-    <%= f.label :handicap %><br />
-    <%= f.text_field :handicap %>
-  </p>
-  <p>
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
+    <%= f.label :holes %><br />
+    <%= f.text_field :holes %>
   </p>
   <p>
     <%= f.submit 'Create' %>
   </p>
 
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
 <% end %>
 
 <%= link_to 'Back', matches_path %>

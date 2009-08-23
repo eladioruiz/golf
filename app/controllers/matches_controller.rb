@@ -27,6 +27,9 @@ class MatchesController < ApplicationController
   # GET /matches/new.xml
   def new
     @match = Match.new
+    @courses = Course.all
+    @numcourses = @courses.length
+    @courses.map!{|course| [course.name, course.id]}
 
     respond_to do |format|
       format.html # new.html.erb
