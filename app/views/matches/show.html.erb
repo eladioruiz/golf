@@ -1,3 +1,5 @@
+<h1>Show match</h1>
+
 <p>
   <b>Course:</b>
   <%=h @match.course.name %>
@@ -32,6 +34,5 @@
   </table>
 <%end%>  
 
-<%= link_to 'Add player to Match', new_player_path(:match_id => @match.id) %>
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

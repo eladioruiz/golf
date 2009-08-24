@@ -26,11 +26,7 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
 
-    unless Player.find_by_match_id(params[:match_id]).nil?
-      @users = User.find_by_sql("select users.id, users.name from users where not id in (select user_id from players where match_id=#{params[:match_id]}) order by users.name")
-    else
-      @users = User.all
-    end
+    @users = User.all
     @numusers = @users.length
     @users.map!{|user| [user.name, user.id]}
     

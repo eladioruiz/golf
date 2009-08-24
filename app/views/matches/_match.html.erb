@@ -1,0 +1,31 @@
+<% form_for(@match) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :course %><br />
+    <%= f.select(:course_id,@courses) %>
+  </p>
+  
+  <p>
+    <%= f.label :date_hour_match %><br />
+    <%= f.datetime_select :date_hour_match %>
+  </p>
+  
+  <p>
+    <%= f.label :holes %><br />
+    <%= f.text_field :holes %>
+  </p>
+
+  <h3>Players</h3>
+  
+  <% f.fields_for :players do |player_form| %>
+	<%= render :partial => 'player', :locals => { :f => player_form } %>
+  <% end %>
+  
+  <p><%= add_child_link "New Player", f, :players %></p>
+    
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+
+<% end %>
