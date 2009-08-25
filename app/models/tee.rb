@@ -1,3 +1,3 @@
 class Tee < ActiveRecord::Base
-    belongs_to :player
+    has_many :players  # Check it
 end

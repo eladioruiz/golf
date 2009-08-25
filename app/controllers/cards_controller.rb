@@ -1,3 +1,9 @@
+# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
+# License::       Distributes under the same terms as Ruby
+# Last revision:: 22/08/2009 by Eladio Ruiz
+# Status::        Checked
+# Comments::
+
 class CardsController < ApplicationController
   # GET /cards
   # GET /cards.xml

@@ -4,10 +4,12 @@
 # Status::        Checked
 # Comments::
 
-class CreateTees < ActiveRecord::Migration
+class CreateCards < ActiveRecord::Migration
   def self.up
-    create_table :tees do |t|
-      t.string :barras
+    create_table :cards do |t|
+      t.references :player
+      t.references :hole
+      t.integer :strokes_hole
       t.boolean :enabled, :default=>true
 
       t.timestamps
@@ -15,6 +17,6 @@ class CreateTees < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :tees
+      drop_table :cards
   end
 end

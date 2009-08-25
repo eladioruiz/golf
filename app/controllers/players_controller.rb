@@ -26,6 +26,13 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
 
+    @users = User.all
+    @numusers = @users.length
+    @users.map!{|user| [user.name, user.id]}
+    
+    @tees = Tee.all
+    @tees.map!{|tee| [tee.barras, tee.id]}
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @player }

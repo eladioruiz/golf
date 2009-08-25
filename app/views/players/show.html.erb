@@ -1,33 +1,17 @@
 <p>
-  <b>Name:</b>
-  <%=h @player.name %>
+  <b>Match:</b>
+  <%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %>
 </p>
 
 <p>
-  <b>Handicap:</b>
-  <%=h @player.handicap %>
+  <b>User:</b>
+  <%=h @player.user.name %>
 </p>
 
 <p>
-  <b>Login:</b>
-  <%=h @player.login %>
+  <b>Tee:</b>
+  <%=h @player.tee.barras %>
 </p>
-
-<p>
-  <b>Password:</b>
-  <%=h @player.password %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%=h @player.email %>
-</p>
-
-<p>
-  <b>Enabled:</b>
-  <%=h @player.enabled %>
-</p>
-
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

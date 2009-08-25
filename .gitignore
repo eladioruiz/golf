@@ -1,4 +1,6 @@
 log/*
+tmp/*
 .tmp*
 nbproject/*
 /log/*
+log/development.log
