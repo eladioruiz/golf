@@ -16,7 +16,6 @@
 	<td><%=h match.enabled %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>
-	<td><%= link_to 'Add detail', new_player_path(:match_id => match.id) %></td>
     <td><%= link_to 'Delete', match, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

@@ -19,13 +19,13 @@
   <h3>Players</h3>
   
   <% f.fields_for :players do |player_form| %>
-	<%= render :partial => 'player', :locals => { :f => player_form } %>
+	<%= render :partial => 'player', :locals => {:player_form => player_form} %>
   <% end %>
   
-  <p><%= add_child_link "New Player", f, :players %></p>
+  <p><a href="#" class="add_player" >Add another Player</a></p>
     
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Save Match' %>
   </p>
 
 <% end %>

@@ -1,3 +1,5 @@
-<p>
-	<%= f.label :user %>:&nbsp;<%= f.select(:user_id, @users) %>&nbsp;&nbsp;&nbsp;<%= f.label :tee %>:&nbsp;<%= f.select(:tee_id, @tees) %>&nbsp;&nbsp;&nbsp;<%= remove_child_link "remove", f %>
-</p>
+<div class="playermatch">
+  <p>
+      <%= player_form.label :user %>:&nbsp;<%= player_form.select(:user_id, @users) %>&nbsp;&nbsp;&nbsp;<%= player_form.label :tee %>:&nbsp;<%= player_form.select(:tee_id, @tees) %>&nbsp;&nbsp;&nbsp;
+  </p>
+</div>
