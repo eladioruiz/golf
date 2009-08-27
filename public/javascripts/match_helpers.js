@@ -18,26 +18,29 @@ var MatchHelper = function() {
 
     return {
         onRemovePlayer: function() {
-            $(this).closest("div.playermatch[name='new']").remove();
+			var div_player = $(this).closest("div.playermatch");
+			div_player.find("input[type=text]").attr("value","1");
+			div_player.hide();
         },
         onAddPlayer: function() {
             var div = $(this).parent().siblings("div.playermatch:last");
-            console.log(div);
+            
             var clone = div.clone().attr('name', 'new');
             increment_last_number_in_attribute(clone.find("label"), "for");
             increment_last_number_in_attribute(clone.find("select"), "id");
             increment_last_number_in_attribute(clone.find("select"), "name");
-            if (!clone.find("p.remove a").length) clone.append('<p class="remove"><a href="#">Remove</a></p>');
-            clone.find("p.remove a").click(MatchHelper.onRemoveField);
+			increment_last_number_in_attribute(clone.find("input"), "name");
+			
+			console.log(clone);
+			clone.find("input").attr("value","0");
+			clone.show();
             div.after(clone);
         }
     }
 }();
 
 $(document).ready(function(){
-    $("form p.remove")
-    .html("<a href='#'>Remove</a>")
-    .find("a").click(MatchHelper.onRemovePlayer);
+    $("form a.remove").click(MatchHelper.onRemovePlayer);
     $("form a.add_player")
     .click(MatchHelper.onAddPlayer);
 });
