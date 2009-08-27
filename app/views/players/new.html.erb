@@ -1,29 +1,5 @@
 <h1>New player</h1>
 
-<% form_for(@player) do |f| %>
-  <%= f.error_messages %>
-
-  <h2><%= f.label :match%>: <%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %></h2>
-  <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
-
-
- 	<%if @numusers >0%>
-		<p>
-			<%= f.label :user %><br />
-			<%= select :player, :user_id, @users %>
-		</p>
-		<p>
-			<%= f.label :tee %><br />
-			<%= select :player, :tee_id, @tees %>
-		</p>
-	  
-		<p>
-	  		<%= f.submit 'Create' %>
-		</p>
-		
-	<%else%>
-    	<p>There's no users available for that Match. <%= link_to 'Create one User!', new_user_path %></p>
-	<% end %>
-<% end %>
+<%= render :partial => 'player' %>
 
 <%= link_to 'Back', players_path %>

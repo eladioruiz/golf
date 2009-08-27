@@ -27,9 +27,18 @@ class MatchesController < ApplicationController
   # GET /matches/new.xml
   def new
     @match = Match.new
+    @player = @match.players.build
+    
     @courses = Course.all
+    @tees = Tee.all
+    @users = User.all
+    @numusers = @users.length
     @numcourses = @courses.length
+    @numtees = @tees.length
     @courses.map!{|course| [course.name, course.id]}
+    @users.map!{|user| [user.name, user.id]}
+    @tees.map!{|tee| [tee.barras, tee.id]}
+    @_action = 'new'
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,6 +49,18 @@ class MatchesController < ApplicationController
   # GET /matches/1/edit
   def edit
     @match = Match.find(params[:id])
+
+    @courses = Course.all
+    @tees = Tee.all
+    @users = User.all
+    @numusers = @users.length
+    @numcourses = @courses.length
+    @numtees = @tees.length
+    @courses.map!{|course| [course.name, course.id]}
+    @users.map!{|user| [user.name, user.id]}
+    @tees.map!{|tee| [tee.barras, tee.id]}
+    @_action = 'udpdate'
+
   end
 
   # POST /matches
