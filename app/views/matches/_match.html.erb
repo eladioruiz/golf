@@ -8,7 +8,7 @@
   
   <p>
     <%= f.label :date_hour_match %><br />
-    <%= f.datetime_select :date_hour_match %>
+    <%= f.datetime_select :date_hour_match, :order => [:day, :month, :year] %>
   </p>
   
   <p>
