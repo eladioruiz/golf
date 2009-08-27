@@ -3,33 +3,27 @@
 <% form_for(@player) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :handicap %><br />
-    <%= f.text_field :handicap %>
-  </p>
-  <p>
-    <%= f.label :login %><br />
-    <%= f.text_field :login %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <h2><%= f.label :match%>: <%= h Match.find(params[:match_id]).course.name %> - <%= h Match.find(params[:match_id]).date_hour_match %></h2>
+  <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/>
+
+
+ 	<%if @numusers >0%>
+		<p>
+			<%= f.label :user %><br />
+			<%= select :player, :user_id, @users %>
+		</p>
+		<p>
+			<%= f.label :tee %><br />
+			<%= select :player, :tee_id, @tees %>
+		</p>
+	  
+		<p>
+	  		<%= f.submit 'Create' %>
+		</p>
+		
+	<%else%>
+    	<p>There's no users available for that Match. <%= link_to 'Create one User!', new_user_path %></p>
+	<% end %>
 <% end %>
 
 <%= link_to 'Back', players_path %>

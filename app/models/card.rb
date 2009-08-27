@@ -1,4 +1,4 @@
 class Card < ActiveRecord::Base
-  belongs_to :player
-  has_many :holes
+  belongs_to :player  # Check it
+  has_many :holes  # ¿?
 end

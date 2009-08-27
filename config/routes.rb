@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :matches
+
   map.resources :users
 
   map.resources :matches
@@ -10,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :courses
 
   map.resources :players
+
+  map.resources :cards
 
   # The priority is based upon order of creation: first created -> highest priority.
 

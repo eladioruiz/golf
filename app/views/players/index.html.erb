@@ -2,25 +2,19 @@
 
 <table>
   <tr>
+    <th>Match</th>
     <th>Name</th>
-    <th>Handicap</th>
-    <th>Login</th>
-    <th>Password</th>
-    <th>Email</th>
-    <th>Enabled</th>
+    <th>Tee</th>
   </tr>
 
 <% @players.each do |player| %>
   <tr>
-    <td><%=h player.name %></td>
-    <td><%=h player.handicap %></td>
-    <td><%=h player.login %></td>
-    <td><%=h player.password %></td>
-    <td><%=h player.email %></td>
-    <td><%=h player.enabled %></td>
+    <td><%= h Match.find(player.match_id).course.name %> - <%= h Match.find(player.match_id).date_hour_match %></td>
+    <td><%= h player.user.name %></td>
+    <td><%= h player.tee.barras %></td>
     <td><%= link_to 'Show', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', player, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

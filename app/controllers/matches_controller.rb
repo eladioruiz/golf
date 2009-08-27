@@ -14,6 +14,8 @@ class MatchesController < ApplicationController
   # GET /matches/1.xml
   def show
     @match = Match.find(params[:id])
+    @players = Player.find_all_by_match_id(params[:id])
+    @numplayers = @players.length
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,9 @@ class MatchesController < ApplicationController
   # GET /matches/new.xml
   def new
     @match = Match.new
+    @courses = Course.all
+    @numcourses = @courses.length
+    @courses.map!{|course| [course.name, course.id]}
 
     respond_to do |format|
       format.html # new.html.erb

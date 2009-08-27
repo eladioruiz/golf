@@ -1,19 +1,37 @@
-
 <p>
   <b>Course:</b>
   <%=h @match.course.name %>
 </p>
 
 <p>
-  <b>Date hour match:</b>
+  <b>Date:</b>
   <%=h @match.date_hour_match %>
 </p>
 
 <p>
-  <b>Holes:</b>
+  <b>Holes Played:</b>
   <%=h @match.holes %>
 </p>
 
+<%if @numplayers>0%>
+  <hr>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Handicap</th>
+      <th>Tee</th>
+    </tr>
 
+    <% @match.players.each do |detail| %>
+      <tr>
+        <td><%=h detail.user.name %></td>
+		<td><%=h detail.user.handicap %></td>
+		<td><%=h detail.tee.barras %></td>
+      </tr>
+    <% end %>
+  </table>
+<%end%>  
+
+<%= link_to 'Add player to Match', new_player_path(:match_id => @match.id) %>
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>

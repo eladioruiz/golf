@@ -1,32 +1,10 @@
 <h1>Editing match</h1>
 
-<% form_for(@match) do |match_form| %>
-  <%= match_form.error_messages %>
+<% form_for(@match) do |f| %>
+  <%= f.error_messages %>
 
   <p>
-    <%= match_form.label :course %><br />
-    <%= collection_select(:match, :course_id, Course.all, :id, :name) %> 
-  </p>
-  <p>
-    <%= match_form.label :date_hour_match %><br />
-    <%= match_form.datetime_select :date_hour_match %>
-  </p>
-  <p>
-    <%= match_form.label :holes %><br />
-    <%= match_form.text_field :holes %>
-  </p>
-  
-  <h2>Players</h2>
-  <% match_form.fields_for :match_player do |match_player_form| %>
-  	<p>
-  		<%= match_player_form.label :name, 'Player1' %>
-		<%= match_player_form.text_field :name %>
-		<%= collection_select(match_player_form, :player_id, Player.all, :id, :name) %>
-  	</p>
-  <% end %>
-  
-  <p>
-    <%= match_form.submit 'Update' %>
+    <%= f.submit 'Update' %>
   </p>
 <% end %>
 
