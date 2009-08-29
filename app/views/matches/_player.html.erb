@@ -1,5 +1,5 @@
 <div class="playermatch">
   <p>
-      <%= player_form.label :user %>:&nbsp;<%= player_form.select(:user_id, @users) %>&nbsp;&nbsp;&nbsp;<%= player_form.label :tee %>:&nbsp;<%= player_form.select(:tee_id, @tees) %><%= player_form.text_field(:_delete, :value=>'0') %>&nbsp;&nbsp;&nbsp;<a class="remove" href="#">Remove</a>
+      <%= player_form.label :user %>:&nbsp;<%= player_form.select(:user_id, @users) %>&nbsp;&nbsp;&nbsp;<%= player_form.label :tee %>:&nbsp;<%= player_form.select(:tee_id, @tees) %><%= player_form.hidden_field(:_delete, :value=>'0') %>&nbsp;&nbsp;&nbsp;<a class="card" href="#">Card</a>&nbsp;&nbsp;&nbsp;<a class="remove" href="#">Remove</a>
   </p>
 </div>

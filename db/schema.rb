@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(:version => 20090822090239) do
     t.datetime "updated_at"
   end
 
-  create_table "holes_tees", :id => false, :force => true do |t|
-    t.integer  "hole_id"
-    t.integer  "tee_id"
-    t.integer  "length"
-    t.boolean  "enabled",    :default => true
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "matches", :force => true do |t|
     t.integer  "course_id"
     t.datetime "date_hour_match"

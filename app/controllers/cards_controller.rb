@@ -1,9 +1,3 @@
-# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
-# License::       Distributes under the same terms as Ruby
-# Last revision:: 22/08/2009 by Eladio Ruiz
-# Status::        Checked
-# Comments::
-
 class CardsController < ApplicationController
   # GET /cards
   # GET /cards.xml
@@ -19,7 +13,7 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.xml
   def show
-    @match_card = Card.find(params[:id])
+    @card = Card.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,7 +24,12 @@ class CardsController < ApplicationController
   # GET /cards/new
   # GET /cards/new.xml
   def new
-    @card = Card.new
+    @player = Player.find(params[:player_id])
+    @holes_count = @player.match.holes
+    @card = Card.new(:player_id => params[:player_id])
+    @holes_count.times do |index|
+      @holes[index] = 0
+    end
 
     respond_to do |format|
       format.html # new.html.erb

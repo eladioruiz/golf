@@ -1,27 +1,16 @@
-<h1>New match_card</h1>
+<h1>New card</h1>
 
-<% form_for(@match_card) do |f| %>
+<% form_for(@card) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :match %><br />
-    <%= f.text_field :match %>
-  </p>
-  <p>
-    <%= f.label :player %><br />
-    <%= f.text_field :player %>
-  </p>
-  <p>
-    <%= f.label :hole %><br />
-    <%= f.text_field :hole %>
-  </p>
-  <p>
-    <%= f.label :strokes %><br />
-    <%= f.text_field :strokes %>
-  </p>
+  <%
+  	@holes_count.times do |i]
+		f.text_field :value => @holes[i]
+	end
+  %>
   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', match_cards_path %>
+<%= link_to 'Back', cards_path %>
