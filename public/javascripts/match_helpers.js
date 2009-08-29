@@ -18,6 +18,7 @@ var MatchHelper = function() {
 
     return {
         onRemovePlayer: function() {
+<<<<<<< HEAD:public/javascripts/match_helpers.js
 			var div_player = $(this).closest("div.playermatch");
 			div_player.find("input[type=hidden]").attr("value","1");
 			div_player.hide();
@@ -29,18 +30,19 @@ var MatchHelper = function() {
             increment_last_number_in_attribute(clone.find("label"), "for");
             increment_last_number_in_attribute(clone.find("select"), "id");
             increment_last_number_in_attribute(clone.find("select"), "name");
-			increment_last_number_in_attribute(clone.find("input"), "name");
+		increment_last_number_in_attribute(clone.find("input"), "name");
 			
-			console.log(clone);
-			clone.find("input").attr("value","0");
-			clone.show();
+		console.log(clone);
+		clone.find("input").attr("value","0");
+		clone.show();
             div.after(clone);
         }
     }
 }();
 
 $(document).ready(function(){
-    $("form a.remove").click(MatchHelper.onRemovePlayer);
+    $("form p a.remove")
+    .click(MatchHelper.onRemovePlayer);
     $("form a.add_player")
     .click(MatchHelper.onAddPlayer);
 });
