@@ -23,6 +23,7 @@ class PlayersController < ApplicationController
 
   # GET /players/new
   def new
+    @match = Match.find(params[:match_id])
     @player = Player.new
 
     @users = User.all
