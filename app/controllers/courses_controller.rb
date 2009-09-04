@@ -1,41 +1,24 @@
 # Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
 # License::       Distributes under the same terms as Ruby
-# Last revision:: 22/08/2009 by Eladio Ruiz
+# Last revision:: 04/09/2009 by Eladio Ruiz
 # Status::        Checked
 # Comments::
 
 class CoursesController < ApplicationController
+
   # GET /courses
-  # GET /courses.xml
   def index
     @courses = Course.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @courses }
-    end
   end
 
   # GET /courses/1
-  # GET /courses/1.xml
   def show
     @course = Course.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @course }
-    end
   end
 
   # GET /courses/new
-  # GET /courses/new.xml
   def new
     @course = Course.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @course }
-    end
   end
 
   # GET /courses/1/edit
@@ -44,48 +27,34 @@ class CoursesController < ApplicationController
   end
 
   # POST /courses
-  # POST /courses.xml
   def create
     @course = Course.new(params[:course])
 
-    respond_to do |format|
-      if @course.save
-        flash[:notice] = 'Course was successfully created.'
-        format.html { redirect_to(@course) }
-        format.xml  { render :xml => @course, :status => :created, :location => @course }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @course.errors, :status => :unprocessable_entity }
-      end
+    if @course.save
+      flash[:notice] = 'Course was successfully created.'
+      redirect_to(@course)
+    else
+      render :action => "new"
     end
   end
 
   # PUT /courses/1
-  # PUT /courses/1.xml
   def update
     @course = Course.find(params[:id])
 
-    respond_to do |format|
-      if @course.update_attributes(params[:course])
-        flash[:notice] = 'Course was successfully updated.'
-        format.html { redirect_to(@course) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @course.errors, :status => :unprocessable_entity }
-      end
+    if @course.update_attributes(params[:course])
+      flash[:notice] = 'Course was successfully updated.'
+      redirect_to(@course)
+    else
+      render :action => "edit"
     end
   end
 
   # DELETE /courses/1
-  # DELETE /courses/1.xml
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(courses_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(courses_url)
   end
 end

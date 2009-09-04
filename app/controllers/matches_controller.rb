@@ -1,49 +1,36 @@
 class MatchesController < ApplicationController
   # GET /matches
-  # GET /matches.xml
+
   def index
     @matches = Match.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @matches }
-    end
   end
 
   # GET /matches/1
-  # GET /matches/1.xml
   def show
     @match = Match.find(params[:id])
     @players = Player.find_all_by_match_id(params[:id])
     @numplayers = @players.length
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @match }
-    end
   end
 
   # GET /matches/new
-  # GET /matches/new.xml
   def new
     @match = Match.new
-    @player = @match.players.build
+    @player = @match.players.build if @match.players.empty?
     
+    # La carga de estas colecciones se hacen para cargar los despleglables
     @courses = Course.all
     @tees = Tee.all
     @users = User.all
     @numusers = @users.length
     @numcourses = @courses.length
     @numtees = @tees.length
+    
     @courses.map!{|course| [course.name, course.id]}
     @users.map!{|user| [user.name, user.id]}
     @tees.map!{|tee| [tee.barras, tee.id]}
+    
+    # Nos permite identificar la acción y tomar decisiones en la vista de representación
     @_action = 'new'
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @match }
-    end
   end
 
   # GET /matches/1/edit
@@ -60,52 +47,40 @@ class MatchesController < ApplicationController
     @users.map!{|user| [user.name, user.id]}
     @tees.map!{|tee| [tee.barras, tee.id]}
     @_action = 'udpdate'
-
   end
 
   # POST /matches
-  # POST /matches.xml
   def create
     @match = Match.new(params[:match])
 
-    respond_to do |format|
-      if @match.save
-        flash[:notice] = 'Match was successfully created.'
-        format.html { redirect_to(@match) }
-        format.xml  { render :xml => @match, :status => :created, :location => @match }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
-      end
+    if @match.save
+      flash[:notice] = 'Match was successfully created.'
+      redirect_to(@match)
+    else
+      render :action => "new"
     end
   end
 
   # PUT /matches/1
-  # PUT /matches/1.xml
   def update
     @match = Match.find(params[:id])
-
-    respond_to do |format|
-      if @match.update_attributes(params[:match])
-        flash[:notice] = 'Match was successfully updated.'
-        format.html { redirect_to(@match) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
-      end
+    
+    if @match.update_attributes(params[:match])
+      flash[:notice] = 'Match was successfully updated.'
+      redirect_to(@match)
+    else
+      @match.players.build if @match.players.empty?
+      @fields = Field.all
+      render :action => "edit"
     end
   end
 
   # DELETE /matches/1
-  # DELETE /matches/1.xml
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(matches_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(matches_url)
   end
+  
 end

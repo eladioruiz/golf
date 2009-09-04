@@ -1,13 +1,19 @@
-class PlayersController < ApplicationController
-  # GET /players
-  # GET /players.xml
-  def index
-    @players = Player.all
+# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
+# License::       Distributes under the same terms as Ruby
+# Last revision:: 04/09/2009 by Eladio Ruiz
+# Status::        Pending refactoring
+# Comments::      Pending testing
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @players }
-    end
+class PlayersController < ApplicationController
+  
+  # GET /players
+  def index
+    @players = Player.all 
+#    if params[:match_id] then
+#      @players = Player.find_all_by_match_id(params[:match_id])
+#    else
+#      @players = Player.find(:all, :include => :match, :order => 'LOWER(matches.date_hour_match) DESC')
+#    end
   end
 
   # GET /players/1
