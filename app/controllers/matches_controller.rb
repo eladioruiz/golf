@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
-  # GET /matches
+  before_filter :login_required
 
+  # GET /matches
   def index
     @matches = Match.all
   end

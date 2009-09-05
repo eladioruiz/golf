@@ -1,4 +1,6 @@
 class HolesController < ApplicationController
+  before_filter :login_required
+  
   # GET /holes
   # GET /holes.xml
   def index

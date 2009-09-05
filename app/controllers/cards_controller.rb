@@ -5,6 +5,8 @@
 # Comments::
 
 class CardsController < ApplicationController
+  before_filter :login_required
+  
   # GET /cards
   # GET /cards.xml
   def index

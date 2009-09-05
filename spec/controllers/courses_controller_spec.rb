@@ -6,6 +6,7 @@ describe CoursesController, :type => :controller do
   describe "when getting the courses index" do
     before do
       Course.stubs(:all).returns([])
+      Account.stubs(:login_required).returns(true)
       
       get :index
     end

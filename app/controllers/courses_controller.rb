@@ -5,7 +5,8 @@
 # Comments::
 
 class CoursesController < ApplicationController
-
+  before_filter :login_required
+  
   # GET /courses
   def index
     @courses = Course.all

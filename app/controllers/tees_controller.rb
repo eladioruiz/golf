@@ -5,6 +5,8 @@
 # Comments::
 
 class TeesController < ApplicationController
+  before_filter :login_required
+  
   # GET /tees
   # GET /tees.xml
   def index

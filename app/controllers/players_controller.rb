@@ -5,6 +5,7 @@
 # Comments::      Pending testing
 
 class PlayersController < ApplicationController
+  before_filter :login_required
   
   # GET /players
   def index
