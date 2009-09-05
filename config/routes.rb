@@ -13,6 +13,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :courses
 
+  map.resources :matches do |landing|
+    landing.resources :players
+  end
+  
   map.resources :players
 
   map.resources :cards

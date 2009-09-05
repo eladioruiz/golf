@@ -1,5 +1,39 @@
 <h1>New player</h1>
 
-<%= render :partial => 'player' %>
+<% form_for(@player) do |f| %>
+  <%= f.error_messages %>
 
+  <h2><%= f.label :Match%>: <%= h @match.course.name%>&nbsp;<%= h @match.date_hour_match %></h2>
+  <%= f.hidden_field :match_id %>
+  <!-- <input type="hidden" value="<%=params[:match_id]%>" name="player[match_id]"/> -->
+
+	<%if @match.available_users? %>
+		<div class="fields">
+		  <table><tr>
+		      <td>
+		        <p>
+		          <%= f.label :user %><br />
+		          <%= f.select :user_id, @match.available_users.collect {|user| [user.name, user.id] }%>
+		        </p>
+		        <p>
+		          <%= f.label :tee %><br />
+		          <%= f.select :tee_id, @tees %>
+		        </p>
+		      </td>
+		  </tr></table>
+		</div>
+		
+		<div class="footer">
+			<p>
+			<%= f.submit 'Save' %>
+			</p>
+		</div>
+	<%else%>
+		<div class="footer">
+	  	<p>There's no field available for that form. <%= link_to 'Create one field!', new_field_path %></p>
+		</div>
+	<%end%>
+<% end %>
+ 
 <%= link_to 'Back', players_path %>
+
