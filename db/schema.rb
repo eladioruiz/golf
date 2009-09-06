@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090905153253) do
+ActiveRecord::Schema.define(:version => 20090906094121) do
 
   create_table "cards", :force => true do |t|
     t.integer  "player_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20090905153253) do
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
     t.integer  "handicap",                  :limit => 10, :precision => 10, :scale => 0
-    t.boolean  "enabled",                                                                :default => true
+    t.boolean  "enabled",                   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
