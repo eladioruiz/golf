@@ -2,36 +2,18 @@ class HolesController < ApplicationController
   before_filter :login_required
   
   # GET /holes
-  # GET /holes.xml
   def index
     @holes = Hole.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @holes }
-    end
   end
 
   # GET /holes/1
-  # GET /holes/1.xml
   def show
     @hole = Hole.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @hole }
-    end
   end
 
   # GET /holes/new
-  # GET /holes/new.xml
   def new
     @hole = Hole.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @hole }
-    end
   end
 
   # GET /holes/1/edit
@@ -44,15 +26,11 @@ class HolesController < ApplicationController
   def create
     @hole = Hole.new(params[:hole])
 
-    respond_to do |format|
-      if @hole.save
-        flash[:notice] = 'Hole was successfully created.'
-        format.html { redirect_to(@hole) }
-        format.xml  { render :xml => @hole, :status => :created, :location => @hole }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @hole.errors, :status => :unprocessable_entity }
-      end
+    if @hole.save
+      flash[:notice] = 'Hole was successfully created.'
+      redirect_to(@hole)
+    else
+      render :action => "new"
     end
   end
 
@@ -61,15 +39,11 @@ class HolesController < ApplicationController
   def update
     @hole = Hole.find(params[:id])
 
-    respond_to do |format|
-      if @hole.update_attributes(params[:hole])
-        flash[:notice] = 'Hole was successfully updated.'
-        format.html { redirect_to(@hole) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @hole.errors, :status => :unprocessable_entity }
-      end
+    if @hole.update_attributes(params[:hole])
+      flash[:notice] = 'Hole was successfully updated.'
+      redirect_to(@hole)
+    else
+      render :action => "edit"
     end
   end
 
@@ -79,9 +53,6 @@ class HolesController < ApplicationController
     @hole = Hole.find(params[:id])
     @hole.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(holes_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(holes_url)
   end
 end

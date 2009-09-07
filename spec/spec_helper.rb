@@ -2,12 +2,11 @@
 # from the project root directory.
 ENV["RAILS_ENV"] ||= 'test'
 require File.dirname(__FILE__) + "/../config/environment" unless defined?(RAILS_ROOT)
-#require RAILS_ROOT + '/app/helpers/application_helper.rb'
 require 'spec/autorun'
 require 'spec/rails'
-require "unit_record"
+#require "unit_record"
 
-ActiveRecord::Base.disconnect!
+#ActiveRecord::Base.disconnect!
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

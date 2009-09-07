@@ -3,11 +3,12 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 describe CoursesController, :type => :controller do
   integrate_views
 
+
   def authenticate_as(user)
     @user = user
     @user.id ||= 1
     User.stubs(:find_by_id).with(1).returns(@user)
-    session[:user] = @user.id
+    session[:user_id] = @user.id
   end
 
   describe "when user is authenticated" do
@@ -64,9 +65,11 @@ describe CoursesController, :type => :controller do
       before do
         get :index
       end
-
+      
       it "should redirect to login form" do
-        response.should redirect_to(:controller => 'account', :action => 'login')
+        p response.body
+      
+        response.should redirect_to(:controller => 'session', :action => 'new')
       end
     end
   end

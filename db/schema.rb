@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090905153253) do
+ActiveRecord::Schema.define(:version => 20090907105152) do
 
   create_table "cards", :force => true do |t|
     t.integer  "player_id"
@@ -77,17 +77,19 @@ ActiveRecord::Schema.define(:version => 20090905153253) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "name",                      :limit => 100
     t.string   "login"
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
-    t.integer  "handicap",                  :limit => 10, :precision => 10, :scale => 0
-    t.boolean  "enabled",                                                                :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.string   "activation_code",           :limit => 40
+    t.datetime "activated_at"
+    t.integer  "handicap",                  :limit => 10,  :precision => 10, :scale => 0
+    t.boolean  "enabled",                                                                 :default => true
   end
 
 end
