@@ -38,4 +38,16 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+  #WILL_PAGINATE
+  config.gem 'mislav-will_paginate', 
+  :lib => 'will_paginate',
+  :source => 'http://gems.github.com'
+
+  
 end
+
+
+require "will_paginate"
+WillPaginate::ViewHelpers.pagination_options[:previous_label] = 'Anterior'
+WillPaginate::ViewHelpers.pagination_options[:next_label] = 'Siguiente'

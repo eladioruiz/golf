@@ -12,4 +12,8 @@ class Match < ActiveRecord::Base
   def available_users?
     ! available_users.empty?
   end
+
+  cattr_reader :per_page
+  @@per_page = 2
+
 end

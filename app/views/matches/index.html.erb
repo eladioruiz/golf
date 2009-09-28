@@ -8,6 +8,7 @@
 	<th>Enabled</th>
   </tr>
 
+<%= will_paginate @matches %>
 <% @matches.each do |match| %>
   <tr>
   	<td><%=h match.course.name %></td>

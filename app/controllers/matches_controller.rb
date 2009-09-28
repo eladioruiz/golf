@@ -3,7 +3,10 @@ class MatchesController < ApplicationController
 
   # GET /matches
   def index
-    @matches = Match.all
+    page = params[:page] || 1
+    #@posts = Post.paginate_by_board_id @board.id, :page => page, :order => 'updated_at DESC'
+    @matches = Match.paginate :page => page, :order => 'id DESC'
+    #@matches = Match.all
   end
 
   # GET /matches/1
