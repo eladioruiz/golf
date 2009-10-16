@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 # Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead
 # Then, you can remove it from this and the units test.
-include AuthenticatedTestHelper
+#include AuthenticatedTestHelper
 
 describe UsersController do
   fixtures :users
@@ -75,7 +75,7 @@ describe UsersController do
   end
   
   def create_user(options = {})
-    post :create, :user => { :login => 'quire', :email => 'quire@example.com',
+    post :create, :user => { :name => 'Eladio', :handicap => 38, :login => 'quire', :email => 'quire@example.com',
       :password => 'quire', :password_confirmation => 'quire' }.merge(options)
   end
 end

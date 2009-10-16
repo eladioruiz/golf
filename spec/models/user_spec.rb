@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 # Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead.
 # Then, you can remove it from this and the functional test.
-include AuthenticatedTestHelper
+#include AuthenticatedTestHelper
 
 describe User do
   fixtures :users
@@ -110,7 +110,7 @@ describe User do
 
 protected
   def create_user(options = {})
-    record = User.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+    record = User.new({ :name => 'Eladio', :handicap => 38, :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
     record.save
     record
   end
