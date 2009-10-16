@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 # Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead.
 # Then, you can remove it from this and the functional test.
-#include AuthenticatedTestHelper
+include AuthenticatedTestHelper
 
 describe User do
   fixtures :users
@@ -18,6 +18,12 @@ describe User do
     
     it 'increments User#count' do
       @creating_user.should change(User, :count).by(1)
+    end
+
+    it 'initializes #activation_code' do
+      @creating_user.call
+      @user.reload
+      @user.activation_code.should_not be_nil
     end
   end
 
