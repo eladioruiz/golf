@@ -14,6 +14,6 @@ class Match < ActiveRecord::Base
   end
 
   cattr_reader :per_page
-  @@per_page = 2
+  @@per_page = 10
 
 end
