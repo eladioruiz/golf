@@ -3,41 +3,53 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 describe MatchesController, :type => :controller do
   integrate_views
 
-  describe "when getting the matches index" do
-    before do
-      Match.stubs(:all).returns([])
-      
-      get :index
-    end
-
-    it "should have a link to create a new match" do
-      assert_select "a[href='/matches/new']"
-    end
+  def authenticate_as(user)
+    @user = user
+    @user.id ||= 1
+    User.stubs(:find_by_id).with(1).returns(@user)
+    session[:user_id] = @user.id
   end
 
-  describe "when getting the form for a new match" do
+  describe "when user is authenticated" do
     before do
-      #Match.stubs(:all).returns([])
-      Course.stubs(:all).returns([])
-      Tee.stubs(:all).returns([])
-      User.stubs(:all).returns([])
-      
-      get :new
+      authenticate_as(User.new(:name => 'Eladio'))
     end
 
-    it "should have a match form" do
-      assert_select "form[action='/matches']" do
-        assert_select "select[id='match_course_id']", 1
+    describe "when getting the matches index" do
+      before do
+        Match.stubs(:all).returns([])
+        
+        get :index
+      end
+  
+      it "should have a link to create a new match" do
+        assert_select "a[href='/matches/new']"
       end
     end
-
-    it "should have a player form" do
-      assert_select "div.playermatch" do
-        assert_select "select[name='match[players_attributes][0][user_id]']", 1
-        assert_select "select[name='match[players_attributes][0][tee_id]']", 1
+  
+    describe "when getting the form for a new match" do
+      before do
+        #Match.stubs(:all).returns([])
+        Course.stubs(:all).returns([])
+        Tee.stubs(:all).returns([])
+        User.stubs(:all).returns([])
+        
+        get :new
+      end
+  
+      it "should have a match form" do
+        assert_select "form[action='/matches']" do
+          assert_select "select[id='match_course_id']", 1
+        end
+      end
+  
+      it "should have a player form" do
+        assert_select "div.playermatch" do
+          assert_select "select[name='match[players_attributes][0][user_id]']", 1
+          assert_select "select[name='match[players_attributes][0][tee_id]']", 1
+        end
       end
     end
-  end
 
 #  describe "when showing a match" do
 #    before do
@@ -61,5 +73,6 @@ describe MatchesController, :type => :controller do
 #    end
 #  end
 
+  end
 end
 
