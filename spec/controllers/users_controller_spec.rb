@@ -48,7 +48,7 @@ describe UsersController do
   
   
   def create_user(options = {})
-    post :create, :user => { :login => 'quire', :email => 'quire@example.com',
+    post :create, :user => {:name => 'Eladio', :handicap => '38', :login => 'quire', :email => 'quire@example.com',
       :password => 'quire', :password_confirmation => 'quire' }.merge(options)
   end
 end

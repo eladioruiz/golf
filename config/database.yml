@@ -21,7 +21,6 @@ development:
   database: golf_development
   pool: 5
   username: root
-  password: 0364sa
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -34,7 +33,6 @@ test:
   database: golf_test
   pool: 5
   username: root
-  password: 0364sa
   socket: /var/run/mysqld/mysqld.sock
 
 production:

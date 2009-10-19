@@ -4,10 +4,11 @@ describe MatchesController, :type => :controller do
   integrate_views
 
   describe "when getting the matches index" do
-    before do
+    before do    
       Match.stubs(:all).returns([])
-      
+
       get :index
+      post :controller => 'session' , :action => 'create', :user => 'quentin', :password => 'test'
     end
 
     it "should have a link to create a new match" do
