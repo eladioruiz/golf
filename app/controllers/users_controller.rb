@@ -1,16 +1,10 @@
 class UsersController < ApplicationController
+  # Be sure to include AuthenticationSystem in Application Controller instead
+  include AuthenticatedSystem
   
+
   # render new.rhtml
   def new
-    @users = User.new
-  end
-
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def index
-    @users = User.all
   end
 
   def create
@@ -22,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save
     if @user.errors.empty?
-      #self.current_user = @user
+      self.current_user = @user
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
@@ -30,23 +24,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'Userwas successfully updated.'
-      redirect_to(@user)
-    else
-      render :action => "edit"
+  def activate
+    self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
+    if logged_in? && !current_user.active?
+      current_user.activate
+      flash[:notice] = "Signup complete!"
     end
+    redirect_back_or_default('/')
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-  end
 end

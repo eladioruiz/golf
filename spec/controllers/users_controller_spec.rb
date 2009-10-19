@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 # Be sure to include AuthenticatedTestHelper in spec/spec_helper.rb instead
 # Then, you can remove it from this and the units test.
+#include AuthenticatedTestHelper
 
 describe UsersController do
   fixtures :users
@@ -11,7 +12,16 @@ describe UsersController do
       create_user
       response.should be_redirect
     end.should change(User, :count).by(1)
-  end  
+  end
+
+  
+
+  
+  it 'signs up user with activation code' do
+    create_user
+    assigns(:user).reload
+    assigns(:user).activation_code.should_not be_nil
+  end
 
   it 'requires login on signup' do
     lambda do
@@ -46,9 +56,30 @@ describe UsersController do
   end
   
   
+  it 'activates user' do
+    User.authenticate('aaron', 'test').should be_nil
+    get :activate, :activation_code => users(:aaron).activation_code
+    response.should redirect_to('/')
+    flash[:notice].should_not be_nil
+    User.authenticate('aaron', 'test').should == users(:aaron)
+  end
+  
+  it 'does not activate user without key' do
+    get :activate
+    flash[:notice].should be_nil
+  end
+  
+  it 'does not activate user with blank key' do
+    get :activate, :activation_code => ''
+    flash[:notice].should be_nil
+  end
   
   def create_user(options = {})
+<<<<<<< HEAD
     post :create, :user => {:name => 'Eladio', :handicap => '38', :login => 'quire', :email => 'quire@example.com',
+=======
+    post :create, :user => { :name => 'Eladio', :handicap => 38, :login => 'quire', :email => 'quire@example.com',
+>>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
       :password => 'quire', :password_confirmation => 'quire' }.merge(options)
   end
 end

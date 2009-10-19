@@ -19,6 +19,12 @@ describe User do
     it 'increments User#count' do
       @creating_user.should change(User, :count).by(1)
     end
+
+    it 'initializes #activation_code' do
+      @creating_user.call
+      @user.reload
+      @user.activation_code.should_not be_nil
+    end
   end
 
   it 'requires login' do
@@ -104,7 +110,11 @@ describe User do
 
 protected
   def create_user(options = {})
+<<<<<<< HEAD
     record = User.new({:name => 'Eladio', :handicap => '38', :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+=======
+    record = User.new({ :name => 'Eladio', :handicap => 38, :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+>>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
     record.save
     record
   end

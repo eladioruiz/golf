@@ -21,6 +21,10 @@ development:
   database: golf_development
   pool: 5
   username: root
+<<<<<<< HEAD
+=======
+  #password: 0364sa
+>>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -33,6 +37,10 @@ test:
   database: golf_test
   pool: 5
   username: root
+<<<<<<< HEAD
+=======
+  #password: 0364sa
+>>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
   socket: /var/run/mysqld/mysqld.sock
 
 production:
