@@ -15,7 +15,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1
   def show
-    @card = Card.find(params[:id])
+    @card = Card.find(params[:player_id])
   end
 
   # GET /cards/new

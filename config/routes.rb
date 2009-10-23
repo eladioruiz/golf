@@ -14,8 +14,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :courses
 
-  map.resources :matches do |landing|
-    landing.resources :players
+  map.resources :matches do |match|
+    match.resources :players
   end
   
   map.resources :players
