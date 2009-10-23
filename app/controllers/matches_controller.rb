@@ -1,3 +1,9 @@
+# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
+# License::       Distributes under the same terms as Ruby
+# Last revision:: 23/09/2009 by Eladio Ruiz
+# Status::        Checked 
+# Comments::
+
 class MatchesController < ApplicationController
   before_filter :login_required
 
@@ -29,6 +35,7 @@ class MatchesController < ApplicationController
     @numcourses = @courses.length
     @numtees = @tees.length
     
+    # Convierto los objetos en arrays
     @courses.map!{|course| [course.name, course.id]}
     @users.map!{|user| [user.name, user.id]}
     @tees.map!{|tee| [tee.barras, tee.id]}

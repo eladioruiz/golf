@@ -12,11 +12,10 @@
 ActiveRecord::Schema.define(:version => 20091023182617) do
 
   create_table "card_strokes", :force => true do |t|
-    t.integer  "match_id"
-    t.integer  "player_id"
-    t.integer  "strokes_total"
-    t.integer  "strokes_first_9"
-    t.integer  "strokes_second_9"
+    t.integer  "card_id"
+    t.integer  "hole_id"
+    t.integer  "strokes"
+    t.integer  "putts"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
