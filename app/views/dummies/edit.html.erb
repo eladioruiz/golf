@@ -1,0 +1,16 @@
+<h1>Editing dummy</h1>
+
+<% form_for(@dummy) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fool_text %><br />
+    <%= f.text_field :fool_text %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dummy %> |
+<%= link_to 'Back', dummies_path %>
