@@ -1,12 +1,6 @@
 <h1>Editing card</h1>
 
-<% form_for(@card) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
+<%= render :partial => 'card' %>>
 
 <%= link_to 'Show', @card %> |
 <%= link_to 'Back', cards_path %>

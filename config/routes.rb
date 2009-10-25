@@ -13,7 +13,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :courses
 
   map.resources :matches do |match|
-    match.resources :players
+    match.resources :players do |player| 
+      player.resources :cards
+    end
+  end
+  
+  map.resources :cards do |card|
+    card.resources :card_strokes
   end
   
   map.resources :players

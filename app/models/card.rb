@@ -6,6 +6,7 @@
 
 class Card < ActiveRecord::Base
   belongs_to :player  # Check it
+  belongs_to :match  # Check it
   has_many :card_strokes, :dependent => :destroy  # Check it
   has_many :holes, :through => :card_strokes, :order => 'card_stroke.id'
   has_many :dummies

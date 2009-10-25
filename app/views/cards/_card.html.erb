@@ -1,0 +1,40 @@
+<% form_for(@card) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Match %><br />
+    <%= f.select(:match_id,@matches) %>
+  </p>
+  
+  <p>
+    <%= f.label :Player %><br />
+    <%= f.select(:player_id,@players) %>
+  </p>
+
+  <p>
+    <%= f.label "Total Strokes" %><br />
+    <%= f.label @card.strokes_total %>
+  </p>
+
+  <p>
+    <%= f.label "First 9 Holes" %><br />
+    <%= f.label @card.strokes_9_first %>
+  </p>
+
+  <p>
+    <%= f.label "Second 9 Holes" %><br />
+    <%= f.label @card.strokes_9_second  %>
+  </p>
+
+  <h3>Players</h3>
+  
+  <% f.fields_for :card_strokes do |detail_form| %>
+	<%= render :partial => 'card_stroke', :locals => {:detail_form => detail_form} %>
+  <% end %>
+  
+  <p><a href="#" class="add_card_stroke" >Add another Card Stroke</a></p>
+  
+  <p>
+    <%= f.submit 'Save Card' %>
+  </p>
+<% end %>

@@ -15,4 +15,9 @@ class Player < ActiveRecord::Base
   def log_destroy_action
     puts 'Post destroyed'
   end
+  
+  def has_card?
+    !!self.card
+  end
+
 end

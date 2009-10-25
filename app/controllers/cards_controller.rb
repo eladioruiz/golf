@@ -1,6 +1,6 @@
 # Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
 # License::       Distributes under the same terms as Ruby
-# Last revision:: 23/10/2009 by Eladio Ruiz
+# Last revision:: 24/10/2009 by Eladio Ruiz
 # Status::        Pending 
 # Comments::
 
@@ -15,14 +15,15 @@ class CardsController < ApplicationController
   # GET /cards/1
   def show
     @card = Card.find(params[:id])
-    @card_strokes = Card_Strokes.find_by_card_id(params[:card_id])
+    @card_strokes = CardStroke.find_all_by_id(params[:id])
+    @card_holes = @card_strokes.count
   end
 
   # GET /cards/new
   def new
     @card = Card.new
     @card_stroke = @card.card_strokes.build if @card.card_strokes.empty?
-    
+    @has_card = @card.player.has_card?
   end
 
   # GET /cards/1/edit

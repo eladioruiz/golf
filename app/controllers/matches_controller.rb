@@ -93,5 +93,5 @@ class MatchesController < ApplicationController
 
     redirect_to(matches_url)
   end
-  
+
 end

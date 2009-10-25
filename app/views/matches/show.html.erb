@@ -22,6 +22,7 @@
       <th>Name</th>
       <th>Handicap</th>
       <th>Tee</th>
+	  <th>&nbsp;</th>
     </tr>
 
     <% @match.players.each do |detail| %>
@@ -29,6 +30,14 @@
         <td><%=h detail.user.name %></td>
 		<td><%=h detail.user.handicap %></td>
 		<td><%=h detail.tee.barras %></td>
+		<td>
+			<% if !detail.has_card? %>
+				<a class="new_card" href="#">New Card</a>
+			<% else %>
+				<a class="edit_card" href="#">Edit Card</a>
+			<% end %>
+	&nbsp;&nbsp;&nbsp;
+		</td>
       </tr>
     <% end %>
   </table>

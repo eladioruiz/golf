@@ -13,8 +13,8 @@
 
 <% @cards.each do |card| %>
   <tr>
-  	<td><%=h card.match.course.name - card.match.date_hour_match %></td>
-	<td><%=h card.player.name %></td>
+  	<td><%=h card.match.course.name %> - <%= format_date(card.match.date_hour_match) %></td>
+	<td><%=h card.player.user.name %></td>
 	<td><%=h card.strokes_total %></td>
 	<td><%=h card.strokes_first_9 %></td>
 	<td><%=h card.strokes_second_9 %></td>
