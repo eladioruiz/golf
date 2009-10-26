@@ -23,7 +23,13 @@ class CardsController < ApplicationController
   def new
     @card = Card.new
     @card_stroke = @card.card_strokes.build if @card.card_strokes.empty?
-    @has_card = @card.player.has_card?
+    @matches = Match.find_all_by_id(params[:match_id])
+    @players = Player.find_all_by_id(params[:player_id])
+    
+    @matches.map!{|match| [match.description, match.id]}
+    @players.map!{|player| [player.user.name, player.id]}
+    @holes = Match.find(params[:match_id]).holes
+    #@has_card = @card.player.has_card?
   end
 
   # GET /cards/1/edit

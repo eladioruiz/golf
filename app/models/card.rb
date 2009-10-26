@@ -12,4 +12,5 @@ class Card < ActiveRecord::Base
   has_many :dummies
   
   accepts_nested_attributes_for :card_strokes, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  
 end

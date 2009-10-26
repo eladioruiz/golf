@@ -22,4 +22,7 @@ class Match < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
+  def description
+    self.course.name + ' - ' + self.date_hour_match.strftime('%d/%m/%Y - %H:%M') 
+  end
 end

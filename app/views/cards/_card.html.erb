@@ -18,18 +18,20 @@
 
   <p>
     <%= f.label "First 9 Holes" %><br />
-    <%= f.label @card.strokes_9_first %>
+    <%= f.label @card.strokes_first_9 %>
   </p>
 
   <p>
     <%= f.label "Second 9 Holes" %><br />
-    <%= f.label @card.strokes_9_second  %>
+    <%= f.label @card.strokes_second_9  %>
   </p>
 
-  <h3>Players</h3>
+  <h3>Strokes/Putts</h3>
   
+  <% (1..@holes).each do |i| %>
   <% f.fields_for :card_strokes do |detail_form| %>
-	<%= render :partial => 'card_stroke', :locals => {:detail_form => detail_form} %>
+	<%= render :partial => 'card_stroke', :locals => {:detail_form => detail_form, :i => i} %>
+  <% end %>
   <% end %>
   
   <p><a href="#" class="add_card_stroke" >Add another Card Stroke</a></p>
