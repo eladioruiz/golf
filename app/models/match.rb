@@ -1,3 +1,9 @@
+# Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
+# License::       Distributes under the same terms as Ruby
+# Last revision:: 24/10/2009 by Eladio Ruiz
+# Status::        Checked
+# Comments::
+
 class Match < ActiveRecord::Base
   belongs_to :course  # Check it
   has_many :players, :dependent => :destroy  # Pending check it
@@ -16,4 +22,7 @@ class Match < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
+  def description
+    self.course.name + ' - ' + self.date_hour_match.strftime('%d/%m/%Y - %H:%M') 
+  end
 end

@@ -3,25 +3,11 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 describe MatchesController, :type => :controller do
   integrate_views
 
-<<<<<<< HEAD
-  describe "when getting the matches index" do
-    before do    
-      Match.stubs(:all).returns([])
-
-      get :index
-      post :controller => 'session' , :action => 'create', :user => 'quentin', :password => 'test'
-    end
-
-    it "should have a link to create a new match" do
-      assert_select "a[href='/matches/new']"
-    end
-=======
   def authenticate_as(user)
     @user = user
     @user.id ||= 1
     User.stubs(:find_by_id).with(1).returns(@user)
     session[:user_id] = @user.id
->>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
   end
 
   describe "when user is authenticated" do

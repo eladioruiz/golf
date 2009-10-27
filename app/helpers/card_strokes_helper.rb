@@ -1,0 +1,2 @@
+module CardStrokesHelper
+end

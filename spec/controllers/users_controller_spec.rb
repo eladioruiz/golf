@@ -14,9 +14,6 @@ describe UsersController do
     end.should change(User, :count).by(1)
   end
 
-  
-
-  
   it 'signs up user with activation code' do
     create_user
     assigns(:user).reload
@@ -75,11 +72,7 @@ describe UsersController do
   end
   
   def create_user(options = {})
-<<<<<<< HEAD
-    post :create, :user => {:name => 'Eladio', :handicap => '38', :login => 'quire', :email => 'quire@example.com',
-=======
     post :create, :user => { :name => 'Eladio', :handicap => 38, :login => 'quire', :email => 'quire@example.com',
->>>>>>> d3a5f42e99209661c4fa88205585ecaf2bb80746
       :password => 'quire', :password_confirmation => 'quire' }.merge(options)
   end
 end

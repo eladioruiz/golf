@@ -9,13 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090905153253) do
+ActiveRecord::Schema.define(:version => 20091023182617) do
+
+  create_table "card_strokes", :force => true do |t|
+    t.integer  "card_id"
+    t.integer  "hole_id"
+    t.integer  "strokes"
+    t.integer  "putts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cards", :force => true do |t|
     t.integer  "player_id"
-    t.integer  "hole_id"
-    t.integer  "strokes_hole"
-    t.boolean  "enabled",      :default => true
+    t.integer  "match_id"
+    t.integer  "strokes_total"
+    t.integer  "strokes_first_9"
+    t.integer  "strokes_second_9"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

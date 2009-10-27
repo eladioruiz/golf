@@ -2,10 +2,22 @@
 
 <table>
   <tr>
+  <tr>
+  	<th>Match</th>
+	<th>Player</th>
+	<th>Total Strokes</th>
+	<th>9st Strokes</th>
+	<th>9nd Strokes</th>
+	<th colspan="3">&nbsp;</th>
   </tr>
 
 <% @cards.each do |card| %>
   <tr>
+  	<td><%=h card.match.course.name %> - <%= format_date(card.match.date_hour_match) %></td>
+	<td><%=h card.player.user.name %></td>
+	<td><%=h card.strokes_total %></td>
+	<td><%=h card.strokes_first_9 %></td>
+	<td><%=h card.strokes_second_9 %></td>
     <td><%= link_to 'Show', card %></td>
     <td><%= link_to 'Edit', edit_card_path(card) %></td>
     <td><%= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => :delete %></td>

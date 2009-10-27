@@ -1,12 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :cards
+  map.resources :dummies
 
   map.resources :matches
 
   map.resources :users
   map.resource :session, :controller => 'session'
-
-  map.resources :matches
 
   map.resources :holes
 
@@ -14,13 +12,21 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :courses
 
-  map.resources :matches do |landing|
-    landing.resources :players
+  map.resources :matches do |match|
+    match.resources :players do |player| 
+      player.resources :cards
+    end
+  end
+  
+  map.resources :cards do |card|
+    card.resources :card_strokes
   end
   
   map.resources :players
 
   map.resources :cards
+  
+  map.resources :card_strokes
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login', :controller => 'session', :action => 'new'

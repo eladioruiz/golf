@@ -1,3 +1,50 @@
+<h1>Show Card</h1>
+
+<p>
+  <b>Player:</b>
+  <%=h @card.player.user.name %>
+</p>
+
+<p>
+  <b>Match:</b>
+  <%=h @card.match.course.name %>
+</p>
+
+<p>
+  <b>Total Strokes:</b>
+  <%=h @card.strokes_total %>
+</p>
+
+<p>
+  <b>9st Strokes:</b>
+  <%=h @card.strokes_first_9 %>
+</p>
+
+<p>
+  <b>9nd Strokes:</b>
+  <%=h @card.strokes_second_9 %>
+</p>
+
+
+<%if @card_holes>0%>
+  <hr>
+  <table>
+    <tr>
+      <th>Hole</th>
+      <th>Par</th>
+      <th>Handicap</th>
+	  <th>Strokes</th>
+    </tr>
+
+    <% @card.card_strokes.each do |detail| %>
+      <tr>
+        <td><%=h detail.hole.number %></td>
+		<td><%=h detail.hole.par %></td>
+		<td><%=h detail.hole.handicap %></td>
+      </tr>
+    <% end %>
+  </table>
+<%end%>  
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

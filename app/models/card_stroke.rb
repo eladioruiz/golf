@@ -4,9 +4,7 @@
 # Status::        Checked
 # Comments::
 
-class Hole < ActiveRecord::Base
-  belongs_to :course  # Check it
-  has_many :card_strokes, :dependent => :destroy  # Check it
-  has_many :cards, :through => :card_strokes
-  
+class CardStroke < ActiveRecord::Base
+  belongs_to :card  # Check it
+  belongs_to :hole
 end

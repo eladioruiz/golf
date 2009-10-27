@@ -1,0 +1,20 @@
+<h1>Listing dummies</h1>
+
+<table>
+  <tr>
+    <th>Fool text</th>
+  </tr>
+
+<% @dummies.each do |dummy| %>
+  <tr>
+    <td><%=h dummy.fool_text %></td>
+    <td><%= link_to 'Show', dummy %></td>
+    <td><%= link_to 'Edit', edit_dummy_path(dummy) %></td>
+    <td><%= link_to 'Destroy', dummy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dummy', new_dummy_path %>

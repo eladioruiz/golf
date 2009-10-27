@@ -1,6 +1,6 @@
 # Author::        Eladio Ruiz  (mailto:eladioruiz@gmail.com)
 # License::       Distributes under the same terms as Ruby
-# Last revision:: 04/09/2009 by Eladio Ruiz
+# Last revision:: 24/10/2009 by Eladio Ruiz
 # Status::        Pending 
 # Comments::
 
@@ -8,7 +8,6 @@ class CardsController < ApplicationController
   before_filter :login_required
   
   # GET /cards
-  # GET /cards.xml
   def index
     @cards = Card.all
   end
@@ -16,16 +15,21 @@ class CardsController < ApplicationController
   # GET /cards/1
   def show
     @card = Card.find(params[:id])
+    @card_strokes = CardStroke.find_all_by_id(params[:id])
+    @card_holes = @card_strokes.count
   end
 
   # GET /cards/new
   def new
-    @player = Player.find(params[:player_id])
-    @holes_count = @player.match.holes
-    @card = Card.new(:player_id => params[:player_id])
-    @holes_count.times do |index|
-      @holes[index] = 0
-    end
+    @card = Card.new
+    @card_stroke = @card.card_strokes.build if @card.card_strokes.empty?
+    @matches = Match.find_all_by_id(params[:match_id])
+    @players = Player.find_all_by_id(params[:player_id])
+    
+    @matches.map!{|match| [match.description, match.id]}
+    @players.map!{|player| [player.user.name, player.id]}
+    @holes = Match.find(params[:match_id]).holes
+    #@has_card = @card.player.has_card?
   end
 
   # GET /cards/1/edit
@@ -34,9 +38,11 @@ class CardsController < ApplicationController
   end
 
   # POST /cards
-  # POST /cards.xml
   def create
-    @card = Card.new(params[:card])
+    
+    @player = Player.find(params[:player_id])
+    @match = Match.find_by_player(params[:player_id])
+    @card = Card.new(:player_id => @player_id, :match_id => @match.id)
 
     if @card.save
       flash[:notice] = 'Card was successfully created.'
