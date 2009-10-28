@@ -43,7 +43,7 @@ var MatchHelper = function() {
 $(document).ready(function(){
     $("form p a.remove")
     .click(MatchHelper.onRemovePlayer);
-    $("form a.add_player")
+    $("form p a.add_player")
     .click(MatchHelper.onAddPlayer);
 });
 
