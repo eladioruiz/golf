@@ -1,8 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :dummies
 
-  map.resources :matches
-
   map.resources :users
   map.resource :session, :controller => 'session'
 
@@ -22,6 +20,8 @@ ActionController::Routing::Routes.draw do |map|
     card.resources :card_strokes
   end
   
+  map.resources :matches
+
   map.resources :players
 
   map.resources :cards

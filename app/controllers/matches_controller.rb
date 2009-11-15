@@ -19,7 +19,6 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @players = Player.find_all_by_match_id(params[:id])
-    @numplayers = @players.length
   end
 
   # GET /matches/new

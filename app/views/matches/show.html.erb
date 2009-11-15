@@ -15,29 +15,23 @@
   <%=h @match.holes %>
 </p>
 
-<%if @numplayers>0%>
+<%  if @players.length > 0 %>
   <hr>
   <table>
     <tr>
       <th>Name</th>
       <th>Handicap</th>
       <th>Tee</th>
-	  <th>&nbsp;</th>
+      <th>&nbsp;</th>
     </tr>
 
-    <% @match.players.each do |detail| %>
+    <% @players.each do |detail| %>
       <tr>
         <td><%=h detail.user.name %></td>
 		<td><%=h detail.user.handicap %></td>
 		<td><%=h detail.tee.barras %></td>
-		<td>
-			<% if !detail.has_card? %>
-				<a class="new_card" href="#">New Card</a>
-			<% else %>
-				<a class="edit_card" href="#">Edit Card</a>
-			<% end %>
-	&nbsp;&nbsp;&nbsp;
-		</td>
+		<td><%= link_to_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
+                <td><%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
       </tr>
     <% end %>
   </table>

@@ -17,6 +17,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @card_strokes = CardStroke.find_all_by_id(params[:id])
     @card_holes = @card_strokes.count
+    @params = params
   end
 
   # GET /cards/new
