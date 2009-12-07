@@ -13,4 +13,8 @@ module MatchesHelper
 			#"<a class=\"new_card\" href=\"/matches/̣#{player.match_id}/players/#{player.id}/cards/#{player.card.id}/delete\">Remove Card</a>"
 		end
   end
+  
+  def print_match_path(match)
+    "/matches/#{match.id}/print"
+  end
 end

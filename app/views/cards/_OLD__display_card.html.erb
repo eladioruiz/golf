@@ -1,0 +1,29 @@
+<table border="2">
+  <tr>
+    <th>HOYOS</th>
+    <% holes.each do |hole| %>
+      <th><%= hole.number %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <td>PAR<BR>HANDICAP&nbsp;</td>
+    <% holes.each do |hole| %>
+      <td>
+        <%= render :partial => 'hole_info', :locals => {:hole => hole}%>      
+      </td>
+    <% end %>
+  </tr>
+  <% players.each do |player| %>
+  <tr>
+    <td><%= player.user.name  %> </td>
+    <%
+      card = player.card
+      card_strokes = card.card_strokes
+      card_strokes.each do |card_stroke| %>
+      <td>
+        <%= render :partial => 'hole_player_info', :locals => {:card_stroke => card_stroke}   %>
+      </td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

@@ -93,4 +93,12 @@ class MatchesController < ApplicationController
     redirect_to(matches_url)
   end
 
+  def print
+    @match = Match.find(params[:id])
+    @holes = @match.course.holes
+    @players = @match.players
+    
+    render :action => "../layouts/print"
+
+  end
 end

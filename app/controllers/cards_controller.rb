@@ -86,9 +86,9 @@ class CardsController < ApplicationController
   # GET /cards/1/print
   def print
     @card = Card.find(params[:id])
-    @card_strokes = @card.card_strokes
-    @holes = @card.holes
+    @holes = @card.match.course.holes
     @players = Player.find_all_by_id(@card.player_id)
-    render :action => "print"
+
+    render :action => "../layouts/print"
   end
 end
