@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   
+  # GET /users
+  def index
+    page = params[:page] || 1
+    #@posts = Post.paginate_by_board_id @board.id, :page => page, :order => 'updated_at DESC'
+    @users = User.paginate :page => page, :order => 'id DESC'
+    #@matches = Match.all
+  end
 
   # render new.rhtml
   def new

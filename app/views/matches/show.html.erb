@@ -28,10 +28,11 @@
     <% @players.each do |detail| %>
       <tr>
         <td><%=h detail.user.name %></td>
-		<td><%=h detail.user.handicap %></td>
-		<td><%=h detail.tee.barras %></td>
-		<td><%= link_to_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
-                <td><%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
+	<td><%=h detail.user.handicap %></td>
+	<td><%=h detail.tee.barras %></td>
+	<td><%= link_to_card(detail) %>&nbsp;&nbsp;&nbsp;
+            <%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
+        <div>Detalle Tarjeta</div>
       </tr>
     <% end %>
   </table>

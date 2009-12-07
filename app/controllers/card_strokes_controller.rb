@@ -10,7 +10,7 @@ class CardStrokesController < ApplicationController
   end
   
   def show
-    
+    @card_stroke = CardStroke.find(params[:id])
   end
   
   def new
@@ -18,7 +18,14 @@ class CardStrokesController < ApplicationController
   end
   
   def create
-    
+    @card_stroke = CardStroke.new(params[:card_stroke])
+
+    if @card_stroke.save
+      flash[:notice] = 'Player was successfully created.'
+      redirect_to(@player)
+    else
+      render :action => "new"
+    end
   end
   
   def edit

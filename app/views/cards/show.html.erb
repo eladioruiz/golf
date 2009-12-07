@@ -26,21 +26,24 @@
 </p>
 
 
-<%if @card_holes>0%>
+<%  if @card_holes>0%>
   <hr>
-  <table>
+  <table border="1">
     <tr>
       <th>Hole</th>
       <th>Par</th>
       <th>Handicap</th>
-	  <th>Strokes</th>
+      <th>Strokes</th>
+      <th>Putts</th>
     </tr>
 
     <% @card.card_strokes.each do |detail| %>
       <tr>
         <td><%=h detail.hole.number %></td>
-		<td><%=h detail.hole.par %></td>
-		<td><%=h detail.hole.handicap %></td>
+	<td><%=h detail.hole.par %></td>
+	<td><%=h detail.hole.handicap %></td>
+        <td><%=h detail.strokes %></td>
+        <td><%=h detail.putts %></td>
       </tr>
     <% end %>
   </table>

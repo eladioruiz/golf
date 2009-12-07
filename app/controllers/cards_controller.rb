@@ -29,7 +29,8 @@ class CardsController < ApplicationController
     
     @matches.map!{|match| [match.description, match.id]}
     @players.map!{|player| [player.user.name, player.id]}
-    @holes = Match.find(params[:match_id]).holes
+    @n_holes = Match.find(params[:match_id]).holes
+    @holes = Hole.find_all_by_course_id(Match.find(params[:match_id]).course.id)
     #@has_card = @card.player.has_card?
   end
 
@@ -41,22 +42,31 @@ class CardsController < ApplicationController
   # POST /cards
   def create
     
-    @player = Player.find(params[:player_id])
-    @match = Match.find_by_player(params[:player_id])
-    @card = Card.new(:player_id => @player_id, :match_id => @match.id)
+    @player = Player.find(params[:card][:player_id])
+    @match = Match.find(params[:card][:match_id])
+    @card = Card.new(:player_id => @player.id, :match_id => @match.id)
 
-    if @card.save
+    if @card.save      
+      params[:card][:card_strokes_attributes].keys.each do |hole|
+        @strokes = params[:card][:card_strokes_attributes][hole][:strokes]
+        @putts = params[:card][:card_strokes_attributes][hole][:putts]
+        @hole_id = params[:card][:card_strokes_attributes][hole][:hole_id]
+
+        @card.add_strokes_per_hole(@hole_id,@strokes,@putts)        
+      end
+      @card.recalculate_strokes
       flash[:notice] = 'Card was successfully created.'
-      redirect_to(@card)
+      redirect_to(@match)
     else
       render :action => "new"
     end
+#    @debug = params[:card][:card_strokes_attributes]
+#    render "debug.html"
   end
 
   # PUT /cards/1
   def update
     @card = Card.find(params[:id])
-
     if @card.update_attributes(params[:card])
       flash[:notice] = 'Card was successfully updated.'
       redirect_to(@card)
@@ -70,6 +80,15 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     @card.destroy
 
-    redirect_to(cards_url)
+    redirect_to(@card.match)
+  end
+
+  # GET /cards/1/print
+  def print
+    @card = Card.find(params[:id])
+    @card_strokes = @card.card_strokes
+    @holes = @card.holes
+    @players = Player.find_all_by_id(@card.player_id)
+    render :action => "print"
   end
 end
