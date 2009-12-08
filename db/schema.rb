@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091109194704) do
+ActiveRecord::Schema.define(:version => 20091208110619) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20091109194704) do
     t.boolean  "enabled",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "n_holes",       :default => 18
   end
 
   create_table "dummies", :force => true do |t|

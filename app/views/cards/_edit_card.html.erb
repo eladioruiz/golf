@@ -44,8 +44,8 @@
           <td><%=  card.strokes_first_9 %>&nbsp;</td>
     <%  end  %>
       <td class="<%= card_stroke.hole.number %>">
-        <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
-      </td>      
+        <%= render :partial => 'card_stroke', :locals => {:detail_form => card_stroke, :hole => card_stroke.hole} %>
+      </td>
     <%  end  %>
       <td><%=  card.strokes_second_9 %>&nbsp;</td>
       <td><%=  card.strokes_total %>&nbsp;</td>

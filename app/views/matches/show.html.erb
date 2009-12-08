@@ -31,8 +31,10 @@
 	<td><%=h detail.user.handicap %></td>
 	<td><%=h detail.tee.barras %></td>
 	<td><%= link_to_card(detail) %>&nbsp;&nbsp;&nbsp;
-            <%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;</td>
-        <div>Detalle Tarjeta</div>
+            <%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;
+            <% if detail.has_card? then %>
+              <%= link_to 'View Card', print_card_path(detail.card) %> </td>
+            <% end %>
       </tr>
     <% end %>
   </table>

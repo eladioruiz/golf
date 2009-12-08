@@ -37,6 +37,13 @@ class CardsController < ApplicationController
   # GET /cards/1/edit
   def edit
     @card = Card.find(params[:id])
+    @matches = Match.find_all_by_id(@card.match_id)
+    @players = Player.find_all_by_id(@card.player_id)
+    @holes = @card.holes
+    @match = @matches.first
+
+    @matches.map!{|match| [match.description, match.id]}
+    @players.map!{|player| [player.user.name, player.id]}
   end
 
   # POST /cards
@@ -86,7 +93,8 @@ class CardsController < ApplicationController
   # GET /cards/1/print
   def print
     @card = Card.find(params[:id])
-    @holes = @card.match.course.holes
+    @match = @card.match
+    @holes = @match.course.holes
     @players = Player.find_all_by_id(@card.player_id)
 
     render :action => "../layouts/print"
