@@ -1,0 +1,56 @@
+<table border="2">
+  <tr>
+    <td><%=h @match.course.name %></td>
+    <td><%=h @match.date_hour_match %></td>
+    <td><%=h @match.holes %></td>
+  </tr>
+</table>
+<table border="2">
+  <tr>
+    <th>HOYOS</th>
+    <% @holes.each do |hole| %>
+      <% if hole.number==10 then %>
+          <th>1st 9</th>
+      <% end %>
+      <th><%= hole.number %></th>
+    <% end %>
+    <th>2nd 9</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>PAR<BR>HANDICAP&nbsp;</td>
+    <% @holes.each do |hole| %>
+      <% if hole.number==10 then %>
+          <td>&nbsp;</td>
+      <% end %>
+      <td>
+        <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
+      </td>
+    <% end %>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <!-- PLAYERS -->
+  <% @players.each do |player| %>
+  <tr class="Player">
+    <td><%= player.user.name  %></td>
+    <%
+      if player.has_card? then
+        card = player.card
+        card_strokes = card.card_strokes
+
+        card_strokes.each do |card_stroke| %>
+    <%  if card_stroke.hole.number==10 then %>
+          <td><%=  card.strokes_first_9 %>&nbsp;</td>
+    <%  end  %>
+      <td class="<%= card_stroke.hole.number %>">
+        <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
+      </td>      
+    <%  end  %>
+      <td><%=  card.strokes_second_9 %>&nbsp;</td>
+      <td><%=  card.strokes_total %>&nbsp;</td>
+    <% end  %>
+  </tr>
+  <% end # do - player %>
+  <!-- END PLAYERS -->
+</table>

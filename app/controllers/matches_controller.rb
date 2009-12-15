@@ -19,7 +19,6 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @players = Player.find_all_by_match_id(params[:id])
-    @numplayers = @players.length
   end
 
   # GET /matches/new
@@ -94,4 +93,12 @@ class MatchesController < ApplicationController
     redirect_to(matches_url)
   end
 
+  def print
+    @match = Match.find(params[:id])
+    @holes = @match.course.holes
+    @players = @match.players
+    
+    render :action => "../layouts/print"
+
+  end
 end
