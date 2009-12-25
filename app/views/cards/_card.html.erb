@@ -29,11 +29,11 @@
   <h3>Strokes/Putts</h3>
   
    <ul>
-  <% @holes.each do |hole| %>
+  <% #@holes.each do |hole| %>
     <% f.fields_for :card_strokes do |detail_form| %>
-      <%= render :partial => 'card_stroke', :locals => {:detail_form => detail_form, :hole => hole} %>
+      <%= render :partial => 'card_stroke', :locals => {:detail_form => detail_form} %>
     <% end %>
-  <% end %>
+  <% #end %>
   </ul>
 
   <p>
