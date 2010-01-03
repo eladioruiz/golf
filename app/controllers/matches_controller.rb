@@ -6,12 +6,14 @@
 
 class MatchesController < ApplicationController
   before_filter :login_required
+  before_filter :apply_profile
+  before_filter :title
 
   # GET /matches
   def index
     page = params[:page] || 1
-    #@posts = Post.paginate_by_board_id @board.id, :page => page, :order => 'updated_at DESC'
-    @matches = Match.paginate :page => page, :order => 'id DESC'
+
+    @matches = Match.my_matches.paginate :page => page, :order => 'id DESC'
     #@matches = Match.all
   end
 
@@ -93,12 +95,65 @@ class MatchesController < ApplicationController
     redirect_to(matches_url)
   end
 
+  # GET /matches/1/print
   def print
     @match = Match.find(params[:id])
     @holes = @match.course.holes
     @players = @match.players
     
     render :action => "../layouts/print"
+  end
 
+  # GET /matches/thisweek
+  def this_week
+    page = params[:page] || 1
+
+    @matches = Match.my_matches.this_week.paginate :page => page, :order => 'id DESC'
+    @title = 'This Week'
+    render :action => 'index'
+  end
+
+  # GET /matches/lastmonth
+  def last_month
+    page = params[:page] || 1
+    
+    @matches = Match.my_matches.last_month.paginate :page => page, :order => 'id DESC'
+    @title = 'Last Month'
+    render :action => 'index'
+  end
+
+  # GET /matches/lastmatches
+  def last_matches
+    page = params[:page] || 1
+
+    @matches = Match.my_matches.last_matches.paginate :page => page
+    @title = 'Last 10 Matches'
+    render :action => 'index'
+  end
+
+  # GET /matches/bestmatches
+  def best_matches
+    page = params[:page] || 1
+
+    @matches = Match.my_matches.best_matches.paginate :page => page
+    @title = 'Best 10 Matches'
+    render :action => 'index'
+  end
+
+  # GET /matches/mymatches
+  def my_matches
+    page = params[:page] || 1
+
+    @matches = Match.my_matches
+    @title = 'Best 10 Matches'
+    render :action => 'index'
+  end
+
+  def apply_profile
+    
+  end
+
+  def title
+    @title = 'Total Matches'
   end
 end

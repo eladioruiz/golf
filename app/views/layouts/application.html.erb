@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Matches: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'golf_main' %>
+  <%= javascript_include_tag 'jquery-1.3.2.min' %>
+  <%= javascript_include_tag 'match_helpers' %>
+</head>
+<body>
+  <div class="contenedor_sup" id="header">
+    <div>
+      <h1>Golf: <em>Tarjetas y Puntuaciones</em></h1>
+      <!--<h2><a href="/"><img src="/images/logo.gif" width="69" height="71" alt="Domestika" /></a></h2>-->
+    </div>
+  </div>
+
+  
+  
+  <p style="color: green"><%= flash[:notice] %></p>
+
+  <div class="contenedor_sup" id="header_nav">
+    <div id="nav">
+      <div id="buscador">
+        <form action="index.php" method="get">
+          <p>Buscar Nombre/Correo: <input type="text" name="q"/><input type="submit" value="Buscar!" /></p>
+        </form>
+      </div>  <!-- end: buscador -->
+
+      <ul>
+        <li><a href="<%= matches_path %>">Matches</a>
+        <li><a href="<%= courses_path %>">Courses</a>
+      </ul>
+
+    </div>  <!-- end: nav -->
+
+  </div>  <!-- end: header_nav -->
+  
+  <div class="contenedor_sup">
+
+    <div class="paginacion">
+      <form action="" method="post">
+        <input type="button" value="Exportar a EXCEL" style="float: right; font-weight: bold;" onclick="document.location.href='exportar_excel.php?tipo=<?=$_tipoIdx ?>&que=<?=$pag_que ?>'" />
+
+        Desde
+        <select name="selFecha1dia">
+          <option value='1'>1</option>
+        </select>
+        <select name="selFecha1mes">
+          <option value='1'>1</option>
+        </select>
+        <select name="selFecha1ano">
+          <option value='1'>1</option>
+        </select>
+
+        Hasta:
+        <select name="selFecha2dia">
+          <option value='1'>1</option>
+        </select>
+        <select name="selFecha2mes">
+          <option value='1'>1</option>
+        </select>
+        <select name="selFecha2ano">
+          <option value='1'>1</option>
+        </select>
+
+        <span style="padding-left: 10px;">
+          <select name="atajo" onchange="this.form.pag_atajo.value=this.value; this.form.submit();">
+            <option value="">Atajo 1</option>
+            <option value="">Atajo 2</option>
+          </select>
+        </span>
+
+        <button type="submit">OK! &raquo;</button>
+        <button type="button" onclick="this.form.pag_rest.value = '1'; this.form.submit();">Restituir</button>
+
+      </form>
+      <p>Mostrando <strong>0</strong> peticiones de un total de <strong>0</strong></p>
+
+
+    </div>
+    <div id="busqavanzada">
+      <form action="index.php">
+
+        <p>Búsqueda avanzada por:</p>
+        <select name="qa">
+          <option value="">&nbsp;</option>
+        </select>
+        <input type="submit" value="Buscar!">
+      </form>
+    </div>  <!-- end: busqavanzada -->
+
+    <div id="tipos">
+      <ul>
+        <li><a href="/matches">All</a></li>
+        <li><a href="/matches/week">This Week</a></li>
+        <li><a href="/matches/lastmonth">Last Month</a></li>
+        <li><a href="/matches/lastmatches">Last 10</a></li>
+        <li><a href="/matches/bestmatches">Best 10</a></li>
+      </ul>
+    </div>  <!-- end: tipos -->
+
+  </div>
+
+  <div id="messages">
+    <%= flash_messages %>
+  </div>  <!-- end: messages -->
+
+  <div class="contenedor_inf">
+    <div id="cuerpo">
+
+      <div id="main_content">
+      <%= yield %>
+      </div> <!-- end: main_content -->
+
+    </div>  <!-- end: cuerpo -->
+
+    <div id="pie">
+      <p>&copy 2009 Eladio Ruiz</p>
+    </div>  <!-- end: pie -->
+
+  </div>  <!-- end: contenedor_inf -->
+  
+</body>
+</html>

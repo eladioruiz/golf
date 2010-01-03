@@ -1,5 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  has_one :profile
+  
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
@@ -65,6 +67,10 @@ class User < ActiveRecord::Base
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
+  end
+
+  def is_Admin?
+    self.user.is_Admin?
   end
 
   protected
