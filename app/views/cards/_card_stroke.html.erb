@@ -1,6 +1,6 @@
 <li class="cardstroke">
-  <%= detail_form.label :Hole %>&nbsp;<%= hole.number %>:&nbsp;
-  <%= detail_form.text_field(:strokes, :size => 2, :maxlength =>2, :value => 0) %>
-  <%= detail_form.text_field(:putts, :size => 2, :maxlength =>2, :value => 0) %>
-  <%= detail_form.hidden_field(:hole_id, :size => 2, :maxlength =>2, :value => hole.id  ) %>
+  <%= detail_form.label :Hole %>&nbsp;<%= detail_form.text_field(:hole_number, :size => 1, :disabled => "", :class =>"text_label") %>:&nbsp;
+  <%= detail_form.text_field(:strokes, :size => 2, :maxlength =>2) %>
+  <%= detail_form.text_field(:putts, :size => 2, :maxlength =>2) %>
+  <%= detail_form.hidden_field(:hole_id, :size => 2, :maxlength =>2) %>
 </li>

@@ -1,0 +1,83 @@
+/* 
+    Document   : golf_main
+    Created on : 25-dic-2009, 17:47:22
+    Author     : eladioruiz
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
+How to Use CSS to Position Horizontal Unordered Lists
+
+By Stu Nicholls.
+Introduction
+
+Let's say that you've chosen to use a horizontal styled unordered list for your navigation and have followed the generally accepted CSS methods put forward by the many CSS information sites on the web. All's well until you decide that you don't want your menu to be left aligned. You want to be able to position it centrally or to the right and this is where it starts to get tricky.
+
+Fortunately, there's a way to style your horizontal unordered list so that it can be easily positioned where you want it.
+Method
+The accepted 'normal' method of styling
+
+In this tutorial I'll use the following unordered list throughout.
+The (X)HTML
+
+<ul id="menu">
+<li><a href="#nogo">Item one</a></li>
+<li><a href="#nogo">Item two</a></li>
+<li><a href="#nogo">Item three</a></li>
+<li><a href="#nogo">Item four</a></li>
+<li><a href="#nogo">Item five</a></li>
+</ul>
+
+..which looks like this before styling.
+
+    * Item one
+    * Item two
+    * Item three
+    * Item four
+    * Item five
+
+The normally accepted method of styling this list is as follows.
+The CSS
+*/
+
+#menu_header
+{
+    padding:0;
+    margin:0;
+    color:#fff;
+    font-family: arial, helvetica, sans-serif;
+    white-space:nowrap;
+    list-style-type:none;
+}
+#menu_header li {display:inline;}
+#menu_header li a
+{
+    padding:0.2em 1em;
+    background:#fc6;
+    color:#000;
+    text-decoration:none;
+    float:left;
+    border:1px solid #000;
+}
+#menu_header li a:hover
+{
+    background:#08c;
+    color:#fff;
+}
+
+root {
+    display: block;
+}
+
+.text_label
+{
+    border: 0px;
+    background-color: #fff;
+    color: #333333;
+}

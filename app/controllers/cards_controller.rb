@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   # GET /cards/new
   def new
     @card = Card.new
-    @card_stroke = @card.card_strokes.build if @card.card_strokes.empty?
+    @card_strokes = @card.card_strokes.build if @card.card_strokes.empty?
     @matches = Match.find_all_by_id(params[:match_id])
     @players = Player.find_all_by_id(params[:player_id])
     
@@ -31,6 +31,12 @@ class CardsController < ApplicationController
     @players.map!{|player| [player.user.name, player.id]}
     @n_holes = Match.find(params[:match_id]).holes
     @holes = Hole.find_all_by_course_id(Match.find(params[:match_id]).course.id)
+
+    @i = 0
+    @holes.each do |hole|
+      @card.card_strokes[@i] = CardStroke.new(:hole_id => hole.id, :strokes => 0, :putts => 0)
+      @i = @i + 1
+    end
     #@has_card = @card.player.has_card?
   end
 
