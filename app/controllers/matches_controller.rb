@@ -13,7 +13,8 @@ class MatchesController < ApplicationController
   def index
     page = params[:page] || 1
 
-    @matches = Match.my_matches.paginate :page => page, :order => 'id DESC'
+    @matches = Match.my_matches(session[:user_id]).paginate :page => page, :order => 'id DESC'
+    @userID =  session[:user_id].to_s
     #@matches = Match.all
   end
 
@@ -108,7 +109,7 @@ class MatchesController < ApplicationController
   def this_week
     page = params[:page] || 1
 
-    @matches = Match.my_matches.this_week.paginate :page => page, :order => 'id DESC'
+    @matches = Match.my_matches(session[:user_id]).this_week.paginate :page => page, :order => 'id DESC'
     @title = 'This Week'
     render :action => 'index'
   end
@@ -117,7 +118,7 @@ class MatchesController < ApplicationController
   def last_month
     page = params[:page] || 1
     
-    @matches = Match.my_matches.last_month.paginate :page => page, :order => 'id DESC'
+    @matches = Match.my_matches(session[:user_id]).last_month.paginate :page => page, :order => 'id DESC'
     @title = 'Last Month'
     render :action => 'index'
   end
@@ -126,7 +127,7 @@ class MatchesController < ApplicationController
   def last_matches
     page = params[:page] || 1
 
-    @matches = Match.my_matches.last_matches.paginate :page => page
+    @matches = Match.my_matches(session[:user_id]).last_matches.paginate :page => page
     @title = 'Last 10 Matches'
     render :action => 'index'
   end
@@ -135,7 +136,7 @@ class MatchesController < ApplicationController
   def best_matches
     page = params[:page] || 1
 
-    @matches = Match.my_matches.best_matches.paginate :page => page
+    @matches = Match.my_matches(session[:user_id]).best_matches.paginate :page => page
     @title = 'Best 10 Matches'
     render :action => 'index'
   end
@@ -144,8 +145,8 @@ class MatchesController < ApplicationController
   def my_matches
     page = params[:page] || 1
 
-    @matches = Match.my_matches
-    @title = 'Best 10 Matches'
+    @matches = Match.my_matches(session[:user_id])
+    @title = 'My Matches'
     render :action => 'index'
   end
 
