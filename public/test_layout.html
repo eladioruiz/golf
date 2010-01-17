@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <title>My Golf Card</title>
+    <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/scaffold.css">
+    </link>
+    <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/test_css.css">
+    </link>
+    <script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js">
+    </script>
+    <script type="text/javascript" src="/javascripts/match_helpers.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+      <div class="contenedor_sup" id="wrapper">
+        <div id="cabecera-left">
+
+        </div> <!-- end: cabecera-left -->
+        <div id="cabecera-right">
+            <h1>My Golf Card</h1>
+        </div> <!-- end: cabecera-right -->
+      </div>
+
+      <p style="color: green"><%= flash[:notice] %></p>
+
+      <div class="contenedor_sup" id="header_nav">
+        <div id="nav">
+          <div id="buscador">
+
+          </div>  <!-- end: buscador -->
+
+        </div>  <!-- end: nav -->
+
+      </div>  <!-- end: header_nav -->
+
+      <div class="contenedor_inf">
+        <div id="cuerpo">
+
+          <div id="main_content">
+          <%= yield %>
+          </div> <!-- end: main_content -->
+
+        </div>  <!-- end: cuerpo -->
+
+        <div id="pie">
+          <p>&copy 2009 Eladio Ruiz</p>
+        </div>  <!-- end: pie -->
+
+      </div>  <!-- end: contenedor_inf -->
+      
+  </div> <!-- end: wrapper -->
+</body>
+</html>
