@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091208110619) do
+ActiveRecord::Schema.define(:version => 20091231192020) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20091208110619) do
     t.integer  "user_id"
     t.integer  "match_id"
     t.integer  "tee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "description"
+    t.boolean  "isadmin"
+    t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

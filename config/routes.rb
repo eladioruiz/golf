@@ -1,5 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # Casos particulares
+  map.connect '/matches/week', :controller => 'matches', :action => 'this_week'
+  map.connect '/matches/lastmonth', :controller => 'matches', :action => 'last_month'
+  map.connect '/matches/lastmatches', :controller => 'matches', :action => 'last_matches'
+  map.connect '/matches/bestmatches', :controller => 'matches', :action => 'best_matches'
+  map.connect '/matches/mymatches', :controller => 'matches', :action => 'my_matches'
+
+  map.connect '/testcharts/view', :controller => 'test_chart', :action => 'view'
+  map.connect '/testcharts/y_right', :controller => 'test_chart', :action => 'y_right'
+  map.connect '/testcharts/y_right2', :controller => 'test_chart', :action => 'y_right2'
+
   map.resources :dummies
+
+  map.resources :testcharts
+  map.resources :testchart
 
   map.resources :users
   map.resource :session, :controller => 'session'
@@ -65,7 +80,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "matches"
+  #map.root :controller => "matches"
 
   # See how all your routes lay out with "rake routes"
 
