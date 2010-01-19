@@ -16,8 +16,30 @@ root {
 }
 
 #wrapper {
-	height: 130px;
-	background: url(../images/header2.gif) repeat-x bottom;
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    height: 130px;
+    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
+    margin-bottom:50px;
+}
+
+#wrapper {
+    position:relative;
+}
+
+#wrapper {
+    font-size:1.2em;
+}
+
+* {
+    margin:0;
+    padding:0;
+}
+
+* {
+    margin:0;
+    padding:0;
 }
 
 #wrapper img {
@@ -27,6 +49,20 @@ root {
 #wrapper a, #wrapper a:hover {
 	border: none;
 	background: none;
+}
+
+#header {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
+    height:130px;
+    overflow:hidden;
+}
+
+#header, #navigation_main, #content_wrapper, #footer {
+    margin:0 auto;
+    width:1024px;
 }
 
 body {
@@ -114,4 +150,35 @@ h1 strong {
 .contenedor_sup h1 {
 	margin: 0px;
 	padding: 10px 0px;
+}
+
+/* --- Footer ---------------------------------------------------------- */
+
+#footer {
+    border-top:3px solid #D0D0D0;
+    clear:both;
+    display:block;
+    margin-bottom:16px;
+    margin-top:22px;
+    overflow:hidden;
+    padding:8px 0;
+    position:relative;
+    background-color: #D0D0D0;
+}
+
+#content_wrapper, #footer {
+    margin:0 auto;
+    width:1024px;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+#navigation_main {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(/graphic/common/menu.jpg?166371263745327) repeat-x scroll 0 0;
+    height:45px;
+    margin-bottom:12px;
+    overflow:hidden;
 }
