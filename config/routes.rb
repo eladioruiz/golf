@@ -89,15 +89,15 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   
 #<<<<<<< HEAD
-  map.root :controller => "session", :action => "new"
+  #map.root :controller => "session", :action => "new"
   
 #=======
-#  map.root :controller => "matches", :action => "index"
+  map.root :controller => "matches", :action => "index"
 
-#  map.connect ':controller/:id/:action'
-#  map.connect ':controller/:id/:action.:format'
+  map.connect ':controller/:id/:action'
+  map.connect ':controller/:id/:action.:format'
 
 #>>>>>>> 2ec3d9d35656f91a1dad08e4e5737a3fad207701
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
 end
