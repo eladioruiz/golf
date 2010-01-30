@@ -34,8 +34,8 @@ test:
   database: golf_test
   pool: 5
   username: root
-  #socket: /var/run/mysqld/mysqld.sock
-  socket: /opt/local/var/run/mysql5/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
+  #socket: /opt/local/var/run/mysql5/mysqld.sock
 
 production:
   adapter: mysql
