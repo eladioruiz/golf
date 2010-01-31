@@ -15,49 +15,9 @@ root {
     display: block;
 }
 
-#wrapper {
-    -moz-background-clip:border;
-    -moz-background-inline-policy:continuous;
-    -moz-background-origin:padding;
-    height: 130px;
-    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
-    margin-bottom:50px;
-}
-
-#wrapper {
-    position:relative;
-}
-
-#wrapper {
-    font-size:1.2em;
-}
-
 * {
     margin:0;
     padding:0;
-}
-
-* {
-    margin:0;
-    padding:0;
-}
-
-#wrapper img {
-	border: 0px;
-}
-
-#wrapper a, #wrapper a:hover {
-	border: none;
-	background: none;
-}
-
-#header {
-    -moz-background-clip:border;
-    -moz-background-inline-policy:continuous;
-    -moz-background-origin:padding;
-    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
-    height:130px;
-    overflow:hidden;
 }
 
 #header, #navigation_main, #content_wrapper, #footer {
@@ -65,26 +25,66 @@ root {
     width:1024px;
 }
 
+#wrapper {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    height: 100px;
+    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
+    margin-bottom:50px;
+    font-size:1.2em;
+}
+
+#wrapper img {
+    border: 0px;
+}
+
+#wrapper a, #wrapper a:hover {
+    border: none;
+    background: none;
+}
+
+#header {
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;
+    height:100px;
+    overflow:hidden;
+}
+
 body {
-	padding: 0px;
-	margin: 0px;
-	background: #2e3436;
-	font-size: 8pt;
-	font-family: Arial, Helvetica, sans-serif;
-	color: black;
+    padding: 0px;
+    margin: 0px;
+    background: #2e3436;
+    font-size: 8pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 h1, h2, p {
-	margin: 5px 0px;
+    margin: 5px 0px;
 }
 
 h1, h2 {
-	letter-spacing: -1px;
+    letter-spacing: -1px;
 }
 
-h1 {
-	color: #ccc;
-	font-size: 2em;
+#header h1 {
+    color:white;
+    float:right;
+    font-weight:bold;
+    font-size: 3em;
+    letter-spacing:-1px;
+    margin-top: 30px;
+    padding:10px 0;
+    text-align:right;
+}
+
+#header em {
+    color:#CCCCCC;
+    font-style:normal;
+    font-weight:normal;
 }
 
 h2 {
@@ -135,50 +135,60 @@ h1 strong {
 	color: black;
 }
 
-/* --- Contenedor ---------------------------------------------------------- */
-
-.contenedor_sup {
-	padding: 0px 20px;
-	background: #666;
-	color: white;
-}
-
-.contenedor_inf {
-	padding: 20px;
-}
-
-.contenedor_sup h1 {
-	margin: 0px;
-	padding: 10px 0px;
-}
-
 /* --- Footer ---------------------------------------------------------- */
 
 #footer {
-    border-top:3px solid #D0D0D0;
+    border: 1px solid #FFF;
     clear:both;
     display:block;
-    margin-bottom:16px;
-    margin-top:22px;
+    margin-bottom:10px;
+    margin-top:10px;
     overflow:hidden;
-    padding:8px 0;
     position:relative;
     background-color: #D0D0D0;
-}
-
-#content_wrapper, #footer {
-    margin:0 auto;
-    width:1024px;
+    height: 30px;
 }
 
 /* --- Navigation ---------------------------------------------------------- */
 
 #navigation_main {
-    -moz-background-clip:border;
-    -moz-background-inline-policy:continuous;
-    -moz-background-origin:padding;
-    background:transparent url(/graphic/common/menu.jpg?166371263745327) repeat-x scroll 0 0;
-    height:45px;
-    margin-bottom:12px;
-    overflow:hidden;
+    border: 1px solid #FFF;
+    height:30px;
+/*    overflow:hidden; */
+    background-color: #D0D0D0;
+    color: white;
+    text-align: center;
+}
+
+/* --- Rounded boxes ------------------------------------------------------- */
+
+/* Show only to IE PC \*/
+* html .boxhead h2 {height: 1%;} /* For IE 5 PC */
+
+.sidebox {
+    margin: 0 auto; /* center for now */
+    width: 1024px; /* ems so it will grow */
+    background: url(../images/sbbody-r_g.gif) no-repeat bottom right;
+    font-size: 100%;
+}
+.boxhead {
+	background: url(../images/sbhead-r_g.gif) no-repeat top right;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.boxhead h2 {
+	background: url(../images/sbhead-l_g.gif) no-repeat top left;
+	margin: 0;
+	padding: 22px 30px 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 1em;
+	text-shadow: rgba(0,0,0,.4) 0px 2px 5px; /* Safari-only, but cool */
+}
+.boxbody {
+	background: url(../images/sbbody-l_g.gif) no-repeat bottom left;
+	margin: 0;
+	padding: 5px 30px 31px;
 }

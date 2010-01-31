@@ -16,13 +16,13 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id="header" class="contenedor_sup">
+        <div id="header">
             <div id="branding">
-                <h1>Prueba Eladio</h1>
+                <h1>Golf: <em>Tarjetas y Puntuaciones</em></h1>
             </div> <!-- end: branding -->
         </div> <!-- end: header -->
 
-        <div id="navigation_main" class="contenedor_sup">
+        <div id="navigation_main">
 
             <div id="nav">
                 <p style="color: green"><%= flash[:notice] %></p>
@@ -33,9 +33,18 @@
 
         </div>  <!-- end: navigation -->
 
-        <div id="content_wrapper" class="home" >
-            <div id="main_content" class="home">
-                <%= yield %>
+        <div id="content_wrapper">
+            <div id="main_content">
+                <div class="sidebox">
+                    <div class="boxhead">
+                        <h2>Test Headline</h2>
+                    </div>  <!-- end: boxhead -->
+                    <div class="boxbody">
+                        <p>This is a short sample paragraph.</p>
+                        <p>And another one.</p>
+                    </div>  <!-- end: boxbody -->
+                </div>  <!-- end: sidebox -->
+<%= yield %>                  
             </div>  <!-- end: main_content -->
         </div>  <!-- end: content_wrapper -->
 
