@@ -14,42 +14,52 @@
     </script>
     <script type="text/javascript" src="/javascripts/match_helpers.js"></script>
 </head>
-<body>
+<body id="page_home">
     <div id="wrapper">
         <div id="header">
             <div id="branding">
-                <h1>Golf: <em>Tarjetas y Puntuaciones</em></h1>
+                <h1>My Golf Card</h1>
+                <h2>Tarjetas y Puntuaciones</h2>
             </div> <!-- end: branding -->
         </div> <!-- end: header -->
 
         <div id="navigation_main">
-
-            <div id="nav">
-                <p style="color: green"><%= flash[:notice] %></p>
+                <p><%= flash[:notice] %></p>
 
                 <div id="buscador">
                 </div>  <!-- end: buscador -->
-            </div>  <!-- end: nav -->
-
         </div>  <!-- end: navigation -->
 
         <div id="content_wrapper">
             <div id="main_content">
-                <div class="sidebox">
-                    <div class="boxhead">
-                        <h2>Test Headline</h2>
-                    </div>  <!-- end: boxhead -->
-                    <div class="boxbody">
-                        <p>This is a short sample paragraph.</p>
-                        <p>And another one.</p>
-                    </div>  <!-- end: boxbody -->
-                </div>  <!-- end: sidebox -->
-<%= yield %>                  
+                <div id="text_box"  contenteditable="true">
+                    <h2>My Golf Card</h2>
+                    <div id="internal_text">
+                        ¿Conoce ya My Golf Card ? ¿No le han hablado sus compañeros de esta nueva web de golf?
+                        <p>
+                        No se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:
+                        <p>
+                        1. ¿Es un aficionado al golf y no sabe dónde guardar las tarjetas de cada partido?
+                        <p>
+                        2. ¿Le gustan las redes sociales y compartir sus experiencias?
+                        <p>
+                        3. ¿Quiére compartir con sus compañeros de partido los resultados?
+                        <p>
+                        4. ¿Es un apasionado de las estadísticas y quiere saber cómo evoluciona su juego?
+                        <p>
+                        <p>
+                        En My Golf Card se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.
+                        <p>
+                        Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este enlace .
+                        <p>
+                        <p>
+                    </div> <!-- end: interna_text -->
+                </div> <!-- end: text-box -->
             </div>  <!-- end: main_content -->
         </div>  <!-- end: content_wrapper -->
 
         <div id="footer">
-          <p>&copy 2009 Eladio Ruiz</p>
+          <p>&copy 2010 Eladio Ruiz</p>
         </div>  <!-- end: pie -->
 
     </div> <!-- end: wrapper -->

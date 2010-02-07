@@ -24,6 +24,7 @@
     /*background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;*/
     margin-bottom:50px;
     font-size:1.2em;
+
 }
 
 #wrapper img {
@@ -35,7 +36,7 @@
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
     /*background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;*/
-    height:80px;
+    height:100px;
     overflow:hidden;
 }
 
@@ -48,6 +49,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
+
 
 #branding {
     margin-right:10 px;
@@ -63,9 +65,9 @@ h1, h2 {
 }
 
 h2 {
-    color: #666;
-    font-size: 1.5em;
-    font-weight: normal;
+	color: #666;
+	font-size: 1.5em;
+	font-weight: normal;
 }
 
 #header h1 {
@@ -74,20 +76,17 @@ h2 {
     font-weight:bold;
     font-size: 3em;
     letter-spacing:-1px;
-    margin-top: 20px;
+    margin-top: 30px;
     padding:10px 0;
     text-align:right;
 }
 
-#header h2 {
-    font-style: normal;
-    font-weight: bold;
-    color: #666;
-    font-size: 1.5em;
-    float:right;
-    text-align:right;
-    margin-top: 55px;
+#header em {
+    color:#CCCCCC;
+    font-style:normal;
+    font-weight:normal;
 }
+
 
 #cuerpo h1 {
 	color: #444;
@@ -115,7 +114,7 @@ h1 strong {
 
 #navigation_main {
     border: 0px solid #FFF;
-    height:20px;
+    height:30px;
 /*    overflow:hidden; 
     background-color: #D0D0D0; */
     color: black;
@@ -129,62 +128,23 @@ h1 strong {
 
 /* --- Rounded boxes ------------------------------------------------------- */
 
-/* Show only to IE PC \*/
-* html .boxhead h2 {height: 1%;} /* For IE 5 PC */
-
-.sidebox {
-    margin: 0 auto; /* center for now */
-    width: 1024px; /* ems so it will grow */
-    background: url(../images/sbbody-r_g.gif) no-repeat bottom right;
-    font-size: 100%;
-}
-.boxhead {
-	background: url(../images/sbhead-r_g.gif) no-repeat top right;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
-.boxhead h2 {
-	background: url(../images/sbhead-l_g.gif) no-repeat top left;
-	margin: 0;
-	padding: 22px 30px 5px;
-	color: white;
-	font-weight: bold;
-	font-size: 1.2em;
-	line-height: 1em;
-	text-shadow: rgba(0,0,0,.4) 0px 2px 5px; /* Safari-only, but cool */
-}
-.boxbody {
-	background: url(../images/sbbody-l_g.gif) no-repeat bottom left;
-	margin: 0;
-	padding: 5px 30px 31px;
-}
 
 #main_content {
-   filter:alpha(opacity=80);
-   -moz-opacity: 0.8;
-   opacity: 0.8;
+   filter:alpha(opacity=60);
+   -moz-opacity: 0.6;
+   opacity: 0.6;
 
 }
 
-/* ---------------------------------------- */
-
-
-#text_box {
+#text-box {
     padding-left:20px;
     border: 10px solid #369d47;
     background-color: #1d5c2a;
     border-radius: 12px;
     -moz-border-radius: 12px;
-    -webkit-border-radius: 12px;
-    margin: 10px 10px 20px 10px;
+    -webkit-border-radius: 12px;"
 }
 
-#text_box h2 {
-    color: white;
-    font-size: 1.7em;
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    margin: 20px;
+#text-box h2 {
+
 }
