@@ -39,18 +39,18 @@
     overflow:hidden;
 }
 
+
 body {
     padding: 0px;
     margin: 0px;
-    /*background: #2e3436;*/
     background: #2e3436 url('../images/06022010_1024.jpg') no-repeat fixed center;
     font-size: 8pt;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: verdana, arial, helvetica, sans-serif;
     color: white;
 }
 
 #branding {
-    margin-right:10 px;
+    margin-right: 10px;
 }
 
 h1, h2, p {
@@ -77,6 +77,16 @@ h2 {
     margin-top: 20px;
     padding:10px 0;
     text-align:right;
+}
+
+#header a {
+    text-decoration: none;
+    color: white;
+}
+
+#header a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 #header h2 {
@@ -139,10 +149,10 @@ h1 strong {
     font-size: 100%;
 }
 .boxhead {
-	background: url(../images/sbhead-r_g.gif) no-repeat top right;
-	margin: 0;
-	padding: 0;
-	text-align: center;
+    background: url(../images/sbhead-r_g.gif) no-repeat top right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 .boxhead h2 {
 	background: url(../images/sbhead-l_g.gif) no-repeat top left;
@@ -167,10 +177,19 @@ h1 strong {
 
 }
 
-/* ---------------------------------------- */
+#login_box {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
 
 
-#text_box {
+/* ---------------- TEXTBOX --------------------- */
+
+
+.text_box {
     padding-left:20px;
     border: 10px solid #369d47;
     background-color: #1d5c2a;
@@ -178,33 +197,92 @@ h1 strong {
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     margin: 10px 10px 20px 10px;
+    font-size: 1.7em;
 }
 
-#text_box h2 {
+.text_box h2 {
     color: white;
-    font-size: 1.7em;
+    font-size: 1.6em;
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    margin: 20px;
+    margin: 10px;
 }
 
+.text_box h2 a
+{
+    color: white;
+    font-size: 1em;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#internal_text {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 00px;
+    margin-right: 50px;
+    overflow: auto;
+}
+
+#internal_text ul {
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 0px;
+    font-size:   13px;
+    line-height: 18px;
+}
+
+#internal_text ol {
+    font-size:   13px;
+    line-height: 18px;
+}
+
+#internal_text li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    margin-left: 0px;
+}
+
+#textbox_2_2 {
+    width: 450px;
+    height: 180px;
+    float: left;
+}
+
+/* ------------------ FORMS ---------------- */
 
 input, select, button {
     font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#login_box {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin-left: 0px;
-    margin-top: 0px;
+div.row {
+    clear: both;
+    padding-top: 5px;
+    height: 0px;
 }
 
-.text_label
-{
-    border: 0px;
-    background-color: #fff;
-    color: #333333;
+div.row label.c_label {
+    float: left;
+    width: 100px;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.row input, button {
+    float: right;
+    width: 100px;
+    text-align: left;
+    border: 1px solid ;
+}
+
+div.row .submit {
+    width: 102px;
+    text-align: center;
 }

@@ -1,11 +1,17 @@
-<div id="login_box">
+<div id="login_box" >
   <% form_tag session_path do -%>
-    <p><label for="login" class="text_label">Login</label>
-    <%= text_field_tag 'login' %></p>
+    <div class="row">
+      <label for="login" class="c_label">Login</label>
+      <%= text_field_tag 'login' %>
+    </div>
 
-    <p><label for="password">Password</label>
-    <%= password_field_tag 'password' %></p>
-
-    <p><%= submit_tag 'Log in' %></p>
+    <div class="row">
+      <label for="password" class="c_label">Password</label>
+      <%= password_field_tag 'password' %>
+    </div>
+    <div class="row">
+      <label class="c_label">&nbsp;</label>
+      <%= submit_tag 'Entrar', 'class' => 'submit'  %>
+    </div>
   <% end -%>
 </div>

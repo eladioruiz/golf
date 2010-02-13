@@ -6,7 +6,6 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
     <title>My Golf Card</title>
-    <%= stylesheet_link_tag 'scaffold' %>
     <%= stylesheet_link_tag 'golf_main' %>
     <%= javascript_include_tag 'jquery-1.3.2.min' %>
 </head>
@@ -27,27 +26,23 @@
 
         <div id="content_wrapper">
             <div id="main_content">
-                <div id="text_box"  contenteditable="true">
+                <div class="text_box">
                     <h2>My Golf Card</h2>
                     <div id="internal_text">
-                        Conoce ya My Golf Card ? ¿No le han hablado sus compañeros de esta nueva web de golf?
-                        <p>
-                        No se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:
-                        <p>
-                        1. ¿Es un aficionado al golf y no sabe dónde guardar las tarjetas de cada partido?
-                        <p>
-                        2. ¿Le gustan las redes sociales y compartir sus experiencias?
-                        <p>
-                        3. ¿Quiére compartir con sus compañeros de partido los resultados?
-                        <p>
-                        4. ¿Es un apasionado de las estadísticas y quiere saber cómo evoluciona su juego?
-                        <p>
-                        <p>
-                        En My Golf Card se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.
-                        <p>
-                        Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este enlace .
-                        <p>
-                        <p>
+                      <ul>
+                        <li>¿ Conoce ya My Golf Card ? ¿No le han hablado sus compañeros de esta nueva web de golf?</li>
+                        <li>No se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:</li>
+                        <li>
+                          <ol>
+                            <li>¿Es un aficionado al golf y no sabe dónde guardar las tarjetas de cada partido?</li>
+                            <li>¿Le gustan las redes sociales y compartir sus experiencias?</li>
+                            <li>¿Quiére compartir con sus compañeros de partido los resultados?</li>
+                            <li>¿Es un apasionado de las estadísticas y quiere saber cómo evoluciona su juego?</li>
+                          </ol>
+                        </li>
+                        <li>En My Golf Card se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.</li>
+                        <li>Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este enlace.</li>
+                      </ul>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <%= yield %>
