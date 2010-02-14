@@ -19,10 +19,10 @@
             </div> <!-- end: branding -->
             <div id="user_info">
               <div id="user">
-                <%= @user_name %> HCP: <%= @handicap %>
+                <%= @name_user %> HCP: <%= @handicap %>
               </div>
               <div id="logout">
-                <a href="logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
+                <a href="logout"><img src="../images/logout.gif" /></a>
               </div>
             </div>
         </div> <!-- end: header -->
@@ -33,12 +33,7 @@
 
         <div id="content_wrapper">
             <div id="main_content">
-                <div id="text_box_1_1" class="text_box">
-                    <h2>My Golf Card</h2>
-                    <div id="internal_text">
-                        <%= yield %>
-                    </div> <!-- end: interna_text -->
-                </div> <!-- end: text-box -->
+              <%= yield %>
             </div>  <!-- end: main_content -->
         </div>  <!-- end: content_wrapper -->
 

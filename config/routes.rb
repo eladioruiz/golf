@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/testcharts/y_right', :controller => 'test_chart', :action => 'y_right'
   map.connect '/testcharts/y_right2', :controller => 'test_chart', :action => 'y_right2'
 
+  map.connect '/home', :controller => 'home', :action => 'index'
+
   map.resources :dummies
 
   map.resources :testcharts
@@ -42,6 +44,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :cards
   
   map.resources :card_strokes
+
+  map.resources :home
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login', :controller => 'session', :action => 'new'
@@ -92,7 +96,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.root :controller => "session", :action => "new"
   
 #=======
-  map.root :controller => "matches", :action => "index"
+  map.root :controller => "home", :action => "index"
 
   map.connect ':controller/:id/:action'
   map.connect ':controller/:id/:action.:format'
