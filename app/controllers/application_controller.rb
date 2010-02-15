@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  before_filter :userData
+
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
 
@@ -13,4 +15,9 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  def userData
+    @user_name = current_user.name
+    @handicap = current_user.handicap
+  end
 end

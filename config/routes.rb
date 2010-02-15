@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :card_strokes
 
-  map.resources :home
+  map.resources :homes
 
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login', :controller => 'session', :action => 'new'
