@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   def userData
-    @user_name = current_user.name
-    @handicap = current_user.handicap
+    @user_name = current_user.name unless current_user.nil?
+    @handicap = current_user.handicap unless current_user.nil?
   end
 end
