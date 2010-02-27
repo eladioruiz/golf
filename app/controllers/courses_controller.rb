@@ -58,4 +58,5 @@ class CoursesController < ApplicationController
 
     redirect_to(courses_url)
   end
+
 end

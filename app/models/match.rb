@@ -32,6 +32,10 @@ class Match < ActiveRecord::Base
                               :conditions => "",
                               :order => "strokes_total DESC "
 
+  named_scope :most_used_course,  :select => "course_id, count(*) as num_used",
+                                  :group => "course_id ",
+                                  :order => "count(*) DESC "
+
   named_scope :my_matches,    lambda { |userID|
                                 {
                                   :select =>      "matches.*",

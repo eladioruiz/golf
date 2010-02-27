@@ -126,19 +126,38 @@ h1 strong {
 #navigation_main {
     border: 0px solid #FFF;
     height:20px;
-/*    overflow:hidden; 
-    background-color: #D0D0D0; */
     color: black;
     text-align: center;
 
-   filter:alpha(opacity=90);
-   -moz-opacity: 0.9;
-   opacity: 0.9;
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
 
+#navigation_main li {
+    display:inline;
+    margin: 25px;
+    font-size: 14px;
+}
+
+#navigation_main li a {
+    padding:0.2em 1em;
+    background:#fc6;
+    color:#000;
+    text-decoration:none;
+    float:left;
+    border:1px solid #000;
+}
+
+#navigation_main li a:hover {
+    background:#08c;
+    color:#fff;
 }
 
 /* --- User Info ----------------------------------------------------------- */
 #user_info {
+    margin-top: 15px;
+    margin-left: 15px;
     float: left;
 }
 
@@ -203,7 +222,6 @@ h1 strong {
 
 /* ---------------- TEXTBOX --------------------- */
 
-
 .text_box {
     padding-left:20px;
     border: 10px solid #369d47;
@@ -217,7 +235,7 @@ h1 strong {
 
 .text_box h2 {
     color: white;
-    font-size: 1.3em;
+    font-size: 20px;
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -227,7 +245,7 @@ h1 strong {
 .text_box h2 a
 {
     color: white;
-    font-size: 1em;
+    font-size: 20px;
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -235,11 +253,11 @@ h1 strong {
 }
 
 #internal_text {
-    font-size: 1.2em;
-    margin-top: 30px;
+    font-size: 18px;
+    margin-top: 20px;
     margin-bottom: 30px;
-    margin-left: 00px;
-    margin-right: 50px;
+    margin-left: 0px;
+    margin-right: 20px;
     overflow: auto;
 }
 
@@ -266,6 +284,10 @@ h1 strong {
     width: 450px;
     height: 180px;
     float: left;
+}
+
+#stats_resume {
+    margin: 5px;
 }
 
 /* ------------------ FORMS ---------------- */

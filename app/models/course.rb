@@ -16,4 +16,5 @@ class Course < ActiveRecord::Base
       h.save
     end
   end
+
 end

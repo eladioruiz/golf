@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+  <title>My Golf Card</title>
+  <%= stylesheet_link_tag 'golf_main' %>
+  <%= javascript_include_tag 'jquery-1.3.2.min' %>
+  <%= javascript_include_tag 'match_helpers' %>
+</head>
+<body id="page_home">
+    <div id="wrapper">
+        <div id="header">
+            <div id="branding">
+                <h1><a href="/">My Golf Card</a></h1>
+                <h2>Tarjetas y Puntuaciones</h2>
+            </div> <!-- end: branding -->
+            <div id="user_info">
+              <div id="user">
+                <%= @user_name %> (HCP : <%= @handicap %>)
+              </div>
+              <div id="logout">
+                <a href="logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
+              </div>
+            </div>
+        </div> <!-- end: header -->
