@@ -301,3 +301,28 @@ div.row .submit {
     width: 102px;
     text-align: center;
 }
+
+/*-- CARD STYLES -- */
+
+#card {
+    font-size: 14px;
+    text-align: center;
+    width: 900px;
+}
+
+.card_player_name {
+    font-size: 14px;
+    text-align: left;
+}
+
+.card_player_info {
+    font-size: 14px;
+}
+
+.car_player {
+
+}
+
+.card_info {
+    background-color: #FF0000;   
+}
