@@ -41,8 +41,8 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: golf_production
+  database: golf
   pool: 5
   username: root
-  password: 
+  password: 0364sa
   socket: /var/run/mysqld/mysqld.sock
