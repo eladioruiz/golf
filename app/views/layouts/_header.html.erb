@@ -7,8 +7,14 @@
   <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
   <title>My Golf Card</title>
   <%= stylesheet_link_tag 'golf_main' %>
+  <%= stylesheet_link_tag 'lavalamp' %>
+  
   <%= javascript_include_tag 'jquery-1.3.2.min' %>
+  <%= javascript_include_tag 'jquery.easing.min' %>
+  <%= javascript_include_tag 'jquery.lavalamp.min' %>
+  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'match_helpers' %>
+
 </head>
 <body id="page_home">
     <div id="wrapper">
@@ -24,5 +30,5 @@
               <div id="logout">
                 <a href="logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
               </div>
-            </div>
+            </div> <!-- end: user_info -->
         </div> <!-- end: header -->

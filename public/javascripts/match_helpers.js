@@ -40,10 +40,4 @@ var MatchHelper = function() {
     }
 }();
 
-$(document).ready(function(){
-    $("form p a.remove")
-    .click(MatchHelper.onRemovePlayer);
-    $("form p a.add_player")
-    .click(MatchHelper.onAddPlayer);
-});
 
