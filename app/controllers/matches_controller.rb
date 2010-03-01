@@ -102,7 +102,7 @@ class MatchesController < ApplicationController
     @holes = @match.course.holes
     @players = @match.players
     
-    render :action => "../layouts/print"
+    render :template => "layouts/print"
   end
 
   # GET /matches/thisweek
