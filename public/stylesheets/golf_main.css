@@ -100,12 +100,13 @@ h2 {
 }
 
 #cuerpo h1 {
-	color: #444;
+    color: #444;
 }
 
 h1 strong {
-	color: black;
+    color: black;
 }
+
 
 /* --- Footer ---------------------------------------------------------- */
 
@@ -352,12 +353,59 @@ div.row .submit {
 
 .card_player_info {
     font-size: 14px;
+    text-align: center;
 }
 
 .car_player {
-
+    text-align: center;
+    color:black;
 }
 
 .card_info {
-    background-color: #FF0000;   
+    color: black;
+}
+
+.card_info_leyend {
+    color: black;
+    text-align: right;
+}
+
+.hole_blue {
+    background-color: #0000FF;
+    text-align: center;
+    color: black;
+}
+
+.hole_red {
+    background-color: #FF0000;
+    text-align: center;
+    color: black;
+}
+
+.hole_yellow {
+    background-color: #FFFF00;
+    text-align: center;
+    color: black;
+}
+
+.hole_white {
+    background-color: #FFFFFF;
+    text-align: center;
+    color: black;
+}
+
+table td {
+    text-align: center;
+    font-size: 14px;
+    color:black;
+}
+
+table th {
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
+td.totals {
+    font-weight: bold;
 }

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091231192020) do
+ActiveRecord::Schema.define(:version => 20100304195342) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -55,9 +55,13 @@ ActiveRecord::Schema.define(:version => 20091231192020) do
     t.integer  "number"
     t.integer  "par"
     t.integer  "handicap"
-    t.boolean  "enabled",    :default => true
+    t.boolean  "enabled",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "length_red"
+    t.integer  "length_yellow"
+    t.integer  "length_blue"
+    t.integer  "length_white"
   end
 
   create_table "matches", :force => true do |t|
