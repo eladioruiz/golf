@@ -145,7 +145,7 @@ class MatchesController < ApplicationController
   def my_matches
     page = params[:page] || 1
 
-    @matches = Match.my_matches(session[:user_id])
+    @matches = Match.my_matches(session[:user_id]).paginate :page => page
     @title = 'My Matches'
     render :action => 'index'
   end

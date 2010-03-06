@@ -18,6 +18,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :testcharts
   map.resources :testchart
 
+  
+
+  map.connect '/charts/pie_courses', :controller => 'charts', :action => 'pie_courses'
+
   map.resources :users
   map.resource :session, :controller => 'session'
 
@@ -47,6 +51,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :homes
 
+  map.resources :charts
+  
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
