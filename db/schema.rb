@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100304195342) do
+ActiveRecord::Schema.define(:version => 20100307153455) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20100304195342) do
     t.integer  "strokes_total"
     t.integer  "strokes_first_9"
     t.integer  "strokes_second_9"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "charts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20100304195342) do
     t.integer  "tee_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "handicap"
   end
 
   create_table "profiles", :force => true do |t|

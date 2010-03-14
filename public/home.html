@@ -1,38 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
-    <title>My Golf Card</title>
-    <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/golf_main.css?1266063809">
+<title>2 Column CSS Layout - concise design</title>
+<style type='text/css'>
+.wrapper{
+   position: relative;
+   overflow: hidden;
+   margin: 0px auto;
+   width: 100%;
+   background-color: #f4f4f4
+}
+.header{
+   position: relative;
+   width: 100%;
+   right: 50%;
+   background-color: #f4f4f4
+}
+.branding{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 48%;
+   left: 101%;
+   background-color: #e6e6e6
+}
+.user_info{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 48%;
+   left: 3%;
+   background-color: #e6e6e6
+}
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #b4caf7
+}
+body {
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
+   background-color: #e7e7de
+}
+
+.col1 h1 {
+    color:white;
+    font-weight:bold;
+    font-size: 3em;
+    letter-spacing:-1px;
+    margin-top: 0px;
+    padding:10px 0;
+    text-align:right;
+    border: 1px solid #0F0;
+    width: 50%;
+    height: 50px;
+}
+
+.col1 h2 {
+    color:white;
+    font-weight:bold;
+    font-size: 1.5em;
+    letter-spacing:-1px;
+    margin-top: -10px;
+    padding:10px 0;
+    text-align:right;
+    border: 1px solid #00F;
+    width: 50%;
+    height: 50px;
+}
+
+</style>
 </head>
-<body id="page_home">
-    <div id="wrapper">
-        <div id="header">
-            <div id="branding">
+<body>
+<div class="wrapper">
+    <div class="header">
+            <div class="branding">
                 <h1>My Golf Card</h1>
                 <h2>Tarjetas y Puntuaciones</h2>
-            </div> <!-- end: branding -->
-            <div id="user_info">
-                Eladio Ruiz HCP: 36 <a href="logout">Logout</a>
             </div>
-        </div> <!-- end: header -->
-
-        <div id="navigation_main">
-        </div>  <!-- end: navigation -->
-
-        <div id="content_wrapper">
-            <div id="main_content">
-                <%= yield %>
-            </div>  <!-- end: main_content -->
-        </div>  <!-- end: content_wrapper -->
-
-        <div id="footer">
-          <p>&copy 2010 Eladio Ruiz</p>
-        </div>  <!-- end: pie -->
-
-    </div> <!-- end: wrapper -->
+            <div class="user_info">
+                User Info
+            </div>
+    </div>
+    <div id="">
+        Contenido
+    </div>
+    <div class="footer">
+        footer
+    </div>
+</div>
 </body>
 </html>

@@ -1,6 +1,5 @@
 class ChartsController < ApplicationController
-  #This is the layout which all functions in this controller make use of.
-  layout "common"
+  before_filter :current_menu
   
   def pie_courses
     headers["content-type"]="text/html";
@@ -9,11 +8,24 @@ class ChartsController < ApplicationController
     courses = Course.all
 
     courses.each do |course|
-        @matches_played = Match.my_matches(current_user.id).find_all_by_course_id(course.id).size
+      @matches_played = Match.my_matches(current_user.id).find_all_by_course_id(course.id).size
 
-        @matches_data<<{:course_name=>course.name,:played=>@matches_played.size}
-    end # end - do.courses
+      @matches_data<<{:course_name=>course.name,:played=>@matches_played}
 
-    render :template => "layouts/common"
+    end # end - do
+
   end
+
+  def basic_chart
+
+  end
+
+  def simple_chart
+
+  end
+
+  def current_menu
+    @current_menu = {'matches' => '', 'courses' => '', 'charts' => 'current'}
+  end
+
 end

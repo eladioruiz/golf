@@ -3,11 +3,12 @@
         <div id="navigation_main">
 
           <ul class="lavaLampWithImage" id="menu">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/matches" class="current">Partidos</a></li>
-            <li><a href="" class="inactive">Resumen</a></li>
-            <li><a href="" class="inactive">Datos Personales</a></li>
-            <li><a href="/courses">Campos</a></li>
+            <li><a title="Inicio" href="/">Inicio</a></li>
+            <li class="<%=  @current_menu['matches'] %>"><a href="/matches">Partidos</a></li>
+            <li><a href="#" class="inactive">Resumen</a></li>
+            <li><a href="#" class="inactive">Datos Personales</a></li>
+            <li class="<%=  @current_menu['courses'] %>"><a href="/courses">Campos</a></li>
+            <li class="<%=  @current_menu['charts'] %>"><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
           </ul>
 
         </div>  <!-- end: navigation -->
@@ -24,7 +25,7 @@
         </div>  <!-- end: content_wrapper -->
 
         <div id="footer">
-          <p>&copy 2010 Eladio Ruiz</p>
+          <p>&copy; 2010 Eladio Ruiz</p>
         </div>  <!-- end: pie -->
 
     </div> <!-- end: wrapper -->

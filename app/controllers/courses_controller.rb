@@ -6,6 +6,7 @@
 
 class CoursesController < ApplicationController
   before_filter :login_required
+  before_filter :current_menu
   
   # GET /courses
   def index
@@ -57,6 +58,10 @@ class CoursesController < ApplicationController
     @course.destroy
 
     redirect_to(courses_url)
+  end
+
+  def current_menu
+    @current_menu = {'matches' => '', 'courses' => 'current', 'charts' => ''}
   end
 
 end

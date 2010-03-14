@@ -35,7 +35,7 @@
 
     <% @players.each do |player| %>
     <tr class="card_player">
-      <td class="card_player_name"><%= player.user.name %> (<%=  player.user.handicap %>)</td>
+      <td class="card_player_name"><%= player.user.name %> (<%=  player.handicap %>)</td>
       <%
         if player.has_card? then
           card = player.card

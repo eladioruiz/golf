@@ -12,7 +12,7 @@ $(document).ready(function(){
         fx: "linear",
         speed: 500,
         click: function(event, menuItem) {
-            return false;
+            //return false;
         }
     });
 });

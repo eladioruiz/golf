@@ -8,6 +8,7 @@ class MatchesController < ApplicationController
   before_filter :login_required
   before_filter :apply_profile
   before_filter :title
+  before_filter :current_menu
 
   # GET /matches
   def index
@@ -156,5 +157,9 @@ class MatchesController < ApplicationController
 
   def title
     @title = 'Total Matches'
+  end
+
+  def current_menu
+    @current_menu = {'matches' => 'current', 'courses' => '', 'charts' => ''}
   end
 end
