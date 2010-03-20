@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>2 Column CSS Layout - concise design</title>
+<style type='text/css'>
+.mask{
+   position: relative;
+   overflow: hidden;
+   margin: 0px auto;
+   width: 100%;
+   background-color: #f4f4f4
+}
+.header{
+   float: left;
+   width: 100%;
+   background-color: #f4f4f4
+}
+.colleft{
+   position: relative;
+   width: 100%;
+   right: 50%;
+   background-color: #f4f4f4
+}
+.branding{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 48%;
+   left: 101%;
+   background-color: #e6e6e6;
+    border: 1px solid #F00;
+}
+.login_box{
+   position: relative;
+   overflow: hidden;
+   float: left;
+   width: 48%;
+   left: 3%;
+   background-color: #e6e6e6;
+           border: 1px solid #0F0;
+}
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #b4caf7
+}
+body {
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
+   background-color: #e7e7de
+}
+.branding h1 {
+    color:white;
+    float:right;
+    font-weight:bold;
+    font-size: 4em;
+    letter-spacing:-1px;
+    margin-top: 0px;
+    padding: 0;
+    text-align: right;
+    border: 1px solid #00F;
+}
+.branding h2 {
+    color:gray;
+    float:right;
+    font-weight:bold;
+    font-size: 2em;
+    letter-spacing:-1px;
+    margin-top: 0px;
+    padding: 0;
+    text-align: right;
+    border: 1px solid #0FF;
+    margin-top: -30px;
+}
+
+</style>
+</head>
+<body>
+<div class="mask">
+    <div class="header">
+        <div class="colleft">
+            <div class="branding">
+                <h1>Lorem ipsum</h1>
+                <h2>Mauris consectetuer</h2>
+            </div>
+            <div class="login_box">
+                Mauris consectetuer nec illo pede, at habitant vel quam sed blandit cras. Tortor ut, et ipsum sed sit leo. Nec diam gravida ante, quisque aliquam ipsum aenean vestibulum est, non laudantium. Proin sit rutrum lorem aptent odio, mi potenti amet enim rutrum odio vitae, in ut integer tempor velit pulvinar curabitur. Neque id, ornare in et leo sed, lectus aenean error ut risus praesent nec, accumsan at ac fringilla ligula. Praesent arcu aliquet sed, elit magna, tristique et posuere. Hymenaeos est integer sociosqu sem, sem sit ligula faucibus ut, amet ultrices quam, quisque placerat fringilla lobortis elit ut, in ac nec mauris purus vulputate vitae.
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        footer
+    </div>
+
+</div>
+</body>
+</html>
