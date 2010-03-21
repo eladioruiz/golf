@@ -7,22 +7,12 @@
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
     <title>My Golf Card</title>
     <%= stylesheet_link_tag 'golf_main' %>
-    
-    <link type="text/css" href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css" rel="Stylesheet" />
-    <script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery-ui-1.8rc3.custom.min.js"></script>
-
-    <script type="text/javascript">
-      $(function() {
-              // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
-              $("#dialog-modal").dialog({
-                      height: 140,
-                      modal: true
-              });
-      });
-    </script>
+    <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
 
 </head>
+  
 <body id="page_home">
     <div id="wrapper">
         <div id="header">
@@ -33,9 +23,8 @@
         </div> <!-- end: header -->
 
         <div id="navigation_main">
-                <p><%= flash[:notice] %></p>
-                <div id="buscador">
-                </div>  <!-- end: buscador -->
+          <div id="buscador">
+          </div>  <!-- end: buscador -->
         </div>  <!-- end: navigation -->
 
         <div id="content_wrapper">
@@ -44,7 +33,7 @@
                     <h2>My Golf Card</h2>
                     <div id="internal_text">
                       <ul>
-                        <li>¿ Conoce ya My Golf Card ? ¿No le han hablado sus compañeros de esta nueva web de golf?</li>
+                        <li>¿Conoce ya My Golf Card? ¿No le han hablado sus compañeros de esta nueva web de golf?</li>
                         <li>No se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:</li>
                         <li>
                           <ol>
@@ -72,32 +61,31 @@
     
 <div class="demo">
 
-<div id="dialog-modal1" style="display:none" title="Más información">
-  <p>Los que primero solemos sacer de la bolsa de palos los aficionados al gof antes de empezar un buen partido es la consabida tarjeta para apuntar nuestros golpes o los de nuestros compañeros.</p>
-  <p>Y por supuesto, en el "Hoyo 19" hacemos recuento a ver si hoy "se nos ha dado mejor". En cualquier caso, una vez acabado este primero momento de emoción, las tarjetas se convierten en otro trozo de cartón que no sabemos que hacer con él.</p>
-  <p>Y tampoco tenemos normalmente una manera sencilla de almacenar estas tarjetas, ya sea de una forma física o en el mundo de internet, de una forma electrónica y accesible desde todo el mundo.</p>
-  <p>MyGolfCard le permite guardar de forma electrónica sus tajetas en Internet y consultarlas en cualquier momento. ¡Ya puede deshacerse del cartón!</p>
-</div>
+  <div id="dialog-modal1" style="display:none" title="Más información">
+    <p>Los que primero solemos sacar de la bolsa de palos los aficionados al gof antes de empezar un buen partido es la consabida tarjeta para apuntar nuestros golpes o los de nuestros compañeros.</p>
+    <p>Y por supuesto, en el "Hoyo 19" hacemos recuento a ver si hoy "se nos ha dado mejor". En cualquier caso, una vez acabado este primero momento de emoción, las tarjetas se convierten en otro trozo de cartón con el que no sabemos qué hacer.</p>
+    <p>Y tampoco tenemos normalmente una manera sencilla de almacenar estas tarjetas, ya sea de una forma física o en el mundo de internet, de una forma electrónica y accesible desde todo el mundo.</p>
+    <p>MyGolfCard le permite guardar de forma electrónica sus tajetas en Internet y consultarlas en cualquier momento. ¡Ya puede deshacerse del cartón!</p>
+  </div>
 
-<div id="dialog-modal2" style="display:none" title="Más información">
-  <p>Hoy en día cada vez son máslas personas que disfrutan de parte de su tiempo libre compartiendo experiencias, viviencias y otras cosas dentro de una red social.</p>
-  <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dió muy bien.</p>
-  <p>En MygolfCard no sólo podrás registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
-</div>
+  <div id="dialog-modal2" style="display:none" title="Más información">
+    <p>Hoy en día cada vez son más las personas que disfrutan de parte de su tiempo libre compartiendo experiencias, viviencias y otras cosas dentro de una red social.</p>
+    <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dió muy bien.</p>
+    <p>En MygolfCard no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
+  </div>
 
- <div id="dialog-modal3" style="display:none" title="Más información">
-  <p>Ya sabemos que el golf es un deporte que se juega "contra uno mismo", pero ¿a quién no le gusta comprar su puntuación con las de los compañeros de partido?</p>
-  <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el aprtido anterior no se nos dió muy bien.</p>
-  <p>En MygolfCard no sólo podrás registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
-</div>
+   <div id="dialog-modal3" style="display:none" title="Más información">
+    <p>Ya sabemos que el golf es un deporte que se juega "contra uno mismo", pero ¿a quién no le gusta comprar su puntuación con las de los compañeros de partido?</p>
+    <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el aprtido anterior no se nos dió muy bien.</p>
+    <p>En MygolfCard no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
+  </div>
 
- <div id="dialog-modal4" style="display:none" title="Más información">
-  <p>Y después de todo nuestro esfuerzo durante el juego, la concentración que hemos puesto hoy y la sensación de haber jugado un "gran partido"... ¿cómo lo hemos hecho realmente?</p>
-  <p>¿Hemos "pinchado" en algún hoyo? ¿Hemos mejorado nuestro handicap? ¿Mantenemos una regularidad en nuestro últimos partidos?</p>
-  <p>En MygolfCard podrá consultar y analizar toda esta información, porque tendrá disponibles una serie de estadísticas que le permitirán saber cómo evoluciona su juego.</p>
-  <p>¿Y no es eso lo que todos los golfistas pretendemos? ¿Saber si conseguimos dominar este juego traidor y encantador?</p>
-</div>
-
+   <div id="dialog-modal4" style="display:none" title="Más información">
+    <p>Y después de todo nuestro esfuerzo durante el juego, la concentración que hemos puesto hoy y la sensación de haber jugado un "gran partido"... ¿cómo lo hemos hecho realmente?</p>
+    <p>¿Hemos "pinchado" en algún hoyo? ¿Mantenemos una regularidad en nuestro últimos partidos? ¿En qué campo solemos jugar más?</p>
+    <p>En MygolfCard podrá consultar y analizar toda esta información, porque tendrá disponibles una serie de estadísticas que le permitirá saber cómo evoluciona su juego.</p>
+    <p>¿Y no es eso lo que todos los golfistas pretendemos? ¿Saber si conseguimos dominar este juego traidor y a la vez encantador?</p>
+  </div>
 
 </div>
 
