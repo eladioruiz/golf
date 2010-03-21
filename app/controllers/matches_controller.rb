@@ -16,6 +16,8 @@ class MatchesController < ApplicationController
 
     @matches = Match.my_matches(session[:user_id]).paginate :page => page, :order => 'id DESC'
     @userID =  session[:user_id].to_s
+
+    @courses = Course.all
     #@matches = Match.all
   end
 

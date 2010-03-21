@@ -13,11 +13,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/home', :controller => 'home', :action => 'index'
 
-  map.resources :dummies
-
-  map.resources :testcharts
-  map.resources :testchart
-
   map.connect '/charts/pie_courses', :controller => 'charts', :action => 'pie_courses'
   map.connect '/charts/basic_chart', :controller => 'charts', :action => 'basic_chart'
   map.connect '/charts/simple_chart', :controller => 'charts', :action => 'simple_chart'

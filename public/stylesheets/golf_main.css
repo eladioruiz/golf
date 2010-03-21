@@ -23,7 +23,7 @@
     height: 100px;
     /*background:transparent url(../images/header2.gif) repeat-x scroll 0 100%;*/
     margin-bottom:50px;
-    font-size:1.2em;
+    /*font-size:1.2em;*/
 }
 
 #wrapper img {
@@ -239,7 +239,7 @@ h1 strong {
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     margin: 10px 10px 20px 10px;
-    font-size: 1.7em;
+    
 }
 
 .text_box h2 {
@@ -273,6 +273,10 @@ h1 strong {
 
 #internal_text {
     font-size: 18px;
+}
+
+#internal_text.presentation {
+    font-size: 18px;
     margin-top: 20px;
     margin-bottom: 30px;
     margin-left: 0px;
@@ -280,7 +284,7 @@ h1 strong {
     overflow: auto;
 }
 
-#internal_text ul {
+#internal_text.presentation ul {
     list-style-type: none;
     text-decoration: none;
     margin-left: 0px;
@@ -288,12 +292,12 @@ h1 strong {
     line-height: 18px;
 }
 
-#internal_text ol {
+#internal_text.presentation ol {
     font-size:   13px;
     line-height: 18px;
 }
 
-#internal_text li {
+#internal_text.presentation li {
     font-size: 1.2em;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -414,3 +418,8 @@ table th {
 td.totals {
     font-weight: bold;
 }
+
+#toolbar {
+    padding: 10px 4px;
+}
+

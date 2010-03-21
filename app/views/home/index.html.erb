@@ -1,11 +1,18 @@
+            <div id="internal_text">
                 <div class="text_box" id="textbox_2_2">
                     <h2><a href="matches">PARTIDOS</a></h2>
                     <div id="internal_text">
                       <div id="stats_resume">
-                        Nº Partidos : <%= @stats_num_matches %>
+                        Nº Partidos : <%= @stats_num_matches %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
                       </div>
                       <div id="stats_resume">
-                        Media golpes (últimos 10) : <%= @stats_stroke_average_10 %>
+                        Media golpes (últimos 10) : <%= @stats_stroke_average_10 %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
+                      </div>
+                      <div id="stats_resume">
+                        Partidos jugados último mes : xxx  <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
+                      </div>
+                      <div id="stats_resume">
+                        Media partidos mes : xxx <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
                       </div>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
@@ -25,6 +32,9 @@
                     <div id="internal_text">
                       <a href="/charts/pie_courses">Campos jugados</a>
                     </div> <!-- end: internal_text -->
+                    <div id="internal_text">
+                      <a href="">Regularidad por campo</a>
+                    </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
                     <h2><a href="courses">CAMPOS</a></h2>
@@ -40,3 +50,24 @@
                       </div>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
+            </div>  <!-- end: internal_text -->
+
+            <div class="demo">
+
+              <div id="matches-dialog1" style="display:none" title="Más información">
+                <p>Total de partidos que vd. ha introducido en su ficha.</p>
+              </div>
+
+              <div id="matches-dialog2" style="display:none" title="Más información">
+                <p>Media de golpes en sus últimos 10 partidos.</p>
+              </div>
+
+              <div id="matches-dialog3" style="display:none" title="Más información">
+                <p>Número total de partidos jugados el último mes.</p>
+              </div>
+
+              <div id="matches-dialog4" style="display:none" title="Más información">
+                <p>Media de partidos jugados al mes con respecto a todos los partidos introducidos.</p>
+              </div>
+
+            </div>
