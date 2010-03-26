@@ -16,6 +16,7 @@
 .content_wrapper{
     float: left;
     width: 100%;
+    border: yellow solid 5px;
     /*background-color: #fff*/
 }
 .main_content{
