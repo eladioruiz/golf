@@ -3,36 +3,50 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
-  <title>My Golf Card</title>
-  <%= stylesheet_link_tag 'golf_main' %>
-  <%= stylesheet_link_tag 'lavalamp' %>
-  
-  <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
-  <%= javascript_include_tag 'jquery.easing.min' %>
-  <%= javascript_include_tag 'jquery.lavalamp.min' %>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'match_helpers' %>
-  <%= javascript_include_tag 'FusionCharts'%>
-
-  <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
-  <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <title>My Golf Card</title>
+    <%= stylesheet_link_tag 'mygolfcard' %>
+    <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
+    <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
 
 </head>
-<body id="page_home">
-    <div id="wrapper">
-        <div id="header">
-            <div id="branding">
-                <h1><a href="/">My Golf Card</a></h1>
-                <h2>Tarjetas y Puntuaciones</h2>
-            </div> <!-- end: branding -->
-            <div id="user_info">
-              <div id="user">
-                <%= @user_name %> (HCP : <%= @handicap %>)
-              </div>
-              <div id="logout">
-                <a href="/logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
-              </div>
-            </div> <!-- end: user_info -->
-        </div> <!-- end: header -->
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+                    </div>
+                    <div class="wrapbranding">
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="login_box">
+                        <form action="/session" method="post">
+                            <div style="margin:0;padding:0;display:inline">
+                              <input name="authenticity_token" type="hidden" value="s0ZdbCNyzwnS6dCEA+DAbnHCfCTjl26dQc2fO7JKLWk=" /></div>    <div class="row">
+                              <label for="login" class="c_label">Login</label>
+                              <input id="login" name="login" type="text" />
+                            </div>
+
+                            <div class="row">
+                              <label for="password" class="c_label">Password</label>
+                              <input id="password" name="password" type="password" />
+                            </div>
+                            <div class="row">
+                              <label class="c_label">&nbsp;</label>
+                              <input class="submit" name="commit" type="submit" value="Entrar" />
+                            </div>
+
+                          </form>
+                    </div>
+                    <div class="footer_header">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
