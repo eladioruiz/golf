@@ -13,31 +13,13 @@
 
         </div>  <!-- end: navigation -->
 
-            <div class="content_wrapper">
-                <div class="main_content">
-
-                    <div class="text_box">
-                        <h2>My Golf Card</h2>
-                        <div id="internal_text" class="presentation">
-                            <ul>
-                                <li>¿Conoce ya My Golf Card? ¿No le han hablado sus compa&ntilde;eros de esta nueva web de golf?</li>
-                                <li>No se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:</li>
-                                <li>
-                                    <ol>
-                                        <li>¿Es un aficionado al golf y no sabe dónde guardar las tarjetas de cada partido? <a id="dialog1" href="javascript:;" onclick='$("#dialog-modal1").dialog();' >M&aacute;s info</a> </li>
-                                        <li>¿Le gustan las redes sociales y compartir sus experiencias? <a id="dialog2" href="javascript:;" onclick='$("#dialog-modal2").dialog();' >M&aacute;s info</a> </li>
-                                        <li>¿Quiére compartir con sus compañeros de partido los resultados? <a id="dialog3" href="javascript:;" onclick='$("#dialog-modal3").dialog();' >M&aacute;s info</a> </li>
-                                        <li>¿Es un apasionado de las estadísticas y quiere saber cómo evoluciona su juego? <a id="dialog4" href="javascript:;" onclick='$("#dialog-modal4").dialog();' >M&aacute;s info</a> </li>
-                                    </ol>
-                                </li>
-                                <li>En My Golf Card se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.</li>
-                                <li>Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este <a href="/signup">enlace</a>.</li>
-                            </ul>
-                        </div> <!-- end: internal_text -->
-                    </div> <!-- end: text-box -->
-
-                </div>
-            </div>
+        <div id="content_wrapper">
+            <div id="main_content">
+                <div id="text_box_1_1" class="text_box">
+                    <%= yield %>
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+        </div>  <!-- end: content_wrapper -->
 
 
 <%= render :partial => 'layouts/footer' %>
