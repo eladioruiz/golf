@@ -1,25 +1,15 @@
 <%= render :partial => 'layouts/header' %>
 
-        <div id="navigation_main">
+        <div class="content_wrapper">
 
-          <ul class="lavaLampWithImage" id="menu">
-            <li><a title="Inicio" href="/">Inicio</a></li>
-            <li class="<%=  @current_menu['matches'] %>"><a href="/matches">Partidos</a></li>
-            <li><a href="#" class="inactive">Resumen</a></li>
-            <li><a href="#" class="inactive">Datos Personales</a></li>
-            <li class="<%=  @current_menu['courses'] %>"><a href="/courses">Campos</a></li>
-            <li class="<%=  @current_menu['charts'] %>"><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
-          </ul>
-
-        </div>  <!-- end: navigation -->
-
-        <div id="content_wrapper">
-            <div id="main_content">
+            <%= render :partial => 'layouts/navigationbar' %>
+          
+            <div class="main_content">
                 <div id="text_box_1_1" class="text_box">
                     <%= yield %>
                 </div> <!-- end: text-box -->
             </div>  <!-- end: main_content -->
+            
         </div>  <!-- end: content_wrapper -->
-
 
 <%= render :partial => 'layouts/footer' %>

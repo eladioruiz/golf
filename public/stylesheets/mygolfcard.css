@@ -16,7 +16,7 @@
 .content_wrapper{
     float: left;
     width: 100%;
-    border: yellow solid 5px;
+    /*border: yellow solid 5px;*/
     /*background-color: #fff*/
 }
 .main_content{
@@ -25,7 +25,9 @@
     /*background-color: #afeeee;
     border: yellow solid 1px; */
     height: 500px;
-
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
 }
 .left{
     float: left;
@@ -167,7 +169,8 @@ div.row .submit {
 /* --- Navigation ---------------------------------------------------------- */
 
 #navigation_main {
-    border: 0px solid #FFF;
+    /*float: left;*/
+    border: 1px solid #FFF;
     height: 43px;
     width: 1002px;
     margin: 0px auto;
@@ -287,8 +290,7 @@ div.row .submit {
     border-radius: 12px;
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
-    margin: 10px 10px 20px 10px;
-
+    margin: 10px 14px 20px 0px;
 }
 
 .text_box h2 {
@@ -353,7 +355,7 @@ div.row .submit {
 }
 
 #textbox_2_2 {
-    width: 450px;
+    width: 440px;
     height: 180px;
     float: left;
 }
@@ -361,7 +363,6 @@ div.row .submit {
 #stats_resume {
     margin: 5px;
 }
-
 
 
 /*-- CARD STYLES -- */
