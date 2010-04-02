@@ -11,7 +11,7 @@ set :user, "admusr"
 
 role :web, "dev.mygolfcard.es"             # Your HTTP server, Apache/etc
 role :app, "dev.mygolfcard.es"                          # This may be the same as your `Web` server
-role :db,  "mygolfcard.es", :primary => true # This is where Rails migrations will run
+role :db,  "dev.mygolfcard.es", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
