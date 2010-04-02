@@ -1,16 +1,16 @@
 set :application, "My Golf Card"
 set :repository,  "git@github.com:eladioruiz/golf.git"
-set :branch, "master"
+set :branch, "layout"
 
 set :scm, "git"
-set :deploy_to, "/var/www/golf"
+set :deploy_to, "/var/www/devgolf"
 
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => true }
 set :user, "admusr"
 
-role :web, "mygolfcard.es"             # Your HTTP server, Apache/etc
-role :app, "mygolfcard.es"                          # This may be the same as your `Web` server
+role :web, "dev.mygolfcard.es"             # Your HTTP server, Apache/etc
+role :app, "dev.mygolfcard.es"                          # This may be the same as your `Web` server
 role :db,  "mygolfcard.es", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
