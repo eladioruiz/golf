@@ -11,6 +11,7 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
+
 #header, #content_wrapper, #footer {
     margin:0 auto;
     width:1024px;
@@ -166,6 +167,69 @@ h1 strong {
 /* --- User Info ----------------------------------------------------------- */
 #user_info {
     margin-top: 15px;
+    margin-left: 15px;
+    float: left;
+}
+
+#user {
+    float: left;
+}
+
+#logout {
+    margin-top: 2px;
+    margin-left: 5px;
+    float: left;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+#navigation_main {
+    border: 0px solid #FFF;
+    height: 43px;
+    width: 1002px;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-bottom: 0px;
+/*    color: black;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+*/
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+
+/**
+#navigation_main li {
+    display:inline;
+    margin: 25px;
+    font-size: 14px;
+}
+
+#navigation_main li a {
+    padding:0.2em 1em;
+    background:#fc6;
+    color:#000;
+    text-decoration:none;
+    float:left;
+    border:1px solid #000;
+}
+
+#navigation_main li a:hover {
+    background:#08c;
+    color:#fff;
+}
+**/
+
+.lavaLampWithImage a.inactive {
+    color: grey;
+    decoration: none;
+}
+
+/* --- User Info ----------------------------------------------------------- */
+#user_info {
+    margin-top: 115px;
     margin-left: 15px;
     float: left;
 }

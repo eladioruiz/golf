@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+        <title>My Golf Card</title>
+
+        <link href="/stylesheets/mygolfcard.css?1270243462" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css?1269192890" media="screen" rel="stylesheet" type="text/css" />
+
+        <script src="/javascripts/jquery-1.4.2.min.js?1267130934" type="text/javascript"></script>
+        <script src="/javascripts/jquery-ui-1.8rc3.custom.min.js?1269070478" type="text/javascript"></script>
+        <script src="/javascripts/jquery.easing.min.js?1267387834" type="text/javascript"></script>
+        <script src="/javascripts/application.js?1269092521" type="text/javascript"></script>
+        <script src="/javascripts/match_helpers.js?1267387834" type="text/javascript"></script>
+
+        <script src="/javascripts/jquery.kwicks-1.5.1.js?1267387834" type="text/javascript"></script>
+
+        <script src="/javascripts/FusionCharts.js?1268592847" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="/menu/menu_style.css" type="text/css" />
+
+        <script>
+            $().ready(function() {
+                $('.kwicks').kwicks({
+                    min : 100,
+                    spacing : 10,
+                    isVertical : false,
+                    sticky : true,
+                    event : 'click'
+                });
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+
+                    </div>
+                    <div class="wrapbranding">
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="user_info">
+
+                      <div id="user">
+                        Eladio Ruiz (HCP : 36)
+                      </div>
+                      <div id="logout">
+                        <a href="/logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
+                      </div>
+                    </div> <!-- end: user_info -->
+                    <div class="footer_header">
+                        &nbsp;
+
+                    </div>
+                </div>
+            </div>
+
+        <div class="content_wrapper">
+
+            <div id="navigation_main">
+                <ul class="kwicks">
+                        <li id="kwick1"><a href="#">Inicio</a></li>
+                        <li id="kwick2"><a href="#">Partidos</a></li>
+                        <li id="kwick3"><a href="#">Campos</a></li>
+                        <li id="kwick4"><a href="#">Estad&iacute;sticas</li>
+                </ul>
+            </div>  <!-- end: navigation -->
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+
+
+<h1>Partidos</h1>
+<div id="course_select">
+  <div class="ui-widget">
+    <label>Campo: </label>
+    <select>
+      <option value="0" selected>Todos</option>
+
+          <option value="1">RACE</option>
+
+          <option value="2">La Duquesa</option>
+
+
+    </select>
+  </div>
+</div>
+
+<div class="demo">
+
+  <a href="matches">Todos</a>
+  <a href="matches/lastmatches">10 Últimos</a>
+  <a href="matches/bestmatches">10 Mejores</a>
+
+  <a href="matches/lastmonth">Último Mes</a>
+  <a href="#">Personalizado</a>
+
+  <p></p>
+
+  <table>
+    <tr>
+      <th>Course</th>
+
+      <th>Date</th>
+      <th>Holes</th>
+      <th colspan="3">&nbsp;</th>
+    </tr>
+
+
+
+      <tr>
+        <td>RACE</td>
+        <td>27/04/2008 - 12:00</td>
+
+        <td>18</td>
+        <td><a href="/matches/11">Show</a></td>
+        <td><a href="/matches/11/edit">Edit</a></td>
+        <td><a href="/matches/11" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+      <tr>
+        <td>RACE</td>
+
+        <td>13/12/2009 - 12:36</td>
+        <td>18</td>
+        <td><a href="/matches/10">Show</a></td>
+        <td><a href="/matches/10/edit">Edit</a></td>
+        <td><a href="/matches/10" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+
+      <tr>
+        <td>RACE</td>
+        <td>08/12/2009 - 21:17</td>
+        <td>18</td>
+        <td><a href="/matches/9">Show</a></td>
+        <td><a href="/matches/9/edit">Edit</a></td>
+
+        <td><a href="/matches/9" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+      <tr>
+        <td>RACE</td>
+        <td>15/11/2009 - 14:04</td>
+        <td>18</td>
+        <td><a href="/matches/8">Show</a></td>
+
+        <td><a href="/matches/8/edit">Edit</a></td>
+        <td><a href="/matches/8" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+      <tr>
+        <td>RACE</td>
+        <td>02/05/2008 - 15:43</td>
+        <td>18</td>
+
+        <td><a href="/matches/7">Show</a></td>
+        <td><a href="/matches/7/edit">Edit</a></td>
+        <td><a href="/matches/7" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+      <tr>
+        <td>La Duquesa</td>
+        <td>06/12/2009 - 21:39</td>
+
+        <td>9</td>
+        <td><a href="/matches/6">Show</a></td>
+        <td><a href="/matches/6/edit">Edit</a></td>
+        <td><a href="/matches/6" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'Xksa7NOe1llkmPkWfiqf6ZJvPAfpGfygsv4tYwwZVus='); f.appendChild(s);f.submit(); };return false;">Delete</a></td>
+      </tr>
+
+  </table>
+
+</div> <!-- end: demo -->
+
+<br />
+
+<a href="/matches/new">New match</a>
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+
+        </div>  <!-- end: content_wrapper -->
+
+            <div class="left">
+                &nbsp;
+            </div>
+            <div class="right">
+                &nbsp;
+            </div>
+            <div class="footer">
+                <p>&copy 2010 Eladio Ruiz</p>
+
+            </div>
+        </div>
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-13252939-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+</script>
+
+
+</body>
+</html>
+

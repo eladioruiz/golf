@@ -8,12 +8,9 @@ $(document).ready(function(){
     $("form p a.add_player")
     .click(MatchHelper.onAddPlayer);
 
-    $("#menu").lavaLamp({
-        fx: "linear",
-        speed: 500,
-        click: function(event, menuItem) {
-            //return false;
-        }
+    $('.kwicks').kwicks({
+        min : 110,
+        spacing : 10
     });
 
 });

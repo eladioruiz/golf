@@ -61,7 +61,7 @@ class CoursesController < ApplicationController
   end
 
   def current_menu
-    @current_menu = {'matches' => '', 'courses' => 'current', 'charts' => ''}
+    @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => ''}
   end
 
 end

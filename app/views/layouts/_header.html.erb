@@ -3,36 +3,46 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
-  <title>My Golf Card</title>
-  <%= stylesheet_link_tag 'golf_main' %>
-  <%= stylesheet_link_tag 'lavalamp' %>
-  
-  <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
-  <%= javascript_include_tag 'jquery.easing.min' %>
-  <%= javascript_include_tag 'jquery.lavalamp.min' %>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'match_helpers' %>
-  <%= javascript_include_tag 'FusionCharts'%>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <title>My Golf Card</title>
 
-  <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
-  <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
+    <%= stylesheet_link_tag 'mygolfcard' %>
+    <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
+    
+    <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
+    <%= javascript_include_tag 'jquery.easing.min' %>
+    <%= javascript_include_tag 'jquery.kwicks-1.5.1' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'match_helpers' %>
+    <%= javascript_include_tag 'FusionCharts'%>
 
 </head>
-<body id="page_home">
-    <div id="wrapper">
-        <div id="header">
-            <div id="branding">
-                <h1><a href="/">My Golf Card</a></h1>
-                <h2>Tarjetas y Puntuaciones</h2>
-            </div> <!-- end: branding -->
-            <div id="user_info">
-              <div id="user">
-                <%= @user_name %> (HCP : <%= @handicap %>)
-              </div>
-              <div id="logout">
-                <a href="/logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
-              </div>
-            </div> <!-- end: user_info -->
-        </div> <!-- end: header -->
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+                    </div>
+                    <div class="wrapbranding">
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                      <div id="user">
+                        <%= @user_name %> (HCP : <%= @handicap %>)
+                      </div>
+                      <div id="logout">
+                        <a href="/logout" alt="Logout"><img src="../images/logout.gif" alt="Logout" /></a>
+                      </div>
+                    </div> <!-- end: user_info -->
+                    <div class="footer_header">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>

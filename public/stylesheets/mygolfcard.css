@@ -1,0 +1,535 @@
+/* ------------------ LAYOUT ---------------- */
+.wrapper{
+    width: 1024px;
+    margin: 0 auto;
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+}
+.header{
+    float: left;
+    width: 100%;
+    /*background-color: #f4f4f4;
+    border: red solid 1px;*/
+    height: 90px;
+}
+.content_wrapper{
+    float: left;
+    width: 100%;
+    /*border: yellow solid 5px;*/
+    /*background-color: #fff*/
+}
+.main_content{
+    margin-right:18px;
+    margin-left:18px;
+    /*background-color: #afeeee;
+    border: yellow solid 1px; */
+    height: 500px;
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+}
+.left{
+    float: left;
+    width: 18px;
+    margin-left: -100%;
+    height: 200px;
+    /*background-color: #cfcfcf;*/
+}
+.right{
+    float: left;
+    width: 18px;
+    margin-left: -18px;
+    height: 200px;
+    /*background-color: #cfcfcf;*/
+}
+.footer{
+    border: 1px solid #2e3436;
+    display:block;
+    margin-bottom:10px;
+    margin-top:10px;
+    overflow:hidden;
+    position: relative;
+    background-color: #D0D0D0;
+    height: 30px;
+    float: left;
+    width: 100%;
+}
+body {
+    padding: 0px;
+    margin: 0px;
+
+}
+.wrapper_header{
+    width: 100%;
+    margin: 0 auto;
+}
+.header_header{
+    float: left;
+    width: 100%;
+    /*background-color: #f4f4f4;*/
+    height: 0px;
+}
+.wrapbranding{
+    float: left;
+    width: 100%;
+    /*background-color: #cfcfcf*/
+}
+.branding{
+    margin-left: 50%;
+    /*background-color: #afeeee;*/
+    height: 80px;
+    margin-top: 0px;
+    padding-right: 25px;
+}
+.branding h1{
+    margin: 0px;
+    color:white;
+    font-weight:bold;
+    font-size: 36px;
+    letter-spacing:-1px;
+    padding: 0px;
+    text-align:right;
+}
+.branding h2{
+    font-style: normal;
+    font-weight: bold;
+    color: #666;
+    font-size: 1.5em;
+    float:right;
+    text-align:left;
+    margin: 0px;
+}
+.login_box{
+    float: left;
+    width: 50%;
+    margin-left: -100%;
+    /*background-color: #98fb98;*/
+    height: 80px;
+    padding-left: 25px;
+}
+.user_info{
+    float: left;
+    width: 50%;
+    margin-left: -100%;
+    /*background-color: #98fb98;*/
+    height: 80px;
+    padding-left: 25px;
+}
+.footer_header{
+    float: left;
+    width: 100%;
+    /*background-color: #a1f4f4;*/
+    height: 0px;
+}
+
+/* ------------------ ELADIO -------------- */
+body {
+    background: #2e3436 url('../images/06022010_1024.jpg') no-repeat fixed top center;
+    font-size: 8pt;
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: white;
+}
+
+/* ------------------ FORMS ---------------- */
+
+input, select, button {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.row {
+    clear: both;
+    padding-top: 5px;
+    height: 0px;
+}
+
+div.row label.c_label {
+    float: left;
+    width: 50px;
+    text-align: right;
+    margin-right: 5px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.row input, button {
+    float: left;
+    width: 100px;
+    text-align: left;
+    border: 1px solid ;
+    margin-left: 30px;
+}
+
+div.row .submit {
+    width: 102px;
+    text-align: center;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+
+#navigation_main {
+    /*float: left;*/
+    border: 0px solid #FFF;
+    height: 40px;
+    width: 1002px;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    margin-left: 17px;
+/*    color: black;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+*/
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+
+/**
+#navigation_main li {
+    display:inline;
+    margin: 25px;
+    font-size: 14px;
+}
+
+#navigation_main li a {
+    padding:0.2em 1em;
+    background:#fc6;
+    color:#000;
+    text-decoration:none;
+    float:left;
+    border:1px solid #000;
+}
+
+#navigation_main li a:hover {
+    background:#08c;
+    color:#fff;
+}
+**/
+
+   /* defaults for all examples */
+.kwicks {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.kwicks li{
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+}
+
+.kwicks li{
+    float: left;
+    width: 154px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+}
+#kwick1 {
+    background-color: #369D47;
+    background-image: url('images/meet.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick2 {
+    background-color: #1D5C2A;
+    background-image: url('images/kwicks.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick3 {
+    background-color: #369D47;
+    background-image: url('images/for.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick4 {
+    background-color: #1D5C2A;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick5 {
+    background-color: #369D47;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick6 {
+    background-color: #1D5C2A;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#menu .current {
+    border: 2px inset #1d5c2a;
+    font-style: italic;
+}
+.returnToKwicks {
+    display:block;
+    border:1px dashed #888;
+    padding:5px;
+    float:right;
+}
+
+.returnToKwicks:hover {
+    background-color: #5e5e76;
+    text-decoration: none;
+    color: #aaa;
+}
+
+
+/* --- User Info ----------------------------------------------------------- */
+#user_info {
+    margin-top: 0px;
+    margin-left: 15px;
+    float: left;
+    
+}
+
+#user {
+    float: left;
+    font-size: 12px;
+}
+
+#logout {
+    margin-top: 0px;
+    margin-left: 5px;
+    float: left;
+}
+
+/* --- Rounded boxes ------------------------------------------------------- */
+
+/* Show only to IE PC \*/
+* html .boxhead h2 {height: 1%;} /* For IE 5 PC */
+
+.sidebox {
+    margin: 0 auto; /* center for now */
+    width: 1024px; /* ems so it will grow */
+    background: url(../images/sbbody-r_g.gif) no-repeat bottom right;
+    font-size: 100%;
+}
+.boxhead {
+    background: url(../images/sbhead-r_g.gif) no-repeat top right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.boxhead h2 {
+        background: url(../images/sbhead-l_g.gif) no-repeat top left;
+        margin: 0;
+        padding: 22px 30px 5px;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2em;
+        line-height: 1em;
+        text-shadow: rgba(0,0,0,.4) 0px 2px 5px; /* Safari-only, but cool */
+}
+.boxbody {
+        background: url(../images/sbbody-l_g.gif) no-repeat bottom left;
+        margin: 0;
+        padding: 5px 30px 31px;
+}
+
+#main_content {
+   filter:alpha(opacity=80);
+   -moz-opacity: 0.8;
+   opacity: 0.8;
+
+}
+
+#login_box {
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+
+/* ---------------- TEXTBOX --------------------- */
+
+.text_box {
+    padding-left:20px;
+    border: 10px solid #369d47;
+    background-color: #1d5c2a;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    margin: 10px 14px 20px 0px;
+}
+
+.text_box h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.text_box a:link {
+    color: white;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.text_box h2 a
+{
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#internal_text {
+    font-size: 18px;
+}
+
+#internal_text.presentation {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+    margin-right: 20px;
+    overflow: auto;
+}
+
+#internal_text.presentation ul {
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 0px;
+    font-size:   13px;
+    line-height: 18px;
+}
+
+#internal_text.presentation ol {
+    font-size:   13px;
+    line-height: 18px;
+}
+
+#internal_text.presentation li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    margin-left: 0px;
+}
+
+#textbox_2_2 {
+    width: 440px;
+    height: 180px;
+    float: left;
+}
+
+#stats_resume {
+    margin: 5px;
+}
+
+
+/*-- CARD STYLES -- */
+
+#card {
+    font-size: 14px;
+    text-align: center;
+    width: 900px;
+}
+
+.card_player_name {
+    font-size: 14px;
+    text-align: left;
+}
+
+.card_player_info {
+    font-size: 14px;
+    text-align: center;
+}
+
+.car_player {
+    text-align: center;
+    color:black;
+}
+
+.card_info {
+    color: black;
+}
+
+.card_info_leyend {
+    color: black;
+    text-align: right;
+}
+
+.hole_blue {
+    background-color: #0000FF;
+    text-align: center;
+    color: black;
+}
+
+.hole_red {
+    background-color: #FF0000;
+    text-align: center;
+    color: black;
+}
+
+.hole_yellow {
+    background-color: #FFFF00;
+    text-align: center;
+    color: black;
+}
+
+.hole_white {
+    background-color: #FFFFFF;
+    text-align: center;
+    color: black;
+}
+
+table td {
+    text-align: center;
+    font-size: 14px;
+    color:black;
+}
+
+table th {
+    text-align: center;
+    font-size: 15px;
+    color: black;
+}
+
+td.totals {
+    font-weight: bold;
+}
+
+#toolbar {
+    padding: 10px 4px;
+}
+
