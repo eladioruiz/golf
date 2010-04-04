@@ -170,12 +170,13 @@ div.row .submit {
 
 #navigation_main {
     /*float: left;*/
-    border: 1px solid #FFF;
-    height: 43px;
+    border: 0px solid #FFF;
+    height: 40px;
     width: 1002px;
     margin: 0px auto;
     margin-top: 15px;
     margin-bottom: 0px;
+    margin-left: 17px;
 /*    color: black;
     text-align: center;
     padding-top: 10px;
@@ -208,10 +209,101 @@ div.row .submit {
 }
 **/
 
-.lavaLampWithImage a.inactive {
-    color: grey;
-    decoration: none;
+   /* defaults for all examples */
+.kwicks {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
+.kwicks li{
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+}
+
+.kwicks li{
+    float: left;
+    width: 154px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+}
+#kwick1 {
+    background-color: #369D47;
+    background-image: url('images/meet.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick2 {
+    background-color: #1D5C2A;
+    background-image: url('images/kwicks.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick3 {
+    background-color: #369D47;
+    background-image: url('images/for.gif');
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick4 {
+    background-color: #1D5C2A;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick5 {
+    background-color: #369D47;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#kwick6 {
+    background-color: #1D5C2A;
+    background-image: url('images/jquery.gif');
+    margin-right: none;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    border: 2px outset #1d5c2a;
+}
+#menu .current {
+    border: 2px inset #1d5c2a;
+    font-style: italic;
+}
+.returnToKwicks {
+    display:block;
+    border:1px dashed #888;
+    padding:5px;
+    float:right;
+}
+
+.returnToKwicks:hover {
+    background-color: #5e5e76;
+    text-decoration: none;
+    color: #aaa;
+}
+
 
 /* --- User Info ----------------------------------------------------------- */
 #user_info {

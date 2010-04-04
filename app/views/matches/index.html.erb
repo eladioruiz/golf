@@ -2,7 +2,7 @@
   $(function() {
     $("button, input:submit, a", ".demo").button();
 
-    $("a", ".demo").click(function() { return false; });
+    $("a", ".demo").click(function() { return true; });
   });
 </script>
 
@@ -40,7 +40,7 @@
 
 <div class="demo">
 
-  <a href="#">Todos</a>
+  <a href="matches">Todos</a>
   <a href="matches/lastmatches">10 Últimos</a>
   <a href="matches/bestmatches">10 Mejores</a>
   <a href="matches/lastmonth">Último Mes</a>

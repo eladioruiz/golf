@@ -14,4 +14,10 @@ class HomeController < ApplicationController
     @stats_last_inserted_course = Course.last.name + " (" + Course.last.address + ")"
     @stats_most_used_course = Match.most_used_course.first.course.name + " (" + Match.most_used_course.first.num_used + " veces)"
   end
+
+  def current_menu
+    @current_menu = {'init' => 'active', 'matches' => '', 'courses' => '', 'charts' => ''}
+  end
+
+
 end
