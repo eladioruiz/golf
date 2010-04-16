@@ -533,3 +533,77 @@ td.totals {
     padding: 10px 4px;
 }
 
+/********** TABLAS DE RESULTADOS **************/
+#result table a:link, #result table a:visited, #result table a:active {
+    background-color: transparent;
+    color: red;
+    text-decoration: none;
+}
+
+#result table a:hover {
+    background: transparent;
+    color: #000000;
+    text-decoration: underline;
+}
+
+#result table, #result td, #result th {
+    margin: 0px;
+    padding: 10px;
+    height: 25px;
+}
+
+#result table tr {
+    height: 125px;
+}
+
+#result tbody th {
+    background-color: #524123;
+    border-bottom: 2px solid #3d3019;
+    border-top: 3px solid #6e572e;
+    padding: 0px;
+    color: #fff;
+    font-size: 14px;
+}
+
+#result tbody td {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #D6F2C3;
+    border-bottom: 2px solid #B3DE94;
+    border-top: 3px solid #FFFFFF;
+    font-size: 12px;
+}
+
+#result tbody tr.odd th, #result tbody tr.odd td {
+    background-color: #C8EDAE;
+    border-bottom: 2px solid #67BD2A;
+}
+
+#result tbody tr:hover td {
+    background-color: #aAE899;
+}
+
+#result td, #result th {
+    vertical-align: middle;
+}
+
+#result tfoot td, #result tfoot th {
+    font-weight: bold;
+    padding: 0px;
+}
+
+#result thead th {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 19px;
+    padding: 0px;
+    white-space: nowrap;
+}
+
+#result table a {
+    color: red;
+    text-decoration: overline;
+}
