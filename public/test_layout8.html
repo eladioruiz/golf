@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <title>My Golf Card</title>
+
+    <link href="/stylesheets/mygolfcard.css?1270409305" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css?1269192890" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/javascripts/jquery-1.4.2.min.js?1267130934" type="text/javascript"></script>
+
+    <script src="/javascripts/jquery-ui-1.8rc3.custom.min.js?1269070478" type="text/javascript"></script>
+    <script src="/javascripts/jquery.easing.min.js?1267387834" type="text/javascript"></script>
+    <script src="/javascripts/jquery.kwicks-1.5.1.js?1270409305" type="text/javascript"></script>
+    <script src="/javascripts/application.js?1270409305" type="text/javascript"></script>
+    <script src="/javascripts/match_helpers.js?1267387834" type="text/javascript"></script>
+    <script src="/javascripts/FusionCharts.js?1268592847" type="text/javascript"></script>
+
+    <style>
+        .gallery {
+            margin-top:20px;
+            overflow: auto;
+            height:450px
+        }
+        .gallery img {
+            border-top: 3px solid green;
+            border-left: 3px solid green;
+            border-bottom: 3px solid lime;
+            border-right: 3px solid lime;
+        }
+    </style>
+
+</head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+                    </div>
+
+                    <div class="wrapbranding">
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                      <div id="user">
+                          <BR>Eladio Ruiz (HCP : 36)
+                      </div>
+                      <div id="logout">
+                          <BR><a href="/logout" alt="Logout"><img src="../images/logout.gif" border="0" alt="Logout" /></a>
+                      </div>
+                    </div> <!-- end: user_info -->
+                    <div class="footer_header">
+                        &nbsp;
+                    </div>
+
+                </div>
+            </div>
+
+        <div class="content_wrapper">
+
+
+            <div id="navigation_main">
+
+              <ul class="kwicks" id="menu">
+                <li id="kwick1" class=""><a title="Inicio" href="/">Inicio</a></li>
+                <li id="kwick2" class="current"><a href="/matches">Partidos</a></li>
+
+                <li id="kwick3" class=""><a href="/courses">Campos</a></li>
+                <li id="kwick4" class=""><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
+                <li id="kwick5" class="inactive"><a href="#">Resumen</a></li>
+                <li id="kwick6" class="inactive"><a href="#">Configuraci&oacute;n</a></li>
+              </ul>
+
+            </div>  <!-- end: navigation -->
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+
+<h1>Campos</h1>
+
+<div id="course_select">
+  <div class="ui-widget">
+    <label>Localidad: </label>
+    <input id="city" type="text" value="">
+
+    <label>Campo: </label>
+    <input id="course" type="text" value="">
+  </div>
+
+</div>
+                    <!-- GALERIA DE IMAGENES -->
+                    <div class="gallery">
+                        <table cellpadding="5px">
+                            <tr>
+                                <td width="30%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="100%">
+                                                <img src="images/golf_03.gif">
+                                            </td>
+                                        </tr>
+                                        <tr style="background-color: green">
+                                            <td>
+                                                <span>La Duquesa</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                                <td width="30%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="100%">
+                                                <img src="images/golf_03.gif">
+                                            </td>
+                                        </tr>
+                                        <tr style="background-color: green">
+                                            <td>
+                                                <span>La Duquesa</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="30%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="100%">
+                                                <img src="images/golf_03.gif">
+                                            </td>
+                                        </tr>
+                                        <tr style="background-color: green">
+                                            <td>
+                                                <span>La Duquesa</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/golf_03.gif"></td>
+                                <td><img src="images/golf_03.gif"></td>
+                                <td><img src="images/golf_03.gif"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="images/golf_03.gif"></td>
+                                <td><img src="images/golf_03.gif"></td>
+                                <td><img src="images/golf_03.gif"></td>
+                            </tr>
+                        </table>
+                    </div> <!-- end: galeria de imagenes -->
+
+
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+
+        </div>  <!-- end: content_wrapper -->
+
+        <div class="left">
+            &nbsp;
+        </div>
+        <div class="right">
+            &nbsp;
+        </div>
+        <div class="footer">
+            <p>&copy 2010 Eladio Ruiz</p>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+

@@ -10,7 +10,8 @@ class CoursesController < ApplicationController
   
   # GET /courses
   def index
-    @courses = Course.all
+    page = params[:page] || 1
+    @courses = Course.all.paginate :page => page, :order => 'name'
   end
 
   # GET /courses/1

@@ -1,3 +1,9 @@
+/* ------------------ GENERAL --------------- */
+img {
+        border: none;
+}
+
+
 /* ------------------ LAYOUT ---------------- */
 .wrapper{
     width: 1024px;
@@ -238,7 +244,7 @@ div.row .submit {
 }
 #kwick1 {
     background-color: #369D47;
-    background-image: url('images/meet.gif');
+    /*background-image: url('images/meet.gif');*/
     font-size: 14px;
     text-align: center;
     padding-top: 10px;
@@ -246,7 +252,7 @@ div.row .submit {
 }
 #kwick2 {
     background-color: #1D5C2A;
-    background-image: url('images/kwicks.gif');
+    /*background-image: url('images/kwicks.gif');*/
     font-size: 14px;
     text-align: center;
     padding-top: 10px;
@@ -254,7 +260,7 @@ div.row .submit {
 }
 #kwick3 {
     background-color: #369D47;
-    background-image: url('images/for.gif');
+    /*background-image: url('images/for.gif');*/
     font-size: 14px;
     text-align: center;
     padding-top: 10px;
@@ -262,7 +268,7 @@ div.row .submit {
 }
 #kwick4 {
     background-color: #1D5C2A;
-    background-image: url('images/jquery.gif');
+    /*background-image: url('images/jquery.gif');*/
     margin-right: none;
     font-size: 14px;
     text-align: center;
@@ -271,7 +277,7 @@ div.row .submit {
 }
 #kwick5 {
     background-color: #369D47;
-    background-image: url('images/jquery.gif');
+    /*background-image: url('images/jquery.gif');*/
     margin-right: none;
     font-size: 14px;
     text-align: center;
@@ -280,7 +286,7 @@ div.row .submit {
 }
 #kwick6 {
     background-color: #1D5C2A;
-    background-image: url('images/jquery.gif');
+    /*background-image: url('images/jquery.gif');*/
     margin-right: none;
     font-size: 14px;
     text-align: center;
@@ -606,4 +612,117 @@ td.totals {
 #result table a {
     color: red;
     text-decoration: overline;
+}
+
+/* --------------- GALLERY -------------- */
+.gallery ul.display {
+    float: left;
+    width: 910px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #333;
+    border-right: 1px solid #333;
+
+}
+
+.gallery ul.display {
+    background: #572;
+}
+
+.gallery ul.display li {
+    float: left;
+    width: 910px;
+    padding: 10px 0;
+    margin: 0;
+    border-top: 1px solid #111;
+    border-right: 1px solid #111;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+}
+
+.gallery ul.display li a {
+    color: #e7ff62;
+    text-decoration: none;
+}
+
+.gallery ul.display li .content_block {
+    padding: 0 10px;
+}
+
+.gallery ul.display li .content_block h2 {
+    margin: 0;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.gallery ul.display li .content_block h2 a {
+    margin: 0;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.gallery ul.display li .content_block p {
+    margin: 0;
+    padding: 5px 5px 5px 2px;
+    font-size: 1.2em;
+}
+
+.gallery ul.display li .content_block a img{
+    padding: 5px;
+    border: 2px solid #ccc;
+    background: #fff;
+    margin: 0 15px 0 0;
+    float: left;
+}
+
+.gallery ul.thumb_view li {
+    width: 180px;
+}
+
+.gallery ul.thumb_view li h2 {
+    display: inline;
+}
+
+.gallery ul.thumb_view li p{
+    display: none;
+}
+
+.gallery ul.thumb_view li .content_block a img {
+    margin: 10px 10px 10px;
+}
+
+a.switch_thumb {
+    width: 122px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0;
+    margin: 10px 0;
+    display: block;
+    background: url(../images/switch.gif) no-repeat;
+    outline: none;
+    text-indent: -9999px;
+}
+
+a:hover.switch_thumb {
+    filter:alpha(opacity=75);
+    opacity:.75;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+}
+
+a.swap { background-position: left bottom; }
+
+.gallery {
+    margin-top:20px;
+    overflow: auto;
+    height:450px
+}
+
+.gallery img {
+    border-top: 3px solid green;
+    border-left: 3px solid green;
+    border-bottom: 3px solid lime;
+    border-right: 3px solid lime;
 }

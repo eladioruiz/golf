@@ -17,4 +17,7 @@ class Course < ActiveRecord::Base
     end
   end
 
+  cattr_reader :per_page
+  @@per_page = 10
+
 end

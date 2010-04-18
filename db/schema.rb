@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100307153455) do
+ActiveRecord::Schema.define(:version => 20100417174003) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20100307153455) do
   end
 
   create_table "charts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "course_images", :force => true do |t|
+    t.integer  "course_id"
+    t.string   "filename"
+    t.integer  "principal"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

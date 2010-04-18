@@ -10,9 +10,9 @@
 <style>
   #course_select {
     position: relative;
-    top: 0px;
-    left: 50px;
-    font-size: 12px;
+    top: -10px;
+    margin-left:50px;
+    font-size: 13px;
   }
 </style>
 
@@ -44,15 +44,13 @@
 
 </div> <!-- end: ui-form -->
 
-  <p></p>
-
 <div>
     <table width="98%" id="result">
         <tr>
-            <th width="30%">Course</th>
-            <th width="20%">Date</th>
-            <th width="10%">Holes</th>
-            <th width="20%">Players</th>
+            <th width="30%">Campo</th>
+            <th width="20%">Fecha / Hora</th>
+            <th width="10%">Hoyos</th>
+            <th width="20%">Jugadores</th>
             <th width="20%" colspan="3">&nbsp;</th>
         </tr>
 
@@ -63,9 +61,9 @@
           <td><%=h format_date(match.date_hour_match) %></td>
           <td><%=h match.holes %></td>
           <td><a id="dialog<%=  match.id %>" href="javascript:;" onclick='$("#dialog-modal<%=  match.id %>").dialog();' ><%= match.players.count  %>  Jugadores</a></td>
-          <td><%= link_to 'Show', match %></td>
-          <td><%= link_to 'Edit', edit_match_path(match) %></td>
-          <td><%= link_to 'Delete', match, :confirm => 'Are you sure?', :method => :delete %></td>
+          <td><%= link_to 'Detalle', match %></td>
+          <td><%= link_to 'Modificar', edit_match_path(match) %></td>
+          <td><%= link_to 'Borrar', match, :confirm => '¿Está seguro?', :method => :delete %></td>
         </tr>
       <% end %>
   </table>
@@ -73,7 +71,7 @@
 
 <br />
 
-<%= link_to 'New match', new_match_path %>
+<%= link_to 'Nuevo Partido', new_match_path %>
 
 <!-- DIVs con nombres de Jugadres para capas de +info -->
 

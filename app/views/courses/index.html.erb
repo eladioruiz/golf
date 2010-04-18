@@ -1,26 +1,56 @@
-<h1>Listing courses</h1>
+<script>
+    $(document).ready(function(){
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Handicap</th>
-    <th>Enabled</th>
-  </tr>
+        $("a.switch_thumb").toggle(function(){
+            $(this).addClass("swap");
+            $("ul.display").fadeOut("fast", function() {
+                $(this).fadeIn("fast").addClass("thumb_view");
+            });
+        }, function () {
+            $(this).removeClass("swap");
+            $("ul.display").fadeOut("fast", function() {
+                $(this).fadeIn("fast").removeClass("thumb_view");
+            });
+        });
 
-<% @courses.each do |course| %>
-  <tr>
-    <td><%=h course.name %></td>
-    <td><%=h course.address %></td>
-    <td><%=h course.handicap %></td>
-    <td><%=h course.enabled %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Delete', course, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+        $("button, input:submit, a", ".ui-form").button();
 
-<br />
+        $("a", ".ui-form").click(function() { return true; });
+    });
+</script>
 
-<%= link_to 'New course', new_course_path %>
+<h1>Campos disponibles</h1>
+<%= link_to 'Nuevo Campo', new_course_path %>
+
+                    <div id="course_select">
+                        <div class="ui-widget">
+                            <label>Localidad:&nbsp;</label>
+                            <input id="city" type="text" value="">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>Campo:&nbsp;</label>
+                            <input id="course" type="text" value="">
+
+                            <a href="#" class="switch_thumb">Switch Thumb</a>
+
+                        </div>
+                    </div>
+                    <div  class="gallery">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr >
+                                <td >
+                                    <ul class="display" >
+                                      <% @courses.each do |course| %>
+                                        <li>
+                                            <div class="content_block">
+                                                <a href="/courses/<%= course.id %>"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
+                                                <p>Askin', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                        <% end %>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+

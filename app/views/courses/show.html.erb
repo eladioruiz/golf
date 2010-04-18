@@ -1,23 +1,104 @@
-<p>
-  <b>Name:</b>
-  <%=h @course.name %>
-</p>
+<style>
+form.cmxform fieldset {
+  margin-bottom: 10px;
+  margin-right: 20px;
+  font-size: 14px;
+}
+form.cmxform legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+form.cmxform label {
+  display: inline-block;
+  line-height: 1.0;
+  vertical-align: top;
+}
+form.cmxform fieldset ol {
+  margin: 0;
+  padding: 0;
+}
+form.cmxform fieldset li {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+form.cmxform fieldset fieldset {
+  border: none;
+  margin: 3px 0 0;
+}
+form.cmxform fieldset fieldset legend {
+  padding: 0 0 5px;
+  font-weight: normal;
+}
+form.cmxform fieldset fieldset label {
+  display: block;
+  width: auto;
+}
+form.cmxform em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+form.cmxform label {
+  width: 80px; /* Width of labels */
+}
+form.cmxform fieldset fieldset label {
+  margin-left: 123px; /* Width plus 3 (html space) */
+}
 
-<p>
-  <b>Address:</b>
-  <%=h @course.address %>
-</p>
+</style>
 
-<p>
-  <b>Handicap:</b>
-  <%=h @course.handicap %>
-</p>
+<script>
+  if( document.addEventListener )
+    //document.addEventListener( 'DOMContentLoaded', cmxform, true);
 
-<p>
-  <b>Enabled:</b>
-  <%=h @course.enabled %>
-</p>
+function cmxform(){
+  // Hide forms
+  $( 'form.cmxform' ).hide().end();
 
+  // Processing
+  $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+    var labelContent = this.innerHTML;
+    var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+    var labelSpan = document.createElement( 'span' );
+        labelSpan.style.display = 'block';
+        labelSpan.style.width = labelWidth;
+        labelSpan.innerHTML = labelContent;
+    this.style.display = '-moz-inline-box';
+    this.innerHTML = null;
+    this.appendChild( labelSpan );
+  } ).end();
 
+  // Show forms
+  $( 'form.cmxform' ).show().end();
+}
+</script>
+
+<h1>Detalle de Campo</h1>
+
+<form class="cmxform">
+<fieldset>
+  <ol>
+    <li>
+      <p>
+        <label>Nombre:</label>
+        <%=h @course.name %>
+      </p>
+    </li>
+    <li>
+      <p>
+        <label>Dirección:</label>
+        <%=h @course.address %>
+      </p>
+    </li>
+    <li>
+      <p>
+        <label>Handicap:</label>
+        <%=h @course.handicap %>
+      </p>
+    </li>
+  </ol>
+</fieldset>
+</form>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
