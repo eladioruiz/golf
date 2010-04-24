@@ -1,0 +1,12 @@
+<h1>Editing course_type</h1>
+
+<% form_for(@course_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @course_type %> |
+<%= link_to 'Back', course_types_path %>

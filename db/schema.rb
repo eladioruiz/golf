@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100419210649) do
+ActiveRecord::Schema.define(:version => 20100424181031) do
 
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(:version => 20100419210649) do
     t.string "description", :limit => 50
   end
 
+  create_table "course_typs", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -55,14 +60,14 @@ ActiveRecord::Schema.define(:version => 20100419210649) do
     t.integer  "length_blue"
     t.integer  "length_yellow"
     t.integer  "length_red"
-    t.boolean  "enabled",                             :default => true
+    t.boolean  "enabled",                              :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "n_holes",                             :default => 18
-    t.string   "short_description",   :limit => 250
-    t.string   "long_description",    :limit => 1000
-    t.string   "founded",             :limit => 100
-    t.string   "designer",            :limit => 100
+    t.integer  "n_holes",                              :default => 18
+    t.string   "short_description",    :limit => 250
+    t.string   "long_description",     :limit => 1000
+    t.string   "founded",              :limit => 100
+    t.string   "designer",             :limit => 100
     t.integer  "course_type_id"
     t.integer  "ability_recommended"
     t.integer  "maintance"
@@ -70,6 +75,14 @@ ActiveRecord::Schema.define(:version => 20100419210649) do
     t.integer  "wind"
     t.integer  "water_in_play"
     t.integer  "trees_in_play"
+    t.string   "location_coordinates"
+    t.string   "location_latitude"
+    t.string   "location_longitude"
+  end
+
+  create_table "coursetypes", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "dummies", :force => true do |t|

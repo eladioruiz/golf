@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :course_types
+
+  map.resources :coursetypes
+
+  map.resources :course_typs
+
 
   # Casos particulares
   map.connect '/matches/week', :controller => 'matches', :action => 'this_week'
