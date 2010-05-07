@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <title>My Golf Card</title>
+
+    <link href="/stylesheets/mygolfcard.css?1270409305" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css?1269192890" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/javascripts/jquery-1.4.2.min.js?1267130934" type="text/javascript"></script>
+
+    <script src="/javascripts/jquery-ui-1.8rc3.custom.min.js?1269070478" type="text/javascript"></script>
+    <script src="/javascripts/jquery.easing.min.js?1267387834" type="text/javascript"></script>
+    <script src="/javascripts/jquery.kwicks-1.5.1.js?1270409305" type="text/javascript"></script>
+    <script src="/javascripts/jquery.quicksand.min.js?1270409305" type="text/javascript"></script>
+    <script src="/javascripts/application.js?1270409305" type="text/javascript"></script>
+    <script src="/javascripts/match_helpers.js?1267387834" type="text/javascript"></script>
+    <script src="/javascripts/FusionCharts.js?1268592847" type="text/javascript"></script>
+
+    <style>
+      .webbies {
+        overflow: hidden;
+      }
+      .webbies li {
+        display: block;
+        float: left;
+      }
+
+      .gallery .hidden {
+        display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="wrapper_header">
+                <div class="header_header">
+                    &nbsp;
+                </div>
+
+                <div class="wrapbranding">
+                    <div class="branding">
+                        <h1>My Golf Card</h1>
+                        <h2>Tarjetas y Puntuaciones</h2>
+                    </div>
+                </div>
+                <div class="user_info">
+                    <div id="user">
+                        <BR>Eladio Ruiz (HCP : 36)
+                    </div>
+                    <div id="logout">
+                        <BR><a href="/logout" alt="Logout"><img src="../images/logout.gif" border="0" alt="Logout" /></a>
+                    </div>
+                </div> <!-- end: user_info -->
+                <div class="footer_header">
+                    &nbsp;
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content_wrapper">
+
+            <div id="navigation_main">
+
+                <ul class="kwicks" id="menu">
+                    <li id="kwick1" class=""><a title="Inicio" href="/">Inicio</a></li>
+                    <li id="kwick2" class="current"><a href="/matches">Partidos</a></li>
+
+                    <li id="kwick3" class=""><a href="/courses">Campos</a></li>
+                    <li id="kwick4" class=""><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
+                    <li id="kwick5" class="inactive"><a href="#">Resumen</a></li>
+                    <li id="kwick6" class="inactive"><a href="#">Configuraci&oacute;n</a></li>
+                </ul>
+
+            </div>  <!-- end: navigation -->
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+
+                    <h1>Campos</h1>
+
+                    <form id="filter">
+
+                    <div id="course_select">
+                        <div class="ui-widget" id="load-webbies">
+                            <label>Localidad:&nbsp;</label>
+                            <input id="city" name="city" type="text" value="">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>Campo:&nbsp;</label>
+                            <input id="course" name="course" type="text" value=""><a href="#" class="button">Buscar</a>
+
+                            <a href="#" class="switch_thumb">Switch Thumb</a>
+
+                        </div>
+                    </div>
+
+                    </form>
+                    
+                    <div  class="gallery">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr >
+                                <td >
+                                    <ul class="display" >
+                                        <li id="malaga" data-id="malaga">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2"><a href="#">Image Name 1</a></h2>
+                                                <p>malaga', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="malaga">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+
+                                                <h2><a href="#">Image Name 2</a></h2>
+                                                <p>malaga', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="madrid">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 3</a></h2>
+
+                                                <p>madrid', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="cadiz">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 4</a></h2>
+                                                <p>cadiz', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+
+                                            </div>
+                                        </li>
+                                        <li data-id="cadiz">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 5</a></h2>
+                                                <p>cadiz', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+
+                                        </li>
+                                        <li data-id="madrid">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 6</a></h2>
+                                                <p>madrid', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+
+                                        <li data-id="mallorca">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 7</a></h2>
+                                                <p>mallorca', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>adrid
+
+                                        <li data-id="madrid">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 8</a></h2>
+                                                <p>madrid', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="mallorca">
+
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 9</a></h2>
+                                                <p>mallorca', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'.</p>
+                                            </div>
+                                        </li>
+                                        <li data-id="malaga">
+                                            <div class="content_block">
+
+                                                <a href="#"><img width="140" height="100" width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 10</a></h2>
+                                                <p>malaga', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="malaga">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+
+                                                <h2><a href="#">Image Name 11</a></h2>
+                                                <p>malaga', jehosephat come pudneer, sam-hell, in lament had. Cabin tax-collectors spell. </p>
+                                            </div>
+                                        </li>
+                                        <li data-id="mallorca">
+                                            <div class="content_block">
+                                                <a href="#"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="#">Image Name 12</a></h2>
+
+                                                <p>mallorca', jehosephat come pudnemaer, sam-hell, in lament had. Cabin tax-collectors spell, chitlins spittin' watchin' hootch me rightly kinfolk that. Woman kickin', work yer last dogs, rattler hee-haw mobilehome stew trailer driveway shootin'. </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> <!-- text box -->
+            </div> <!-- main content -->
+        </div> <!-- content wrapper -->
+    </div> <!-- wrapper -->
+
+        <script>
+        var $filterCity = $('#filter input[name="city"]');
+        var $filterCourse = $('#filter input[name="course"]');
+
+        $(document).ready(function(){
+
+            $("a.switch_thumb").toggle(function(){
+                $(this).addClass("swap");
+                $("ul.display").fadeOut("fast", function() {
+                    $(this).fadeIn("fast").addClass("thumb_view");
+                });
+            }, function () {
+                $(this).removeClass("swap");
+                $("ul.display").fadeOut("fast", function() {
+                    $(this).fadeIn("fast").removeClass("thumb_view");
+                });
+            });
+
+            $filterCity.keyup(function(){
+                    var filter = $filterCity.val();
+                    $(".gallery:first li").each(function () {
+                        var attrib = $(this).attr("data-id");
+                        var pos = attrib.search(new RegExp(filter,"i"));
+                        if (pos<0) {
+                            $(this).addClass("hidden");
+                        }
+                        else {
+                            $(this).removeClass("hidden");
+                        }
+                    });
+            });
+
+            $filterCourse.keyup(function(){
+                    $filter = $filterCourse.val();
+                }
+            );
+
+            $('#load-webbies a.button').click(function(e) {
+            		$.get( $(this).attr('href'), function(data) {
+            		  	$('.webbies').quicksand( $(data).find('li'), {adjustHeight: 'dynamic'} );
+            		});
+            		e.preventDefault();
+            	});
+
+        });
+    </script>
+
+</body>
+</html>
