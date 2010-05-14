@@ -1,5 +1,5 @@
 <style>
-    form.cmxform fieldset {
+  form.cmxform fieldset {
     margin-bottom: 10px;
     margin-right: 20px;
     font-size: 14px;
@@ -12,6 +12,7 @@
     display: inline-block;
     line-height: 1.0;
     vertical-align: top;
+    font-weight: bold;
   }
   form.cmxform fieldset ol {
     margin: 0;
@@ -46,6 +47,19 @@
     margin-left: 123px; /* Width plus 3 (html space) */
   }
 
+  .li-label {
+    display: inline;
+    width: 180px;
+  }
+
+  .ul-form {
+    margin-left: 0px;
+    padding-left: 0px;
+    white-space: nowrap;
+    list-style-type: none;
+    padding-bottom: 10px;
+    /*width: 150px;*/
+  }
 </style>
 
 <script>
@@ -79,37 +93,61 @@ function cmxform(){
 <form class="cmxform">
 <fieldset>
   <ol>
-    <li>
-      <p>
-        <label>Nombre:</label>
-        <%=h @course.name %>
-      </p>
+    <li class="row-form">
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Nombre:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.name %>
+        </li>
+      </ul>
+    </li>
+    <li class="row-form">
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Dirección:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.address %>
+        </li>
+      </ul>
+    </li>
+    <li class="row-form">
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Descripci&oacute;n corta:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.short_description %>
+        </li>
+      </ul>
+    </li>
+    <li class="row-form">
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Descripci&oacute;n larga:</label>
+        </li>
+        <li>
+          <%=h @course.long_description %>
+        </li>
+      </ul>
     </li>
     <li>
-      <p>
-        <label>Dirección:</label>
-        <%=h @course.address %>
-      </p>
-    </li>
-    <li>
-      <p>
-        <label>Descripci&oacute;n corta:</label>
-        <%=h @course.short_description %>
-      </p>
-    </li>
-    <li>
-      <p>
-        <label>Descripci&oacute;n larga:</label>
-        <%=h @course.long_description %>
-      </p>
-    </li>
-    <li>
-      <p>
-        <label>Handicap:</label>
-        <%=h @course.handicap %>
-        <label>N. Hoyos:</label>
-        <%=h @course.n_holes %>
-      </p>
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Handicap:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.handicap %>
+        </li>
+        <li class="li-label">
+          <label>N. Hoyos:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.n_holes %>
+        </li>
+      </ul>
     </li>
     <li>
       <p>
