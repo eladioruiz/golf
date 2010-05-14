@@ -41,15 +41,15 @@
     color: #f00;
   }
   form.cmxform label {
-    width: 180px; /* Width of labels */
+    width: 150px; /* Width of labels */
   }
   form.cmxform fieldset fieldset label {
     margin-left: 123px; /* Width plus 3 (html space) */
   }
 
   .li-label {
-    display: inline;
-    width: 180px;
+    display: inline-block;
+    width: 150px;
   }
 
   .ul-form {
@@ -128,12 +128,12 @@ function cmxform(){
         <li class="li-label">
           <label>Descripci&oacute;n larga:</label>
         </li>
-        <li>
+        <li class="li-label">
           <%=h @course.long_description %>
         </li>
       </ul>
     </li>
-    <li>
+    <li class="row-form">
       <ul class="ul-form">
         <li class="li-label">
           <label>Handicap:</label>
@@ -150,26 +150,49 @@ function cmxform(){
       </ul>
     </li>
     <li>
-      <p>
-        <label>Longitud Amarillas:</label>
-        <%=h @course.length_yellow %>
-        <label>Longitud Rojas:</label>
-        <%=h @course.length_red %>
-        <label>Longitud White:</label>
-        <%=h @course.length_white %>
-      </p>
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Long. Amarillas:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.length_yellow %>
+        </li>
+        <li class="li-label">
+          <label>Long. Rojas:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.length_red %>
+        </li>
+        <li class="li-label">
+          <label>Long. Blancas:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.length_white %>
+        </li>
+      </ul>
     </li>
     <li>
-      <p>
-        <label>Fundado en (año):</label>
-        <%=h @course.founded %>
-        <label>Diseñador:</label>
-        <%=h @course.designer %>
-        <label>Longitud White:</label>
-        <%=h @course.length_white %>
-        <label>Tipo de Campo:</label>
-        <%=h @course.course_type_id %>
-      </p>
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Fundado en<br>(año):</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.founded %>
+        </li>
+        <li class="li-label">
+          <label>Diseñador:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.designer %>
+        </li>
+        </li>
+        <li class="li-label">
+          <label>Tipo de Campo:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.course_type_id %>
+        </li>
+      </ul>
     </li>
     <li>
       <p>
