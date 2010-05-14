@@ -40,7 +40,7 @@
     color: #f00;
   }
   form.cmxform label {
-    width: 80px; /* Width of labels */
+    width: 180px; /* Width of labels */
   }
   form.cmxform fieldset fieldset label {
     margin-left: 123px; /* Width plus 3 (html space) */
@@ -107,6 +107,8 @@ function cmxform(){
       <p>
         <label>Handicap:</label>
         <%=h @course.handicap %>
+        <label>N. Hoyos:</label>
+        <%=h @course.n_holes %>
       </p>
     </li>
     <li>
@@ -117,6 +119,38 @@ function cmxform(){
         <%=h @course.length_red %>
         <label>Longitud White:</label>
         <%=h @course.length_white %>
+      </p>
+    </li>
+    <li>
+      <p>
+        <label>Fundado en (año):</label>
+        <%=h @course.founded %>
+        <label>Diseñador:</label>
+        <%=h @course.designer %>
+        <label>Longitud White:</label>
+        <%=h @course.length_white %>
+        <label>Tipo de Campo:</label>
+        <%=h @course.course_type_id %>
+      </p>
+    </li>
+    <li>
+      <p>
+        <label>Habilidad:</label>
+        <%=h @course.ability_recommended %>/10
+        <label>Mantenimiento:</label>
+        <%=h @course.maintance %>/10
+        <label>Relieve:</label>
+        <%=h @course.relief %>/10
+      </p>
+    </li>
+    <li>
+      <p>
+        <label>Viento:</label>
+        <%=h @course.wind %>/10
+        <label>Agua en Juego:</label>
+        <%=h @course.water_in_play %>/10
+        <label>&Aacute;rboles en Juego:</label>
+        <%=h @course.trees_in_play %>/10
       </p>
     </li>
   </ol>

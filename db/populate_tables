@@ -1,0 +1,5 @@
+insert into course_types (description) values ('Campo Abierto');
+insert into course_types (description) values ('Junato al mar');
+insert into course_types (description) values ('Residencial');
+insert into course_types (description) values ('Forestal');
+insert into course_types (description) values ('Rústico');

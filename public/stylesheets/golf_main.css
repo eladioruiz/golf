@@ -487,3 +487,18 @@ td.totals {
     padding: 10px 4px;
 }
 
+/* COURSES */
+
+.webbies {
+    overflow: hidden;
+}
+
+.webbies li {
+    display: block;
+    float: left;
+}
+
+.gallery .hidden {
+    display: none;
+}
+

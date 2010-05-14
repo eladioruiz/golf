@@ -7,8 +7,9 @@
 class Course < ActiveRecord::Base
   has_many :holes # Check it
   has_many :matches # Check it
+  has_one :course_type
 
-  after_save :create_holes
+  after_save :create_holes, :if => :new_record?
 
   def create_holes
     (1..n_holes).each do |i|

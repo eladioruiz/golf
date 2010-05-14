@@ -726,3 +726,18 @@ a.swap { background-position: left bottom; }
     border-bottom: 3px solid lime;
     border-right: 3px solid lime;
 }
+
+/* COURSES */
+
+.webbies {
+    overflow: hidden;
+}
+
+.webbies li {
+    display: block;
+    float: left;
+}
+
+.gallery .hidden {
+    display: none;
+}
