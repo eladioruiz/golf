@@ -1,47 +1,9 @@
-
-              <h1>Campos disponibles</h1>
-              <%= link_to 'Nuevo Campo', new_course_path %>
-
-                    <form id="filter">
-                      <div id="course_select">
-                          <div class="ui-widget" id="load-webbies">
-                              <label>Localidad:&nbsp;</label>
-                              <input id="city" name="city" type="text" value="">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <label>Campo:&nbsp;</label>
-                              <input id="course" name="course" type="text" value="">
-
-                              <a href="#" class="switch_thumb">Switch Thumb</a>
-
-                          </div>
-                      </div>
-                    </form>
-
-                    <div  class="gallery">
-                        <table width="100%" cellpadding="0" cellspacing="0">
-                            <tr >
-                                <td >
-                                    <ul class="display" >
-                                      <% @courses.each do |course| %>
-                                        <li data-id="<%= course.name %>">
-                                            <div class="content_block">
-                                                <a href="/courses/<%= course.id %>"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
-                                                <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
-                                                <p><%= course.long_description  %> </p>
-                                            </div>
-                                        </li>
-                                        <% end %>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
 <script>
-  var $filterCity = $('#filter input[name="city"]');
-  var $filterCourse = $('#filter input[name="course"]');
 
   $(document).ready(function(){
+
+    var $filterCity = $('#filter input[name="city"]');
+    var $filterCourse = $('#filter input[name="course"]');
 
     $("a.switch_thumb").toggle(function(){
       $(this).addClass("swap");
@@ -57,13 +19,24 @@
 
     $filterCity.keyup(function(){
       var filter = $filterCity.val();
-      
+      $('#filter input[name="course"]').val("");
+      $(".gallery:first li").each(function () {
+        var attrib = $(this).attr("city-id");
+        var pos = attrib.search(new RegExp(filter,"i"));
+        if (pos<0) {
+          $(this).addClass("hidden");
+        }
+        else {
+          $(this).removeClass("hidden");
+        }
+      });
     });
 
     $filterCourse.keyup(function(){
       var filter = $filterCourse.val();
+      $('#filter input[name="city"]').val("");
       $(".gallery:first li").each(function () {
-        var attrib = $(this).attr("data-id");
+        var attrib = $(this).attr("course-id");
         var pos = attrib.search(new RegExp(filter,"i"));
         if (pos<0) {
           $(this).addClass("hidden");
@@ -84,3 +57,43 @@
 
   });
 </script>
+
+              <h1>Campos disponibles</h1>              
+
+                    <form id="filter">
+                      <div id="course_select">
+                          <div class="ui-widget" id="load-webbies">
+                              <label>Localidad:&nbsp;</label>
+                              <input id="city" name="city" type="text" value="">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <label>Campo:&nbsp;</label>
+                              <input id="course" name="course" type="text" value="">
+                              &nbsp;&nbsp;&nbsp;<%= link_to 'Nuevo Campo', new_course_path %>
+
+                              <a href="#" class="switch_thumb">Switch Thumb</a>
+
+                          </div>
+                      </div>
+                    </form>
+
+                    <div  class="gallery">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr >
+                                <td >
+                                    <ul class="display" >
+                                      <% @courses.each do |course| %>
+                                        <li course-id="<%= course.name %>" city-id="<%= course.address %>">
+                                            <div class="content_block">
+                                                <a href="/courses/<%= course.id %>"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
+                                                <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
+                                                <p>(<%=h course.address %>)</p>
+                                                <p><%= course.long_description  %> </p>
+                                            </div>
+                                        </li>
+                                        <% end %>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+

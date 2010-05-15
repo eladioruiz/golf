@@ -50,38 +50,58 @@
   .li-label {
     display: inline-block;
     width: 150px;
+    vertical-align: top;
+  }
+
+  .li-field {
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+  }
+
+  .wrap-field {
+    display: inline-block;
+    width: 700px;
+    word-wrap: break-word;
   }
 
   .ul-form {
     margin-left: 0px;
     padding-left: 0px;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     list-style-type: none;
     padding-bottom: 10px;
+    
     /*width: 150px;*/
   }
+
+  .pair-form {
+    width: 290px;
+    display: inline-block;
+  }
+
 </style>
 
 <script>
   if( document.addEventListener )
-    //document.addEventListener( 'DOMContentLoaded', cmxform, true);
+    document.addEventListener( 'DOMContentLoaded', cmxform, true);
 
-function cmxform(){
-  // Hide forms
-  $( 'form.cmxform' ).hide().end();
+  function cmxform(){
+    // Hide forms
+    //$( 'form.cmxform' ).hide().end();
 
-  // Processing
-  $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
-    var labelContent = this.innerHTML;
-    var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
-    var labelSpan = document.createElement( 'span' );
-        labelSpan.style.display = 'block';
-        labelSpan.style.width = labelWidth;
-        labelSpan.innerHTML = labelContent;
-    this.style.display = '-moz-inline-box';
-    this.innerHTML = null;
-    this.appendChild( labelSpan );
-  } ).end();
+    // Processing
+    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+      var labelContent = this.innerHTML;
+      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+      var labelSpan = document.createElement( 'span' );
+          labelSpan.style.display = 'block';
+          labelSpan.style.width = labelWidth;
+          labelSpan.innerHTML = labelContent;
+      this.style.display = '-moz-inline-box';
+      this.innerHTML = null;
+      this.appendChild( labelSpan );
+    } ).end();
 
   // Show forms
   $( 'form.cmxform' ).show().end();
@@ -108,7 +128,7 @@ function cmxform(){
         <li class="li-label">
           <label>Dirección:</label>
         </li>
-        <li class="li-label">
+        <li class="wrap-field">
           <%=h @course.address %>
         </li>
       </ul>
@@ -118,7 +138,7 @@ function cmxform(){
         <li class="li-label">
           <label>Descripci&oacute;n corta:</label>
         </li>
-        <li class="li-label">
+        <li class="wrap-field">
           <%=h @course.short_description %>
         </li>
       </ul>
@@ -128,7 +148,7 @@ function cmxform(){
         <li class="li-label">
           <label>Descripci&oacute;n larga:</label>
         </li>
-        <li class="li-label">
+        <li class="wrap-field">
           <%=h @course.long_description %>
         </li>
       </ul>
@@ -149,7 +169,7 @@ function cmxform(){
         </li>
       </ul>
     </li>
-    <li>
+    <li class="row-form">
       <ul class="ul-form">
         <li class="li-label">
           <label>Long. Amarillas:</label>
@@ -171,7 +191,7 @@ function cmxform(){
         </li>
       </ul>
     </li>
-    <li>
+    <li class="row-form">
       <ul class="ul-form">
         <li class="li-label">
           <label>Fundado en<br>(año):</label>
@@ -194,25 +214,55 @@ function cmxform(){
         </li>
       </ul>
     </li>
-    <li>
-      <p>
-        <label>Habilidad:</label>
-        <%=h @course.ability_recommended %>/10
-        <label>Mantenimiento:</label>
-        <%=h @course.maintance %>/10
-        <label>Relieve:</label>
-        <%=h @course.relief %>/10
-      </p>
+    <li class="row-form">
+      <ul class="ul-form">
+        <li class="li-label">
+          <label>Habilidad:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.ability_recommended %>/10
+        </li>
+        <li class="li-label">
+          <label>Mantenimiento:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.maintance %>/10
+        </li>
+        <li class="li-label">
+          <label>Relieve:</label>
+        </li>
+        <li class="li-label">
+          <%=h @course.relief %>/10
+        </li>
+      </ul>
     </li>
-    <li>
-      <p>
-        <label>Viento:</label>
-        <%=h @course.wind %>/10
-        <label>Agua en Juego:</label>
-        <%=h @course.water_in_play %>/10
-        <label>&Aacute;rboles en Juego:</label>
-        <%=h @course.trees_in_play %>/10
-      </p>
+    <li class="row-form">
+      <ul class="ul-form">
+        <div class="pair-form">
+          <li class="li-label">
+            <label>Viento:</label>
+          </li>
+          <li class="li-label">
+            <%=h @course.wind %>/10
+          </li>
+        </div>
+        <div class="pair-form">
+          <li class="li-label">
+            <label>Agua en Juego:</label>
+          </li>
+          <li class="li-label">
+            <%=h @course.water_in_play %>/10
+          </li>
+        </div>
+        <div class="pair-form">
+          <li class="li-label">
+            <label>&Aacute;rboles en Juego:</label>
+          </li>
+          <li class="li-field">
+            <%=h @course.trees_in_play %>/10
+          </li>
+        </div>
+      </ul>
     </li>
   </ol>
 </fieldset>

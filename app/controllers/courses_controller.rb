@@ -27,6 +27,8 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+    @coursetypes = CourseType.all
+    @coursetypes.map!{|coursetype| [coursetype.description, coursetype.id]}
   end
 
   # POST /courses

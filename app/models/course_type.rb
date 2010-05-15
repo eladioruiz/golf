@@ -1,3 +1,3 @@
 class CourseType < ActiveRecord::Base
-  belong_to :course
+  has_many :courses
 end
