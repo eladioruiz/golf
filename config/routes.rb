@@ -58,6 +58,9 @@ ActionController::Routing::Routes.draw do |map|
   map.login  '/login', :controller => 'session', :action => 'new'
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
+  #map.resources :location
+  map.root :controller => "location", :action => "index"
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
 

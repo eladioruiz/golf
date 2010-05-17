@@ -44,7 +44,8 @@ Rails::Initializer.run do |config|
   :lib => 'will_paginate',
   :source => 'http://gems.github.com'
 
-  
+  config.gem "geokit"
+
 end
 
 

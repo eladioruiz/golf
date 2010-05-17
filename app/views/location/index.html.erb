@@ -1,0 +1,16 @@
+<h1>Google Maps Rails Example INDEX</h1>
+<%= @coordinates %>
+<%= @new_location %>
+
+<%= @map.div(:width => 250, :height => 250) %>
+
+<br />
+
+<br />
+
+<% form_for "new_location", :url => '/location/index', :html => { :method => :post } do %>
+	<label>Enter a new Location to map:</label><br />
+	<%= text_field_tag :new_location %>
+
+	<%= submit_tag "Map It" %>
+<% end %>

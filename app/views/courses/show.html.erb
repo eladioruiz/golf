@@ -1,4 +1,17 @@
 <style>
+  .column_left {
+    float: left;
+  }
+
+  .column_right {
+    position: relative;
+    top: 20px;
+    left: 690px;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border: 1px yellow solid;
+ }
 
 </style>
 
@@ -30,183 +43,188 @@
 
 <h1>Detalle de Campo</h1>
 
-<form class="cmxform">
-<fieldset class="">
-  <ol>
-    <li class="row-form">
-      <ul class="ul-form">
-        <li class="li-label">
-          <label>Nombre:</label>
-        </li>
-        <li class="li-field">
-          <%=h @course.name %>
-        </li>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <li class="li-label">
-          <label>Dirección:</label>
-        </li>
-        <li class="wrap-field">
-          <%=h @course.address %>
-        </li>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <li class="li-label">
-          <label>Resumen:</label>
-        </li>
-        <li class="wrap-field">
-          <%=h @course.short_description %>
-        </li>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <li class="li-label">
-          <label>Descripci&oacute;n:</label>
-        </li>
-        <li class="wrap-field">
-          <%=h @course.long_description %>
-        </li>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <div class="pair-form">
+<div class="column_left">
+  <form class="cmxform">
+  <fieldset class="">
+    <ol>
+      <li class="row-form">
+        <ul class="ul-form">
           <li class="li-label">
-            <label>Handicap:</label>
+            <label>Nombre:</label>
           </li>
           <li class="li-field">
-            <%=h @course.handicap %>
+            <%=h @course.name %>
           </li>
-        </div>
-        <div class="pair-form">
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
           <li class="li-label">
-            <label>N. Hoyos:</label>
+            <label>Dirección:</label>
           </li>
+          <li class="wrap-field">
+            <%=h @course.address %>
+          </li>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
           <li class="li-label">
-            <%=h @course.n_holes %>
+            <label>Resumen:</label>
           </li>
-        </div>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <div class="pair-form">
+          <li class="wrap-field">
+            <%=h @course.short_description %>
+          </li>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
           <li class="li-label">
-            <label>Long. Amarillas:</label>
+            <label>Descripci&oacute;n:</label>
           </li>
-          <li class="li-label">
-            <%=h @course.length_yellow %>
+          <li class="wrap-field">
+            <%=h @course.long_description %>
           </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Long. Rojas:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.length_red %>
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Long. Blancas:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.length_white %>
-          </li>
-        </div>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Fundado en<br>(año):</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.founded %>
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Diseñador:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.designer %>
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Tipo de Campo:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.course_type.description %>
-          </li>
-        </div>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Habilidad:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.ability_recommended %>/10
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Mantenimiento:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.maintance %>/10
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Relieve:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.relief %>/10
-          </li>
-        </div>
-      </ul>
-    </li>
-    <li class="row-form">
-      <ul class="ul-form">
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Viento:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.wind %>/10
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>Agua en Juego:</label>
-          </li>
-          <li class="li-label">
-            <%=h @course.water_in_play %>/10
-          </li>
-        </div>
-        <div class="pair-form">
-          <li class="li-label">
-            <label>&Aacute;rboles en Juego:</label>
-          </li>
-          <li class="li-field">
-            <%=h @course.trees_in_play %>/10
-          </li>
-        </div>
-      </ul>
-    </li>
-  </ol>
-</fieldset>
-</form>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Handicap:</label>
+            </li>
+            <li class="li-field">
+              <%=h @course.handicap %>
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>N. Hoyos:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.n_holes %>
+            </li>
+          </div>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Long. Amarillas:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.length_yellow %>
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Long. Rojas:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.length_red %>
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Long. Blancas:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.length_white %>
+            </li>
+          </div>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Fundado en<br>(año):</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.founded %>
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Diseñador:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.designer %>
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Tipo de Campo:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.course_type.description %>
+            </li>
+          </div>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Habilidad:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.ability_recommended %>/10
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Mantenimiento:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.maintance %>/10
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Relieve:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.relief %>/10
+            </li>
+          </div>
+        </ul>
+      </li>
+      <li class="row-form">
+        <ul class="ul-form">
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Viento:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.wind %>/10
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>Agua en Juego:</label>
+            </li>
+            <li class="li-label">
+              <%=h @course.water_in_play %>/10
+            </li>
+          </div>
+          <div class="pair-form">
+            <li class="li-label">
+              <label>&Aacute;rboles en Juego:</label>
+            </li>
+            <li class="li-field">
+              <%=h @course.trees_in_play %>/10
+            </li>
+          </div>
+        </ul>
+      </li>
+    </ol>
+  </fieldset>
+  </form>
+</div>
+<div class="column_right">
+
+</div>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
