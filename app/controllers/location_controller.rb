@@ -7,12 +7,13 @@ class LocationController < ApplicationController
     end
 
     unless params.nil?
-      new_location = params[:new_location]
-      @new_location = params[:new_location]
+      coordinates = [40.4832585,-3.3930496]
+      #-new_location = params[:new_location]
+      #-@new_location = params[:new_location]
       #gg = GoogleGeocode.new("ABQIAAAArY0YLQLROMFjY013kjH03xTJQa0g3IQ9GZqIMmInSLzwtGDKaBTGgno8Rw_245czFEW9TYW7uOZ40Q")
 
-      gg_locate = Geokit::Geocoders::GoogleGeocoder.geocode(new_location)
-      coordinates = [gg_locate.lat, gg_locate.lng]
+      #-gg_locate = Geokit::Geocoders::GoogleGeocoder.geocode(new_location)
+      #-coordinates = [gg_locate.lat, gg_locate.lng]
       #coordinates = [31.8921254,-87.6096669]
     end
     #coordinates = [31.8921254,-87.6096669]

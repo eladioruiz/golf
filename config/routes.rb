@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :coursetypes
 
-  map.resources :course_typs
+  map.resources :course_types
 
 
   # Casos particulares
@@ -59,7 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'session', :action => 'destroy'
 
   #map.resources :location
-  map.root :controller => "location", :action => "index"
+  #map.root :controller => "location", :action => "index"
   
 
   # The priority is based upon order of creation: first created -> highest priority.

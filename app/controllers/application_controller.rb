@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   before_filter :userData
+  before_filter :insertAuditTrail
 
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
@@ -18,13 +19,23 @@ class ApplicationController < ActionController::Base
 
      # Formats the date to dd/mm without leading zeroes
   def format_date_remove_zeroes(date_to_format)
-        date_num= date_to_format.strftime('%d').to_i
-        month_num = date_to_format.strftime('%m').to_i
-        formatted_date=date_num.to_s+"/"+month_num.to_s
+    date_num= date_to_format.strftime('%d').to_i
+    month_num = date_to_format.strftime('%m').to_i
+    formatted_date=date_num.to_s+"/"+month_num.to_s
   end
   
   def userData
     @user_name = current_user.name unless current_user.nil?
-    @handicap = current_user.handicap unless current_user.nil?
+    @user_handicap = current_user.handicap unless current_user.nil?
+    @user_handicap = '-' if @user_handicap.nil?
+    @user_id = current_user.id unless current_user.nil?
+    @user_id = 0 if @user_id.nil?
+  end
+
+  def insertAuditTrail
+    @audit_controller = controller_name
+    @audit_action = action_name
+
+    AuditTrail.create(:user_id => @user_id, :controller => @audit_controller, :action => @audit_action)
   end
 end

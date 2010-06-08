@@ -7,7 +7,7 @@
 class CoursesController < ApplicationController
   before_filter :login_required
   before_filter :current_menu
-  
+
   # GET /courses
   def index
     page = params[:page] || 1
@@ -22,6 +22,8 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @coursetypes = CourseType.all
+    @coursetypes.map!{|coursetype| [coursetype.description, coursetype.id]}
   end
 
   # GET /courses/1/edit

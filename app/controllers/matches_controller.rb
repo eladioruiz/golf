@@ -62,7 +62,7 @@ class MatchesController < ApplicationController
     @courses.map!{|course| [course.name, course.id]}
     @users.map!{|user| [user.name, user.id]}
     @tees.map!{|tee| [tee.barras, tee.id]}
-    @_action = 'udpdate'
+    @_action = 'update'
   end
 
   # POST /matches
