@@ -27,32 +27,32 @@
   </calendars>
   <tasks>
     <task id="1" name="mygolfcard" note="" work="936000" start="20100607T000000Z" end="20100721T120000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="2" name="Planificaci&#xF3;n" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="2" name="Planificaci&#xF3;n" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="3" name="Modelo de Datos" note="" work="129600" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="2" type="FS"/>
         </predecessors>
         <task id="4" name="Log Hist&#xF3;rico" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="5" name="Perfiles - Permisos" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="6" name="Privacidad" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="5" name="Perfiles - Permisos" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="6" name="Privacidad" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       </task>
       <task id="7" name="Alcance versi&#xF3;n I" note="" work="777600" start="20100609T120000Z" end="20100721T120000Z" work-start="20100609T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="3" type="FS"/>
         </predecessors>
-        <task id="8" name="Log operaciones" note="" work="28800" start="20100609T120000Z" end="20100610T120000Z" work-start="20100609T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="8" name="Log operaciones" note="" work="28800" start="20100609T120000Z" end="20100610T120000Z" work-start="20100609T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
         <task id="9" name="Seguridad v.1.0" note="" work="115200" start="20100610T120000Z" end="20100614T120000Z" work-start="20100610T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="8" type="FS"/>
           </predecessors>
-          <task id="10" name="Implementaci&#xF3;n Permisos" note="" work="57600" start="20100610T120000Z" end="20100614T120000Z" work-start="20100610T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="11" name="Implementaci&#xF3;n privacidad (p&#xFA;blico vs privado)" note="" work="57600" start="20100610T120000Z" end="20100614T120000Z" work-start="20100610T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="10" name="Implementaci&#xF3;n Permisos" note="" work="57600" start="20100610T120000Z" end="20100614T120000Z" work-start="20100610T120000Z" percent-complete="88" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="11" name="Implementaci&#xF3;n privacidad (p&#xFA;blico vs privado)" note="" work="57600" start="20100610T120000Z" end="20100614T120000Z" work-start="20100610T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
         <task id="12" name="Courses" note="" work="115200" start="20100614T120000Z" end="20100618T120000Z" work-start="20100614T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="9" type="FS"/>
           </predecessors>
-          <task id="13" name="Alta s&#xF3;lo ADMIN" note="" work="28800" start="20100614T120000Z" end="20100615T120000Z" work-start="20100614T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="13" name="Alta s&#xF3;lo ADMIN" note="" work="28800" start="20100614T120000Z" end="20100615T120000Z" work-start="20100614T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
           <task id="14" name="Galer&#xED;a de Im&#xE1;genes" note="" work="28800" start="20100615T120000Z" end="20100616T120000Z" work-start="20100615T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="13" type="FS"/>

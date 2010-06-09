@@ -36,6 +36,7 @@
                     <div class="user_info">
                       <div id="user">
                         <%= @user_name %> (HCP : <%= @user_handicap %>)
+                        <br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>
                       </div>
                       <div id="logout">
                         <a href="/logout" alt="Logout"><img src="../images/logout.gif" border="0" alt="Logout" /></a>

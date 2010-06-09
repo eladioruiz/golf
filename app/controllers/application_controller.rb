@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :userData
   before_filter :insertAuditTrail
+  before_filter :actionAllowed?
 
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
@@ -32,10 +33,16 @@ class ApplicationController < ActionController::Base
     @user_id = 0 if @user_id.nil?
   end
 
+  # Registra todas las acciones que se producen sobre los controladores
   def insertAuditTrail
     @audit_controller = controller_name
     @audit_action = action_name
 
     AuditTrail.create(:user_id => @user_id, :controller => @audit_controller, :action => @audit_action)
   end
+
+  def actionAllowed?
+    @action_allowed = Right.action_allowed?(@user_id,@audit_controller,@audit_action) unless @user_id.nil?
+  end
+
 end

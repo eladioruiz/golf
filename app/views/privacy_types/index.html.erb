@@ -1,0 +1,18 @@
+<h1>Listing privacy_types</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% @privacy_types.each do |privacy_type| %>
+  <tr>
+    <td><%= link_to 'Show', privacy_type %></td>
+    <td><%= link_to 'Edit', edit_privacy_type_path(privacy_type) %></td>
+    <td><%= link_to 'Destroy', privacy_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New privacy_type', new_privacy_type_path %>

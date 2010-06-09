@@ -18,6 +18,7 @@ class MatchesController < ApplicationController
     @userID =  session[:user_id].to_s
 
     @courses = Course.all
+
     #@matches = Match.all
   end
 
@@ -35,7 +36,9 @@ class MatchesController < ApplicationController
     # La carga de estas colecciones se hacen para cargar los despleglables
     @courses = Course.all
     @tees = Tee.all
-    @users = User.all
+    #@users = User.all
+    @users = current_user.my_friends
+    @users << current_user
     @numusers = @users.length
     @numcourses = @courses.length
     @numtees = @tees.length

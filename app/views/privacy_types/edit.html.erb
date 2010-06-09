@@ -1,0 +1,12 @@
+<h1>Editing privacy_type</h1>
+
+<% form_for(@privacy_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @privacy_type %> |
+<%= link_to 'Back', privacy_types_path %>

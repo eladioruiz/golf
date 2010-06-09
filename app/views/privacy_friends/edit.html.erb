@@ -1,0 +1,12 @@
+<h1>Editing privacy_friend</h1>
+
+<% form_for(@privacy_friend) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @privacy_friend %> |
+<%= link_to 'Back', privacy_friends_path %>

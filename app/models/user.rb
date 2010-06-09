@@ -1,7 +1,11 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
   has_one :profile
-  
+  has_many :privacy_friends, :dependent => :destroy
+  has_many :users, :through => :privacy_friends
+
+  #named_scope :allowed,
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
@@ -73,6 +77,10 @@ class User < ActiveRecord::Base
     self.user.is_Admin?
   end
 
+  def my_friends
+    return self.getMyFriends
+  end
+
   protected
     # before filter 
     def encrypt_password
@@ -84,5 +92,8 @@ class User < ActiveRecord::Base
     def password_required?
       crypted_password.blank? || !password.blank?
     end
-    
+
+    def getMyFriends
+      return PrivacyFriend.my_friends(self.id).map {|x| x.user}
+    end
 end

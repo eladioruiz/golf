@@ -68,7 +68,10 @@
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <label>Campo:&nbsp;</label>
                               <input id="course" name="course" type="text" value="">
-                              &nbsp;&nbsp;&nbsp;<%= link_to 'Nuevo Campo', new_course_path %>
+                              &nbsp;&nbsp;&nbsp;
+                              <% if @new_allowed %>
+                                <%= link_to 'Nuevo Campo', new_course_path %>
+                              <% end %>
 
                               <a href="#" class="switch_thumb">Switch Thumb</a>
 

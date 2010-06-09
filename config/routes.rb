@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :rights
+
+  map.resources :privacy_friends
+
+  map.resources :privacy_types
+
   map.resources :course_types
 
   map.resources :coursetypes

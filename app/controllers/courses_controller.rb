@@ -12,6 +12,8 @@ class CoursesController < ApplicationController
   def index
     page = params[:page] || 1
     @courses = Course.all.paginate :page => page, :order => 'name'
+
+    @new_allowed = Right.action_allowed?(current_user.id, 'courses', 'new')
   end
 
   # GET /courses/1
