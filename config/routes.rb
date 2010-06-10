@@ -36,6 +36,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :tees
 
+  map.resources :courses do |course|
+    course.resources :course_images
+  end
+
   map.resources :courses
 
   map.resources :matches do |match|
@@ -55,6 +59,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :cards
   
   map.resources :card_strokes
+
+  map.resources :course_images
 
   map.resources :homes
 

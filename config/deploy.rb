@@ -1,6 +1,6 @@
 set :application, "My Golf Card"
 set :repository,  "git@github.com:eladioruiz/golf.git"
-set :branch, "layout"
+set :branch, "dev"
 
 set :scm, "git"
 set :deploy_to, "/var/www/devgolf"

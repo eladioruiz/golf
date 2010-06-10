@@ -19,6 +19,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   def show
     @course = Course.find(params[:id])
+    @course_images = @course.images
   end
 
   # GET /courses/new
@@ -71,4 +72,12 @@ class CoursesController < ApplicationController
     @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => ''}
   end
 
+  def images
+    @course = Course.find(params[:id])
+    @images = @course.images
+    @first  = params[:first]
+    @last   = params[:last]
+
+    render :file => 'courses/images.xml'
+  end
 end

@@ -13,32 +13,73 @@
     border: 1px yellow solid;
  }
 
+  /**
+   * Overwrite for having a carousel with dynamic width.
+   */
+  .jcarousel-skin-tango .jcarousel-container-horizontal {
+      width: 798px;
+  }
+
+  .jcarousel-skin-tango .jcarousel-clip-horizontal {
+      width: 100%;
+  }
+
+
 </style>
 
 <script>
-  if( document.addEventListener )
-    document.addEventListener( 'DOMContentLoaded', cmxform, true);
 
-  function cmxform(){
-    // Hide forms
-    //$( 'form.cmxform' ).hide().end();
+  function mycarousel_itemLoadCallback(carousel, state)
+  {
+      // Check if the requested items already exist
+      if (carousel.has(carousel.first, carousel.last)) {
+          return;
+      }
 
-    // Processing
-    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
-      var labelContent = this.innerHTML;
-      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
-      var labelSpan = document.createElement( 'span' );
-          labelSpan.style.display = 'block';
-          labelSpan.style.width = labelWidth;
-          labelSpan.innerHTML = labelContent;
-      this.style.display = '-moz-inline-box';
-      this.innerHTML = null;
-      this.appendChild( labelSpan );
-    } ).end();
+      jQuery.get(
+          '/courses/<%= @course.id %>/images',
+          {
+              first: carousel.first,
+              last: carousel.last
+          },
+          function(xml) {
+              mycarousel_itemAddCallback(carousel, carousel.first, carousel.last, xml);
+          },
+          'xml'
+      );
+  };
 
-  // Show forms
-  $( 'form.cmxform' ).show().end();
-}
+  function mycarousel_itemAddCallback(carousel, first, last, xml)
+  {
+      // Set the size of the carousel
+      carousel.size(parseInt(jQuery('total', xml).text()));
+
+      jQuery('image', xml).each(function(i) {
+          carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text(),jQuery(this).attr('title')));
+      });
+  };
+
+  /**
+   * Item html creation helper.
+   */
+  function mycarousel_getItemHTML(url,title)
+  {
+      return '<a href="" title="' + title + '"><img src="' + url + '" width="75" height="75" alt="' + title + '" /></a>';
+  };
+
+  jQuery(document).ready(function() {
+      jQuery('#mycarousel').jcarousel({
+          visible: 8,
+          // Uncomment the following option if you want items
+          // which are outside the visible range to be removed
+          // from the DOM.
+          // Useful for carousels with MANY items.
+
+          // itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
+          itemLoadCallback: mycarousel_itemLoadCallback
+      });
+  });
+
 </script>
 
 <h1>Detalle de Campo</h1>
@@ -46,6 +87,7 @@
 <div class="column_left">
   <form class="cmxform">
   <fieldset class="">
+    <legend>Datos del campo</legend>
     <ol>
       <li class="row-form">
         <ul class="ul-form">
@@ -67,6 +109,7 @@
           </li>
         </ul>
       </li>
+      <!--
       <li class="row-form">
         <ul class="ul-form">
           <li class="li-label">
@@ -77,7 +120,8 @@
           </li>
         </ul>
       </li>
-      <li class="row-form">
+      -->
+      <li class="row-form" style="height:130px;">
         <ul class="ul-form">
           <li class="li-label">
             <label>Descripci&oacute;n:</label>
@@ -221,7 +265,16 @@
       </li>
     </ol>
   </fieldset>
+    
   </form>
+
+  <fieldset  class="">
+    <legend>Galer&iacute;a de Im&aacute;genes</legend>
+    <ul id="mycarousel" class="jcarousel-skin-tango">
+      <!-- The content will be dynamically loaded in here -->
+    </ul>
+  </fieldset>
+
 </div>
 <div class="column_right">
 

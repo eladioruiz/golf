@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :privacy_friends, :dependent => :destroy
   has_many :users, :through => :privacy_friends
+  has_many :players
 
   #named_scope :allowed,
 
