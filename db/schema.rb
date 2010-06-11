@@ -11,6 +11,14 @@
 
 ActiveRecord::Schema.define(:version => 20100424181031) do
 
+  create_table "audit_trails", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "controller"
+    t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "card_strokes", :force => true do |t|
     t.integer  "card_id"
     t.integer  "hole_id"
@@ -41,15 +49,11 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.integer  "principal"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",      :limit => 50
   end
 
   create_table "course_types", :force => true do |t|
     t.string "description", :limit => 50
-  end
-
-  create_table "course_typs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "courses", :force => true do |t|
@@ -60,14 +64,14 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.integer  "length_blue"
     t.integer  "length_yellow"
     t.integer  "length_red"
-    t.boolean  "enabled",                              :default => true
+    t.boolean  "enabled",                             :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "n_holes",                              :default => 18
-    t.string   "short_description",    :limit => 250
-    t.string   "long_description",     :limit => 1000
-    t.string   "founded",              :limit => 100
-    t.string   "designer",             :limit => 100
+    t.integer  "n_holes",                             :default => 18
+    t.string   "short_description",   :limit => 250
+    t.string   "long_description",    :limit => 1000
+    t.string   "founded",             :limit => 100
+    t.string   "designer",            :limit => 100
     t.integer  "course_type_id"
     t.integer  "ability_recommended"
     t.integer  "maintance"
@@ -75,14 +79,8 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.integer  "wind"
     t.integer  "water_in_play"
     t.integer  "trees_in_play"
-    t.string   "location_coordinates"
     t.string   "location_latitude"
     t.string   "location_longitude"
-  end
-
-  create_table "coursetypes", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "dummies", :force => true do |t|
@@ -112,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.boolean  "enabled",         :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "privacy_type_id", :default => 1
   end
 
   create_table "players", :force => true do |t|
@@ -123,10 +122,33 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.integer  "handicap"
   end
 
+  create_table "privacy_friends", :force => true do |t|
+    t.integer  "user1_id",   :null => false
+    t.integer  "user2_id",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "privacy_types", :force => true do |t|
+    t.string   "description"
+    t.boolean  "enabled",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profiles", :force => true do |t|
     t.string   "description"
     t.boolean  "isadmin"
     t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rights", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "controller"
+    t.string   "action"
+    t.boolean  "action_allowed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -152,6 +174,12 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.datetime "updated_at"
     t.datetime "activated_at"
     t.string   "activation_code"
+    t.integer  "privacy_type_id",                                                        :default => 1
+  end
+
+  create_table "vw_user_friends", :id => false, :force => true do |t|
+    t.integer "user_friend", :null => false
+    t.integer "myself",      :null => false
   end
 
 end

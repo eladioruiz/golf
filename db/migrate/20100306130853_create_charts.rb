@@ -1,8 +1,8 @@
 class CreateCharts < ActiveRecord::Migration
   def self.up
-    create_table :charts do |t|
-
-      t.timestamps
+    create_table "charts", :force => true do |t|
+      t.datetime "created_at"
+      t.datetime "updated_at"
     end
   end
 
