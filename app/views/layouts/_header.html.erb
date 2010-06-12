@@ -14,13 +14,53 @@
     <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
     <%= javascript_include_tag 'jquery.easing.min' %>
     <%= javascript_include_tag 'jquery.jcarousel.min' %>
-    <%= javascript_include_tag 'thickbox' %>
 
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
     <%= javascript_include_tag 'jquery.kwicks-1.5.1' %>
-    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'match_helpers' %>
     <%= javascript_include_tag 'FusionCharts'%>
+
+    <script>
+    // Place your application-specific JavaScript functions and classes here
+    // This file is automatically included by javascript_include_tag :defaults
+    $(document).ready(function(){
+
+        $('.kwicks').kwicks({
+            min : 110,
+            spacing : 10
+        });
+
+<%
+  if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
+%>
+        $("form p a.remove")
+        .click(MatchHelper.onRemovePlayer);
+
+        $("form p a.add_player")
+        .click(MatchHelper.onAddPlayer);
+
+<%
+  end
+
+  if @audit_controller=='courses' and @audit_action=='show'
+%>
+        jQuery('#mycarousel').jcarousel({
+          visible: 8,
+          // Uncomment the following option if you want items
+          // which are outside the visible range to be removed
+          // from the DOM.
+          // Useful for carousels with MANY items.
+
+           //itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
+           itemLoadCallback: mycarousel_itemLoadCallback
+        });
+
+<%
+  end
+%>
+
+    });
+    </script>
 
 </head>
 

@@ -57,6 +57,7 @@
       jQuery('image', xml).each(function(i) {
           carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text(),jQuery(this).attr('title')));
       });
+
   };
 
   /**
@@ -64,21 +65,8 @@
    */
   function mycarousel_getItemHTML(url,title)
   {
-      return '<a href="" title="' + title + '"><img src="' + url + '" width="75" height="75" alt="' + title + '" /></a>';
+      return '<a href="' + url + '" title="' + title + '" ><img src="' + url + '" width="75" height="75" alt="' + title + '" /></a>';
   };
-
-  jQuery(document).ready(function() {
-      jQuery('#mycarousel').jcarousel({
-          visible: 8,
-          // Uncomment the following option if you want items
-          // which are outside the visible range to be removed
-          // from the DOM.
-          // Useful for carousels with MANY items.
-
-          // itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
-          itemLoadCallback: mycarousel_itemLoadCallback
-      });
-  });
 
 </script>
 
@@ -272,6 +260,7 @@
         <!-- The content will be dynamically loaded in here -->
       </ul>
     </fieldset>
+
   </div> <!-- end div class:cmxform -->
 
 </div>
