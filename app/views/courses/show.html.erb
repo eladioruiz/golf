@@ -4,13 +4,11 @@
   }
 
   .column_right {
-    position: relative;
-    top: 20px;
-    left: 690px;
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    border: 1px yellow solid;
+    position: absolute;
+    top: 228px;
+    left: 833px;
+    width: 250px;
+    height: 250px;
  }
 
   /**
@@ -24,7 +22,7 @@
       width: 100%;
   }
 
-
+  
 </style>
 
 <script>
@@ -72,7 +70,6 @@
 
 <h1>Detalle de Campo</h1>
 
-<div class="column_left">
   <div class="cmxform">
     <fieldset class="">
       <legend>Datos del campo</legend>
@@ -109,7 +106,7 @@
           </ul>
         </li>
         -->
-        <li class="row-form" style="height:110px;">
+        <li class="row-form">
           <ul class="ul-form">
             <li class="li-label">
               <label>Descripci&oacute;n:</label>
@@ -167,90 +164,6 @@
             </div>
           </ul>
         </li>
-        <li class="row-form">
-          <ul class="ul-form">
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Fundado en<br>(año):</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.founded %>
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Diseñador:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.designer %>
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Tipo de Campo:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.course_type.description %>
-              </li>
-            </div>
-          </ul>
-        </li>
-        <li class="row-form">
-          <ul class="ul-form">
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Habilidad:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.ability_recommended %>/10
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Mantenimiento:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.maintance %>/10
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Relieve:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.relief %>/10
-              </li>
-            </div>
-          </ul>
-        </li>
-        <li class="row-form">
-          <ul class="ul-form">
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Viento:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.wind %>/10
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>Agua en Juego:</label>
-              </li>
-              <li class="li-label">
-                <%=h @course.water_in_play %>/10
-              </li>
-            </div>
-            <div class="pair-form">
-              <li class="li-label">
-                <label>&Aacute;rboles en Juego:</label>
-              </li>
-              <li class="li-field">
-                <%=h @course.trees_in_play %>/10
-              </li>
-            </div>
-          </ul>
-        </li>
       </ol>
     </fieldset>
 
@@ -263,9 +176,57 @@
 
   </div> <!-- end div class:cmxform -->
 
-</div>
 <div class="column_right">
-
+  <div id="accordion">
+    <h3><a href="#">Detalle Campo</a></h3>
+    <div>
+      <ul class="ul-form" style="margin-top:-10px;line-height: 1.5;">
+        <li class="row-form">
+          <label class="label-accordion">Fundado en (año):</label>
+          <%=h @course.founded %>
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Diseñador:</label>
+          <%=h @course.designer %>
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Tipo de Campo:</label>
+          <%=h @course.course_type.description %>
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Habilidad:</label>
+          <%=h @course.ability_recommended %>/10
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Mantenimiento:</label>
+          <%=h @course.maintance %>/10
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Relieve:</label>
+          <%=h @course.relief %>/10
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Viento:</label>
+          <%=h @course.wind %>/10
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">Agua:</label>
+          <%=h @course.water_in_play %>/10
+        </li>
+        <li class="row-form">
+          <label class="label-accordion">&Aacute;rboles:</label>
+          <%=h @course.trees_in_play %>/10
+        </li>
+      </ul>
+    </div>
+    <h3><a href="#">Mapa Google</a></h3>
+    <div>
+      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+    </div>
+  </div>
 </div>
+
+
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

@@ -811,6 +811,11 @@ form.cmxform fieldset fieldset label {
     width: 140px;
     vertical-align: top;
 }
+.row-form .label-accordion {
+    font-weight: bold;
+    width: 120px;
+    display:inline-block;
+}
 
 .li-field {
     display: inline-block;
