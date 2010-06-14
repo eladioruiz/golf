@@ -159,13 +159,23 @@ div.row label.c_label {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-div.row input, button {
+div.row input {
     float: left;
     width: 100px;
     text-align: left;
     border: 1px solid ;
     margin-left: 30px;
 }
+
+/* Quitado por botones de courses
+div.row button {
+    float: left;
+    width: 100px;
+    text-align: left;
+    border: 1px solid ;
+    margin-left: 30px;
+}
+*/
 
 div.row .submit {
     width: 102px;
@@ -845,6 +855,15 @@ form.cmxform fieldset fieldset label {
     padding-bottom: 10px;
     /*width: 150px;*/
     padding-bottom: 15px;
+}
+
+.ul-accordion {
+    margin-left: 0px;
+    padding-left: 0px;
+    vertical-align: top;
+    list-style-type: none;
+    margin-bottom: 0px;
+    padding-bottom: -10px;
 }
 
 /*.row-form {

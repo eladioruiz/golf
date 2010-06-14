@@ -4,11 +4,11 @@
   }
 
   .column_right {
-    position: absolute;
-    top: 228px;
-    left: 833px;
+    position: relative;
+    top: -225px;
+    left: 650px;
     width: 250px;
-    height: 250px;
+    height: 200px;
  }
 
   /**
@@ -22,7 +22,30 @@
       width: 100%;
   }
 
-  
+  .head_window {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 10px;
+     background-color: #cccccc;
+  }
+
+  .hw_left{
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     height: 30px;
+  }
+  .hw_right{
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     height: 30px;
+     padding-top: 15px;
+  }
 </style>
 
 <script>
@@ -53,7 +76,10 @@
       carousel.size(parseInt(jQuery('total', xml).text()));
 
       jQuery('image', xml).each(function(i) {
-          carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text(),jQuery(this).attr('title')));
+          var item = jQuery(mycarousel_getItemHTML(jQuery(this))).get(0);
+          tb_init(item);
+          //carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text(),jQuery(this).attr('title')));
+          carousel.add(first + i, item);
       });
 
   };
@@ -61,17 +87,64 @@
   /**
    * Item html creation helper.
    */
-  function mycarousel_getItemHTML(url,title)
+  function mycarousel_getItemHTML(elem)
   {
+      var url = elem.text();
+      var title = elem.attr('title');
       return '<a href="' + url + '" title="' + title + '" ><img src="' + url + '" width="75" height="75" alt="' + title + '" /></a>';
   };
 
 </script>
 
-<h1>Detalle de Campo</h1>
+<script type="text/javascript">
+	$(function() {
+          $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-document'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-pencil'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-trash'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-image'
+            },
+            text: true
+        });
+    });
+</script>
 
+  <div class="head_windows"> <!-- Head Window -->
+    <div class="hw_left">
+      <h1>Detalle de Campo</h1>
+    </div>
+    <div class="hw_right demo">
+      <button onclick="document.location.href='<%= new_course_path %>'">Nuevo</button>
+      <button onclick="document.location.href='<%= courses_path %>'">Listado</button>
+      <button onclick="document.location.href='<%= edit_course_path(@course) %>'">Editar</button>
+      <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(@course)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+      <button onclick="document.location.href='#images'">Im&aacute;genes</button>
+    </div><!-- End demo -->
+  </div>
+  <!-- END Head Window -->
+
+  <p>&nbsp;</p>
+  
   <div class="cmxform">
-    <fieldset class="">
+    <fieldset class="" style="height: 230px;padding-top:15px;">
       <legend>Datos del campo</legend>
       <ol>
         <li class="row-form">
@@ -165,68 +238,57 @@
           </ul>
         </li>
       </ol>
+      <div class="column_right">
+        <div id="accordion">
+          <h3><a href="#">Detalle Campo</a></h3>
+          <div>
+            <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+              <li class="row-form">
+                <label class="label-accordion">Fundado en (año):</label>
+                <%=h @course.founded %>
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Diseñador:</label>
+                <%=h @course.designer %>
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Tipo de Campo:</label>
+                <%=h @course.course_type.description %>
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Habilidad:</label>
+                <%=h @course.ability_recommended %>/10
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Mantenimiento:</label>
+                <%=h @course.maintance %>/10
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Relieve:</label>
+                <%=h @course.relief %>/10
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Viento:</label>
+                <%=h @course.wind %>/10
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">Agua:</label>
+                <%=h @course.water_in_play %>/10
+              </li>
+              <li class="row-form">
+                <label class="label-accordion">&Aacute;rboles:</label>
+                <%=h @course.trees_in_play %>/10
+              </li>
+            </ul>
+          </div>
+          <h3><a href="#">Mapa Google</a></h3>
+          <%= @course_map.div(:width => 190, :height => 100) %>
+        </div> <!-- END div accordion -->
+      </div> <!-- END div column_right -->
     </fieldset>
-
-    <fieldset  class="">
-      <legend>Galer&iacute;a de Im&aacute;genes</legend>
+  </div> <!-- end div class:cmxform -->
+  
+      <a name="images"><legend>Galer&iacute;a de Im&aacute;genes</legend></a>
       <ul id="mycarousel" class="jcarousel-skin-tango">
         <!-- The content will be dynamically loaded in here -->
       </ul>
-    </fieldset>
-
-  </div> <!-- end div class:cmxform -->
-
-<div class="column_right">
-  <div id="accordion">
-    <h3><a href="#">Detalle Campo</a></h3>
-    <div>
-      <ul class="ul-form" style="margin-top:-10px;line-height: 1.5;">
-        <li class="row-form">
-          <label class="label-accordion">Fundado en (año):</label>
-          <%=h @course.founded %>
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Diseñador:</label>
-          <%=h @course.designer %>
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Tipo de Campo:</label>
-          <%=h @course.course_type.description %>
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Habilidad:</label>
-          <%=h @course.ability_recommended %>/10
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Mantenimiento:</label>
-          <%=h @course.maintance %>/10
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Relieve:</label>
-          <%=h @course.relief %>/10
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Viento:</label>
-          <%=h @course.wind %>/10
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">Agua:</label>
-          <%=h @course.water_in_play %>/10
-        </li>
-        <li class="row-form">
-          <label class="label-accordion">&Aacute;rboles:</label>
-          <%=h @course.trees_in_play %>/10
-        </li>
-      </ul>
-    </div>
-    <h3><a href="#">Mapa Google</a></h3>
-    <div>
-      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-    </div>
-  </div>
-</div>
-
-
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

@@ -14,6 +14,6 @@ class CourseImage < ActiveRecord::Base
   end
 
   def fullName
-    "http://localhost:3000/course_images/" + id.to_s
+    "http://localhost:3000/course_images/" + id.to_s + "/show"
   end
 end
