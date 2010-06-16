@@ -69,22 +69,22 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
 			TB_imageCount = "";
 			TB_FoundURL = false;
 			if(imageGroup){
-				TB_TempArray = $("a[@rel="+imageGroup+"]").get();
+                                TB_TempArray = $("a[rel="+imageGroup+"]").get();
 				for (TB_Counter = 0; ((TB_Counter < TB_TempArray.length) && (TB_NextHTML === "")); TB_Counter++) {
 					var urlTypeTemp = TB_TempArray[TB_Counter].href.toLowerCase().match(urlString);
 						if (!(TB_TempArray[TB_Counter].href == url)) {						
 							if (TB_FoundURL) {
 								TB_NextCaption = TB_TempArray[TB_Counter].title;
 								TB_NextURL = TB_TempArray[TB_Counter].href;
-								TB_NextHTML = "<span id='TB_next'>&nbsp;&nbsp;<a href='#'>Next &gt;</a></span>";
+								TB_NextHTML = "<span id='TB_next'>&nbsp;&nbsp;<a href='#'>Siguiente &gt;</a></span>";
 							} else {
 								TB_PrevCaption = TB_TempArray[TB_Counter].title;
 								TB_PrevURL = TB_TempArray[TB_Counter].href;
-								TB_PrevHTML = "<span id='TB_prev'>&nbsp;&nbsp;<a href='#'>&lt; Prev</a></span>";
+								TB_PrevHTML = "<span id='TB_prev'>&nbsp;&nbsp;<a href='#'>&lt; Anterior</a></span>";
 							}
 						} else {
 							TB_FoundURL = true;
-							TB_imageCount = "Image " + (TB_Counter + 1) +" of "+ (TB_TempArray.length);											
+							TB_imageCount = "Im&aacute;gen " + (TB_Counter + 1) +" de "+ (TB_TempArray.length);
 						}
 				}
 			}
@@ -118,7 +118,7 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
 			
 			TB_WIDTH = imageWidth + 30;
 			TB_HEIGHT = imageHeight + 60;
-			$("#TB_window").append("<a href='' id='TB_ImageOff' title='Close'><img id='TB_Image' src='"+url+"' width='"+imageWidth+"' height='"+imageHeight+"' alt='"+caption+"'/></a>" + "<div id='TB_caption'>"+caption+"<div id='TB_secondLine'>" + TB_imageCount + TB_PrevHTML + TB_NextHTML + "</div></div><div id='TB_closeWindow'><a href='#' id='TB_closeWindowButton' title='Close'>close</a> or Esc Key</div>"); 		
+			$("#TB_window").append("<a href='' id='TB_ImageOff' title='Close'><img id='TB_Image' src='"+url+"' width='"+imageWidth+"' height='"+imageHeight+"' alt='"+caption+"'/></a>" + "<div id='TB_caption'>"+caption+"<div id='TB_secondLine'>" + TB_imageCount + TB_PrevHTML + TB_NextHTML + "</div></div><div id='TB_closeWindow'><a href='#' id='TB_closeWindowButton' title='Close'>cerrar</a> or Tecla Esc</div>");
 			
 			$("#TB_closeWindowButton").click(tb_remove);
 			

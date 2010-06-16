@@ -7,7 +7,7 @@
 class CourseImage < ActiveRecord::Base
   belongs_to :course  # Check it
 
-  named_scope :sort, 'ORDER BY principal, id'
+  named_scope :sort, 'ORDER BY principal desc, id'
 
   def is_principal?
     principal

@@ -86,4 +86,5 @@ class CoursesController < ApplicationController
 
     render :file => 'courses/images.xml'
   end
+  
 end

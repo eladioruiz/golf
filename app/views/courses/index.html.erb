@@ -1,3 +1,109 @@
+<style type='text/css'>
+    .thumb_view_nav {
+      display: none;
+      height:0px;
+      margin:0px;
+      padding:0px;
+    }
+
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 30px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
+
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+
+    }
+
+    .content_tb_header2_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+
+    .content_tb_header2_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       
+    }
+
+    .content_tb_header2_right a {
+      margin-top: -40px;
+      margin-left: 150px;
+    }
+
+    .text_box {
+      height: 500px;
+    }
+</style>
+
 <script>
 
   $(document).ready(function(){
@@ -8,12 +114,12 @@
     $("a.switch_thumb").toggle(function(){
       $(this).addClass("swap");
       $("ul.display").fadeOut("fast", function() {
-        $(this).fadeIn("fast").addClass("thumb_view");
+        $(this).fadeIn("fast").removeClass("thumb_view");
       });
     }, function () {
       $(this).removeClass("swap");
       $("ul.display").fadeOut("fast", function() {
-        $(this).fadeIn("fast").removeClass("thumb_view");
+        $(this).fadeIn("fast").addClass("thumb_view");
       });
     });
 
@@ -33,20 +139,20 @@
     });
 
     $filterCourse.keyup(function(){
-      var filter = $filterCourse.val();
-      $('#filter input[name="city"]').val("");
-      $(".gallery:first li").each(function () {
-        var attrib = $(this).attr("course-id");
-        var pos = attrib.search(new RegExp(filter,"i"));
-        if (pos<0) {
-          $(this).addClass("hidden");
-        }
-        else {
-          $(this).removeClass("hidden");
-        }
-      });
-    }
-  );
+        var filter = $filterCourse.val();
+        $('#filter input[name="city"]').val("");
+        $(".gallery:first li").each(function () {
+          var attrib = $(this).attr("course-id");
+          var pos = attrib.search(new RegExp(filter,"i"));
+          if (pos<0) {
+            $(this).addClass("hidden");
+          }
+          else {
+            $(this).removeClass("hidden");
+          }
+        });
+      }
+    );
 
     $('#load-webbies a.button').click(function(e) {
       $.get( $(this).attr('href'), function(data) {
@@ -55,48 +161,99 @@
       e.preventDefault();
     });
 
-  });
+    $(".demo button:first").button({
+      icons: {
+          primary: 'ui-icon-document'
+      },
+      text: true
+    });
+
+    $(".thumb_view_nav #edit").button({
+      icons: {
+          primary: 'ui-icon-pencil'
+      },
+      text:false
+    });
+
+    $(".thumb_view_nav #del").button({
+      icons: {
+          primary: 'ui-icon-trash'
+      },
+      text:false
+    }) ;
+
+    $(".thumb_view li").hover(function (e) {
+      x = $(this).find("div.thumb_view_nav").show();
+      e.preventDefault();
+    },function (e) {
+      $(".thumb_view_nav").hide();
+      e.preventDefault();
+    });
+
+
+});
+
 </script>
 
-              <h1>Campos disponibles</h1>              
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Campos Disponibles</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= new_course_path %>'">Nuevo</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
 
+          <div class="content_tb_header2_wrapper">
+            <div class="content_tb_header2_content">
+              <div id="course_select content_tb_header2_left1">
+                  <div class="ui-widget" id="load-webbies">
                     <form id="filter">
-                      <div id="course_select">
-                          <div class="ui-widget" id="load-webbies">
-                              <label>Localidad:&nbsp;</label>
-                              <input id="city" name="city" type="text" value="">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              <label>Campo:&nbsp;</label>
-                              <input id="course" name="course" type="text" value="">
-                              &nbsp;&nbsp;&nbsp;
-                              <% if @new_allowed %>
-                                <%= link_to 'Nuevo Campo', new_course_path %>
-                              <% end %>
-
-                              <a href="#" class="switch_thumb">Switch Thumb</a>
-
-                          </div>
-                      </div>
+                      <label class="li-label-column">Localidad:&nbsp;</label>
+                      <input id="city" name="city" type="text" value="">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="li-label-column">Campo:&nbsp;</label>
+                      <input id="course" name="course" type="text" value="">
+                      &nbsp;&nbsp;&nbsp;
                     </form>
+                  </div>
+              </div> <!-- course_select content_tb_header2_left1 -->
+              <div class="content_tb_header2_right">
+                <a href="#" class="switch_thumb">Switch Thumb</a>
+              </div> <!-- content_tb_header2_right -->
+            </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content">
 
                     <div  class="gallery">
-                        <table width="100%" cellpadding="0" cellspacing="0">
+                        <table width="100%" cellpadding="0" cellspacing="0" id="tb1">
                             <tr >
                                 <td >
-                                    <ul class="display" >
+                                    <ul class="display thumb_view">
                                       <% @courses.each do |course| %>
-                                        <li course-id="<%= course.name %>" city-id="<%= course.address %>">
-                                            <div class="content_block">
-                                                <a href="/courses/<%= course.id %>"><img width="140" height="100" src="images/golf_03.gif" alt="" /></a>
-                                                <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
-                                                <p>(<%=h course.address %>)</p>
-                                                <p><%= course.long_description  %> </p>
-                                            </div>
+                                        <li id="course_<%= course.id %>" course-id="<%= course.name %>" city-id="<%= course.address %>">
+                                          <div id="course_<%= course.id %>" class="thumb_view_nav demo">
+                                            <button id="edit" onclick="document.location.href='<%= edit_course_path(course.id) %>'">Modificar</button>
+                                            <button id="del" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(course.id)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                                          </div>
+                                          <div class="content_block">
+                                              <a href="/courses/<%= course.id %>"><img width="140" height="100" src="<%= course.images.empty? ? 'images/golf_03.gif' : course.images.first.fullName %> " alt="" /></a>
+                                              <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
+                                              <p>(<%=h course.address %>)</p>
+                                              <p><%= course.long_description  %> </p>
+                                          </div>
                                         </li>
                                         <% end %>
                                     </ul>
                                 </td>
                             </tr>
                         </table>
-                    </div>
+                    </div> <!-- gallery -->
+
+                 </div> <!-- content_tb_content_content -->
+              </div> <!-- content_tb_content_wrapper -->
 

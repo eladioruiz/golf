@@ -17,7 +17,7 @@ img {
     width: 100%;
     /*background-color: #f4f4f4;
     border: red solid 1px;*/
-    height: 90px;
+    height: 65px;
 }
 .content_wrapper{
     float: left;
@@ -266,7 +266,7 @@ div.row .submit {
     font-size: 14px;
     text-align: center;
     padding-top: 10px;
-    border: 2px outset #1d5c2a;
+    border: 2px outset #369D47;
 }
 #kwick3 {
     background-color: #369D47;
@@ -417,7 +417,7 @@ div.row .submit {
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .text_box h2 a
@@ -681,7 +681,7 @@ td.totals {
 }
 
 .gallery ul.display li .content_block a img{
-    padding: 5px;
+    padding: 3px;
     border: 2px solid #ccc;
     background: #fff;
     margin: 0 15px 0 0;
@@ -690,6 +690,7 @@ td.totals {
 
 .gallery ul.thumb_view li {
     width: 180px;
+    height: 170px;
 }
 
 .gallery ul.thumb_view li h2 {
@@ -701,17 +702,17 @@ td.totals {
 }
 
 .gallery ul.thumb_view li .content_block a img {
-    margin: 10px 10px 10px;
+    margin: 15px 5px 5px 5px;
 }
 
 a.switch_thumb {
     width: 122px;
     height: 26px;
+    background: url(../images/switch.gif) no-repeat;
+    display: block;
     line-height: 26px;
     padding: 0;
-    margin: 10px 0;
-    display: block;
-    background: url(../images/switch.gif) no-repeat;
+    margin: 10px 0;     
     outline: none;
     text-indent: -9999px;
 }
@@ -829,6 +830,12 @@ form.cmxform fieldset fieldset label {
 
 .li-field {
     display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+
+.li-field-column {
+    display: inline-block;
     width: 140px;
     vertical-align: top;
 }
@@ -931,4 +938,3 @@ form.cmxform fieldset fieldset label {
   div.cmxform fieldset fieldset label {
       margin-left: 123px; /* Width plus 3 (html space) */
   }
-

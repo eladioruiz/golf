@@ -1,3 +1,77 @@
+<style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
+
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+
+    }
+
+    .text_box {
+      height: 700px;
+    }
+</style>
+
 <script>
   if( document.addEventListener )
     document.addEventListener( 'DOMContentLoaded', cmxform, true);
@@ -24,162 +98,254 @@
 }
 </script>
 
-<h1>Modificaci&oacute;n de Datos del Campo</h1>
+<script type="text/javascript">
+	$(function() {
+          $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-document'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-search'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-disk'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-trash'
+            },
+            text: true
+        });
+    });
+</script>
 
-<% form_for(@course, :html => { :class => "cmxform"}) do |f| %>
-  <%= f.error_messages %>
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Modificaci&oacute;n de Datos del Campo</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= new_course_path %>'">Nuevo</button>
+                  <button onclick="document.location.href='<%= course_path(@course) %>'">Ver</button>
+                  <button onclick="document.location.href='<%= courses_path %>'">Listado</button>
+                  <button onclick="document.location.href=''">Grabar</button>
+                  <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(@course)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
 
-  <fieldset>
-    <legend>Datos principales</legend>
-    <ol>
-      <li>
-        <%= f.label "Nombre:<em>*</em>" %>
-        <%= f.text_field :name, :size => 80, :maxlength => 255 %>
-      </li>
-      <li>
-        <%= f.label "Dirección:" %>
-        <%= f.text_field :address, :size => 80, :maxlength => 255 %>
-      </li>
-      <li>
-        <%= f.label "Handicap:" %>
-        <%= f.text_field :handicap, :size => 5, :maxlength => 2 %>
-        <%= f.label "N holes:" %>
-        <%= f.text_field :n_holes, :size => 5, :maxlength => 2 %>
-      </li>
-      <li>
-        <%= f.label "Resumen:" %>
-        <%= f.text_area :short_description, :maxlength => 250, :cols => 80, :rows => 4 %>
-      </li>
-      <li>
-        <%= f.label "Descripción:" %>
-        <%= f.text_area :long_description, :maxlenght => 1000, :cols => 80, :rows => 5 %>
-      </li>
-      <li>
-        <%= f.label "Disponible:" %>
-        <%= f.check_box :enabled %>
-      </li>
-    </ol>
-  </fieldset>
-  <fieldset>
-    <legend>Características campo</legend>
-    <ol>
-      <li class="row-form">
-        <ul class="ul-form">
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Blancas:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :length_white, :size => 4, :maxlength => 4 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Amarillas:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :length_yellow, :size => 4, :maxlength => 4 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Rojas:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :length_red, :size => 4, :maxlength => 4 %>
-            </li>
-          </div>
-        </ul>
-      </li>
-      <li class="row-form">
-        <ul class="ul-form">
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Fundado en:<br>(año)" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :founded, :size => 4, :maxlength => 4 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Diseñador:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :designer, :size => 15, :maxlength => 100 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Tipo de <br>Campo:" %>
-            </li>
-            <li class="li-field">
-                <%= f.select(:course_type_id,@coursetypes) %>
-            </li>
-          </div>
-        </ul>
-      </li>
-      <li class="row-form">
-        <ul class="ul-form">
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Habilidad:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :ability_recommended, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Mantenimiento:" %>
-            </li>
-            <li class="li-field">
-                <%= f.text_field :maintance, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-                <%= f.label "Relieve:" %>
-            </li>
-            <li class="li-field">
-              <%= f.text_field :relief, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-          </ul>
-      </li>
-      <li class="row-form">
-        <ul class="ul-form">
-          <div class="pair-form">
-            <li class="li-label">
-              <%= f.label "Viento:" %>
-            </li>
-            <li class="li-field">
-              <%= f.text_field :wind, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-              <%= f.label "Agua en Juego:" %>
-            </li>
-            <li class="li-field">
-              <%= f.text_field :water_in_play, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-          <div class="pair-form">
-            <li class="li-label">
-              <%= f.label "Arboles en Juego:" %>
-            </li>
-            <li class="li-field">
-              <%= f.text_field :trees_in_play, :size => 2, :maxlength => 2 %>
-            </li>
-          </div>
-        </ul>
-      </li>
-    </ol>
-  </fieldset>
-  <%= f.submit 'Update' %>
+          <div class="content_tb_header2_wrapper">
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
 
-<% end %>
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content cmxform">
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+                <% form_for(@course, :html => { :class => "cmxform"}) do |f| %>
+                  <%= f.error_messages %>
+
+                  <fieldset class="" style="padding-top:15px;">
+                    <legend>Datos principales</legend>
+                    <ol>
+                      <li>
+                        <ul class="ul-form">
+                          <li class="li-label">
+                            <%= f.label "Nombre:<em>*</em>" %>
+                          </li>
+                          <li class="li-field">
+                            <%= f.text_field :name, :size => 80, :maxlength => 255 %>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <ul class="ul-form">
+                          <li class="li-label">
+                            <%= f.label "Dirección:" %>
+                          </li>
+                          <li class="li-field">
+                            <%= f.text_field :address, :size => 80, :maxlength => 255 %>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <ul class="ul-form">
+                            <div class="pair-form">
+                              <li class="li-label">
+                                <%= f.label "Par:" %>
+                              </li>
+                              <li class="li-field-column">
+                                <%= f.text_field :handicap, :size => 5, :maxlength => 2 %>
+                              </li>
+                            </div>
+                            <div class="pair-form">
+                              <li class="li-label">
+                                <%= f.label "N Hoyos:" %>
+                              </li>
+                              <li class="li-field-column">
+                                <%= f.text_field :n_holes, :size => 5, :maxlength => 2 %>
+                              </li>
+                            </div>
+                          </ul>
+                      </li>
+<!--                      <li>
+                        <%= f.label "Resumen:" %>
+                        <%= f.text_area :short_description, :maxlength => 250, :cols => 80, :rows => 4 %>
+                      </li>
+-->
+                      <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <%= f.label "Descripción:" %>
+                            </li>
+                            <li class="wrap-field">
+                              <%= f.text_area :long_description, :maxlenght => 1000, :cols => 80, :rows => 5 %>
+                            </li>
+                          </ul>
+                      </li>
+                      <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <%= f.label "Disponible:" %>
+                            </li>
+                            <li class="wrap-field">
+                              <%= f.check_box :enabled %>
+                            </li>
+                          </ul>
+                      </li>
+                    </ol>
+                  </fieldset>
+
+                  <fieldset class="" style="padding-top:15px;">
+                    <legend>Características campo</legend>
+                    <ol>
+                      <li class="row-form">
+                        <ul class="ul-form">
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Blancas:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :length_white, :size => 4, :maxlength => 4 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Amarillas:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :length_yellow, :size => 4, :maxlength => 4 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Rojas:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :length_red, :size => 4, :maxlength => 4 %>
+                            </li>
+                          </div>
+                        </ul>
+                      </li>
+                      <li class="row-form">
+                        <ul class="ul-form">
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Fundado en:<br>(año)" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :founded, :size => 4, :maxlength => 4 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Diseñador:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :designer, :size => 15, :maxlength => 100 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Tipo de <br>Campo:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.select(:course_type_id,@coursetypes) %>
+                            </li>
+                          </div>
+                        </ul>
+                      </li>
+                      <li class="row-form">
+                        <ul class="ul-form">
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Habilidad:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :ability_recommended, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Mantenimiento:" %>
+                            </li>
+                            <li class="li-field">
+                                <%= f.text_field :maintance, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                                <%= f.label "Relieve:" %>
+                            </li>
+                            <li class="li-field">
+                              <%= f.text_field :relief, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                          </ul>
+                      </li>
+                      <li class="row-form">
+                        <ul class="ul-form">
+                          <div class="pair-form">
+                            <li class="li-label">
+                              <%= f.label "Viento:" %>
+                            </li>
+                            <li class="li-field">
+                              <%= f.text_field :wind, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                              <%= f.label "Agua en Juego:" %>
+                            </li>
+                            <li class="li-field">
+                              <%= f.text_field :water_in_play, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                          <div class="pair-form">
+                            <li class="li-label">
+                              <%= f.label "Arboles en Juego:" %>
+                            </li>
+                            <li class="li-field">
+                              <%= f.text_field :trees_in_play, :size => 2, :maxlength => 2 %>
+                            </li>
+                          </div>
+                        </ul>
+                      </li>
+                    </ol>
+                  </fieldset>
+                  <%= f.submit 'Update' %>
+
+                <% end %>
+
+                </div> <!-- content_tb_content_content -->
+              </div> <!-- content_tb_content_wrapper -->

@@ -22,4 +22,7 @@ class Course < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
+  def main_image
+    self.images.first
+  end
 end
