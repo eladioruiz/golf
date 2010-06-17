@@ -643,7 +643,7 @@ td.totals {
 .gallery ul.display li {
     float: left;
     width: 910px;
-    padding: 10px 0;
+    padding: 0px;
     margin: 0;
     border-top: 1px solid #111;
     border-right: 1px solid #111;
@@ -652,12 +652,14 @@ td.totals {
 }
 
 .gallery ul.display li a {
-    color: #e7ff62;
+    /*color: #e7ff62;*/
+    color: white;
     text-decoration: none;
+    font-style: italic;
 }
 
 .gallery ul.display li .content_block {
-    padding: 0 10px;
+    padding: 10px;
 }
 
 .gallery ul.display li .content_block h2 {
@@ -690,19 +692,86 @@ td.totals {
 
 .gallery ul.thumb_view li {
     width: 180px;
-    height: 170px;
+    height: 190px;
 }
+
+.gallery ul.list_view li .content_block h2 a {
+    margin: 0;
+    margin-left: -10px;
+    padding: 5px;
+    padding-right: 10px;
+    font-weight: normal;
+    font-size: 17px;
+    display: inline-block;
+    float:left;
+    white-space: nowrap;
+    /*border: 1px solid red;
+    background-color: gray;*/
+}
+
+.gallery ul.list_view li .content_block h3 {
+    font-weight: normal;
+    font-size: 13px;
+    white-space: nowrap;
+    text-align: right;
+    /*border: 1px solid blue;*/
+    background-color: silver;
+    padding: 5px;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+
+.gallery ul.list_view li .content_block p {
+    text-align: left;
+    margin-top: -7px;
+    padding-bottom: 5px;
+    /*border: 1px solid yellow;
+    margin-bottom: 5px;*/
+}
+
+/*
+.gallery ul.list_view li .content_block .content_block_image {
+   position: relative;
+   float: left;
+   left: 5px;
+   width: 20%;
+   background-color:
+}
+
+.gallery ul.list_view li .content_block .content_block_text {
+   position: relative;
+   float: right;
+   left: 5px;
+   width: 80%;
+}
+*/
 
 .gallery ul.thumb_view li h2 {
     display: inline;
+    font-size: 20px;
 }
 
-.gallery ul.thumb_view li p{
+.gallery ul.thumb_view li h3 {
+    display: none;
+}
+
+.gallery ul.thumb_view li p {
     display: none;
 }
 
 .gallery ul.thumb_view li .content_block a img {
     margin: 15px 5px 5px 5px;
+}
+
+.gallery div.thumb_view_nav {
+    text-align: right;
+    font-size: 9px;
+    z-index: -1;
+}
+
+.gallery ul.list_view li {
+    font-size: 12px;
+    height: 130px;
 }
 
 a.switch_thumb {

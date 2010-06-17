@@ -1,107 +1,108 @@
 <style type='text/css'>
-    .thumb_view_nav {
-      display: none;
-      height:0px;
-      margin:0px;
-      padding:0px;
-    }
+  .thumb_view_nav {
+    display: none;
+    width:100%;
+    height:0px;
+    margin:0px;
+    padding:0px;
+  }
 
-    .content_tb_header1_wrapper {
-       position: relative;
-       float: left;
-       left: 0px;
-       width: 100%;
-       margin-bottom: 5px;
-       /*background-color: #cccccc;*/
-    }
-    .content_tb_header1_content{
-       position: relative;
-       float: right;
-       right: 5px;
-       width: 100%;
-       height: 50px;
-       /*background-color: #828282;*/
-    }
-    .content_tb_header2_wrapper {
-       position: relative;
-       float: left;
-       left: 0px;
-       width: 100%;
-       margin-bottom: 5px;
-       /*background-color: #cccccc;*/
-    }
-    .content_tb_header2_content {
-       position: relative;
-       float: right;
-       right: 5px;
-       width: 100%;
-       height: 30px;
-       padding-left: 30px;
-       /*background-color: #828282;*/
-    }
-    .content_tb_content_wrapper {
-       position: relative;
-       float: left;
-       left: 0px;
-       width: 100%;
-       margin-bottom: 5px;
-       /*background-color: #cccccc*/
-    }
-    .content_tb_content_content {
-       position: relative;
-       float: left;
-       right: 5px;
-       width: 100%;
-       height: 150px;
-       /*background-color: #828282*/
-    }
+  .content_tb_header1_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header1_content{
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 50px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_header2_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header2_content {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 30px;
+     padding-left: 30px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_content_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc*/
+  }
+  .content_tb_content_content {
+     position: relative;
+     float: left;
+     right: 5px;
+     width: 100%;
+     height: 150px;
+     /*background-color: #828282*/
+  }
 
-    .content_tb_header1_left1 {
-       position: relative;
-       float: left;
-       left: 5px;
-       width: 50%;
-       /*background-color: #128281;*/
-    }
-    
-    .content_tb_header1_right {
-       position: relative;
-       float: right;
-       right: 5px;
-       width: 50%;
-       /*background-color: #128281;*/
-       height: 30px;
-       padding-top: 15px;
+  .content_tb_header1_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
 
-    }
+  .content_tb_header1_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
+     text-align: right;
+  }
 
-    .content_tb_header2_left1 {
-       position: relative;
-       float: left;
-       left: 5px;
-       width: 50%;
-       /*background-color: #128281;*/
-    }
+  .content_tb_header2_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
 
-    .content_tb_header2_right {
-       position: relative;
-       float: right;
-       right: 5px;
-       width: 50%;
-       /*background-color: #128281;*/
-       height: 30px;
-       padding-top: 15px;
-       
-    }
+  .content_tb_header2_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
 
-    .content_tb_header2_right a {
-      margin-top: -40px;
-      margin-left: 150px;
-    }
+  }
 
-    .text_box {
-      height: 500px;
-    }
+  .content_tb_header2_right a {
+    margin-top: -40px;
+    margin-left: 150px;
+  }
+
+  .text_box {
+    height: 600px;
+  }
 </style>
 
 <script>
@@ -114,12 +115,12 @@
     $("a.switch_thumb").toggle(function(){
       $(this).addClass("swap");
       $("ul.display").fadeOut("fast", function() {
-        $(this).fadeIn("fast").removeClass("thumb_view");
+        $(this).fadeIn("fast").removeClass("thumb_view").addClass("list_view");
       });
     }, function () {
       $(this).removeClass("swap");
       $("ul.display").fadeOut("fast", function() {
-        $(this).fadeIn("fast").addClass("thumb_view");
+        $(this).fadeIn("fast").addClass("thumb_view").removeClass("list_view");
       });
     });
 
@@ -183,7 +184,9 @@
     }) ;
 
     $(".thumb_view li").hover(function (e) {
-      x = $(this).find("div.thumb_view_nav").show();
+      $(".thumb_view_nav").hide();
+      var x = $(this).find("div.thumb_view_nav");
+      x.show();
       e.preventDefault();
     },function (e) {
       $(".thumb_view_nav").hide();
@@ -230,21 +233,25 @@
                <div class="content_tb_content_content">
 
                     <div  class="gallery">
-                        <table width="100%" cellpadding="0" cellspacing="0" id="tb1">
+                        <table width="100%" cellpadding="0" cellspacing="0" id="tb1" border="1">
                             <tr >
-                                <td >
+                                <td>
                                     <ul class="display thumb_view">
                                       <% @courses.each do |course| %>
                                         <li id="course_<%= course.id %>" course-id="<%= course.name %>" city-id="<%= course.address %>">
-                                          <div id="course_<%= course.id %>" class="thumb_view_nav demo">
+                                          <div id="course_<%= course.id %>" class="thumb_view_nav demo" style="padding:0px;z-index:-1">
                                             <button id="edit" onclick="document.location.href='<%= edit_course_path(course.id) %>'">Modificar</button>
                                             <button id="del" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(course.id)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
                                           </div>
                                           <div class="content_block">
+                                            <div class="content_block_image">
                                               <a href="/courses/<%= course.id %>"><img width="140" height="100" src="<%= course.images.empty? ? 'images/golf_03.gif' : course.images.first.fullName %> " alt="" /></a>
-                                              <h2><a href="/courses/<%= course.id %>"><%=h course.name %></a></h2>
-                                              <p>(<%=h course.address %>)</p>
-                                              <p><%= course.long_description  %> </p>
+                                            </div>
+                                            <div class="content_block_text">
+                                              <h2><a href="/courses/<%= course.id %>"><%=h course.name -%></a></h2>
+<!--                                              <h3>&nbsp;(&nbsp;<%=h course.address -%>&nbsp;)&nbsp;</h3> -->
+                                              <p><%= course.long_description  %></p> 
+                                            </div>
                                           </div>
                                         </li>
                                         <% end %>

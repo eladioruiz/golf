@@ -1,77 +1,267 @@
-<script type="text/javascript">
-  $(function() {
-    $("button, input:submit, a", ".ui-form").button();
+<style type='text/css'>
+  .thumb_view_nav {
+    display: none;
+    width:100%;
+    height:0px;
+    margin:0px;
+    padding:0px;
+  }
 
-    $("a", ".ui-form").click(function() { return true; });
-  });
-</script>
+  .content_tb_header1_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header1_content{
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 50px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_header2_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header2_content {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 30px;
+     padding-left: 30px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_content_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc*/
+  }
+  .content_tb_content_content {
+     position: relative;
+     float: left;
+     right: 5px;
+     width: 100%;
+     height: 150px;
+     /*background-color: #828282*/
+  }
 
+  .content_tb_header1_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
 
-<style>
-  #course_select {
-    position: relative;
-    top: -10px;
-    margin-left:50px;
-    font-size: 13px;
+  .content_tb_header1_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
+     text-align: right;
+  }
+
+  .content_tb_header2_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
+
+  .content_tb_header2_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
+
+  }
+
+  .content_tb_header2_right a {
+    margin-top: -40px;
+    margin-left: 150px;
+  }
+
+  .text_box {
+    height: 600px;
+  }
+
+  .oper {
+    text-align: center;
+    font-size: 10px;
   }
 </style>
 
+<script>
+  $(document).ready(function(){
 
-<h1>Partidos</h1>
-<div id="course_select">
-  <div class="ui-widget">
-    <label>Campo: </label>
-    <select>
-      <option value="0" selected>Todos</option>
-      <%
-        @courses.each do |course|
-      %>
-          <option value="<%= course.id %>"><%= course.name %></option>
-      <%
-        end
-      %>
-    </select>
-  </div>
-</div>
+    var $filterCity = $('#filter input[name="city"]');
+    var $filterCourse = $('#filter input[name="course"]');
 
-<div class="ui-form">
+    $filterCity.keyup(function(){
+      var filter = $filterCity.val();
+      $('#filter input[name="course"]').val("");
+      $(".gallery:first li").each(function () {
+        var attrib = $(this).attr("city-id");
+        var pos = attrib.search(new RegExp(filter,"i"));
+        if (pos<0) {
+          $(this).addClass("hidden");
+        }
+        else {
+          $(this).removeClass("hidden");
+        }
+      });
+    });
 
-  <a href="matches">Todos</a>
-  <a href="matches/lastmatches">10 Últimos</a>
-  <a href="matches/bestmatches">10 Mejores</a>
-  <a href="matches/lastmonth">Último Mes</a>
-  <a href="#">Personalizado</a>
+    $filterCourse.keyup(function(){
+        var filter = $filterCourse.val();
+        $('#filter input[name="city"]').val("");
+        $(".gallery:first li").each(function () {
+          var attrib = $(this).attr("course-id");
+          var pos = attrib.search(new RegExp(filter,"i"));
+          if (pos<0) {
+            $(this).addClass("hidden");
+          }
+          else {
+            $(this).removeClass("hidden");
+          }
+        });
+      }
+    );
 
-</div> <!-- end: ui-form -->
+    $('#load-webbies a.button').click(function(e) {
+      $.get( $(this).attr('href'), function(data) {
+        $('.webbies').quicksand( $(data).find('li'), {adjustHeight: 'dynamic'} );
+      });
+      e.preventDefault();
+    });
 
-<div>
-    <table width="98%" id="result">
-        <tr>
-            <th width="30%">Campo</th>
-            <th width="20%">Fecha / Hora</th>
-            <th width="10%">Hoyos</th>
-            <th width="20%">Jugadores</th>
-            <th width="20%" colspan="3">&nbsp;</th>
-        </tr>
+    $(".content_tb_header1_right.demo button:first").button({
+      icons: {
+          primary: 'ui-icon-document'
+      },
+      text: true
+    });
 
-      <%= will_paginate @matches %>
-      <% @matches.each do |match| %>
-        <tr>
-          <td>(<%= match.id %>)<%=h match.course.name %></td>
-          <td><%=h format_date(match.date_hour_match) %></td>
-          <td><%=h match.holes %></td>
-          <td><a id="dialog<%=  match.id %>" href="javascript:;" onclick='$("#dialog-modal<%=  match.id %>").dialog();' ><%= match.players.count  %>  Jugadores</a></td>
-          <td><%= link_to 'Detalle', match %></td>
-          <td><%= link_to 'Modificar', edit_match_path(match) %></td>
-          <td><%= link_to 'Borrar', match, :confirm => '¿Está seguro?', :method => :delete %></td>
-        </tr>
-      <% end %>
-  </table>
-</div>
+    $(".oper.demo #edit").button({
+      icons: {
+          primary: 'ui-icon-pencil'
+      },
+      text:false
+    });
 
-<br />
+    $(".oper.demo #show").button({
+      icons: {
+          primary: 'ui-icon-search'
+      },
+      text:false
+    });
 
-<%= link_to 'Nuevo Partido', new_match_path %>
+    $(".oper.demo #del").button({
+      icons: {
+          primary: 'ui-icon-trash'
+      },
+      text:false
+    }) ;
+
+
+});
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Partidos Jugados</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= new_match_path %>'">Nuevo</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+            <div class="content_tb_header2_content">
+              <div id="course_select content_tb_header2_left1">
+                  <div class="ui-widget" id="load-webbies">
+                    <form id="filter">
+                      <label class="li-label-column">Localidad:&nbsp;</label>
+                      <input id="city" name="city" type="text" value="">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <label class="li-label-column">Campo:&nbsp;</label>
+                      <input id="course" name="course" type="text" value="">
+                      &nbsp;&nbsp;&nbsp;
+                    </form>
+                  </div>
+              </div> <!-- course_select content_tb_header2_left1 -->
+              <div class="content_tb_header2_right">
+                &nbsp;
+              </div> <!-- content_tb_header2_right -->
+            </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content">
+
+                  <div class="ui-form">
+
+                    <a href="matches">Todos</a>
+                    <a href="matches/lastmatches">10 Últimos</a>
+                    <a href="matches/bestmatches">10 Mejores</a>
+                    <a href="matches/lastmonth">Último Mes</a>
+                    <a href="#">Personalizado</a>
+
+                  </div> <!-- end: ui-form -->
+
+                  <div>
+                      <table width="98%" id="result">
+                          <tr>
+                              <th width="35%">Campo</th>
+                              <th width="20%">Fecha / Hora</th>
+                              <th width="10%">Hoyos</th>
+                              <th width="20%">Jugadores</th>
+                              <th width="15%">&nbsp;</th>
+                          </tr>
+
+                        <%= will_paginate @matches %>
+                        <% @matches.each do |match| %>
+                          <tr>
+                            <td><%=h match.course.name %></td>
+                            <td><%=h format_date(match.date_hour_match) %></td>
+                            <td><%=h match.holes %></td>
+                            <td><a id="dialog<%=  match.id %>" href="javascript:;" onclick='$("#dialog-modal<%=  match.id %>").dialog();' ><%= match.players.count  %>  Jugadores</a></td>
+                            <td>
+                              <div class="oper demo">
+                                <button id="show" onclick="document.location.href='<%= match_path(match) %>'">Ver</button>
+                                <button id="edit" onclick="document.location.href='<%= edit_match_path(match) %>'">Editar</button>
+                                <button id="del" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(match.id) %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                              </div>
+                            </td>
+                          </tr>
+                        <% end %>
+                    </table>
+                  </div>
+
+                 </div> <!-- content_tb_content_content -->
+              </div> <!-- content_tb_content_wrapper -->
+
 
 <!-- DIVs con nombres de Jugadres para capas de +info -->
 
@@ -80,7 +270,7 @@
 <div id="dialog-modal<%=  match.id %>" style="display:none" title="<%= players.count %> Jugadores">
   <p>
   <% players.each do |player| %>
-    <%= player.user.name %><BR>
+    <%= player.user.name %> (HCP: <%= player.handicap -%>) : <%= player.card.strokes_total unless player.card.nil? -%> golpes<BR>
   <% end %>
   </p>
 </div>
