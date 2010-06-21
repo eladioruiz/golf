@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+<%
+    @players.each do |player|
+        if player.card.nil? then
+            card = Card.new
+        else
+            card = player.card
+        end if
+%>
+        <row id="<%= player.id -%>">
+            <cell><![CDATA[<%=h player.user.name -%>]]></cell>
+            <cell><%=h format_nil(player.handicap,'-') -%></cell>
+            <cell><%=h format_nil(player.tee.barras,'-') -%></cell>
+            <cell><%=h format_nil(card.strokes_first_9,'-') -%></cell>
+            <cell><%=h format_nil(card.strokes_second_9,'-') -%></cell>
+            <cell><%=h format_nil(card.strokes_total,'-') -%></cell>
+            <cell></cell>
+        </row>
+<%
+    end
+%>
+</rows>

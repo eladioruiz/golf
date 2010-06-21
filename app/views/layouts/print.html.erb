@@ -1,62 +1,221 @@
+<style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
 
-  <table border="1" cellpadding="0" cellspacing="0" width="100%" style="background-color:#FFFFFF">
-    <tr>
-      <th width="33%"><%=h @match.course.name %></th>
-      <th width="33%"><%=h format_date(@match.date_hour_match) %></th>
-      <th width="33%"><%=h @match.holes %> hoyos</th>
-    </tr>
-  </table>
-  <p>
-  <table border="1" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF">
-    <tr>
-      <th width="250px">HOYOS</th>
-      <% @holes.each do |hole| %>
-        <% if hole.number==10 then %>
-            <th>1st 9</th>
-        <% end %>
-        <th width="30px"><%= hole.number %></th>
-      <% end %>
-      <th>2nd 9</th>
-      <th>Total</th>
-    </tr>
-    <tr class="card_info">
-      <td  class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
-      <% @holes.each do |hole| %>
-  <% if hole.number==10 then %>
-      <td>&nbsp;</td>
-  <% end %>
-      <td>
-        <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
-      </td>
-      <% end %>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
 
-    <% @players.each do |player| %>
-    <tr class="card_player">
-      <td class="card_player_name"><%= player.user.name %> (<%=  player.handicap %>)</td>
-      <%
-        if player.has_card? then
-          card = player.card
-          card_strokes = card.card_strokes
+    .text_box {
+      height: 700px;
+    }
+</style>
 
-          card_strokes.each do |card_stroke| %>
-      <%
-            if card_stroke.hole.number==10 then %>
-            <td class="totals"><%=  card.strokes_first_9 %>&nbsp;</td>
-      <%
-            end  %>
-        <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
-          <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
-        </td>
-      <%
-          end  %>
-        <td class="totals"><%=  card.strokes_second_9 %>&nbsp;</td>
-        <td class="totals"><%=  card.strokes_total %>&nbsp;</td>
-      <%
-        end  %>
-    </tr>
-    <% end %>
-    
-  </table>
+<script>
+  if( document.addEventListener )
+    document.addEventListener( 'DOMContentLoaded', cmxform, true);
+
+  function cmxform(){
+    // Hide forms
+    //$( 'form.cmxform' ).hide().end();
+
+    // Processing
+    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+      var labelContent = this.innerHTML;
+      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+      var labelSpan = document.createElement( 'span' );
+          labelSpan.style.display = 'block';
+          labelSpan.style.width = labelWidth;
+          labelSpan.innerHTML = labelContent;
+      this.style.display = '-moz-inline-box';
+      this.innerHTML = null;
+      this.appendChild( labelSpan );
+    } ).end();
+
+  // Show forms
+  $( 'form.cmxform' ).show().end();
+}
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-pencil'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-trash'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-print'
+            },
+            text: true
+        });
+    });
+
+    $("document").ready(function(){
+      $("#button_save").click(
+        function (event) {
+            $("#form_main").submit();
+        }
+      );
+    });
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Tarjeta</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
+                  <button onclick="document.location.href='<%= match_path(@match) %>'">Editar</button>
+                  <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                  <button onclick="alert('Esta opción no está disponible actualmente. Disculpe las molestias.');">Imprimir</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content cmxform">
+
+                 <p>
+                  <table border="2" cellpadding="3" cellspacing="0" width="100%" class="card" >
+                    <tr>
+                      <th width="33%"><%=h @match.course.name %></th>
+                      <th width="33%"><%=h format_date(@match.date_hour_match) %></th>
+                      <th width="33%"><%=h @match.holes %> hoyos</th>
+                    </tr>
+                  </table>
+                  <p>
+                  <table border="1" cellpadding="0" cellspacing="0" class="card" >
+                    <tr>
+                      <th width="250px">HOYOS</th>
+                      <% @holes.each do |hole| %>
+                        <% if hole.number==10 then %>
+                            <th>1st 9</th>
+                        <% end %>
+                        <th width="30px"><%= hole.number %></th>
+                      <% end %>
+                      <th>2nd 9</th>
+                      <th>Total</th>
+                    </tr>
+                    <tr class="card_info">
+                      <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
+                      <% @holes.each do |hole| %>
+                  <% if hole.number==10 then %>
+                      <td>&nbsp;</td>
+                  <% end %>
+                      <td>
+                        <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
+                      </td>
+                      <% end %>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+
+                    <% @players.each do |player| %>
+                    <tr class="card_player">
+                      <td class="card_player_name"><%= player.user.name %> (HCP: <%= format_nil(player.handicap,'-') -%>)</td>
+                      <%
+                        if player.has_card? then
+                          card = player.card
+                          card_strokes = card.card_strokes
+
+                          card_strokes.each do |card_stroke| %>
+                      <%
+                            if card_stroke.hole.number==10 then %>
+                            <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%>&nbsp;</td>
+                      <%
+                            end  %>
+                        <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
+                          <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
+                        </td>
+                      <%
+                          end  %>
+                        <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%>&nbsp;</td>
+                        <td class="totals"><%= format_nil(card.strokes_total,'-') -%>&nbsp;</td>
+                      <%
+                        end  %>
+                    </tr>
+                    <% end %>
+
+                  </table>
+
+                </div> <!-- content_tb_content_content -->
+              </div> <!-- content_tb_content_wrapper -->

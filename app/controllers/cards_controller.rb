@@ -6,6 +6,7 @@
 
 class CardsController < ApplicationController
   before_filter :login_required
+  before_filter :current_menu
   
   # GET /cards
   def index
@@ -105,4 +106,9 @@ class CardsController < ApplicationController
 
     render :action => "../layouts/print"
   end
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => 'current', 'courses' => '', 'charts' => ''}
+  end
+
 end

@@ -9,10 +9,21 @@ class PlayersController < ApplicationController
   
   # GET /players
   def index
-    if params[:match_id] then
-      @players = Player.find_all_by_match_id(params[:match_id])
+    if params[:q]=='2' then #subgrid del listado de 'matches'
+      @param_id = params[:id]
+    else
+      @param_id = params[:match_id]
+    end
+
+    if @param_id then
+      @players = Player.find_all_by_match_id(@param_id)
     else
       @players = Player.find(:all, :include => :match, :order => 'LOWER(matches.date_hour_match) DESC')
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @players, :file => 'players/index.xml' }
     end
   end
  

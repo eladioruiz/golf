@@ -1,45 +1,204 @@
-<h1>Detalle Partido</h1> <%= @audit_controller %>
+<style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
 
-<p>
-  <b>Course:</b>
-  <%=h @match.course.name %>
-</p>
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
 
-<p>
-  <b>Date:</b>
-  <%=h @match.date_hour_match %>
-</p>
+    .text_box {
+      height: 500px;
+    }
+</style>
 
-<p>
-  <b>Holes Played:</b>
-  <%=h @match.holes %>
-</p>
+<script>
+  $(document).ready(function(){
 
-<%  if @players.length > 0 %>
-  <hr>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Handicap</th>
-      <th>Tee</th>
-      <th>&nbsp;</th>
-    </tr>
+    $(".demo button:first").button({
+        icons: {
+            primary: 'ui-icon-document'
+        },
+        text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-script'
+        },
+        text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-pencil'
+        },
+        text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-trash'
+        },
+        text: true
+    });
 
-    <% @players.each do |detail| %>
-      <tr>
-        <td><%=h detail.user.name %></td>
-	<td><%=h detail.user.handicap %></td>
-	<td><%=h detail.tee.barras %></td>
-	<td><%= link_to_card(detail) %>&nbsp;&nbsp;&nbsp;
-            <%= link_to_remove_card(detail) %>&nbsp;&nbsp;&nbsp;
-            <% if detail.has_card? then %>
-              <%= link_to 'View Card', print_card_path(detail.card) %> </td>
-            <% end %>
-      </tr>
-    <% end %>
-  </table>
-<%end%>  
+    jQuery("#list_players").jqGrid({
+      url:'/players.xml?q=2&id=<%= @match.id %>',
+      datatype: "xml",
+      height: 100,
+      width: 800,
+      colNames:['Jugador','Handicap', 'Tee', 'Golpes 1º', 'Golpes 2º', 'Golpes Total', 'Action'],
+      colModel:[
+                  {name:'player_name',index:'player_name', width:290},
+                  {name:'player_handicap',index:'player_handicap', align:"center", width:80},
+                  {name:'tee',index:'tee', align:"center", width:85},
+                  {name:'strokes_9_1st',index:'strokes_9_1st', align:"center", width:80},
+                  {name:'strokes_9_2nd',index:'strokes_9_2nd', align:"center", width:80},
+                  {name:'strokes_total',index:'strokes_total', align:"center", width:80},
+                  {name:'act',index:'act', width:105,sortable:false} ],
+      rowNum:4,
+      sortname: "player_name",
+      sortorder: "asc",
+      multiselect: false,
+      gridComplete: function() {
+                      var ids = jQuery("#list_players").jqGrid('getDataIDs');
+                      for(var i=0;i < ids.length;i++) {
+                        var cl = ids[i];
+                        ed = "<a href='#' onclick=\"document.location.href='/players/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
+                        dl = "<a href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                        se = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
+                        ca = "<a href='#' onclick=\"document.location.href='/players/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        jQuery("#list_players").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
+                      }
+                    },
+      caption: ''
+    });
 
-<%= link_to 'View Card', print_match_path(@match) %> |
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+});
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Detalle del Partido</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= new_match_path %>'">Nuevo</button>
+                  <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
+                  <button onclick="document.location.href='<%= edit_match_path(@match) %>'">Editar</button>
+                  <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content">
+
+                  <div class="cmxform">
+
+                    <fieldset class="" style="height: 230px;padding-top:15px;">
+                      <legend>Datos del campo</legend>
+                      <ol>
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Campo:</b></label>
+                            </li>
+                            <li class="li-field">
+                              <%=h @match.course.name %>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Fecha/Hora:</b></label>
+                            </li>
+                            <li class="li-field">
+                              <%=h format_date(@match.date_hour_match) %>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Hoyos Jugados:</b></label>
+                            </li>
+                            <li class="li-field">
+                              <%=h @match.holes %>
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>
+
+                      <div style="margin-left: 50px"> <!-- jqgrid -->
+                        <table id="list_players"></table>
+                        <div id="pager_players"></div>
+                      </div> <!-- jqgrid -->
+                      
+                    </fieldset>
+                  </div> <!-- end div class:cmxform -->
+
+                </div> <!-- content_tb_content_content -->
+              </div> <!-- content_tb_content_wrapper -->

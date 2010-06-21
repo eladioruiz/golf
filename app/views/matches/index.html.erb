@@ -104,9 +104,35 @@
     height: 600px;
   }
 
-  .oper {
+  .oper.demo {
     text-align: center;
     font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    height: 0px;
+  }
+
+  #gview_list_matches {
+    font-size: 13px;
+  }
+
+  #list_matches {
+    font-size: 13px;
+    padding-left: 3px;
+  }
+
+  thead th {
+    background-color:#524123;
+    border-bottom:2px solid #3D3019;
+    border-top:3px solid #6E572E;
+    color:#FFFFFF;
+    font-size:14px;
+    padding:0;
+  }
+
+  input {
+    font-size: 10px;
+    background-image: url(../images/sbbody-r_g.gif) no-repeat bottom right;
   }
 </style>
 
@@ -161,35 +187,66 @@
       text: true
     });
 
-    $(".oper.demo #edit").button({
-      icons: {
-          primary: 'ui-icon-pencil'
-      },
-      text:false
+    jQuery("#list_matches").jqGrid({
+      url:'matches.xml?q=1',
+      datatype: "xml",
+      height: 400,
+      width: 920,
+      colNames:['Id','Campo','Fecha/Hora', 'Hoyos', 'Jugadores', 'Action'],
+      colModel:[  
+                  {name:'match_id',index:'match_id', width:20, hidden:true},
+                  {name:'course',index:'course', width:370},
+                  {name:'date_hour_match',index:'date_hour_match', align:"center", width:200},
+                  {name:'holes',index:'holes', align:"center", width:90},
+                  {name:'players',index:'players', align:"center", width:140},
+                  {name:'act',index:'act', width:100,sortable:false} ],
+      rowNum:10,
+      rowList:[10,20,30,50],
+      pager: '#pager_matches',
+      sortname: 'date_hour_match',
+      viewrecords: true,
+      sortorder: "desc",
+      multiselect: false,
+      subGrid : true,
+      subGridUrl: 'players.xml?q=2',
+      subGridModel: [{  name : ['Jugador','Handicap','Tee','Golpes 1º','Golpes 2º','Golpes Totales'],
+                        width : [300,80,80,80,80,80],
+                      }],
+      gridComplete: function() {
+                      var ids = jQuery("#list_matches").jqGrid('getDataIDs');
+                      for(var i=0;i < ids.length;i++) {
+                        var cl = ids[i];
+                        ed = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
+                        dl = "<a href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                        se = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
+                        ca = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
+                      }
+                    },
+      caption: ''
     });
+    jQuery("#list_matches").jqGrid('navGrid',"#pages_matches",{edit:false,add:false,del:false});
 
-    $(".oper.demo #show").button({
-      icons: {
-          primary: 'ui-icon-search'
-      },
-      text:false
-    });
-
-    $(".oper.demo #del").button({
-      icons: {
-          primary: 'ui-icon-trash'
-      },
-      text:false
-    }) ;
-
-
+    $("#radio").buttonset();
+    
 });
 </script>
 
+<style>
+  #div_demo button {
+    background-color:#369D47;
+    border:1px solid #1D5C2A;
+    color:#FFFFFF;
+    font-weight:bold;
+    -moz-border-radius:6px 6px 6px 6px;
+    font-size: 10px;
+    cursor: pointer;
+  }
+</style>
           <div class="content_tb_header1_wrapper">
              <div class="content_tb_header1_content">
                 <div class="content_tb_header1_left1">
-                    <h1>Partidos Jugados</h1>
+                  <h1>Partidos Jugados</h1>
                 </div> <!-- content_tb_header1_left1 -->
                 <div class="content_tb_header1_right demo">
                   <button onclick="document.location.href='<%= new_match_path %>'">Nuevo</button>
@@ -218,60 +275,38 @@
           </div> <!-- content_tb_header2_wrapper -->
 
           <div class="content_tb_content_wrapper">
-               <div class="content_tb_content_content">
+            <div class="content_tb_content_content">
 
-                  <div class="ui-form">
+              <div class="ui-form demo">
+<!--
+                <button onclick="document.location.href='matches'">Todos</button>
+                <button onclick="document.location.href='matches/lastmatches'">10 &Uacute;ltimos</button>
+                <button onclick="document.location.href='matches/bestmatches'">10 Mejores</button>
+                <button onclick="document.location.href='matches/lastmonth'">&Uacute;ltimo mes</button>
+                <button onclick="alert('Esta opción todavía no está operativa')">10 &Uacute;ltimos</button>
+-->
+                <div id="radio">
+                  <input type="radio" id="radio1" name="radio" onclick="document.location.href='matches';"><label for="radio1">Todos</label>
+                  <input type="radio" id="radio2" name="radio" onclick="document.location.href='matches/lastmatches';"><label for="radio2">10 &Uacute;ltimos</label>
+                  <input type="radio" id="radio3" name="radio" onclick="document.location.href='matches/bestmatches';"><label for="radio3">10 Mejores</label>
+                  <input type="radio" id="radio4" name="radio" onclick="document.location.href='matches/lastmonth';"><label for="radio4">&Uacute;ltimo mes</label>
+                  <input type="radio" id="radio5" name="radio" onclick="alert('Esta opción no está operativa en estos momentos. Disculpe las molestias.')"><label for="radio5">Personalizado</label>
+                </div>
 
-                    <a href="matches">Todos</a>
-                    <a href="matches/lastmatches">10 Últimos</a>
-                    <a href="matches/bestmatches">10 Mejores</a>
-                    <a href="matches/lastmonth">Último Mes</a>
-                    <a href="#">Personalizado</a>
+                <a href="matches">Todos</a>
+                <a href="matches/lastmatches">10 Últimos</a>
+                <a href="matches/bestmatches">10 Mejores</a>
+                <a href="matches/lastmonth">Último Mes</a>
+                <a href="#">Personalizado</a>
 
-                  </div> <!-- end: ui-form -->
+              </div> <!-- end: ui-form -->
+              <p></p>
+              <div> <!-- jqgrid -->
+                <table id="list_matches"></table>
+                <div id="pager_matches"></div>
+              </div> <!-- jqgrid -->
 
-                  <div>
-                      <table width="98%" id="result">
-                          <tr>
-                              <th width="35%">Campo</th>
-                              <th width="20%">Fecha / Hora</th>
-                              <th width="10%">Hoyos</th>
-                              <th width="20%">Jugadores</th>
-                              <th width="15%">&nbsp;</th>
-                          </tr>
-
-                        <%= will_paginate @matches %>
-                        <% @matches.each do |match| %>
-                          <tr>
-                            <td><%=h match.course.name %></td>
-                            <td><%=h format_date(match.date_hour_match) %></td>
-                            <td><%=h match.holes %></td>
-                            <td><a id="dialog<%=  match.id %>" href="javascript:;" onclick='$("#dialog-modal<%=  match.id %>").dialog();' ><%= match.players.count  %>  Jugadores</a></td>
-                            <td>
-                              <div class="oper demo">
-                                <button id="show" onclick="document.location.href='<%= match_path(match) %>'">Ver</button>
-                                <button id="edit" onclick="document.location.href='<%= edit_match_path(match) %>'">Editar</button>
-                                <button id="del" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(match.id) %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
-                              </div>
-                            </td>
-                          </tr>
-                        <% end %>
-                    </table>
-                  </div>
-
-                 </div> <!-- content_tb_content_content -->
-              </div> <!-- content_tb_content_wrapper -->
+           </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
 
 
-<!-- DIVs con nombres de Jugadres para capas de +info -->
-
-<% @matches.each do |match|
-    players = match.players %>
-<div id="dialog-modal<%=  match.id %>" style="display:none" title="<%= players.count %> Jugadores">
-  <p>
-  <% players.each do |player| %>
-    <%= player.user.name %> (HCP: <%= player.handicap -%>) : <%= player.card.strokes_total unless player.card.nil? -%> golpes<BR>
-  <% end %>
-  </p>
-</div>
-<% end %>

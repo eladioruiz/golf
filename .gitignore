@@ -6,3 +6,4 @@ nbproject/*
 log/development.log
 golf.tmproj
 config/deploy.rb
+config/database.yml

@@ -18,8 +18,15 @@ class MatchesController < ApplicationController
     @userID =  session[:user_id].to_s
 
     @courses = Course.all
+    @page = params[:q]
+    @total_pages = (@matches.size / 10) + 1
 
     #@matches = Match.all
+    respond_to do |format|
+      format.html #{ render :template => '/matches/index_test.html.erb'}# index.html.erb
+      format.xml  { render :xml => @matches, :file => 'matches/index.xml' }
+    end
+
   end
 
   # GET /matches/1
@@ -107,6 +114,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @holes = @match.course.holes
     @players = @match.players
+    @param_id = params[:id]
     
     render :template => "layouts/print"
   end

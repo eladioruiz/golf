@@ -15,5 +15,11 @@ module ApplicationHelper
     date.strftime('%d/%m/%Y - %H:%M')
   end
 
-
+  def format_nil(value,default)
+    if value.nil? then
+      default
+    else
+      value
+    end
+  end
 end

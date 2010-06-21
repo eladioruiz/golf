@@ -1,0 +1,163 @@
+<style type='text/css'>
+  .thumb_view_nav {
+    display: none;
+    width:100%;
+    height:0px;
+    margin:0px;
+    padding:0px;
+  }
+
+  .content_tb_header1_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header1_content{
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 50px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_header2_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc;*/
+  }
+  .content_tb_header2_content {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 100%;
+     height: 30px;
+     padding-left: 30px;
+     /*background-color: #828282;*/
+  }
+  .content_tb_content_wrapper {
+     position: relative;
+     float: left;
+     left: 0px;
+     width: 100%;
+     margin-bottom: 5px;
+     /*background-color: #cccccc*/
+  }
+  .content_tb_content_content {
+     position: relative;
+     float: left;
+     right: 5px;
+     width: 100%;
+     height: 150px;
+     /*background-color: #828282*/
+  }
+
+  .content_tb_header1_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
+
+  .content_tb_header1_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
+     text-align: right;
+  }
+
+  .content_tb_header2_left1 {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
+
+  .content_tb_header2_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+     padding-top: 15px;
+
+  }
+
+  .content_tb_header2_right a {
+    margin-top: -40px;
+    margin-left: 150px;
+  }
+
+  .text_box {
+    height: 600px;
+  }
+
+  .oper {
+    text-align: center;
+    font-size: 10px;
+  }
+</style>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  jQuery("#list").jqGrid({
+    url:'http://localhost:3000/matches.xml',
+    datatype: 'xml',
+    width: 800,
+    mtype: 'GET',
+    colNames:['Inv No','Date', 'Amount','Tax'],
+    colModel :[
+      {name:'invid', index:'invid', width:55},
+      {name:'invdate', index:'invdate', width:90},
+      {name:'amount', index:'amount', width:80, align:'right'},
+      {name:'tax', index:'tax', width:80, align:'right'}
+    ],
+    pager: '#pager',
+    rowNum:10,
+    rowList:[10,20,30],
+    sortname: 'invid',
+    sortorder: 'desc',
+    viewrecords: true,
+    caption: 'My first grid'
+  });
+});
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Partidos Jugados - TEST -</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+            <div class="content_tb_header2_content">
+            </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+               <div class="content_tb_content_content">
+
+                    <table id="list"></table>
+                    <div id="pager"></div>
+
+             </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
+
+

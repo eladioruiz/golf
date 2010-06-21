@@ -1,5 +1,6 @@
 class CardStrokesController < ApplicationController
   before_filter :login_required
+  before_filter :current_menu
   
   def index
     if params[:card_id] then
@@ -35,4 +36,9 @@ class CardStrokesController < ApplicationController
   def update
     
   end
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => 'current', 'courses' => '', 'charts' => ''}
+  end
+
 end

@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   has_many   :images, :foreign_key => 'course_id', :class_name => "CourseImage"
   belongs_to :course_type
 
-  after_save :create_holes, :if => :new_record?
+  after_create :create_holes, :if => :new_record?
 
   def create_holes
     (1..n_holes).each do |i|

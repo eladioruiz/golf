@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rows>
+    <page><%= @page -%></page>
+    <total><%= @total_pages -%></total>
+    <records><%= @matches.size -%></records>
+<%
+    @matches.each do |match|
+%>
+        <row id="<%= match.id -%>">            
+            <cell><%=h match.id %></cell>
+            <cell><![CDATA[<%=h match.course.name %>]]></cell>
+            <cell><%=h format_date(match.date_hour_match) %></cell>
+            <cell><%=h match.holes %></cell>
+            <cell><%=h match.players.count %> Jugador/es</cell>
+            <cell></cell>
+        </row>
+<%
+    end
+%>
+</rows>

@@ -89,6 +89,18 @@
     end
 %>
 
+<%
+    if @audit_controller=='matches' and (@audit_action=='index' || @audit_action=='show')
+%>
+    <!-- ESPECIFICO SHOW MATCHES -->
+    <%= stylesheet_link_tag 'ui.jqgrid.css' %>
+    <%= javascript_include_tag 'grid.locale-sp.js'%>
+    <%= javascript_include_tag 'jquery.jqGrid.min.js'%>
+    <!-- ESPECIFICO SHOW MACTHES -->
+<%
+    end
+%>
+
 </head>
 
     <body>
