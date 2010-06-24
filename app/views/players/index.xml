@@ -8,7 +8,7 @@
             card = player.card
         end if
 %>
-        <row id="<%= player.id -%>">
+        <row id="<%= card.id -%>">
             <cell><![CDATA[<%=h player.user.name -%>]]></cell>
             <cell><%=h format_nil(player.handicap,'-') -%></cell>
             <cell><%=h format_nil(player.tee.barras,'-') -%></cell>

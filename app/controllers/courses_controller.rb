@@ -11,9 +11,15 @@ class CoursesController < ApplicationController
   # GET /courses
   def index
     page = params[:page] || 1
-    @courses = Course.all.paginate :page => page, :order => 'name'
+    @courses = Course.all
 
     @new_allowed = Right.action_allowed?(current_user.id, 'courses', 'new')
+
+    respond_to do |format|
+      format.html { render :action => 'index'} # index.html.erb
+      format.xml  { render :xml => @matches, :file => 'matches/index.xml' }
+      format.json { render :json => @courses }
+    end
   end
 
   # GET /courses/1
@@ -74,10 +80,13 @@ class CoursesController < ApplicationController
     redirect_to(courses_url)
   end
 
-  def current_menu
-    @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => ''}
-  end
+  def find_like_by_name
+    @find_by = params[:term]
+    @courses = Course.find_like_by_name('%' + @find_by + '%')
 
+    render :json => @courses, :template => 'courses/find_like_by_name.html.erb'
+  end
+  
   def images
     @course = Course.find(params[:id])
     @images = @course.images
@@ -86,5 +95,12 @@ class CoursesController < ApplicationController
 
     render :file => 'courses/images.xml'
   end
-  
+
+
+private
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => ''}
+  end
+
 end

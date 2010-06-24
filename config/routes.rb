@@ -19,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/matches/bestmatches', :controller => 'matches', :action => 'best_matches'
   map.connect '/matches/mymatches', :controller => 'matches', :action => 'my_matches'
 
+  map.connect '/courses/findlikebyname', :controller => 'courses', :action => 'find_like_by_name'
+
   map.connect '/testcharts/view', :controller => 'test_chart', :action => 'view'
   map.connect '/testcharts/y_right', :controller => 'test_chart', :action => 'y_right'
   map.connect '/testcharts/y_right2', :controller => 'test_chart', :action => 'y_right2'

@@ -12,6 +12,13 @@ class Course < ActiveRecord::Base
 
   after_create :create_holes, :if => :new_record?
 
+  named_scope :find_like_by_name, lambda {|descr|
+                                    {
+                                      :select     => "courses.id, courses.name as value, courses.name as label ",
+                                      :conditions => ["name like ?", descr]
+                                    }
+                                  }
+
   def create_holes
     (1..n_holes).each do |i|
       h = Hole.new(:number => i, :course_id => self.id)
@@ -19,10 +26,8 @@ class Course < ActiveRecord::Base
     end
   end
 
-  cattr_reader :per_page
-  @@per_page = 10
-
   def main_image
     self.images.first
   end
+
 end

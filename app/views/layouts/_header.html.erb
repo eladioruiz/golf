@@ -30,6 +30,18 @@
     end
 %>
 
+    <%
+    if @audit_controller=='matches'
+%>
+    <!-- ESPECIFICO MATCHES -->
+    <%= stylesheet_link_tag 'ui.jqgrid.css' %>
+    <%= javascript_include_tag 'grid.locale-sp.js'%>
+    <%= javascript_include_tag 'jquery.jqGrid.min.js'%>
+    <!-- ESPECIFICO MATCHES -->
+<%
+    end
+%>
+
     <script>
     // Place your application-specific JavaScript functions and classes here
     // This file is automatically included by javascript_include_tag :defaults
@@ -89,17 +101,6 @@
     end
 %>
 
-<%
-    if @audit_controller=='matches' and (@audit_action=='index' || @audit_action=='show')
-%>
-    <!-- ESPECIFICO SHOW MATCHES -->
-    <%= stylesheet_link_tag 'ui.jqgrid.css' %>
-    <%= javascript_include_tag 'grid.locale-sp.js'%>
-    <%= javascript_include_tag 'jquery.jqGrid.min.js'%>
-    <!-- ESPECIFICO SHOW MACTHES -->
-<%
-    end
-%>
 
 </head>
 

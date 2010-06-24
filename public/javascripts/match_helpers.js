@@ -24,17 +24,17 @@ var MatchHelper = function() {
         },
         onAddPlayer: function() {
             var div = $(this).parent().siblings("div.playermatch:last");
-            
             var clone = div.clone().attr('name', 'new');
 
             increment_last_number_in_attribute(clone.find("label"), "for");
             increment_last_number_in_attribute(clone.find("select"), "id");
             increment_last_number_in_attribute(clone.find("select"), "name");
-			increment_last_number_in_attribute(clone.find("input"), "name");
+            increment_last_number_in_attribute(clone.find("input"), "name");
 				
-			console.log(clone);
-			clone.find("input").attr("value","0");
-			clone.show();
+            console.log(clone);
+            clone.find("input").attr("value","0");
+            clone.show();
+
             div.after(clone);
         }
     }

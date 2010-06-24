@@ -6,6 +6,7 @@
 
 class PlayersController < ApplicationController
   before_filter :login_required
+  before_filter :current_menu
   
   # GET /players
   def index
@@ -81,4 +82,10 @@ class PlayersController < ApplicationController
 
     redirect_to(players_url)
   end
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => 'current', 'courses' => '', 'charts' => ''}
+  end
+
+
 end

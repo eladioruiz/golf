@@ -1,30 +1,50 @@
-<% form_for(@match) do |f| %>
-  <%= f.error_messages %>
+                  <% form_for(@match, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
+                    <%= f.error_messages %>
 
-  <p>
-    <%= f.label :course %><br />
-    <%= f.select(:course_id,@courses) %>
-  </p>
-  
-  <p>
-    <%= f.label :date_hour_match %><br />
-    <%= f.datetime_select :date_hour_match, :order => [:day, :month, :year] %>
-  </p>
-  
-  <p>
-    <%= f.label :holes %><br />
-    <%= f.text_field :holes %>
-  </p>
+                    <fieldset>
+                      <legend>Datos principales</legend>
+                      <ol>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <%= f.label "Campo:" %>
+                            </li>
+                            <li class="li-field">
+                              <%= f.select(:course_id,@courses) %>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <%= f.label "Fecha/Hora:" %>
+                            </li>
+                            <li class="li-field" style="width:350px">
+                              <%= f.datetime_select :date_hour_match, :order => [:day, :month, :year] %>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <%= f.label "Hoyos Jugados:" %><br />
+                            </li>
+                            <li class="li-field">
+                              <%= f.text_field :holes, :size => 3, :maxlength => 2 %>
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>
+                    </fieldset>
 
-  <h3>Players</h3>
-  
-  <% f.fields_for :players do |player_form| %>
-	<%= render :partial => 'player', :locals => {:player_form => player_form} %>
-  <% end %>
-  
-  <p><a href="#" class="add_player" >Add another Player</a></p>
-    
-  <p>
-    <%= f.submit 'Save Match' %>
-  </p>
-<% end %>
+                    <fieldset>
+                      <legend>Jugadores</legend>
+                      <ol>
+                        <% f.fields_for :players do |player_form| %>
+                              <%= render :partial => 'player', :locals => {:player_form => player_form} %>
+                        <% end %>
+                      
+                        <p><a href="#" class="add_player">Add another Player</a></p>
+                      </ol>                      
+                    </fieldset>
+                  <% end %>

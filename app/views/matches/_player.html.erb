@@ -1,5 +1,22 @@
-<div class="playermatch">
-  <p>
-      <%= player_form.label :user %>:&nbsp;<%= player_form.select(:user_id, @users) %>&nbsp;&nbsp;&nbsp;<%= player_form.label :tee %>:&nbsp;<%= player_form.select(:tee_id, @tees) %><%= player_form.hidden_field(:_delete, :value=>'0') %>&nbsp;&nbsp;&nbsp;<a class="remove" href="#">Remove</a>
-  </p>
-</div>
+                      <div class="playermatch">
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <div class="pair-form" style="width:400px;">
+                              <li class="li-label" style="padding-top:5px;width:80px;">
+                                <%= player_form.label "Jugador:" %>
+                              </li>
+                              <li class="li-field-column" style="width:180px;">
+                                <%= player_form.select(:user_id, @users) %>
+                              </li>
+                            </div>
+                            <div class="pair-form">
+                              <li class="li-label" style="padding-top:5px;width:60px;">
+                                <%= player_form.label "Tee:" %>
+                              </li>
+                              <li class="li-field-column" style="width:170px;">
+                                <%= player_form.select(:tee_id, @tees) %><%= player_form.hidden_field(:_delete, :value=>'0') %>&nbsp;&nbsp;&nbsp;<a class="remove" href="#">Remove</a>
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                      </div>

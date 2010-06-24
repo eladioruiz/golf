@@ -54,6 +54,7 @@
      right: 5px;
      width: 100%;
      height: 150px;
+     padding-top: 20px;
      /*background-color: #828282*/
   }
 
@@ -72,7 +73,7 @@
      width: 50%;
      /*background-color: #128281;*/
      height: 30px;
-     padding-top: 15px;
+     padding-top: 5px;
      text-align: right;
   }
 
@@ -91,8 +92,8 @@
      width: 50%;
      /*background-color: #128281;*/
      height: 30px;
-     padding-top: 15px;
-
+     padding-top: 0px;
+     text-align: right;
   }
 
   .content_tb_header2_right a {
@@ -101,7 +102,7 @@
   }
 
   .text_box {
-    height: 600px;
+    height: 450px;
   }
 
   .oper.demo {
@@ -139,45 +140,23 @@
 <script>
   $(document).ready(function(){
 
-    var $filterCity = $('#filter input[name="city"]');
-    var $filterCourse = $('#filter input[name="course"]');
-
-    $filterCity.keyup(function(){
-      var filter = $filterCity.val();
-      $('#filter input[name="course"]').val("");
-      $(".gallery:first li").each(function () {
-        var attrib = $(this).attr("city-id");
-        var pos = attrib.search(new RegExp(filter,"i"));
-        if (pos<0) {
-          $(this).addClass("hidden");
-        }
-        else {
-          $(this).removeClass("hidden");
-        }
-      });
-    });
-
-    $filterCourse.keyup(function(){
-        var filter = $filterCourse.val();
-        $('#filter input[name="city"]').val("");
-        $(".gallery:first li").each(function () {
-          var attrib = $(this).attr("course-id");
-          var pos = attrib.search(new RegExp(filter,"i"));
-          if (pos<0) {
-            $(this).addClass("hidden");
-          }
-          else {
-            $(this).removeClass("hidden");
-          }
-        });
-      }
-    );
-
     $('#load-webbies a.button').click(function(e) {
       $.get( $(this).attr('href'), function(data) {
         $('.webbies').quicksand( $(data).find('li'), {adjustHeight: 'dynamic'} );
       });
       e.preventDefault();
+    });
+
+    function log(message) {
+            $("#find_courses_value").attr("value",message);
+    }
+
+    $("#find_courses").autocomplete({
+            source: "/courses/findlikebyname",
+            minLength: 2,
+            select: function(event, ui) {
+                    log(ui.item ? ("" + ui.item.id) : "-" + this.value);
+            }
     });
 
     $(".content_tb_header1_right.demo button:first").button({
@@ -187,10 +166,24 @@
       text: true
     });
 
+    $("#del_filter").button({
+      icons: {
+          primary: 'ui-icon-trash'
+      },
+      text: true
+    });
+
+    $("#apply_filter").button({
+      icons: {
+          primary: 'ui-icon-search'
+      },
+      text: true
+    });
+
     jQuery("#list_matches").jqGrid({
-      url:'matches.xml?q=1',
+      url:'/matches/<%= @userID %>/<%= @audit_action %>.xml?q=1&find_courses_value=<%= @course_filter %>',
       datatype: "xml",
-      height: 400,
+      height: 250,
       width: 920,
       colNames:['Id','Campo','Fecha/Hora', 'Hoyos', 'Jugadores', 'Action'],
       colModel:[  
@@ -211,6 +204,7 @@
       subGridUrl: 'players.xml?q=2',
       subGridModel: [{  name : ['Jugador','Handicap','Tee','Golpes 1º','Golpes 2º','Golpes Totales'],
                         width : [300,80,80,80,80,80],
+                        align : ['left','center','center','center','center','center']
                       }],
       gridComplete: function() {
                       var ids = jQuery("#list_matches").jqGrid('getDataIDs');
@@ -222,10 +216,9 @@
                         ca = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
                         jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
                       }
-                    },
-      caption: ''
+                    }
     });
-    jQuery("#list_matches").jqGrid('navGrid',"#pages_matches",{edit:false,add:false,del:false});
+    //jQuery("#list_matches").jqGrid('navGrid',"#pages_matches",{edit:false,add:false,del:false});
 
     $("#radio").buttonset();
     
@@ -254,53 +247,45 @@
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->
 
-          <div class="content_tb_header2_wrapper">
-            <div class="content_tb_header2_content">
-              <div id="course_select content_tb_header2_left1">
-                  <div class="ui-widget" id="load-webbies">
-                    <form id="filter">
-                      <label class="li-label-column">Localidad:&nbsp;</label>
-                      <input id="city" name="city" type="text" value="">
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <label class="li-label-column">Campo:&nbsp;</label>
-                      <input id="course" name="course" type="text" value="">
-                      &nbsp;&nbsp;&nbsp;
-                    </form>
+          <form id="filter_form" name="filter_form" action="<%=  matches_path %>">
+            
+            <div class="content_tb_header2_wrapper">
+              <div class="content_tb_header2_content">
+                <div class="content_tb_header2_left1">
+                  <div class="ui-form demo">
+
+                    <div class="demo">
+                      <label for="find_courses">Ver sólo Campo: </label>
+                      <input size="30" type="text" name="find_courses" value="<%= @course_filter_name %>" id="find_courses" />
+                      <input type="hidden" name="find_courses_value" value="<%= @course_filter %>" id="find_courses_value" />
+                      <button id="del_filter" onclick="$('#find_courses').attr('value','');$('#find_courses_value').attr('value','');$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();">Sin Filtro</button>
+                      <button id="apply_filter" onclick="$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();">Buscar</button>
+                    </div>
+
                   </div>
-              </div> <!-- course_select content_tb_header2_left1 -->
-              <div class="content_tb_header2_right">
-                &nbsp;
-              </div> <!-- content_tb_header2_right -->
-            </div> <!-- content_tb_header2_content -->
-          </div> <!-- content_tb_header2_wrapper -->
+                </div> <!-- course_select content_tb_header2_left1 -->
+                <div class="content_tb_header2_right">
+
+                  <div class="ui-form demo">
+
+                    <div class="ui-widget" id="radio">
+                      <input type="radio" value="/matches" id="radio1" name="radio" onclick="$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();" <%= @checked['index'] %> /><label for="radio1">Todos</label>
+                      <input type="radio" value="/matches/lastmatches" id="radio2" name="radio" onclick="$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();" <%= @checked['last_matches'] %> /><label for="radio2">10 &Uacute;ltimos</label>
+                      <input type="radio" value="/matches/bestmatches" id="radio3" name="radio" onclick="$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();" <%= @checked['best_matches'] %> /><label for="radio3">10 Mejores</label>
+                      <input type="radio" value="/matches/lastmonth" id="radio4" name="radio" onclick="$('#filter_form').attr('action',$('#filter_form input:radio:checked').val()).submit();" <%= @checked['last_month'] %> /><label for="radio4">&Uacute;ltimo mes</label>
+                      <input type="radio" value="5" id="radio5" name="radio" onclick="alert('Esta opción está actualmente deshabilitada. Disculpe las molestias.');" /><label for="radio5">Personalizado</label>
+                    </div>
+
+                  </div> <!-- end: ui-form -->
+                </div> <!-- content_tb_header2_right -->
+              </div> <!-- content_tb_header2_content -->
+            </div> <!-- content_tb_header2_wrapper -->
+
+          </form>
 
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content">
 
-              <div class="ui-form demo">
-<!--
-                <button onclick="document.location.href='matches'">Todos</button>
-                <button onclick="document.location.href='matches/lastmatches'">10 &Uacute;ltimos</button>
-                <button onclick="document.location.href='matches/bestmatches'">10 Mejores</button>
-                <button onclick="document.location.href='matches/lastmonth'">&Uacute;ltimo mes</button>
-                <button onclick="alert('Esta opción todavía no está operativa')">10 &Uacute;ltimos</button>
--->
-                <div id="radio">
-                  <input type="radio" id="radio1" name="radio" onclick="document.location.href='matches';"><label for="radio1">Todos</label>
-                  <input type="radio" id="radio2" name="radio" onclick="document.location.href='matches/lastmatches';"><label for="radio2">10 &Uacute;ltimos</label>
-                  <input type="radio" id="radio3" name="radio" onclick="document.location.href='matches/bestmatches';"><label for="radio3">10 Mejores</label>
-                  <input type="radio" id="radio4" name="radio" onclick="document.location.href='matches/lastmonth';"><label for="radio4">&Uacute;ltimo mes</label>
-                  <input type="radio" id="radio5" name="radio" onclick="alert('Esta opción no está operativa en estos momentos. Disculpe las molestias.')"><label for="radio5">Personalizado</label>
-                </div>
-
-                <a href="matches">Todos</a>
-                <a href="matches/lastmatches">10 Últimos</a>
-                <a href="matches/bestmatches">10 Mejores</a>
-                <a href="matches/lastmonth">Último Mes</a>
-                <a href="#">Personalizado</a>
-
-              </div> <!-- end: ui-form -->
-              <p></p>
               <div> <!-- jqgrid -->
                 <table id="list_matches"></table>
                 <div id="pager_matches"></div>

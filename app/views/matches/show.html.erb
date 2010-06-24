@@ -119,10 +119,10 @@
                       var ids = jQuery("#list_players").jqGrid('getDataIDs');
                       for(var i=0;i < ids.length;i++) {
                         var cl = ids[i];
-                        ed = "<a href='#' onclick=\"document.location.href='/players/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
-                        dl = "<a href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
-                        se = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
-                        ca = "<a href='#' onclick=\"document.location.href='/players/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        se = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
+                        ed = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
+                        dl = "<a href=\"delete#\" onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                        ca = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
                         jQuery("#list_players").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
                       }
                     },
@@ -202,3 +202,4 @@
 
                 </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->
+

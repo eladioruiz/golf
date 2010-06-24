@@ -25,12 +25,14 @@ class Match < ActiveRecord::Base
                                         Time.now.last_month.end_of_month]
 
   named_scope :last_matches,  :select => "matches.* ",
-                              :order => "date_hour_match DESC "
+                              :order => "date_hour_match DESC ",
+                              :limit => 10
 
   named_scope :best_matches,  :select => "matches.* ",
                               :joins => "inner join cards on matches.id=cards.match_id",
                               :conditions => "",
-                              :order => "strokes_total DESC "
+                              :order => "strokes_total DESC ",
+                              :limit => 10
 
   named_scope :most_used_course,  :select => "course_id, count(*) as num_used",
                                   :group => "course_id ",
@@ -56,9 +58,6 @@ class Match < ActiveRecord::Base
   def available_users?
     ! available_users.empty?
   end
-
-  cattr_reader :per_page
-  @@per_page = 10
 
   def description
     self.course.name + ' - ' + self.date_hour_match.strftime('%d/%m/%Y - %H:%M') 

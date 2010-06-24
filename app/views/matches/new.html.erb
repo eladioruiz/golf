@@ -1,5 +1,154 @@
-<h1>New match</h1>
+<style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
 
-<%= render :partial => 'match' %>
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
 
-<p><%= link_to 'Back', matches_path %></p>
+    .text_box {
+      height: 700px;
+    }
+
+</style>
+
+<script>
+  if( document.addEventListener )
+    document.addEventListener( 'DOMContentLoaded', cmxform, true);
+
+  function cmxform(){
+    // Hide forms
+    //$( 'form.cmxform' ).hide().end();
+
+    // Processing
+    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+      var labelContent = this.innerHTML;
+      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+      var labelSpan = document.createElement( 'span' );
+          labelSpan.style.display = 'block';
+          labelSpan.style.width = labelWidth;
+          labelSpan.innerHTML = labelContent;
+      this.style.display = '-moz-inline-box';
+      this.innerHTML = null;
+      this.appendChild( labelSpan );
+    } ).end();
+
+  // Show forms
+  $( 'form.cmxform' ).show().end();
+}
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-arrowreturnthick-1-w'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-disk'
+            },
+            text: true
+        });
+    
+      $("#button_save").click(
+        function (event) {
+            $("#form_main").submit();
+        }
+      );
+
+    });
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Alta de Nuevo Partido</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='<%= matches_path %>'">Cancelar</button>
+                  <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
+                  <button id="button_save" onclick="">Grabar</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+            <div class="content_tb_content_content cmxform">
+
+              <%= render :partial => 'match' %>
+
+            </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
