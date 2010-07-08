@@ -1012,3 +1012,7 @@ form.cmxform fieldset fieldset label {
   div.cmxform fieldset fieldset label {
       margin-left: 123px; /* Width plus 3 (html space) */
   }
+
+  fieldset {
+      width: 97%;
+  }

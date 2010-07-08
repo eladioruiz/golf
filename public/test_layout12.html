@@ -23,6 +23,10 @@
     <script src="/javascripts/match_helpers.js?1277393488" type="text/javascript"></script>
     <script src="/javascripts/FusionCharts.js?1276259764" type="text/javascript"></script>
 
+
+
+
+
     <script>
     // Place your application-specific JavaScript functions and classes here
     // This file is automatically included by javascript_include_tag :defaults
@@ -33,13 +37,15 @@
             spacing : 10
         });
 
+recalculate();
+
         /* Mueve el cursor al siguiente elemento para introducir los datos de golpes rápidamente */
         $(".stroke_edit").keyup(function(event) {
            if (event.keyCode>=48 && event.keyCode<=57) {
                if ($(this).val().length>0) {
                     var strokes = parseInt($(this).val());
                     if (isNaN(strokes)) {
-                        $(this).attr("value") = "0";
+                        $(this).val("0");
                     }
                     else {
                         if (strokes>1) {
@@ -53,10 +59,16 @@
                                 var next_strokes = $(this).parent().next(".card_player_info").children(".stroke_edit");
                             }
                             next_strokes.focus().select();
+                            recalculate();
                         }
                     }
                }
            }
+           else {
+               $(this).val("0");
+               recalculate();
+           }
+
         });
 
         $(".stroke_edit").blur(function() {
@@ -73,7 +85,7 @@
                if ($(this).val().length>0) {
                     var putts = parseInt($(this).val());
                     if (isNaN(putts)) {
-                        $(this).attr("value") = "0";
+                        $(this).val("0");
                     }
                     else {
                         if (putts>=0) {
@@ -91,6 +103,10 @@
                     }
                }
            }
+           else {
+               $(this).vale("0");
+               recalculate();
+           }
         });
 
         $(".stroke_edit").blur(function() {
@@ -101,7 +117,30 @@
         });
 
 
+
     });
+
+    function recalculate() {
+        var sum_1 = 0;
+        var sum_2 = 0;
+        var sum_t = 0;
+        var i = 0;
+        
+        $(".stroke_edit").each (function() {
+                                    i=i+1;
+                                    if (i<=9) {
+                                        sum_1 = sum_1 + parseInt($(this).val());
+                                    }
+                                    if (i>9) {
+                                        sum_2 = sum_2 + parseInt($(this).val());
+                                    }
+                                    sum_t = sum_t + parseInt($(this).val());
+                                });
+                                
+        $("#strokes_1_9").val(sum_1.toString());
+        $("#strokes_2_9").val(sum_2.toString());
+        $("#strokes_total").val(sum_t.toString());
+    }
     </script>
 
 
@@ -311,7 +350,7 @@
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content cmxform">
 
-                                <form action="/cards/50" class="cmxform" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="yfzRgOYE/aNVbR5fC3jxWQVOkp8sLwPH6jBMo3w9Wdc=" /></div>
+                                <form action="/cards/50" class="cmxform" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="NR7AL6R0Kq3MxiYUu7h4CQrSIVu+NOtmlbSOlrc4F1w=" /></div>
 
 
                     <fieldset>
@@ -321,57 +360,34 @@
                         <li>
                           <ul class="ul-form">
                             <li class="li-label">
-                              <label for="card_Match">Match</label>
+                              <label for="card_Partido">Partido</label>
                             </li>
-                            <li class="li-field">
+                            <li class="li-field" style="width: 730px;">
 
-                              <select id="card_match_id" name="card[match_id]"><option value="22" selected="selected">Club Jarama RACE - 20/06/2010 - 12:10</option></select>
+                              Club Jarama RACE - 20/06/2010 - 12:10
                             </li>
                           </ul>
                         </li>
                         <li>
                           <ul class="ul-form">
-                            <li class="li-label">
-                              <label for="card_Player">Player</label>
+                            <div class="pair-form">
+                              <li class="li-label">
+                                <label for="card_Jugador">Jugador</label>
 
-                            </li>
-                            <li class="li-field" style="width:350px">
-                              <select id="card_player_id" name="card[player_id]"><option value="42" selected="selected">Beatriz Pardo</option></select>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <ul class="ul-form">
+                              </li>
+                              <li class="li-field-column">
+                                Beatriz Pardo
+                              </li>
+                            </div>
+                            <div class="pair-form" style="width:500px;">
+                              <li class="li-label">
+                                <label for="card_Golpes :">Golpes :</label>
+                              </li>
 
-                            <li class="li-label">
-                              <label for="card_Total Strokes">Total strokes</label>
-                            </li>
-                            <li class="li-field">
-                              <label for="card_108">108</label>
-                            </li>
-                          </ul>
-                        </li>
-
-                        <li>
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label for="card_First 9 Holes">First 9 holes</label>
-                            </li>
-                            <li class="li-field">
-                              <label for="card_49">49</label>
-                            </li>
-
-                          </ul>
-                        </li>
-                        <li>
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label for="card_Second 9 Holes">Second 9 holes</label>
-                            </li>
-                            <li class="li-field">
-
-                              <label for="card_59">59</label>
-                            </li>
+                              <li class="li-field-column" style="width:300px;">
+                                107 (total) = 48 (9 primeros) + 59 (9 segundos)<br>
+                              </li>
+                            </div>
                           </ul>
                         </li>
                       </ol>
@@ -382,6 +398,11 @@
 
 <style>
   .stroke_edit {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .stroke_total {
     font-size: 11px;
     text-align: center;
   }
@@ -398,11 +419,11 @@
                       <th width="250px">HOYOS</th>
 
 
+
                         <th width="30px">1</th>
 
 
                         <th width="30px">2</th>
-
 
 
                         <th width="30px">3</th>
@@ -417,11 +438,11 @@
                         <th width="30px">6</th>
 
 
+
                         <th width="30px">7</th>
 
 
                         <th width="30px">8</th>
-
 
 
                         <th width="30px">9</th>
@@ -435,11 +456,11 @@
                         <th width="30px">11</th>
 
 
+
                         <th width="30px">12</th>
 
 
                         <th width="30px">13</th>
-
 
 
                         <th width="30px">14</th>
@@ -454,18 +475,18 @@
                         <th width="30px">17</th>
 
 
+
                         <th width="30px">18</th>
 
                       <th>2nd 9</th>
-
                       <th>Total</th>
                     </tr>
                     <tr class="card_info">
                       <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
 
 
-                      <td>
 
+                      <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr class="hole_red">
     <!-- PAR -->
@@ -473,8 +494,8 @@
       0    </td>
   </tr>
   <tr class="hole_yellow">
-    <!-- PAR -->
 
+    <!-- PAR -->
     <td>
       0    </td>
   </tr>
@@ -482,8 +503,8 @@
     <!-- PAR -->
     <td>
       0    </td>
-  </tr>
 
+  </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
@@ -491,8 +512,8 @@
   </tr>
   <tr>
     <!-- PAR -->
-    <td>
 
+    <td>
       5    </td>
   </tr>
   <tr>
@@ -500,6 +521,7 @@
     <td>
       15    </td>
   </tr>
+
 </table>
 
                       </td>
@@ -511,8 +533,8 @@
     <!-- PAR -->
     <td>
       0    </td>
-  </tr>
 
+  </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
@@ -520,8 +542,8 @@
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
-    <td>
 
+    <td>
       0    </td>
   </tr>
   <tr class="hole_white">
@@ -529,8 +551,8 @@
     <td>
       0    </td>
   </tr>
-  <tr>
 
+  <tr>
     <!-- PAR -->
     <td>
       4    </td>
@@ -538,8 +560,8 @@
   <tr>
     <!-- PAR -->
     <td>
-      11    </td>
 
+      11    </td>
   </tr>
 </table>
 
@@ -550,36 +572,36 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr class="hole_red">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr class="hole_blue">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr>
     <!-- PAR -->
     <td>
       3    </td>
   </tr>
   <tr>
+
     <!-- PAR -->
     <td>
-
       5    </td>
   </tr>
 </table>
@@ -589,36 +611,36 @@
 
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
   <tr class="hole_red">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
+
   </tr>
   <tr>
-
     <!-- PAR -->
     <td>
       7    </td>
@@ -628,46 +650,46 @@
                       </td>
 
 
+
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
   <tr class="hole_red">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_white">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
+
     <td>
       5    </td>
-
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       3    </td>
   </tr>
+
 </table>
 
                       </td>
-
 
 
                       <td>
@@ -676,36 +698,36 @@
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_yellow">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr>
     <!-- PAR -->
-
     <td>
       4    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
+
       1    </td>
   </tr>
-
 </table>
 
                       </td>
@@ -715,36 +737,36 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr class="hole_red">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr class="hole_blue">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
   </tr>
   <tr>
+
     <!-- PAR -->
     <td>
-
       13    </td>
   </tr>
 </table>
@@ -754,36 +776,36 @@
 
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
   <tr class="hole_red">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
+
   </tr>
   <tr>
-
     <!-- PAR -->
     <td>
       17    </td>
@@ -793,46 +815,46 @@
                       </td>
 
 
+
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
   <tr class="hole_red">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_white">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
+
     <td>
       3    </td>
-
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       9    </td>
   </tr>
+
 </table>
 
                       </td>
-
 
 
                       <td>&nbsp;</td>
@@ -843,8 +865,8 @@
     <!-- PAR -->
     <td>
       0    </td>
-  </tr>
 
+  </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
@@ -852,8 +874,8 @@
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
-    <td>
 
+    <td>
       0    </td>
   </tr>
   <tr class="hole_white">
@@ -861,8 +883,8 @@
     <td>
       0    </td>
   </tr>
-  <tr>
 
+  <tr>
     <!-- PAR -->
     <td>
       4    </td>
@@ -870,8 +892,8 @@
   <tr>
     <!-- PAR -->
     <td>
-      10    </td>
 
+      10    </td>
   </tr>
 </table>
 
@@ -882,36 +904,36 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr class="hole_red">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr class="hole_blue">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr>
     <!-- PAR -->
     <td>
       5    </td>
   </tr>
   <tr>
+
     <!-- PAR -->
     <td>
-
       18    </td>
   </tr>
 </table>
@@ -921,36 +943,36 @@
 
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
   <tr class="hole_red">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
+
   </tr>
   <tr>
-
     <!-- PAR -->
     <td>
       4    </td>
@@ -960,46 +982,46 @@
                       </td>
 
 
+
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
   <tr class="hole_red">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_white">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
+
     <td>
       3    </td>
-
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       6    </td>
   </tr>
+
 </table>
 
                       </td>
-
 
 
                       <td>
@@ -1008,36 +1030,36 @@
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_yellow">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr>
     <!-- PAR -->
-
     <td>
       5    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
+
       16    </td>
   </tr>
-
 </table>
 
                       </td>
@@ -1047,36 +1069,36 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
   <tr class="hole_red">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr class="hole_blue">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
   </tr>
   <tr>
+
     <!-- PAR -->
     <td>
-
       8    </td>
   </tr>
 </table>
@@ -1086,36 +1108,36 @@
 
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
   <tr class="hole_red">
     <!-- PAR -->
-
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
     <!-- PAR -->
     <td>
+
       0    </td>
   </tr>
-
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_white">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       4    </td>
+
   </tr>
   <tr>
-
     <!-- PAR -->
     <td>
       2    </td>
@@ -1125,46 +1147,46 @@
                       </td>
 
 
+
                       <td>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
   <tr class="hole_red">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_yellow">
+
     <!-- PAR -->
     <td>
-
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_white">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr>
     <!-- PAR -->
+
     <td>
       3    </td>
-
   </tr>
   <tr>
     <!-- PAR -->
     <td>
       12    </td>
   </tr>
+
 </table>
 
                       </td>
-
 
 
                       <td>
@@ -1173,36 +1195,36 @@
     <!-- PAR -->
     <td>
       0    </td>
+
   </tr>
   <tr class="hole_yellow">
-
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
   <tr class="hole_blue">
     <!-- PAR -->
+
     <td>
       0    </td>
-
   </tr>
   <tr class="hole_white">
     <!-- PAR -->
     <td>
       0    </td>
   </tr>
+
   <tr>
     <!-- PAR -->
-
     <td>
       4    </td>
   </tr>
   <tr>
     <!-- PAR -->
     <td>
+
       14    </td>
   </tr>
-
 </table>
 
                       </td>
@@ -1213,21 +1235,21 @@
 
 
                     <tr class="card_player">
+
                       <td class="card_player_name">Beatriz Pardo (HCP: -)</td>
 
                         <td class="card_player_info" >
 
-
-                          <input id="card_card_strokes_attributes_0_hole_id" maxlength="2" name="card[card_strokes_attributes][0][hole_id]" type="hidden" value="2" />                          <input class="stroke_edit" id="card_card_strokes_attributes_0_strokes" maxlength="2" name="card[card_strokes_attributes][0][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_0_putts" maxlength="2" name="card[card_strokes_attributes][0][putts]" size="1" type="text" value="0" />
+                          <input id="card_card_strokes_attributes_0_hole_id" maxlength="2" name="card[card_strokes_attributes][0][hole_id]" type="hidden" value="2" />                          <input class="stroke_edit" id="card_card_strokes_attributes_0_strokes" maxlength="2" name="card[card_strokes_attributes][0][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_0_putts" maxlength="2" name="card[card_strokes_attributes][0][putts]" size="1" type="text" value="0" />
                       <input id="card_card_strokes_attributes_0_id" name="card[card_strokes_attributes][0][id]" type="hidden" value="570" />
                             </td>
 
                         <td class="card_player_info" >
 
                           <input id="card_card_strokes_attributes_1_hole_id" maxlength="2" name="card[card_strokes_attributes][1][hole_id]" type="hidden" value="3" />                          <input class="stroke_edit" id="card_card_strokes_attributes_1_strokes" maxlength="2" name="card[card_strokes_attributes][1][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_1_putts" maxlength="2" name="card[card_strokes_attributes][1][putts]" size="1" type="text" value="0" />
+
                       <input id="card_card_strokes_attributes_1_id" name="card[card_strokes_attributes][1][id]" type="hidden" value="572" />
                             </td>
-
 
                         <td class="card_player_info" >
 
@@ -1238,8 +1260,8 @@
                         <td class="card_player_info" >
 
                           <input id="card_card_strokes_attributes_3_hole_id" maxlength="2" name="card[card_strokes_attributes][3][hole_id]" type="hidden" value="5" />                          <input class="stroke_edit" id="card_card_strokes_attributes_3_strokes" maxlength="2" name="card[card_strokes_attributes][3][strokes]" size="1" type="text" value="4" />                          <input class="putt_edit" id="card_card_strokes_attributes_3_putts" maxlength="2" name="card[card_strokes_attributes][3][putts]" size="1" type="text" value="0" />
-                      <input id="card_card_strokes_attributes_3_id" name="card[card_strokes_attributes][3][id]" type="hidden" value="574" />
 
+                      <input id="card_card_strokes_attributes_3_id" name="card[card_strokes_attributes][3][id]" type="hidden" value="574" />
                             </td>
 
                         <td class="card_player_info" >
@@ -1275,10 +1297,8 @@
                             </td>
 
                             <td class="card_player_info_total" >
-                              &nbsp;
-                            <input class="stroke_edit" maxlength="2" size="1" type="text" value="0" />
-                            <input class="putt_edit"   maxlength="2" size="1" type="text" value="0" />
-
+                                <input id="strokes_1_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                                <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
                             </td>
 
                         <td class="card_player_info" >
@@ -1337,6 +1357,18 @@
 
                           <input id="card_card_strokes_attributes_17_hole_id" maxlength="2" name="card[card_strokes_attributes][17][hole_id]" type="hidden" value="19" />                          <input class="stroke_edit" id="card_card_strokes_attributes_17_strokes" maxlength="2" name="card[card_strokes_attributes][17][strokes]" size="1" type="text" value="7" />                          <input class="putt_edit" id="card_card_strokes_attributes_17_putts" maxlength="2" name="card[card_strokes_attributes][17][putts]" size="1" type="text" value="0" />
                       <input id="card_card_strokes_attributes_17_id" name="card[card_strokes_attributes][17][id]" type="hidden" value="571" />
+                        </td>
+
+                        <td class="card_player_info" >
+                            <input id="strokes_2_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                        </td>
+
+                        <td class="card_player_info" >
+                            <input id="strokes_total" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                        </td>
+
                     </tr>
 
                   </table>

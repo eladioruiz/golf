@@ -160,6 +160,30 @@
             }
         });
 
+        function recalculate() {
+            var sum_1 = 0;
+            var sum_2 = 0;
+            var sum_t = 0;
+            var i = 0;
+
+            $(".stroke_edit").each (function() {
+                                        i=i+1;
+                                        if (i<=9) {
+                                            sum_1 = sum_1 + parseInt($(this).val());
+                                        }
+                                        if (i>9) {
+                                            sum_2 = sum_2 + parseInt($(this).val());
+                                        }
+                                        sum_t = sum_t + parseInt($(this).val());
+                                    });
+
+            $("#strokes_1_9").val(sum_1.toString());
+            $("#strokes_2_9").val(sum_2.toString());
+            $("#strokes_total").val(sum_t.toString());
+        }
+
+        recalculate();
+
 <% end %>
 
     });

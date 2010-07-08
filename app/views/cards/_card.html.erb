@@ -1,7 +1,7 @@
                   <% form_for(@card, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
                     <%= f.error_messages %>
 
-                    <fieldset>
+                    <fieldset style="padding-top:15px;">
                       <legend>Datos principales</legend>
                       <ol>
                         <li>
@@ -46,6 +46,13 @@
     text-align: center;
   }
 
+  .stroke_total {
+    font-size: 11px;
+    text-align: center;
+    border: none;
+    padding: 4px;
+  }
+
   .putt_edit {
     font-size: 11px;
     text-align: center;
@@ -53,17 +60,17 @@
 </style>
 
                   <p>
-                  <table border="1" cellpadding="0" cellspacing="0" class="card" >
+                  <table border="1" cellpadding="0" cellspacing="0" class="card">
                     <tr>
-                      <th width="250px">HOYOS</th>
+                      <th >HOYOS</th>
                       <% @holes.each do |hole| %>
                         <% if hole.number==10 then %>
-                            <th>1st 9</th>
+                            <th width="40px">1º 9</th>
                         <% end %>
                         <th width="30px"><%= hole.number %></th>
                       <% end %>
-                      <th>2nd 9</th>
-                      <th>Total</th>
+                      <th width="40px">2º 9</th>
+                      <th width="40px">Tot.</th>
                     </tr>
                     <tr class="card_info">
                       <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
@@ -90,13 +97,26 @@
                       <%  end
                           if hole_number==10 then %>
                             <td class="card_player_info_total" >
-                              &nbsp;
+                                <input id="strokes_1_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                                <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
                             </td>
                       <%  end %>
                         <td class="card_player_info" >
                           <%= render :partial => 'edit_card', :locals => {:detail_form => detail_form, :hole_number => hole_number} %>
                       <%    hole_number += 1
                           end %>
+                        </td>
+                        
+                        <td class="card_player_info" >
+                            <input id="strokes_2_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                        </td>
+
+                        <td class="card_player_info" >
+                            <input id="strokes_total" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                        </td>
+
                     </tr>
 
                   </table>
