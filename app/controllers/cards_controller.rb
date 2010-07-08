@@ -82,6 +82,7 @@ class CardsController < ApplicationController
   def update
     @card = Card.find(params[:id])
     if @card.update_attributes(params[:card])
+      @card.recalculate_strokes
       flash[:notice] = 'Card was successfully updated.'
       redirect_to(@card)
     else

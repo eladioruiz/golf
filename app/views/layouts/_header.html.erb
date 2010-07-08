@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <meta name="keywords" content="golf, card, tarjeta, online, on-line, gratis, free, golpes, strokes, handicap, campos de golf, golf courses, estadísticas, gráficos, partido de golf, score, marcador" />
+    <meta name="description" content="mygolfcard es una aplicación inline gratuíta que le permite almacenar las tarjetas de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
     <title>My Golf Card</title>
 
     <%= stylesheet_link_tag 'mygolfcard' %>
@@ -87,7 +89,78 @@
 
 <%
   end
+
+  if @audit_controller=='cards' and @audit_action=='edit'
 %>
+
+        /* Mueve el cursor al siguiente elemento para introducir los datos de golpes rápidamente */
+        $(".stroke_edit").keyup(function(event) {
+           if (event.keyCode>=48 && event.keyCode<=57) {
+               if ($(this).val().length>0) {
+                    var strokes = parseInt($(this).val());
+                    if (isNaN(strokes)) {
+                        $(this).attr("value") = "0";
+                    }
+                    else {
+                        if (strokes>1) {
+                            if ($(this).attr("id")=='card_card_strokes_attributes_8_strokes') {
+                                var next_strokes = $("#card_card_strokes_attributes_9_strokes")
+                            }
+                            else if ($(this).attr("id")=='card_card_strokes_attributes_17_strokes') {
+                                var next_strokes = $("#button_save")
+                            }
+                            else {
+                                var next_strokes = $(this).parent().next(".card_player_info").children(".stroke_edit");
+                            }
+                            next_strokes.focus().select();
+                        }
+                    }
+               }
+           }
+        });
+
+        $(".stroke_edit").blur(function() {
+            if ($(this).val().length==0) {
+                alert("Este campo no puede estar vacío.");
+                $(this).focus().select();
+            }
+        });
+
+
+        /* Mueve el cursor al siguiente elemento para introducir los datos de putts rápidamente */
+        $(".putt_edit").keyup(function(event) {
+           if (event.keyCode>=48 && event.keyCode<=57) {
+               if ($(this).val().length>0) {
+                    var putts = parseInt($(this).val());
+                    if (isNaN(putts)) {
+                        $(this).attr("value") = "0";
+                    }
+                    else {
+                        if (putts>=0) {
+                            if ($(this).attr("id")=='card_card_strokes_attributes_8_putts') {
+                                var next_putts = $("#card_card_strokes_attributes_9_putts")
+                            }
+                            else if ($(this).attr("id")=='card_card_strokes_attributes_17_putts') {
+                                var next_putts = $("#button_save")
+                            }
+                            else {
+                                var next_putts = $(this).parent().next(".card_player_info").children(".putt_edit");
+                            }
+                            next_putts.focus().select();
+                        }
+                    }
+               }
+           }
+        });
+
+        $(".stroke_edit").blur(function() {
+            if ($(this).val().length==0) {
+                alert("Este campo no puede estar vacío.");
+                $(this).focus().select();
+            }
+        });
+
+<% end %>
 
     });
     </script>

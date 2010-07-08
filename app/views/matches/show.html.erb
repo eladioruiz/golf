@@ -118,11 +118,21 @@
       gridComplete: function() {
                       var ids = jQuery("#list_players").jqGrid('getDataIDs');
                       for(var i=0;i < ids.length;i++) {
-                        var cl = ids[i];
-                        se = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
-                        ed = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
-                        dl = "<a href=\"delete#\" onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
-                        ca = "<a href=\"#\" onclick=\"document.location.href='/cards/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        var cl = ids[i].split("#");
+                        var card_id = cl[0];
+                        var player_id = cl[1];
+                        if (cl[0]!='0') {
+                          se = "<a href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "'\"><img src='../images/icon-search.png' border='0'></a>";
+                          ed = "<a href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
+                          dl = "<a href=\"delete#\" onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                          ca = "<a href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        }
+                        else {
+                          se = "<a href=\"/players/" + player_id + "/cards/new\" onclick=\"document.location.href='/players/" + player_id + "/cards/new'\"><img src='../images/icon-search.png' border='0'></a>";
+                          ed = "";
+                          dl = "";
+                          ca = "";
+                        }
                         jQuery("#list_players").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
                       }
                     },

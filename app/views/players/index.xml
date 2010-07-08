@@ -4,11 +4,13 @@
     @players.each do |player|
         if player.card.nil? then
             card = Card.new
+            card_id = 0
         else
             card = player.card
+            card_id = card.id
         end if
 %>
-        <row id="<%= card.id -%>">
+        <row id="<%= card_id.to_s() + '#' + player.id.to_s() -%>">
             <cell><![CDATA[<%=h player.user.name -%>]]></cell>
             <cell><%=h format_nil(player.handicap,'-') -%></cell>
             <cell><%=h format_nil(player.tee.barras,'-') -%></cell>

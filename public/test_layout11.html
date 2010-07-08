@@ -1,0 +1,1387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <meta name="keywords" content="golf, card, tarjeta, online, on-line, gratis, free, golpes, strokes, handicap, campos de golf, golf courses, estadísticas, gráficos, partido de golf, score, marcador" />
+    <meta name="description" content="mygolfcard es una aplicación inline gratuíta que le permite almacenar las tarjetas de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
+    <title>My Golf Card</title>
+
+    <link href="/stylesheets/mygolfcard.css?1277111725" media="screen" rel="stylesheet" type="text/css" />
+
+    <link href="/stylesheets/skin.css?1276796137" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css?1276796137" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/javascripts/jquery-1.4.2.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.easing.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.jcarousel.min.js?1276796137" type="text/javascript"></script>
+    <script src="/javascripts/jquery-ui-1.8rc3.custom.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.kwicks-1.5.1.js?1276259764" type="text/javascript"></script>
+
+    <script src="/javascripts/match_helpers.js?1277393488" type="text/javascript"></script>
+    <script src="/javascripts/FusionCharts.js?1276259764" type="text/javascript"></script>
+
+    <script>
+    // Place your application-specific JavaScript functions and classes here
+    // This file is automatically included by javascript_include_tag :defaults
+    $(document).ready(function(){
+
+        $('.kwicks').kwicks({
+            min : 110,
+            spacing : 10
+        });
+
+        /* Mueve el cursor al siguiente elemento para introducir los datos de golpes rápidamente */
+        $(".stroke_edit").keyup(function(event) {
+           if (event.keyCode>=48 && event.keyCode<=57) {
+               if ($(this).val().length>0) {
+                    var strokes = parseInt($(this).val());
+                    if (isNaN(strokes)) {
+                        $(this).attr("value") = "0";
+                    }
+                    else {
+                        if (strokes>1) {
+                            if ($(this).attr("id")=='card_card_strokes_attributes_8_strokes') {
+                                var next_strokes = $("#card_card_strokes_attributes_9_strokes")
+                            }
+                            else if ($(this).attr("id")=='card_card_strokes_attributes_17_strokes') {
+                                var next_strokes = $("#button_save")
+                            }
+                            else {
+                                var next_strokes = $(this).parent().next(".card_player_info").children(".stroke_edit");
+                            }
+                            next_strokes.focus().select();
+                        }
+                    }
+               }
+           }
+        });
+
+        $(".stroke_edit").blur(function() {
+            if ($(this).val().length==0) {
+                alert("Este campo no puede estar vacío.");
+                $(this).focus().select();
+            }
+        });
+
+
+        /* Mueve el cursor al siguiente elemento para introducir los datos de putts rápidamente */
+        $(".putt_edit").keyup(function(event) {
+           if (event.keyCode>=48 && event.keyCode<=57) {
+               if ($(this).val().length>0) {
+                    var putts = parseInt($(this).val());
+                    if (isNaN(putts)) {
+                        $(this).attr("value") = "0";
+                    }
+                    else {
+                        if (putts>=0) {
+                            if ($(this).attr("id")=='card_card_strokes_attributes_8_putts') {
+                                var next_putts = $("#card_card_strokes_attributes_9_putts")
+                            }
+                            else if ($(this).attr("id")=='card_card_strokes_attributes_17_putts') {
+                                var next_putts = $("#button_save")
+                            }
+                            else {
+                                var next_putts = $(this).parent().next(".card_player_info").children(".putt_edit");
+                            }
+                            next_putts.focus().select();
+                        }
+                    }
+               }
+           }
+        });
+
+        $(".stroke_edit").blur(function() {
+            if ($(this).val().length==0) {
+                alert("Este campo no puede estar vacío.");
+                $(this).focus().select();
+            }
+        });
+
+
+    });
+    </script>
+
+
+
+
+</head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header" style="margin-top:15px;">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+                    </div>
+                    <div class="wrapbranding">
+
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                      <div id="user">
+                        Eladio Ruiz (HCP : 36)
+                        <br>cards - edit - false
+                      </div>
+
+                      <div id="logout">
+                        <a href="/logout" alt="Logout"><img src="../images/logout.gif" border="0" alt="Logout" /></a>
+                      </div>
+                    </div> <!-- end: user_info -->
+                    <div class="footer_header">
+                        &nbsp;
+                    </div>
+                </div>
+
+            </div>
+
+        <div class="content_wrapper">
+
+
+        <div id="navigation_main">
+
+          <ul class="kwicks" id="menu">
+            <li id="kwick1" class=""><a href="/">Inicio</a></li>
+            <li id="kwick2" class="current"><a href="/matches">Partidos</a></li>
+
+            <li id="kwick3" class=""><a href="/courses">Campos</a></li>
+            <li id="kwick4" class=""><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
+            <li id="kwick5" class="inactive"><a href="#">Resumen</a></li>
+            <li id="kwick6" class="inactive"><a href="#">Configuraci&oacute;n</a></li>
+          </ul>
+
+        </div>  <!-- end: navigation -->
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+                    <style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
+
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
+
+    .text_box {
+      height: 700px;
+    }
+
+</style>
+
+<script>
+  if( document.addEventListener )
+    document.addEventListener( 'DOMContentLoaded', cmxform, true);
+
+  function cmxform(){
+    // Hide forms
+    //$( 'form.cmxform' ).hide().end();
+
+    // Processing
+    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+      var labelContent = this.innerHTML;
+      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+      var labelSpan = document.createElement( 'span' );
+          labelSpan.style.display = 'block';
+          labelSpan.style.width = labelWidth;
+          labelSpan.innerHTML = labelContent;
+      this.style.display = '-moz-inline-box';
+      this.innerHTML = null;
+      this.appendChild( labelSpan );
+    } ).end();
+
+  // Show forms
+  $( 'form.cmxform' ).show().end();
+}
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-arrowreturnthick-1-w'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-disk'
+            },
+            text: true
+        });
+
+      $("#button_save").click(
+        function (event) {
+            $("#form_main").submit();
+        }
+      );
+
+    });
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Editar Tarjeta</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='/matches'">Cancelar</button>
+
+                  <button onclick="document.location.href='/matches'">Listado</button>
+                  <button id="button_save" onclick="">Grabar</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+            <div class="content_tb_content_content cmxform">
+
+                                <form action="/cards/50" class="cmxform" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="yfzRgOYE/aNVbR5fC3jxWQVOkp8sLwPH6jBMo3w9Wdc=" /></div>
+
+
+                    <fieldset>
+
+                      <legend>Datos principales</legend>
+                      <ol>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label for="card_Match">Match</label>
+                            </li>
+                            <li class="li-field">
+
+                              <select id="card_match_id" name="card[match_id]"><option value="22" selected="selected">Club Jarama RACE - 20/06/2010 - 12:10</option></select>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label for="card_Player">Player</label>
+
+                            </li>
+                            <li class="li-field" style="width:350px">
+                              <select id="card_player_id" name="card[player_id]"><option value="42" selected="selected">Beatriz Pardo</option></select>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="ul-form">
+
+                            <li class="li-label">
+                              <label for="card_Total Strokes">Total strokes</label>
+                            </li>
+                            <li class="li-field">
+                              <label for="card_108">108</label>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label for="card_First 9 Holes">First 9 holes</label>
+                            </li>
+                            <li class="li-field">
+                              <label for="card_49">49</label>
+                            </li>
+
+                          </ul>
+                        </li>
+                        <li>
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label for="card_Second 9 Holes">Second 9 holes</label>
+                            </li>
+                            <li class="li-field">
+
+                              <label for="card_59">59</label>
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>
+                    </fieldset>
+
+                    <fieldset>
+                      <legend>Tarjeta/Golpes</legend>
+
+<style>
+  .stroke_edit {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .putt_edit {
+    font-size: 11px;
+    text-align: center;
+  }
+</style>
+
+                  <p>
+                  <table border="1" cellpadding="0" cellspacing="0" class="card" >
+                    <tr>
+                      <th width="250px">HOYOS</th>
+
+
+                        <th width="30px">1</th>
+
+
+                        <th width="30px">2</th>
+
+
+
+                        <th width="30px">3</th>
+
+
+                        <th width="30px">4</th>
+
+
+                        <th width="30px">5</th>
+
+
+                        <th width="30px">6</th>
+
+
+                        <th width="30px">7</th>
+
+
+                        <th width="30px">8</th>
+
+
+
+                        <th width="30px">9</th>
+
+
+                            <th>1st 9</th>
+
+                        <th width="30px">10</th>
+
+
+                        <th width="30px">11</th>
+
+
+                        <th width="30px">12</th>
+
+
+                        <th width="30px">13</th>
+
+
+
+                        <th width="30px">14</th>
+
+
+                        <th width="30px">15</th>
+
+
+                        <th width="30px">16</th>
+
+
+                        <th width="30px">17</th>
+
+
+                        <th width="30px">18</th>
+
+                      <th>2nd 9</th>
+
+                      <th>Total</th>
+                    </tr>
+                    <tr class="card_info">
+                      <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
+
+
+                      <td>
+
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+
+      5    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      15    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      11    </td>
+
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr>
+    <!-- PAR -->
+    <td>
+      3    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+
+      5    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      7    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      5    </td>
+
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      3    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      1    </td>
+  </tr>
+
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+
+      13    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      17    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      3    </td>
+
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      9    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+
+                      <td>&nbsp;</td>
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      10    </td>
+
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr>
+    <!-- PAR -->
+    <td>
+      5    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+
+      18    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      3    </td>
+
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      6    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+
+    <td>
+      5    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      16    </td>
+  </tr>
+
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+
+      8    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+
+    <!-- PAR -->
+    <td>
+      2    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+    <!-- PAR -->
+    <td>
+
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_white">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      3    </td>
+
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      12    </td>
+  </tr>
+</table>
+
+                      </td>
+
+
+
+                      <td>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr class="hole_red">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_yellow">
+
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr class="hole_blue">
+    <!-- PAR -->
+    <td>
+      0    </td>
+
+  </tr>
+  <tr class="hole_white">
+    <!-- PAR -->
+    <td>
+      0    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+
+    <td>
+      4    </td>
+  </tr>
+  <tr>
+    <!-- PAR -->
+    <td>
+      14    </td>
+  </tr>
+
+</table>
+
+                      </td>
+
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+
+
+                    <tr class="card_player">
+                      <td class="card_player_name">Beatriz Pardo (HCP: -)</td>
+
+                        <td class="card_player_info" >
+
+
+                          <input id="card_card_strokes_attributes_0_hole_id" maxlength="2" name="card[card_strokes_attributes][0][hole_id]" type="hidden" value="2" />                          <input class="stroke_edit" id="card_card_strokes_attributes_0_strokes" maxlength="2" name="card[card_strokes_attributes][0][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_0_putts" maxlength="2" name="card[card_strokes_attributes][0][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_0_id" name="card[card_strokes_attributes][0][id]" type="hidden" value="570" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_1_hole_id" maxlength="2" name="card[card_strokes_attributes][1][hole_id]" type="hidden" value="3" />                          <input class="stroke_edit" id="card_card_strokes_attributes_1_strokes" maxlength="2" name="card[card_strokes_attributes][1][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_1_putts" maxlength="2" name="card[card_strokes_attributes][1][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_1_id" name="card[card_strokes_attributes][1][id]" type="hidden" value="572" />
+                            </td>
+
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_2_hole_id" maxlength="2" name="card[card_strokes_attributes][2][hole_id]" type="hidden" value="4" />                          <input class="stroke_edit" id="card_card_strokes_attributes_2_strokes" maxlength="2" name="card[card_strokes_attributes][2][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_2_putts" maxlength="2" name="card[card_strokes_attributes][2][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_2_id" name="card[card_strokes_attributes][2][id]" type="hidden" value="573" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_3_hole_id" maxlength="2" name="card[card_strokes_attributes][3][hole_id]" type="hidden" value="5" />                          <input class="stroke_edit" id="card_card_strokes_attributes_3_strokes" maxlength="2" name="card[card_strokes_attributes][3][strokes]" size="1" type="text" value="4" />                          <input class="putt_edit" id="card_card_strokes_attributes_3_putts" maxlength="2" name="card[card_strokes_attributes][3][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_3_id" name="card[card_strokes_attributes][3][id]" type="hidden" value="574" />
+
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_4_hole_id" maxlength="2" name="card[card_strokes_attributes][4][hole_id]" type="hidden" value="6" />                          <input class="stroke_edit" id="card_card_strokes_attributes_4_strokes" maxlength="2" name="card[card_strokes_attributes][4][strokes]" size="1" type="text" value="9" />                          <input class="putt_edit" id="card_card_strokes_attributes_4_putts" maxlength="2" name="card[card_strokes_attributes][4][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_4_id" name="card[card_strokes_attributes][4][id]" type="hidden" value="576" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_5_hole_id" maxlength="2" name="card[card_strokes_attributes][5][hole_id]" type="hidden" value="7" />                          <input class="stroke_edit" id="card_card_strokes_attributes_5_strokes" maxlength="2" name="card[card_strokes_attributes][5][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_5_putts" maxlength="2" name="card[card_strokes_attributes][5][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_5_id" name="card[card_strokes_attributes][5][id]" type="hidden" value="577" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_6_hole_id" maxlength="2" name="card[card_strokes_attributes][6][hole_id]" type="hidden" value="8" />                          <input class="stroke_edit" id="card_card_strokes_attributes_6_strokes" maxlength="2" name="card[card_strokes_attributes][6][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_6_putts" maxlength="2" name="card[card_strokes_attributes][6][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_6_id" name="card[card_strokes_attributes][6][id]" type="hidden" value="561" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_7_hole_id" maxlength="2" name="card[card_strokes_attributes][7][hole_id]" type="hidden" value="9" />                          <input class="stroke_edit" id="card_card_strokes_attributes_7_strokes" maxlength="2" name="card[card_strokes_attributes][7][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_7_putts" maxlength="2" name="card[card_strokes_attributes][7][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_7_id" name="card[card_strokes_attributes][7][id]" type="hidden" value="563" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_8_hole_id" maxlength="2" name="card[card_strokes_attributes][8][hole_id]" type="hidden" value="10" />                          <input class="stroke_edit" id="card_card_strokes_attributes_8_strokes" maxlength="2" name="card[card_strokes_attributes][8][strokes]" size="1" type="text" value="4" />                          <input class="putt_edit" id="card_card_strokes_attributes_8_putts" maxlength="2" name="card[card_strokes_attributes][8][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_8_id" name="card[card_strokes_attributes][8][id]" type="hidden" value="565" />
+                            </td>
+
+                            <td class="card_player_info_total" >
+
+                                <input class="stroke_edit" maxlength="2" size="1" type="text" value="0" />
+                                <input class="putt_edit"   maxlength="2" size="1" type="text" value="0" />
+
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_9_hole_id" maxlength="2" name="card[card_strokes_attributes][9][hole_id]" type="hidden" value="11" />                          <input class="stroke_edit" id="card_card_strokes_attributes_9_strokes" maxlength="2" name="card[card_strokes_attributes][9][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_9_putts" maxlength="2" name="card[card_strokes_attributes][9][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_9_id" name="card[card_strokes_attributes][9][id]" type="hidden" value="567" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_10_hole_id" maxlength="2" name="card[card_strokes_attributes][10][hole_id]" type="hidden" value="12" />                          <input class="stroke_edit" id="card_card_strokes_attributes_10_strokes" maxlength="2" name="card[card_strokes_attributes][10][strokes]" size="1" type="text" value="10" />                          <input class="putt_edit" id="card_card_strokes_attributes_10_putts" maxlength="2" name="card[card_strokes_attributes][10][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_10_id" name="card[card_strokes_attributes][10][id]" type="hidden" value="575" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_11_hole_id" maxlength="2" name="card[card_strokes_attributes][11][hole_id]" type="hidden" value="13" />                          <input class="stroke_edit" id="card_card_strokes_attributes_11_strokes" maxlength="2" name="card[card_strokes_attributes][11][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_11_putts" maxlength="2" name="card[card_strokes_attributes][11][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_11_id" name="card[card_strokes_attributes][11][id]" type="hidden" value="560" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_12_hole_id" maxlength="2" name="card[card_strokes_attributes][12][hole_id]" type="hidden" value="14" />                          <input class="stroke_edit" id="card_card_strokes_attributes_12_strokes" maxlength="2" name="card[card_strokes_attributes][12][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_12_putts" maxlength="2" name="card[card_strokes_attributes][12][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_12_id" name="card[card_strokes_attributes][12][id]" type="hidden" value="562" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_13_hole_id" maxlength="2" name="card[card_strokes_attributes][13][hole_id]" type="hidden" value="15" />                          <input class="stroke_edit" id="card_card_strokes_attributes_13_strokes" maxlength="2" name="card[card_strokes_attributes][13][strokes]" size="1" type="text" value="8" />                          <input class="putt_edit" id="card_card_strokes_attributes_13_putts" maxlength="2" name="card[card_strokes_attributes][13][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_13_id" name="card[card_strokes_attributes][13][id]" type="hidden" value="564" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_14_hole_id" maxlength="2" name="card[card_strokes_attributes][14][hole_id]" type="hidden" value="16" />                          <input class="stroke_edit" id="card_card_strokes_attributes_14_strokes" maxlength="2" name="card[card_strokes_attributes][14][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_14_putts" maxlength="2" name="card[card_strokes_attributes][14][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_14_id" name="card[card_strokes_attributes][14][id]" type="hidden" value="566" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_15_hole_id" maxlength="2" name="card[card_strokes_attributes][15][hole_id]" type="hidden" value="17" />                          <input class="stroke_edit" id="card_card_strokes_attributes_15_strokes" maxlength="2" name="card[card_strokes_attributes][15][strokes]" size="1" type="text" value="6" />                          <input class="putt_edit" id="card_card_strokes_attributes_15_putts" maxlength="2" name="card[card_strokes_attributes][15][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_15_id" name="card[card_strokes_attributes][15][id]" type="hidden" value="568" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_16_hole_id" maxlength="2" name="card[card_strokes_attributes][16][hole_id]" type="hidden" value="18" />                          <input class="stroke_edit" id="card_card_strokes_attributes_16_strokes" maxlength="2" name="card[card_strokes_attributes][16][strokes]" size="1" type="text" value="5" />                          <input class="putt_edit" id="card_card_strokes_attributes_16_putts" maxlength="2" name="card[card_strokes_attributes][16][putts]" size="1" type="text" value="0" />
+
+                      <input id="card_card_strokes_attributes_16_id" name="card[card_strokes_attributes][16][id]" type="hidden" value="569" />
+                            </td>
+
+                        <td class="card_player_info" >
+
+                          <input id="card_card_strokes_attributes_17_hole_id" maxlength="2" name="card[card_strokes_attributes][17][hole_id]" type="hidden" value="19" />                          <input class="stroke_edit" id="card_card_strokes_attributes_17_strokes" maxlength="2" name="card[card_strokes_attributes][17][strokes]" size="1" type="text" value="7" />                          <input class="putt_edit" id="card_card_strokes_attributes_17_putts" maxlength="2" name="card[card_strokes_attributes][17][putts]" size="1" type="text" value="0" />
+                      <input id="card_card_strokes_attributes_17_id" name="card[card_strokes_attributes][17][id]" type="hidden" value="571" />
+                    </tr>
+
+                  </table>
+
+
+                    </fieldset>
+
+                      </form>
+
+
+            </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
+
+<a href="/cards/50">Show</a> |
+
+<a href="/cards">Back</a>
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+
+        </div>  <!-- end: content_wrapper -->
+
+            <div class="left">
+                &nbsp;
+            </div>
+
+            <div class="right">
+                &nbsp;
+            </div>
+            <!--<div class="footer">
+                <p>&copy 2010 Eladio Ruiz</p>
+            </div>-->
+        </div>
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-13252939-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+</script>
+
+</body>
+</html>
+
