@@ -107,6 +107,11 @@
             text: true
         }).next().button({
             icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
                 primary: 'ui-icon-pencil'
             },
             text: true
@@ -137,9 +142,10 @@
                 <div class="content_tb_header1_left1">
                     <h1>Tarjeta</h1>
                 </div> <!-- content_tb_header1_left1 -->
-                <div class="content_tb_header1_right demo">
+                <div class="content_tb_header1_right demo">                 
                   <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
-                  <button onclick="document.location.href='<%= match_path(@match) %>'">Editar</button>
+                  <button onclick="document.location.href='<%= match_path(@match) %>'">Ver Partido</button>
+                  <button onclick="document.location.href='<%= match_path(@match) %>/edit'">Editar</button>
                   <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
                   <button onclick="alert('Esta opción no está disponible actualmente. Disculpe las molestias.');">Imprimir</button>
                 </div> <!-- content_tb_header1_right demo -->

@@ -95,14 +95,19 @@
             primary: 'ui-icon-trash'
         },
         text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-calculator'
+        },
+        text: true
     });
 
     jQuery("#list_players").jqGrid({
       url:'/players.xml?q=2&id=<%= @match.id %>',
       datatype: "xml",
       height: 100,
-      width: 800,
-      colNames:['Jugador','Handicap', 'Tee', 'Golpes 1º', 'Golpes 2º', 'Golpes Total', 'Action'],
+      width: 825,
+      colNames:['Jugador','Handicap', 'Tee', 'Golpes 1º', 'Golpes 2º', 'Golpes Total', 'Tarjeta'],
       colModel:[
                   {name:'player_name',index:'player_name', width:290},
                   {name:'player_handicap',index:'player_handicap', align:"center", width:80},
@@ -152,6 +157,7 @@
                   <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
                   <button onclick="document.location.href='<%= edit_match_path(@match) %>'">Editar</button>
                   <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                  <button onclick="document.location.href='<%= print_match_path(@match) %>'">Tarjeta</button>
                 </div> <!-- content_tb_header1_right demo -->
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->
@@ -166,43 +172,13 @@
 
                   <div class="cmxform">
 
-                    <fieldset class="" style="height: 230px;padding-top:15px;">
-                      <legend>Datos del campo</legend>
-                      <ol>
-                        <li class="row-form">
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label>Campo:</b></label>
-                            </li>
-                            <li class="li-field" style="width:400px;">
-                              <%=h @match.course.name %>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="row-form">
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label>Fecha/Hora:</b></label>
-                            </li>
-                            <li class="li-field">
-                              <%=h format_date(@match.date_hour_match) %>
-                            </li>
-                          </ul>
-                        </li>
+                    <fieldset class="" style="height: 380px;padding-top:15px;">
+                      <legend>Datos del Partido</legend>
 
-                        <li class="row-form">
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label>Hoyos Jugados:</b></label>
-                            </li>
-                            <li class="li-field">
-                              <%=h @match.holes %>
-                            </li>
-                          </ul>
-                        </li>
-                      </ol>
+                      <%= render :partial => 'info_match_graph' %>
 
-                      <div style="margin-left: 50px"> <!-- jqgrid -->
+                      <p>
+                      <div style="margin-left: 37px"> <!-- jqgrid -->
                         <table id="list_players"></table>
                         <div id="pager_players"></div>
                       </div> <!-- jqgrid -->

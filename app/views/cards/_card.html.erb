@@ -2,124 +2,74 @@
                     <%= f.error_messages %>
 
                     <fieldset style="padding-top:15px;">
-                      <legend>Datos principales</legend>
-                      <ol>
-                        <li>
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <%= f.label "Partido" %>
-                            </li>
-                            <li class="li-field" style="width: 730px;">
-                              <%=h @card.match.description %>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <ul class="ul-form">
-                            <div class="pair-form">
-                              <li class="li-label">
-                                <%= f.label "Jugador" %>
-                              </li>
-                              <li class="li-field-column">
-                                <%=h @card.player.user.name %>
-                              </li>
-                            </div>
-                            <div class="pair-form" style="width:500px;">
-                              <li class="li-label">
-                                <%= f.label "Golpes :" %>
-                              </li>
-                              <li class="li-field-column" style="width:300px;">
-                                <%= @card.strokes_total -%> (total) = <%= @card.strokes_first_9 -%> (9 primeros) + <%= @card.strokes_second_9  -%> (9 segundos)<br>
-                              </li>
-                            </div>
-                          </ul>
-                        </li>
-                      </ol>
+                      <legend>Datos del Partido</legend>
+                        <%= render :partial => 'matches/info_match_graph' %>
                     </fieldset>
 
                     <fieldset>
                       <legend>Tarjeta/Golpes</legend>
 
-<style>
-  .stroke_edit {
-    font-size: 11px;
-    text-align: center;
-  }
-
-  .stroke_total {
-    font-size: 11px;
-    text-align: center;
-    border: none;
-    padding: 4px;
-  }
-
-  .putt_edit {
-    font-size: 11px;
-    text-align: center;
-  }
-</style>
-
-                  <p>
-                  <table border="1" cellpadding="0" cellspacing="0" class="card">
-                    <tr>
-                      <th >HOYOS</th>
-                      <% @holes.each do |hole| %>
-                        <% if hole.number==10 then %>
-                            <th width="40px">1º 9</th>
-                        <% end %>
-                        <th width="30px"><%= hole.number %></th>
+                      <p>
+                      <table border="1" cellpadding="0" cellspacing="0" class="card">
+                        <tr>
+                          <th >HOYOS</th>
+                          <% @holes.each do |hole| %>
+                            <% if hole.number==10 then %>
+                                <th width="40px">1º 9</th>
+                            <% end %>
+                            <th width="30px"><%= hole.number %></th>
+                          <% end %>
+                          <th width="40px">2º 9</th>
+                          <th width="40px">Tot.</th>
+                        </tr>
+                        <tr class="card_info">
+                          <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
+                          <% @holes.each do |hole| %>
+                      <% if hole.number==10 then %>
+                          <td>&nbsp;</td>
                       <% end %>
-                      <th width="40px">2º 9</th>
-                      <th width="40px">Tot.</th>
-                    </tr>
-                    <tr class="card_info">
-                      <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
-                      <% @holes.each do |hole| %>
-                  <% if hole.number==10 then %>
-                      <td>&nbsp;</td>
-                  <% end %>
-                      <td>
-                        <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
-                      </td>
-                      <% end %>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
+                          <td>
+                            <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
+                          </td>
+                          <% end %>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                        </tr>
 
-                    <% player = @card.player %>
-                    <tr class="card_player">
-                      <td class="card_player_name"><%= player.user.name %> (HCP: <%= format_nil(player.handicap,'-') -%>)</td>
-                      <%  hole_number=1
-                          f.fields_for :card_strokes do |detail_form| 
-                          
-                          if hole_number>1 then %>
+                        <% player = @card.player %>
+                        <tr class="card_player">
+                          <td class="card_player_name"><%= player.user.name %> (HCP: <%= format_nil(player.handicap,'-') -%>)</td>
+                          <%  hole_number=1
+                              f.fields_for :card_strokes do |detail_form|
+
+                              if hole_number>1 then %>
+                                </td>
+                          <%  end
+                              if hole_number==10 then %>
+                                <td class="card_player_info_total" >
+                                    <input id="strokes_1_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                                    <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                                </td>
+                          <%  end %>
+                            <td class="card_player_info" >
+                              <%= render :partial => 'edit_card', :locals => {:detail_form => detail_form, :hole_number => hole_number} %>
+                          <%    hole_number += 1
+                              end %>
                             </td>
-                      <%  end
-                          if hole_number==10 then %>
-                            <td class="card_player_info_total" >
-                                <input id="strokes_1_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+
+                            <td class="card_player_info" >
+                                <input id="strokes_2_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
                                 <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
                             </td>
-                      <%  end %>
-                        <td class="card_player_info" >
-                          <%= render :partial => 'edit_card', :locals => {:detail_form => detail_form, :hole_number => hole_number} %>
-                      <%    hole_number += 1
-                          end %>
-                        </td>
-                        
-                        <td class="card_player_info" >
-                            <input id="strokes_2_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
-                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
-                        </td>
 
-                        <td class="card_player_info" >
-                            <input id="strokes_total" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
-                            <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
-                        </td>
+                            <td class="card_player_info" >
+                                <input id="strokes_total" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
+                                <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                  </table>
+                      </table>
 
 
                     </fieldset>

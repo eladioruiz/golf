@@ -49,10 +49,11 @@
     // This file is automatically included by javascript_include_tag :defaults
     $(document).ready(function(){
 
+        /* MOVIMIENTO MENúS
         $('.kwicks').kwicks({
             min : 110,
             spacing : 10
-        });
+        }); */
 
 <%
   if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
@@ -216,7 +217,7 @@
                     </div>
                     <div class="user_info">
                       <div id="user">
-                        <%= @user_name %> (HCP : <%= @user_handicap %>)
+                        <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)
                         <br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>
                       </div>
                       <div id="logout">

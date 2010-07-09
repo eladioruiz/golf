@@ -37,7 +37,7 @@
             spacing : 10
         });
 
-recalculate();
+        recalculate();
 
         /* Mueve el cursor al siguiente elemento para introducir los datos de golpes rápidamente */
         $(".stroke_edit").keyup(function(event) {
@@ -268,7 +268,7 @@ recalculate();
     }
 
     .text_box {
-      height: 700px;
+      height: 580px;
     }
 
 </style>
@@ -350,47 +350,66 @@ recalculate();
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content cmxform">
 
-                                <form action="/cards/50" class="cmxform" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="NR7AL6R0Kq3MxiYUu7h4CQrSIVu+NOtmlbSOlrc4F1w=" /></div>
-
+                                <form action="/cards/50" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="NR7AL6R0Kq3MxiYUu7h4CQrSIVu+NOtmlbSOlrc4F1w=" /></div>
 
                     <fieldset>
 
-                      <legend>Datos principales</legend>
-                      <ol>
-                        <li>
-                          <ul class="ul-form">
-                            <li class="li-label">
-                              <label for="card_Partido">Partido</label>
-                            </li>
-                            <li class="li-field" style="width: 730px;">
-
-                              Club Jarama RACE - 20/06/2010 - 12:10
-                            </li>
-                          </ul>
+                      <legend>Datos Partido</legend>
+                      <ul class="list-info-match">
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="http://localhost:3000/course_images/1/show">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match" style="width:190px;">Club Jarama RACE</span><br />
+                                    <span class="content-label-match">Hoyos jugados: </span><span class="content-label-info-match">18</span>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                          <ul class="ul-form">
-                            <div class="pair-form">
-                              <li class="li-label">
-                                <label for="card_Jugador">Jugador</label>
-
-                              </li>
-                              <li class="li-field-column">
-                                Beatriz Pardo
-                              </li>
-                            </div>
-                            <div class="pair-form" style="width:500px;">
-                              <li class="li-label">
-                                <label for="card_Golpes :">Golpes :</label>
-                              </li>
-
-                              <li class="li-field-column" style="width:300px;">
-                                107 (total) = 48 (9 primeros) + 59 (9 segundos)<br>
-                              </li>
-                            </div>
-                          </ul>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/calendar_clock.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match">Fecha: </span><span class="content-label-info-match">20/06/2010</span><br />
+                                    <span class="content-label-match">Hora: </span><span class="content-label-info-match">12:00</span>
+                                </li>
+                            </ul>
                         </li>
-                      </ol>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/strokes_putts.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match">Primeros 9: </span><span class="content-label-info-match">48</span><br />
+                                    <span class="content-label-match">Segundos 9: </span><span class="content-label-info-match">59</span><br />
+                                    <span class="content-label-match">Total:</span><span class="content-label-info-match">107</span><br />
+                                    <span class="content-label-match">Putts:</span><span class="content-label-info-match">40</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/players.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match">Eladio Ruiz </span><span class="content-label-info-match">48</span><br />
+                                    <span class="content-label-match">Beatriz Pardo </span><span class="content-label-info-match">59</span><br />
+                                    <span class="content-label-match">Juan Pardo </span><span class="content-label-info-match">107</span><br />
+                                    <span class="content-label-match">Mercedes Calvo </span><span class="content-label-info-match">107</span>
+                                </li>
+                            </ul>
+                        </li>
+                      </ul>
+                      <br />
                     </fieldset>
 
                     <fieldset>
@@ -400,16 +419,21 @@ recalculate();
   .stroke_edit {
     font-size: 11px;
     text-align: center;
+    width:20px;
   }
 
   .stroke_total {
     font-size: 11px;
     text-align: center;
+    border: none;
+    padding: 4px;
+    width:20px;
   }
 
   .putt_edit {
     font-size: 11px;
     text-align: center;
+    width:20px;
   }
 </style>
 
@@ -1382,9 +1406,6 @@ recalculate();
             </div> <!-- content_tb_content_content -->
           </div> <!-- content_tb_content_wrapper -->
 
-<a href="/cards/50">Show</a> |
-
-<a href="/cards">Back</a>
                 </div> <!-- end: text-box -->
             </div>  <!-- end: main_content -->
 

@@ -1,0 +1,56 @@
+                      <ul class="list-info-match">
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="<%= course_image_default(@match.course) -%>">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match" style="width:190px;"><%= @match.course.name  -%></span><br />
+                                    <span class="content-label-match">Hoyos jugados: </span><span class="content-label-info-match"><%= @match.holes -%></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/calendar_clock.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match" style="width: 110px;">Fecha: </span><span class="content-label-info-match" style="width: 80px;"><%= format_date_day(@match.date_hour_match)  -%></span><br />
+                                    <span class="content-label-match">Hora: </span><span class="content-label-info-match"><%= format_date_hour(@match.date_hour_match)  -%></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <% unless @card.nil? then %>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/strokes_putts.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <span class="content-label-match">Primeros 9: </span><span class="content-label-info-match"><%= @card.strokes_first_9 -%></span><br />
+                                    <span class="content-label-match">Segundos 9: </span><span class="content-label-info-match"><%= @card.strokes_second_9 -%></span><br />
+                                    <span class="content-label-match">Total:</span><span class="content-label-info-match"><%= @card.strokes_total  -%></span><br />
+                                    <!--<span class="content-label-match">Putts:</span><span class="content-label-info-match">N/I</span>-->
+                                </li>
+                            </ul>
+                        </li>
+                        <% end %>
+                        <li class="info-match">
+                            <ul class="content-list-info-match">
+                                <li class="content-info-match">
+                                    <img src="/images/players.gif">
+                                </li>
+                                <li class="content-info-match">
+                                    <br />
+                                    <% @match.players.each do |player| %>
+                                    <span class="content-label-match"><%=  player.user.name -%> (<%=  format_handicap(player.handicap) -%>)</span><span class="content-label-info-match"><%=  player.card.nil? ? ' - ' : player.card.strokes_total -%></span><br />
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </li>
+                      </ul>
+                      <br />

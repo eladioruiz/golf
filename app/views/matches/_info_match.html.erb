@@ -1,0 +1,33 @@
+                      <ol>
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Campo:</b></label>
+                            </li>
+                            <li class="li-field" style="width:400px;">
+                              <%=h @match.course.name %>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Fecha/Hora:</b></label>
+                            </li>
+                            <li class="li-field">
+                              <%=h format_date(@match.date_hour_match) %>
+                            </li>
+                          </ul>
+                        </li>
+
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <li class="li-label">
+                              <label>Hoyos Jugados:</b></label>
+                            </li>
+                            <li class="li-field">
+                              <%=h @match.holes %>
+                            </li>
+                          </ul>
+                        </li>
+                      </ol>

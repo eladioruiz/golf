@@ -185,7 +185,7 @@
       datatype: "xml",
       height: 250,
       width: 920,
-      colNames:['Id','Campo','Fecha/Hora', 'Hoyos', 'Jugadores', 'Action'],
+      colNames:['Id','Campo','Fecha/Hora', 'Hoyos', 'Jugadores', 'Acción'],
       colModel:[  
                   {name:'match_id',index:'match_id', width:20, hidden:true},
                   {name:'course',index:'course', width:370},
@@ -210,10 +210,10 @@
                       var ids = jQuery("#list_matches").jqGrid('getDataIDs');
                       for(var i=0;i < ids.length;i++) {
                         var cl = ids[i];
-                        ed = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
-                        dl = "<a href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
-                        se = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
-                        ca = "<a href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                        ed = "<a title='Editar' href='#' onclick=\"document.location.href='/matches/" + cl + "/edit'\"><img alt='Editar' src='../images/icon-edit.png' border='0'></a>";
+                        dl = "<a title='Borrar' href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                        se = "<a title='Ver' href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
+                        ca = "<a title='Tarjeta' href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
                         jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});
                       }
                     }

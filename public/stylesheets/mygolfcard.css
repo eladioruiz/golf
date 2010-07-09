@@ -549,6 +549,23 @@ table.card td.totals {
     color: black;
 }
 
+.stroke_edit {
+font-size: 11px;
+text-align: center;
+}
+
+.stroke_total {
+font-size: 11px;
+text-align: center;
+border: none;
+padding: 4px;
+}
+
+.putt_edit {
+font-size: 11px;
+text-align: center;
+}
+
 #toolbar {
     padding: 10px 4px;
 }
@@ -1016,3 +1033,62 @@ form.cmxform fieldset fieldset label {
   fieldset {
       width: 97%;
   }
+
+  /* INFO MATCH */
+
+      .list-info-match {
+        border: 0px white outset;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: -15px;
+        padding: 5px;
+        width: 890px;
+        list-style: none outside none;
+    }
+
+    .info-match {
+        display: inline-block;
+        border: 2px #000000 outset;
+        width: 200px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .content-list-info-match {
+        border: 0px solid blue;
+        text-align: center;
+        margin: 0px;
+        padding: 5px;
+        list-style: none outside none;
+    }
+
+    .content-info-match {
+        border: 0px solid red;
+        width: 190px;
+        height: 90px;
+        text-align: left;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .content-info-match img {
+        width: 190px;
+        height: 100px;
+        border: 1px solid white;
+    }
+
+    .content-label-match {
+        width: 150px;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .content-label-info-match {
+        width: 40px;
+        display: inline-block;
+        text-align: right;
+    }
+
