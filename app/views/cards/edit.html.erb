@@ -68,7 +68,7 @@
     }
 
     .text_box {
-      height: 420px;
+      height: 600px;
     }
 
 </style>
@@ -130,10 +130,10 @@
           <div class="content_tb_header1_wrapper">
              <div class="content_tb_header1_content">
                 <div class="content_tb_header1_left1">
-                    <h1>Editar Tarjeta</h1>
+                    <h1>Editar Tarjeta Jugador</h1>
                 </div> <!-- content_tb_header1_left1 -->
                 <div class="content_tb_header1_right demo">
-                  <button onclick="document.location.href='<%= matches_path %>'">Cancelar</button>
+                  <button onclick="document.location.href='<%= print_card_path(@card) %>'">Cancelar</button>
                   <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
                   <button id="button_save" onclick="">Grabar</button>
                 </div> <!-- content_tb_header1_right demo -->

@@ -53,16 +53,22 @@
         $('.kwicks').kwicks({
             min : 110,
             spacing : 10
-        }); */
+        }); */  
 
 <%
   if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
 %>
-        $("form p a.remove")
+        $("a.remove")
         .click(MatchHelper.onRemovePlayer);
 
         $("form p a.add_player")
         .click(MatchHelper.onAddPlayer);
+
+        $("#button_add")
+        .click(MatchHelper.onAddPlayer);
+
+        $("#button_remove")
+        .click(MatchHelper.onRemovePlayer);
 
 <%
   end
@@ -91,7 +97,7 @@
 <%
   end
 
-  if @audit_controller=='cards' and @audit_action=='edit'
+  if @audit_controller=='cards' and (@audit_action=='edit' or @audit_action=='new') then
 %>
 
         /* Mueve el cursor al siguiente elemento para introducir los datos de golpes rápidamente */
@@ -117,6 +123,7 @@
                         }
                     }
                }
+               recalculate();
            }
         });
 
@@ -151,6 +158,7 @@
                         }
                     }
                }
+               recalculate();
            }
         });
 

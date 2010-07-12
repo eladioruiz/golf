@@ -140,12 +140,19 @@
           <div class="content_tb_header1_wrapper">
              <div class="content_tb_header1_content">
                 <div class="content_tb_header1_left1">
-                    <h1>Tarjeta</h1>
+                    <% if @audit_controller=='matches' then
+                        path_edit = edit_match_path(@match) %>
+                    <h1>Tarjeta Partido</h1>
+                    <% else
+                        path_edit = edit_card_path(@card) %>
+                    <h1>Tarjeta Jugador</h1>
+                    <% end %>
                 </div> <!-- content_tb_header1_left1 -->
                 <div class="content_tb_header1_right demo">                 
                   <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
                   <button onclick="document.location.href='<%= match_path(@match) %>'">Ver Partido</button>
-                  <button onclick="document.location.href='<%= match_path(@match) %>/edit'">Editar</button>
+                  <button onclick="document.location.href='<%= path_edit %>'">Editar</button>
+
                   <button onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
                   <button onclick="alert('Esta opción no está disponible actualmente. Disculpe las molestias.');">Imprimir</button>
                 </div> <!-- content_tb_header1_right demo -->
@@ -160,68 +167,78 @@
           <div class="content_tb_content_wrapper">
                <div class="content_tb_content_content cmxform">
 
-                 <p>
-                  <table border="2" cellpadding="3" cellspacing="0" width="100%" class="card" >
-                    <tr>
-                      <th width="33%"><%=h @match.course.name %></th>
-                      <th width="33%"><%=h format_date(@match.date_hour_match) %></th>
-                      <th width="33%"><%=h @match.holes %> hoyos</th>
-                    </tr>
-                  </table>
-                  <p>
-                  <table border="1" cellpadding="0" cellspacing="0" class="card" >
-                    <tr>
-                      <th width="250px">HOYOS</th>
-                      <% @holes.each do |hole| %>
-                        <% if hole.number==10 then %>
-                            <th>1st 9</th>
+                 <fieldset style="padding-top:15px;">
+                    <legend>Datos del Partido</legend>
+                      <%= render :partial => 'matches/info_match_graph' %>
+                  </fieldset>
+
+                 <fieldset style="padding-top:15px;">
+                    <legend>Tarjeta</legend>
+                    <!--
+                    <p>
+                    <table border="2" cellpadding="3" cellspacing="0" width="100%" class="card" >
+                      <tr>
+                        <th width="33%"><%=h @match.course.name %></th>
+                        <th width="33%"><%=h format_date(@match.date_hour_match) %></th>
+                        <th width="33%"><%=h @match.holes %> hoyos</th>
+                      </tr>
+                    </table>
+                    -->
+                    <p></p>
+                    <table border="1" cellpadding="0" cellspacing="0" class="card" >
+                      <tr>
+                        <th width="250px">HOYOS (layout/print)</th>
+                        <% @holes.each do |hole| %>
+                          <% if hole.number==10 then %>
+                              <th width="40px">1º 9</th>
+                          <% end %>
+                          <th width="30px"><%= hole.number %></th>
                         <% end %>
-                        <th width="30px"><%= hole.number %></th>
-                      <% end %>
-                      <th>2nd 9</th>
-                      <th>Total</th>
-                    </tr>
-                    <tr class="card_info">
-                      <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
-                      <% @holes.each do |hole| %>
-                  <% if hole.number==10 then %>
-                      <td>&nbsp;</td>
-                  <% end %>
-                      <td>
-                        <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
-                      </td>
-                      <% end %>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
-
-                    <% @players.each do |player| %>
-                    <tr class="card_player">
-                      <td class="card_player_name"><%= player.user.name %> (HCP: <%= format_nil(player.handicap,'-') -%>)</td>
-                      <%
-                        if player.has_card? then
-                          card = player.card
-                          card_strokes = card.card_strokes
-
-                          card_strokes.each do |card_stroke| %>
-                      <%
-                            if card_stroke.hole.number==10 then %>
-                            <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%>&nbsp;</td>
-                      <%
-                            end  %>
-                        <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
-                          <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
-                        </td>
-                      <%
-                          end  %>
-                        <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%>&nbsp;</td>
-                        <td class="totals"><%= format_nil(card.strokes_total,'-') -%>&nbsp;</td>
-                      <%
-                        end  %>
-                    </tr>
+                        <th width="40px">2º 9</th>
+                        <th width="40px">Tot.</th>
+                      </tr>
+                      <tr class="card_info">
+                        <td class="card_info_leyend">(rojas)&nbsp;<BR>(amarillas)&nbsp;<BR>(azules)&nbsp;<BR>(blancas)&nbsp;<BR>PAR&nbsp;<BR>HANDICAP&nbsp;</td>
+                        <% @holes.each do |hole| %>
+                    <% if hole.number==10 then %>
+                        <td>&nbsp;</td>
                     <% end %>
+                        <td>
+                          <%= render :partial => 'layouts/hole_info', :locals => {:hole => hole}%>
+                        </td>
+                        <% end %>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
 
-                  </table>
+                      <% @players.each do |player| %>
+                      <tr class="card_player">
+                        <td class="card_player_name"><%= player.user.name %> (HCP: <%= format_nil(player.handicap,'-') -%>)</td>
+                        <%
+                          if player.has_card? then
+                            card = player.card
+                            card_strokes = card.card_strokes
 
+                            card_strokes.each do |card_stroke| %>
+                        <%
+                              if card_stroke.hole.number==10 then %>
+                              <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%>&nbsp;</td>
+                        <%
+                              end %>
+                          <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
+                            <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
+                          </td>
+                        <%    end   %>
+                          <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%>&nbsp;</td>
+                          <td class="totals"><%= format_nil(card.strokes_total,'-') -%>&nbsp;</td>
+                        <% else %> 
+                          <td class="totals" colspan="21">No está creada la tarjeta todav&iacute;a.</td>
+                        <% end %>
+                      </tr>
+                      <% end %>
+
+                    </table>
+                    <p></p>
+                 </fieldset>
                 </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->

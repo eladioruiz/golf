@@ -40,11 +40,18 @@
                     <fieldset>
                       <legend>Jugadores</legend>
                       <ol>
-                        <% f.fields_for :players do |player_form| %>
-                              <%= render :partial => 'player', :locals => {:player_form => player_form} %>
-                        <% end %>
-                      
-                        <p><a href="#" class="add_player">Add another Player</a></p>
+                      <%  i = 0
+                          f.fields_for :players do |player_form|
+                          i = i + 1
+                      %>
+                          <%= render :partial => 'player', :locals => {:player_form => player_form} %>
+                      <% end %>
+
+                      <% if (i<5) then %>
+                        <!-- <p><a href="#" class="add_player">Add another Player</a></p> ORIGINAL -->
+                        <p><button id="button_add" class="add_player">Añadir otro jugador</button></p>
+                      <% end %>
+                        
                       </ol>                      
                     </fieldset>
                   <% end %>

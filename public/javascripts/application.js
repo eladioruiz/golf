@@ -4,9 +4,10 @@
 
 $(document).ready(function(){
 
-    $('.kwicks').kwicks({
+    /*$('.kwicks').kwicks({
         min : 110,
         spacing : 10
     });
-
+    */
+   
 });

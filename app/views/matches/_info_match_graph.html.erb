@@ -23,7 +23,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <% unless @card.nil? then %>
+                        <% unless @card.nil? then
+                            unless @card.id.nil? %>
                         <li class="info-match">
                             <ul class="content-list-info-match">
                                 <li class="content-info-match">
@@ -38,7 +39,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <% end %>
+                        <%  end
+                          end %>
                         <li class="info-match">
                             <ul class="content-list-info-match">
                                 <li class="content-info-match">
@@ -47,7 +49,13 @@
                                 <li class="content-info-match">
                                     <br />
                                     <% @match.players.each do |player| %>
-                                    <span class="content-label-match"><%=  player.user.name -%> (<%=  format_handicap(player.handicap) -%>)</span><span class="content-label-info-match"><%=  player.card.nil? ? ' - ' : player.card.strokes_total -%></span><br />
+                                    <span class="content-label-match"><%=  player.user.name -%> (<%=  format_handicap(player.handicap) -%>)</span>
+                                    <% unless player.card.nil? then
+                                        unless player.card.id.nil? %>
+                                    <span class="content-label-info-match"><a href="#" onClick="document.location.href='<%= edit_card_path(player.card) -%>'" border="0"><%=  player.card.nil? ? ' - ' : player.card.strokes_total -%></a></span>
+                                    <%  end
+                                       end %>
+                                    <br />
                                     <% end %>
                                 </li>
                             </ul>

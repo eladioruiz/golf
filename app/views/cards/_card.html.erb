@@ -6,13 +6,40 @@
                         <%= render :partial => 'matches/info_match_graph' %>
                     </fieldset>
 
+                    <div style="display: none">
+                        <p>
+                          <%= f.label :Match %><br />
+                          <%= f.select(:match_id,@matches) %>
+                        </p>
+
+                        <p>
+                          <%= f.label :Player %><br />
+                          <%= f.select(:player_id,@players) %>
+                        </p>
+
+                        <p>
+                          <%= f.label "Total Strokes" %><br />
+                          <%= f.label @card.strokes_total %>
+                        </p>
+
+                        <p>
+                          <%= f.label "First 9 Holes" %><br />
+                          <%= f.label @card.strokes_first_9 %>
+                        </p>
+
+                        <p>
+                          <%= f.label "Second 9 Holes" %><br />
+                          <%= f.label @card.strokes_second_9 %>
+                        </p>
+                    </div>
+  
                     <fieldset>
                       <legend>Tarjeta/Golpes</legend>
 
-                      <p>
+                      <p></p>
                       <table border="1" cellpadding="0" cellspacing="0" class="card">
                         <tr>
-                          <th >HOYOS</th>
+                          <th width="250px">HOYOS (cards/_card)</th>
                           <% @holes.each do |hole| %>
                             <% if hole.number==10 then %>
                                 <th width="40px">1º 9</th>
@@ -48,7 +75,7 @@
                               if hole_number==10 then %>
                                 <td class="card_player_info_total" >
                                     <input id="strokes_1_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
-                                    <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                                    <!--<input id="putts_1_9"   class="stroke_total" disabled maxlength="2" size="1" type="text" value="-" /><br>-->
                                 </td>
                           <%  end %>
                             <td class="card_player_info" >
@@ -59,18 +86,18 @@
 
                             <td class="card_player_info" >
                                 <input id="strokes_2_9" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
-                                <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                                <!--<input id="putts_2_9"   class="stroke_total" disabled maxlength="2" size="1" type="text" value="-" /><br>-->
                             </td>
 
                             <td class="card_player_info" >
                                 <input id="strokes_total" class="stroke_total" maxlength="2" size="1" type="text" value="0" />
-                                <input class="stroke_total" disabled maxlength="2" size="1" type="text" value="" /><br>
+                                <!--<input id="putts_total"   class="stroke_total" disabled maxlength="2" size="1" type="text" value="-" /><br>-->
                             </td>
 
                         </tr>
 
                       </table>
-
+                      <p></p>
 
                     </fieldset>
 

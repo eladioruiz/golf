@@ -3,6 +3,15 @@ img {
         border: none;
 }
 
+a {
+    text-decoration: underline;
+    color: white;
+}
+
+a.visited {
+    text-decoration: underline;
+    color: white;
+}
 
 /* ------------------ LAYOUT ---------------- */
 .wrapper{
@@ -1036,59 +1045,59 @@ form.cmxform fieldset fieldset label {
 
   /* INFO MATCH */
 
-      .list-info-match {
-        border: 0px white outset;
-        text-align: center;
-        margin-top: 5px;
-        margin-bottom: -15px;
-        padding: 5px;
-        width: 890px;
-        list-style: none outside none;
-    }
+  .list-info-match {
+    border: 0px white outset;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -15px;
+    padding: 5px;
+    width: 890px;
+    list-style: none outside none;
+}
 
-    .info-match {
-        display: inline-block;
-        border: 2px #000000 outset;
-        width: 200px;
-        text-align: center;
-        vertical-align: middle;
-        margin: 0px;
-        padding: 5px;
-    }
+.info-match {
+    display: inline-block;
+    border: 2px #000000 outset;
+    width: 200px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 5px;
+}
 
-    .content-list-info-match {
-        border: 0px solid blue;
-        text-align: center;
-        margin: 0px;
-        padding: 5px;
-        list-style: none outside none;
-    }
+.content-list-info-match {
+    border: 0px solid blue;
+    text-align: center;
+    margin: 0px;
+    padding: 5px;
+    list-style: none outside none;
+}
 
-    .content-info-match {
-        border: 0px solid red;
-        width: 190px;
-        height: 90px;
-        text-align: left;
-        vertical-align: middle;
-        margin: 0px;
-        padding: 5px;
-    }
+.content-info-match {
+    border: 0px solid red;
+    width: 190px;
+    height: 90px;
+    text-align: left;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 5px;
+}
 
-    .content-info-match img {
-        width: 190px;
-        height: 100px;
-        border: 1px solid white;
-    }
+.content-info-match img {
+    width: 190px;
+    height: 100px;
+    border: 1px solid white;
+}
 
-    .content-label-match {
-        width: 150px;
-        font-weight: bold;
-        display: inline-block;
-    }
+.content-label-match {
+    width: 145px;
+    font-weight: bold;
+    display: inline-block;
+}
 
-    .content-label-info-match {
-        width: 40px;
-        display: inline-block;
-        text-align: right;
-    }
+.content-label-info-match {
+    width: 40px;
+    display: inline-block;
+    text-align: right;
+}
 

@@ -68,7 +68,7 @@
     }
 
     .text_box {
-      height: 700px;
+      height: 500px;
     }
 
 </style>
@@ -118,9 +118,35 @@
             text: true
         });
 
+      $("#button_add").button({
+          icons: {
+              primary: 'ui-icon-script'
+          },
+          text: true
+      });
+
+      $(".remove").button({
+          icons: {
+              primary: 'ui-icon-trash'
+          },
+          text: true
+      });
+
       $("#button_save").click(
         function (event) {
             $("#form_main").submit();
+        }
+      );
+
+      $("#button_add").click(
+        function (event) {
+          event.preventDefault();
+        }
+      );
+
+      $(".remove").click(
+        function (event) {
+          event.preventDefault();
         }
       );
 
@@ -130,7 +156,7 @@
           <div class="content_tb_header1_wrapper">
              <div class="content_tb_header1_content">
                 <div class="content_tb_header1_left1">
-                    <h1>Alta de Nuevo Partido</h1>
+                    <h1>Modificaci&oacute;n de Partido</h1>
                 </div> <!-- content_tb_header1_left1 -->
                 <div class="content_tb_header1_right demo">
                   <button onclick="document.location.href='<%= match_path(@match) %>'">Cancelar</button>
@@ -148,7 +174,7 @@
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content cmxform">
 
-              <%= render :partial => 'match' %>>
+              <%= render :partial => 'match' %>
 
             </div> <!-- content_tb_content_content -->
           </div> <!-- content_tb_content_wrapper -->

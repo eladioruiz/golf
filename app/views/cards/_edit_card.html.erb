@@ -1,4 +1,6 @@
 
                           <%= detail_form.hidden_field(:hole_id, :size => 2, :maxlength =>2) -%>
                           <%= detail_form.text_field(:strokes, :size => 1, :maxlength =>2, :class => "stroke_edit") -%>
+                          <% if 1==0 then %>
                           <%= detail_form.text_field(:putts, :size => 1, :maxlength =>2, :class => "putt_edit") -%>
+                          <% end %>

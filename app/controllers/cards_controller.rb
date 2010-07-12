@@ -24,9 +24,12 @@ class CardsController < ApplicationController
   # GET /cards/new
   def new
     @card = Card.new
+    @card.player = Player.find(params[:player_id])
     @card_strokes = @card.card_strokes.build if @card.card_strokes.empty?
     @matches = Match.find_all_by_id(params[:match_id])
     @players = Player.find_all_by_id(params[:player_id])
+    @match = @matches.first
+    @player = @players.first
     
     @matches.map!{|match| [match.description, match.id]}
     @players.map!{|player| [player.user.name, player.id]}

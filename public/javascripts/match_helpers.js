@@ -19,6 +19,7 @@ var MatchHelper = function() {
     return {
         onRemovePlayer: function() {
 			var div_player = $(this).closest("div.playermatch");
+                        console.log(div_player);
 			div_player.find("input[type=hidden]").attr("value","1");
 			div_player.hide();
         },
