@@ -87,7 +87,7 @@ class CardsController < ApplicationController
     if @card.update_attributes(params[:card])
       @card.recalculate_strokes
       flash[:notice] = 'Card was successfully updated.'
-      redirect_to(@card)
+      redirect_to(@card.match)
     else
       render :action => "edit"
     end

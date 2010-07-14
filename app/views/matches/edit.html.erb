@@ -68,7 +68,7 @@
     }
 
     .text_box {
-      height: 500px;
+      height: 530px;
     }
 
 </style>
@@ -143,6 +143,14 @@
           event.preventDefault();
         }
       );
+
+      $("#course_name").autocomplete({
+              source: "/courses/findlikebyname",
+              minLength: 2,
+              select: function(event, ui) {
+                      $("#course_id").val(ui.item.id);
+              }
+      });
 
       $(".remove").click(
         function (event) {

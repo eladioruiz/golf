@@ -3,7 +3,8 @@
 <rows>
     <page><%= @page -%></page>
     <total><%= @total_pages -%></total>
-    <records><%= @matches.size -%></records>
+    <records><%= @records -%></records>
+    <limits><%= @limits -%></limits>
 <%
     @matches.each do |match|
 %>

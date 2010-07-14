@@ -13,16 +13,18 @@ class MatchesController < ApplicationController
 
   # GET /matches
   def index
-    @matches_unord = Match.my_matches(session[:user_id])
 
+    @page = params[:page]
+
+    init_query
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
+    
     @checked['index'] = " checked='1'"
     @params = params
     
-    order_result
-
-    @page = params[:q]
-    @total_pages = (@matches.size / 10) + 1
-
+    #order_result
+    @records = @matches.length
+    
     #@matches = Match.all
     respond_to do |format|
       format.html #{ render :template => '/matches/index_test.html.erb'}# index.html.erb
@@ -51,6 +53,7 @@ class MatchesController < ApplicationController
     @numusers = @users.length
     @numcourses = @courses.length
     @numtees = @tees.length
+    @course_name = "Escriba parte del nombre para empezar la búsqueda"
     
     # Convierto los objetos en arrays
     @courses.map!{|course| [course.name, course.id]}
@@ -75,6 +78,8 @@ class MatchesController < ApplicationController
     @users.map!{|user| [user.name, user.id]}
     @tees.map!{|tee| [tee.barras, tee.id]}
     @_action = 'update'
+
+    @course_name = @match.course.name
   end
 
   # POST /matches
@@ -95,7 +100,8 @@ class MatchesController < ApplicationController
     
     if @match.update_attributes(params[:match])
       flash[:notice] = 'Match was successfully updated.'
-      redirect_to(@match)
+      #render :action => "edit"
+      redirect_to(edit_match_path(@match))
     else
       @match.players.build if @match.players.empty?
       @fields = Field.all
@@ -123,21 +129,33 @@ class MatchesController < ApplicationController
 
   # GET /matches/thisweek
   def this_week
-    @matches = Match.my_matches(session[:user_id]).this_week
+    init_query
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits).this_week
     @title = 'This Week'
     render :action => 'index'
   end
 
   # GET /matches/lastmonth
   def last_month
-    @matches = Match.my_matches(session[:user_id]).last_month
+    # Cálculo de totales
+    @ordering = "date_hour_match DESC"
+    @limits = "100000000"
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
+    @total_pages = (@matches.length / 10.0).ceil
+
+    unless params.nil?
+        @ordering = calculate_ordering(params[:sidx], params[:sord])
+    end
+
+    @limits = calculate_limit(@page)
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_month
     @title = 'Last Month'
     @checked['last_month'] = " checked='1'"
 
-    order_result
+    #order_result
 
     @page = params[:q]
-    @total_pages = (@matches.size / 10) + 1
+    @total_pages = (@matches.length / 10) + 1
 
     #@matches = Match.all
     respond_to do |format|
@@ -149,14 +167,15 @@ class MatchesController < ApplicationController
 
   # GET /matches/lastmatches
   def last_matches
-    @matches_unord = Match.my_matches(session[:user_id]).last_matches
+    init_query
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_matches
     @title = 'Last 10 Matches'
     @checked['last_matches'] = " checked='1'"
 
-    order_result
+    #order_result
 
     @page = params[:q]
-    @total_pages = (@matches.size / 10) + 1
+    @total_pages = (@matches.length / 10) + 1
 
     #@matches = Match.all
     respond_to do |format|
@@ -168,14 +187,15 @@ class MatchesController < ApplicationController
 
   # GET /matches/bestmatches
   def best_matches
-    @matches_unord = Match.my_matches(session[:user_id]).best_matches
+    init_query
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits).best_matches
     @title = 'Best 10 Matches'
     @checked['best_matches'] = " checked='1'"
 
-    order_result
+    #order_result
 
     @page = params[:q]
-    @total_pages = (@matches.size / 10) + 1
+    @total_pages = (@matches.length / 10) + 1
 
     #@matches = Match.all
     respond_to do |format|
@@ -187,14 +207,15 @@ class MatchesController < ApplicationController
 
   # GET /matches/mymatches
   def my_matches
-    @matches_unord = Match.my_matches(session[:user_id])
+    init_query
+    @matches = Match.my_matches(session[:user_id])
     @title = 'My Matches'
     @checked['index'] = " checked='1'"
 
     order_result
 
     @page = params[:q]
-    @total_pages = (@matches.size / 10) + 1
+    @total_pages = (@matches.length / 10) + 1
 
     #@matches = Match.all
     respond_to do |format|
@@ -214,6 +235,22 @@ private
     @title = 'Total Matches'
     @userID =  session[:user_id].to_s
     @checked = {'index' => '', 'best_matches' => '', 'last_matches' => '', 'last_month' => ''}
+
+  end
+
+  def init_query
+    # Cálculo de totales
+    @ordering = "date_hour_match DESC"
+    @limits = "100000000"
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
+    @total_pages = (@matches.length / 10.0).ceil
+
+    unless params.nil?
+        @ordering = calculate_ordering(params[:sidx], params[:sord])
+    end
+
+    @limits = calculate_limit(@page)
+
   end
 
   def current_menu
@@ -253,11 +290,11 @@ private
         @matches = @matches_unord.sort {|a,b| a.id <=> b.id}
       end
 
-      @page = params[:q]
-      @total_pages = (@matches.size / 10) + 1
     else
       []
     end
+
+    
   end
 
   def format_nil(value,default)
@@ -267,5 +304,38 @@ private
       value.to_s()
     end
   end
-end
 
+  def calculate_limit(p)
+    if p.nil?
+      "0,10"
+    else
+      ((p.to_i()-1)*10).to_s() + ',' + ((p.to_i())*10).to_s()
+    end
+  end
+
+  def calculate_ordering(sidx,sord)
+    case sidx
+      when 'course' then
+        if sord=='desc'
+          "courses.name DESC"
+        else
+          "courses.name ASC"
+        end
+      when 'date_hour_match' then
+        if sord=='desc'
+          "date_hour_match DESC"
+        else
+          "date_hour_match ASC"
+        end
+      when 'holes' then
+        if sord=='desc'
+          "holes DESC"
+        else
+          "holes ASC"
+        end
+    else
+      "date_hour_match DESC"
+    end
+  end
+  
+end

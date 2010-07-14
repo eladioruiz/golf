@@ -26,23 +26,25 @@ class Match < ActiveRecord::Base
 
   named_scope :last_matches,  :select => "matches.* ",
                               :order => "date_hour_match DESC ",
-                              :limit => 10
+                              :limit => "0,10"
 
   named_scope :best_matches,  :select => "matches.* ",
                               :joins => "inner join cards on matches.id=cards.match_id",
                               :conditions => "",
                               :order => "strokes_total DESC ",
-                              :limit => 10
+                              :limit => "0,10"
 
   named_scope :most_used_course,  :select => "course_id, count(*) as num_used",
                                   :group => "course_id ",
                                   :order => "count(*) DESC "
 
-  named_scope :my_matches,    lambda { |userID|
+  named_scope :my_matches,    lambda { |userID,ordering,limits|
                                 {
                                   :select =>      "matches.*",
                                   :joins =>       "inner join players on matches.id=players.match_id inner join users on players.user_id=users.id ",
-                                  :conditions =>  ["users.id=?",userID]
+                                  :conditions =>  ["users.id=?",userID],
+                                  :order => ordering,
+                                  :limit => limits
                                 }
                               }
 

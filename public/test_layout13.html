@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+    <meta name="keywords" content="golf, card, tarjeta, online, on-line, gratis, free, golpes, strokes, handicap, campos de golf, golf courses, estadísticas, gráficos, partido de golf, score, marcador" />
+    <meta name="description" content="mygolfcard es una aplicación inline gratuíta que le permite almacenar las tarjetas de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
+    <title>My Golf Card</title>
+
+    <link href="/stylesheets/mygolfcard.css?1277111725" media="screen" rel="stylesheet" type="text/css" />
+
+    <link href="/stylesheets/skin.css?1276796137" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/south-street/jquery-ui-1.8rc3.custom.css?1276796137" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/javascripts/jquery-1.4.2.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.easing.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.jcarousel.min.js?1276796137" type="text/javascript"></script>
+    <script src="/javascripts/jquery-ui-1.8rc3.custom.min.js?1276259764" type="text/javascript"></script>
+    <script src="/javascripts/jquery.kwicks-1.5.1.js?1276259764" type="text/javascript"></script>
+
+    <script src="/javascripts/match_helpers.js?1277393488" type="text/javascript"></script>
+    <script src="/javascripts/FusionCharts.js?1276259764" type="text/javascript"></script>
+
+
+
+
+
+    <script>
+    // Place your application-specific JavaScript functions and classes here
+    // This file is automatically included by javascript_include_tag :defaults
+    $(function() {
+            function log(message,id) {
+                    $("<div/>").text(message).prependTo("#log");
+                    $("#log").attr("scrollTop", 0);
+                    $("#bird_id").val(id);
+            }
+
+            $("#birds").autocomplete({
+                    source: "/courses/findlikebyname",
+                    minLength: 2,
+                    select: function(event, ui) {
+                            log(ui.item ? ("Selected: " + ui.item.value + " aka " + ui.item.id) : "Nothing selected, input was " + this.value,ui.item.id);
+                    }
+            });
+    });
+
+    </script>
+
+
+
+
+</head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header" style="margin-top:15px;">
+                <div class="wrapper_header">
+                    <div class="header_header">
+                        &nbsp;
+                    </div>
+                    <div class="wrapbranding">
+
+                        <div class="branding">
+                            <h1>My Golf Card</h1>
+                            <h2>Tarjetas y Puntuaciones</h2>
+                        </div>
+                    </div>
+                    <div class="user_info">
+                      <div id="user">
+                        Eladio Ruiz (HCP : 36)
+                        <br>cards - edit - false
+                      </div>
+
+                      <div id="logout">
+                        <a href="/logout" alt="Logout"><img src="../images/logout.gif" border="0" alt="Logout" /></a>
+                      </div>
+                    </div> <!-- end: user_info -->
+                    <div class="footer_header">
+                        &nbsp;
+                    </div>
+                </div>
+
+            </div>
+
+        <div class="content_wrapper">
+
+
+        <div id="navigation_main">
+
+          <ul class="kwicks" id="menu">
+            <li id="kwick1" class=""><a href="/">Inicio</a></li>
+            <li id="kwick2" class="current"><a href="/matches">Partidos</a></li>
+
+            <li id="kwick3" class=""><a href="/courses">Campos</a></li>
+            <li id="kwick4" class=""><a href="/charts/pie_courses">Estad&iacute;sticas</a></li>
+            <li id="kwick5" class="inactive"><a href="#">Resumen</a></li>
+            <li id="kwick6" class="inactive"><a href="#">Configuraci&oacute;n</a></li>
+          </ul>
+
+        </div>  <!-- end: navigation -->
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+                    <style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
+
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
+
+    .text_box {
+      height: 580px;
+    }
+
+</style>
+
+<script>
+  if( document.addEventListener )
+    document.addEventListener( 'DOMContentLoaded', cmxform, true);
+
+  function cmxform(){
+    // Hide forms
+    //$( 'form.cmxform' ).hide().end();
+
+    // Processing
+    $( 'form.cmxform' ).find( 'li/label' ).not( '.nocmx' ).each( function( i ){
+      var labelContent = this.innerHTML;
+      var labelWidth = document.defaultView.getComputedStyle( this, '' ).getPropertyValue( 'width' );
+      var labelSpan = document.createElement( 'span' );
+          labelSpan.style.display = 'block';
+          labelSpan.style.width = labelWidth;
+          labelSpan.innerHTML = labelContent;
+      this.style.display = '-moz-inline-box';
+      this.innerHTML = null;
+      this.appendChild( labelSpan );
+    } ).end();
+
+  // Show forms
+  $( 'form.cmxform' ).show().end();
+}
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $(".demo button:first").button({
+            icons: {
+                primary: 'ui-icon-arrowreturnthick-1-w'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-script'
+            },
+            text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-disk'
+            },
+            text: true
+        });
+
+      $("#button_save").click(
+        function (event) {
+            $("#form_main").submit();
+        }
+      );
+
+    });
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Editar Tarjeta</h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                  <button onclick="document.location.href='/matches'">Cancelar</button>
+
+                  <button onclick="document.location.href='/matches'">Listado</button>
+                  <button id="button_save" onclick="">Grabar</button>
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+            <div class="content_tb_content_content cmxform">
+
+                <form action="/cards/50" id="form_main" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="NR7AL6R0Kq3MxiYUu7h4CQrSIVu+NOtmlbSOlrc4F1w=" /></div>
+
+                    <fieldset>
+
+                      <legend>Datos Partido</legend>
+                      <div class="demo">
+
+                            <div class="ui-widget">
+                                    <label for="birds">Birds: </label>
+                                    <input id="birds" />
+                                    <input type="text" id="bird_id" name="bird_id">
+                            </div>
+                            <div class="ui-widget" style="margin-top:2em; font-family:Arial">
+                                Result:
+                                <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+                            </div>
+
+                        </div><!-- End demo -->
+
+
+                      <br />
+                    </fieldset>
+
+                </form>
+
+            </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
+
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+
+        </div>  <!-- end: content_wrapper -->
+
+            <div class="left">
+                &nbsp;
+            </div>
+
+            <div class="right">
+                &nbsp;
+            </div>
+            <div class="footer">
+                <p>&copy 2010 Eladio Ruiz</p>
+            </div>
+        </div>
+
+
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-13252939-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+</script>
+
+</body>
+</html>
+

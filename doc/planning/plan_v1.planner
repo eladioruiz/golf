@@ -94,12 +94,12 @@
             <predecessor id="1" predecessor-id="12" type="FS"/>
           </predecessors>
           <task id="25" name="Revisar estilos" note="" work="28800" start="20100623T120000Z" end="20100624T120000Z" work-start="20100623T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="26" name="Alta partidos" note="" work="57600" start="20100624T120000Z" end="20100628T120000Z" work-start="20100624T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="26" name="Alta partidos" note="" work="57600" start="20100624T120000Z" end="20100628T120000Z" work-start="20100624T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="25" type="FS"/>
             </predecessors>
           </task>
-          <task id="27" name="Alta Tarjeta" note="" work="28800" start="20100628T120000Z" end="20100629T120000Z" work-start="20100628T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="27" name="Alta Tarjeta" note="" work="28800" start="20100628T120000Z" end="20100629T120000Z" work-start="20100628T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="26" type="FS"/>
             </predecessors>

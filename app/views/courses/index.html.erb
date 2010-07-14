@@ -241,7 +241,7 @@
                                         <li id="course_<%= course.id %>" course-id="<%= course.name %>" city-id="<%= course.address %>">
                                           <div id="course_<%= course.id %>" class="thumb_view_nav demo" style="padding:0px;z-index:-1">
                                             <button id="edit" onclick="document.location.href='<%= edit_course_path(course.id) %>'">Modificar</button>
-                                            <button id="del" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(course.id)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
+                                            <button id="del" onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= course_path(course.id)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
                                           </div>
                                           <div class="content_block">
                                             <div class="content_block_image">

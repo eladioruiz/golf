@@ -133,7 +133,7 @@
 
   input {
     font-size: 10px;
-    background-image: url(../images/sbbody-r_g.gif) no-repeat bottom right;
+    /*background-image: url(../images/sbbody-r_g.gif) no-repeat bottom right;*/
   }
 </style>
 
@@ -188,7 +188,7 @@
       colNames:['Id','Campo','Fecha/Hora', 'Hoyos', 'Jugadores', 'Acción'],
       colModel:[  
                   {name:'match_id',index:'match_id', width:20, hidden:true},
-                  {name:'course',index:'course', width:370},
+                  {name:'course',index:'course_id', width:370},
                   {name:'date_hour_match',index:'date_hour_match', align:"center", width:200},
                   {name:'holes',index:'holes', align:"center", width:90},
                   {name:'players',index:'players', align:"center", width:140},
@@ -211,7 +211,7 @@
                       for(var i=0;i < ids.length;i++) {
                         var cl = ids[i];
                         ed = "<a title='Editar' href='#' onclick=\"document.location.href='/matches/" + cl + "/edit'\"><img alt='Editar' src='../images/icon-edit.png' border='0'></a>";
-                        dl = "<a title='Borrar' href='#' onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
+                        dl = "<a title='Borrar' href='#' onclick=\"if (confirm('¿Está seguro?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/matches/" + cl + "';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;\"><img src='../images/icon-delete.png' border='0'></a>";
                         se = "<a title='Ver' href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search.png' border='0'></a>";
                         ca = "<a title='Tarjeta' href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
                         jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca});

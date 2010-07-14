@@ -3,6 +3,7 @@
 
                     <fieldset>
                       <legend>Datos principales</legend>
+                      <br />
                       <ol>
                         <li>
                           <ul class="ul-form">
@@ -10,7 +11,8 @@
                               <%= f.label "Campo:" %>
                             </li>
                             <li class="li-field">
-                              <%= f.select(:course_id,@courses) %>
+                              <%= f.text_field :course_id, :size => 3, :maxlength => 2, :style => "display:none;" %>
+                              <input id="course_name" name="course_name" type="text" size="40" value="<%= @course_name %>" />
                             </li>
                           </ul>
                         </li>
@@ -42,11 +44,38 @@
                       <ol>
                       <%  i = 0
                           f.fields_for :players do |player_form|
-                          i = i + 1
+                            i = i + 1
+
                       %>
-                          <%= render :partial => 'player', :locals => {:player_form => player_form} %>
+
+                      <div class="playermatch">
+                        <li class="row-form">
+                          <ul class="ul-form">
+                            <div class="pair-form" style="width:400px;">
+                              <li class="li-label" style="padding-top:5px;width:80px;">
+                                <%= player_form.label "Jugador:" %>
+                              </li>
+                              <li class="li-field-column" style="width:180px;">
+                                <%= player_form.select(:user_id, @users) %>
+                              </li>
+                            </div>
+                            <div class="pair-form">
+                              <li class="li-label" style="padding-top:5px;width:60px;">
+                                <%= player_form.label "Tee:" %>
+                              </li>
+                              <li class="li-field-column" style="width:170px;display:inline;">
+                                <%= player_form.select(:tee_id, @tees) %><%= player_form.hidden_field(:_delete, :value=>'0') %>&nbsp;&nbsp;&nbsp;<a class="remove" href="#">Borrar</a>
+                                <!--<button id="button_remove" class="remove">Borrar</button>-->
+                              </li>
+                            </div>
+                          </ul>
+                        </li>
+                      </div>
+
                       <% end %>
 
+                      
+                        
                       <% if (i<5) then %>
                         <!-- <p><a href="#" class="add_player">Add another Player</a></p> ORIGINAL -->
                         <p><button id="button_add" class="add_player">Añadir otro jugador</button></p>
