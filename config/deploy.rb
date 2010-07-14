@@ -4,6 +4,7 @@ set :branch, "dev"
 
 set :scm, "git"
 set :deploy_to, "/var/www/devgolf"
+# no funciona en esta version de CAPISTRANO set :copy_exclude ["/config/database.yml"]
 
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => true }
