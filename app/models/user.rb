@@ -24,6 +24,14 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :name, :login, :email, :password, :password_confirmation
 
+
+  named_scope :find_like_by_name, lambda {|descr|
+                                    {
+                                      :select     => "users.id, users.name as value, users.name as label ",
+                                      :conditions => ["name like ?", descr]
+                                    }
+                                  }
+                                  
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find :first, :conditions => ['login = ?', login] # need to get the salt

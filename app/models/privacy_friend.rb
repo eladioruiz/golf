@@ -10,7 +10,7 @@ class PrivacyFriend < ActiveRecord::Base
 
   named_scope :my_friends, lambda { |userID|
                                 {
-                                  :select =>      "privacy_friends.user2_id",
+                                  :select =>      "* ",
                                   :from   =>      "privacy_friends",
                                   :conditions =>  ["privacy_friends.user1_id=?",userID]
                                 }

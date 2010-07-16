@@ -11,7 +11,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :course_types
 
-
   # Casos particulares
   map.connect '/matches/week', :controller => 'matches', :action => 'this_week'
   map.connect '/matches/lastmonth', :controller => 'matches', :action => 'last_month'
@@ -20,6 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/matches/mymatches', :controller => 'matches', :action => 'my_matches'
 
   map.connect '/courses/findlikebyname', :controller => 'courses', :action => 'find_like_by_name'
+
+  map.connect '/users/publicusers', :controller => 'users', :action => 'public_users'
 
   map.connect '/testcharts/view', :controller => 'test_chart', :action => 'view'
   map.connect '/testcharts/y_right', :controller => 'test_chart', :action => 'y_right'
@@ -32,6 +33,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/simple_chart', :controller => 'charts', :action => 'simple_chart'
 
   map.resources :users
+  
   map.resource :session, :controller => 'session'
 
   map.resources :holes

@@ -20,4 +20,8 @@ class Player < ActiveRecord::Base
     !!self.card
   end
 
+  def self.handicap
+    self.user.handicap
+  end
+
 end

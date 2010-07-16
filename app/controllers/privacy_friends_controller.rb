@@ -30,7 +30,9 @@ class PrivacyFriendsController < ApplicationController
   # GET /privacy_friends/new
   # GET /privacy_friends/new.xml
   def new
+    @user = User.find(params[:id])
     @privacy_friend = PrivacyFriend.new
+    @friendsofmine = PrivacyFriend.my_friends(@user.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -51,7 +53,7 @@ class PrivacyFriendsController < ApplicationController
     respond_to do |format|
       if @privacy_friend.save
         flash[:notice] = 'PrivacyFriend was successfully created.'
-        format.html { redirect_to(@privacy_friend) }
+        format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
         format.xml  { render :xml => @privacy_friend, :status => :created, :location => @privacy_friend }
       else
         format.html { render :action => "new" }
@@ -84,7 +86,7 @@ class PrivacyFriendsController < ApplicationController
     @privacy_friend.destroy
 
     respond_to do |format|
-      format.html { redirect_to(privacy_friends_url) }
+      format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
       format.xml  { head :ok }
     end
   end

@@ -12,7 +12,15 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    @user = User.new
+  end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def create
@@ -41,4 +49,10 @@ class UsersController < ApplicationController
     redirect_back_or_default('/')
   end
 
+  def public_users
+    @find_by = params[:term]
+    @users = User.find_like_by_name('%' + @find_by + '%')
+
+    render :json => @users, :template => 'users/find_like_by_name.html.erb'
+  end
 end

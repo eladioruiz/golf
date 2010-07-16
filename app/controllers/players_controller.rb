@@ -54,6 +54,7 @@ class PlayersController < ApplicationController
   # POST /players
   def create
     @player = Player.new(params[:player])
+    @player.handicap = @player.user.handicap
 
     if @player.save
       flash[:notice] = 'Player was successfully created.'

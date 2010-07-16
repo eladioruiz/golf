@@ -26,7 +26,7 @@
     </calendar>
   </calendars>
   <tasks>
-    <task id="1" name="mygolfcard" note="" work="1540800" start="20100607T000000Z" end="20100802T120000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="1" name="mygolfcard" note="" work="1598400" start="20100607T000000Z" end="20100804T120000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <task id="2" name="Planificaci&#xF3;n" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="3" name="Modelo de Datos" note="" work="129600" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
@@ -36,7 +36,7 @@
         <task id="5" name="Perfiles - Permisos" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
         <task id="6" name="Privacidad" note="" work="43200" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       </task>
-      <task id="7" name="Alcance versi&#xF3;n I" note="" work="1382400" start="20100609T120000Z" end="20100802T120000Z" work-start="20100609T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="7" name="Alcance versi&#xF3;n I" note="" work="1440000" start="20100609T120000Z" end="20100804T120000Z" work-start="20100609T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="3" type="FS"/>
         </predecessors>
@@ -143,7 +143,7 @@
             <predecessor id="1" predecessor-id="32" type="FS"/>
           </predecessors>
         </task>
-        <task id="37" name="Datos Personales" note="" work="57600" start="20100719T120000Z" end="20100721T120000Z" work-start="20100719T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="37" name="Datos Personales" note="" work="115200" start="20100719T120000Z" end="20100723T120000Z" work-start="20100719T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="36" type="FS"/>
           </predecessors>
@@ -153,27 +153,37 @@
               <predecessor id="1" predecessor-id="38" type="FS"/>
             </predecessors>
           </task>
-        </task>
-        <task id="40" name="Stats" note="" work="144000" start="20100721T120000Z" end="20100728T120000Z" work-start="20100721T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-          <predecessors>
-            <predecessor id="1" predecessor-id="37" type="FS"/>
-          </predecessors>
-          <task id="41" name="Definir 2-3 b&#xE1;sicas" note="" work="57600" start="20100721T120000Z" end="20100723T120000Z" work-start="20100721T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="42" name="Estilos" note="" work="86400" start="20100723T120000Z" end="20100728T120000Z" work-start="20100723T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="40" name="Cambio Password" note="" work="28800" start="20100721T120000Z" end="20100722T120000Z" work-start="20100721T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
-              <predecessor id="1" predecessor-id="41" type="FS"/>
+              <predecessor id="1" predecessor-id="39" type="FS"/>
+            </predecessors>
+          </task>
+          <task id="41" name="Amigos" note="" work="28800" start="20100722T120000Z" end="20100723T120000Z" work-start="20100722T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <predecessors>
+              <predecessor id="1" predecessor-id="40" type="FS"/>
             </predecessors>
           </task>
         </task>
-        <task id="43" name="Revisi&#xF3;n final" note="" work="432000" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="42" name="Stats" note="" work="144000" start="20100723T120000Z" end="20100730T120000Z" work-start="20100723T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="40" type="FS"/>
+            <predecessor id="1" predecessor-id="37" type="FS"/>
           </predecessors>
-          <task id="44" name="Revisi&#xF3;n CRUD Matches" note="" work="86400" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="45" name="Revisi&#xF3;n modelo de datos" note="" work="86400" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="46" name="Revisi&#xF3;n formularios (obligatorios)" note="" work="86400" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="47" name="Revisi&#xF3;n presentaci&#xF3;n tarjeta" note="" work="86400" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="48" name="Revisi&#xF3;n Estad&#xED;sticas" note="" work="86400" start="20100728T120000Z" end="20100802T120000Z" work-start="20100728T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="43" name="Definir 2-3 b&#xE1;sicas" note="" work="57600" start="20100723T120000Z" end="20100727T120000Z" work-start="20100723T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="44" name="Estilos" note="" work="86400" start="20100727T120000Z" end="20100730T120000Z" work-start="20100727T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+            <predecessors>
+              <predecessor id="1" predecessor-id="43" type="FS"/>
+            </predecessors>
+          </task>
+        </task>
+        <task id="45" name="Revisi&#xF3;n final" note="" work="432000" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="42" type="FS"/>
+          </predecessors>
+          <task id="46" name="Revisi&#xF3;n CRUD Matches" note="" work="86400" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="47" name="Revisi&#xF3;n modelo de datos" note="" work="86400" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="48" name="Revisi&#xF3;n formularios (obligatorios)" note="" work="86400" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="49" name="Revisi&#xF3;n presentaci&#xF3;n tarjeta" note="" work="86400" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="50" name="Revisi&#xF3;n Estad&#xED;sticas" note="" work="86400" start="20100730T120000Z" end="20100804T120000Z" work-start="20100730T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
       </task>
     </task>

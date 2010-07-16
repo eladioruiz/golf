@@ -1,0 +1,9 @@
+[ {"id": "0", "label": "<< Elija una opción>>", "value": "<< Elija una opción>>"}
+<%
+  @users.each do |user|
+%>
+    , {"id": "<%=h user.id -%>", "label": "<%=h user.label -%>", "value": "<%=h user.value -%>"}
+<%
+  end
+%>
+]

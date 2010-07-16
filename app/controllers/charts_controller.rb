@@ -8,7 +8,7 @@ class ChartsController < ApplicationController
     courses = Course.all
 
     courses.each do |course|
-      @matches_played = Match.my_matches(current_user.id).find_all_by_course_id(course.id).size
+      @matches_played = Match.my_matches(current_user.id,"matches.id","1,100000").find_all_by_course_id(course.id).length
 
       @matches_data<<{:course_name=>course.name,:played=>@matches_played}
 

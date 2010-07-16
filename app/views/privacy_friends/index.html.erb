@@ -6,6 +6,7 @@
 
 <% @privacy_friends.each do |privacy_friend| %>
   <tr>
+    <td><%= privacy_friend.id %></td>
     <td><%= link_to 'Show', privacy_friend %></td>
     <td><%= link_to 'Edit', edit_privacy_friend_path(privacy_friend) %></td>
     <td><%= link_to 'Destroy', privacy_friend, :confirm => '¿Está seguro?', :method => :delete %></td>
