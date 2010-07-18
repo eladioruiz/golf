@@ -1,3 +1,14 @@
+<script type="text/javascript">
+    $(function() {
+        $("#button_help").button({
+            icons: {
+                primary: 'ui-icon-help'
+            },
+            text: false
+        });
+    });
+</script>
+
             <div id="internal_text">
                 <div class="text_box" id="textbox_2_2">
                     <h2><a href="matches">PARTIDOS</a></h2>
@@ -9,7 +20,7 @@
                         Media golpes (últimos 10) : <%= @stats_stroke_average_10 %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
                       </div>
                       <div id="stats_resume">
-                        Partidos jugados último mes : xxx  <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
+                        Partidos jugados último mes : <%= @stats_last_month %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
                       </div>
                       <div id="stats_resume">
                         Media partidos mes : xxx <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
@@ -20,7 +31,7 @@
                     <h2>RESUMEN</h2>
                     <div id="internal_text">
                       <div id="stats_resume">
-                        Amigos :
+                        <a href="/privacy_friends/<%= @user.id %>/new">Amigos :</a> 10 <button id="button_help" onclick="">Ayuda</button>
                       </div>
                       <div id="stats_resume">
                         

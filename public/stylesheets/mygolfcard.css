@@ -142,15 +142,18 @@ body {
 body {
     background: #2e3436 url('../images/06022010_1024.jpg') no-repeat fixed top center;
     font-size: 8pt;
-    font-family: verdana, arial, helvetica, sans-serif;
+    /*font-family: verdana, arial, helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
+
     color: white;
 }
 
 /* ------------------ FORMS ---------------- */
 
 input, select, button {
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
 }
 
 div.row {
@@ -165,7 +168,8 @@ div.row label.c_label {
     text-align: right;
     margin-right: 5px;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
 }
 
 div.row input {
@@ -259,7 +263,7 @@ div.row .submit {
     text-decoration: none;
     color: #fff;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: bold;
 }
 #kwick1 {
     background-color: #369D47;
@@ -369,7 +373,7 @@ div.row .submit {
 .boxhead h2 {
         background: url(../images/sbhead-l_g.gif) no-repeat top left;
         margin: 0;
-        padding: 22px 30px 5px;
+        padding: 2px 30px 5px;
         color: white;
         font-weight: bold;
         font-size: 1.2em;
@@ -414,9 +418,11 @@ div.row .submit {
     color: white;
     font-size: 20px;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .text_box a:link {
@@ -424,17 +430,19 @@ div.row .submit {
     font-style: italic;
     font-size: 14px;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
     /* margin: 10px; */
 }
 
 a.masinfo:link {
-    color: r;
+    color: white;
     font-style: italic;
     font-size: 12px;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+   /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
     /* margin: 10px; */
 }
@@ -444,9 +452,21 @@ a.masinfo:link {
     color: white;
     font-size: 20px;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
     text-decoration: none;
+}
+
+.text_box h2 a:hover
+{
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 #internal_text {
@@ -651,7 +671,8 @@ text-align: center;
 }
 
 #result thead th {
-    font-family: arial, helvetica, sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-size: 12px;
     font-weight: bold;
     line-height: 19px;

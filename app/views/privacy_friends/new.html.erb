@@ -7,6 +7,7 @@
      margin-bottom: 5px;
      /*background-color: #cccccc;*/
   }
+
   .content_tb_header1_content{
      position: relative;
      float: right;
@@ -15,6 +16,7 @@
      height: 50px;
      /*background-color: #828282;*/
   }
+
   .content_tb_header2_wrapper {
      position: relative;
      float: left;
@@ -23,6 +25,7 @@
      margin-bottom: 5px;
      /*background-color: #cccccc;*/
   }
+
   .content_tb_header2_content {
      position: relative;
      float: left;
@@ -32,6 +35,7 @@
      padding-left: 30px;
      /*background-color: #828282;*/
   }
+
   .content_tb_content_wrapper {
      position: relative;
      float: left;
@@ -40,6 +44,7 @@
      margin-bottom: 5px;
      /*background-color: #cccccc*/
   }
+
   .content_tb_content_content {
      position: relative;
      float: left;
@@ -71,15 +76,58 @@
     height: 450px;
   }
 
-  .friends {
-    padding-left: 30px;
+  .myfriends {
+    padding-left: 0px;
     height: 150px;
     width: 380px;
     overflow: auto;
     border: inset 3px;
     background: white;
+  }
+
+  .friendofsomebody {
+    padding-left: 0px;
+    height: 150px;
+    width: 380px;
+    overflow: auto;
+    border: inset 3px;
+    background: white;
+  }
+
+  .friendallowed {
+    color: black;
+  }
+
+  .friendnoallowed {
     color: gray;
   }
+
+  #friends {
+     position: relative;
+     float: right;
+     right: 5px;
+     left: 35px;
+     width: 100%;
+     height: 50px;
+  }
+
+  #friends_left {
+     position: relative;
+     float: left;
+     left: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+  }
+  
+  #friends_right {
+     position: relative;
+     float: right;
+     right: 5px;
+     width: 50%;
+     /*background-color: #128281;*/
+     height: 30px;
+  }
+
 </style>
 
 <script>
@@ -147,7 +195,7 @@
           <div class="content_tb_header1_wrapper">
              <div class="content_tb_header1_content">
                 <div class="content_tb_header1_left1">
-                    <h1>Alta de Nuevo Campo</h1>
+                    <h1>Gestión de Amigos</h1>
                 </div> <!-- content_tb_header1_left1 -->
                 <div class="content_tb_header1_right demo">
                   <button onclick="document.location.href='<%= user_path(@user) %>'">Cancelar</button>
@@ -163,20 +211,20 @@
           <div class="content_tb_content_wrapper">
                <div class="content_tb_content_content cmxform demo">
 
-                    <fieldset>
+                    <fieldset style="height:350px;">
                       <legend>Buscando amigos</legend>
 
                       <% form_for(@privacy_friend, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
                       <%= f.error_messages %>
 
                         <p>
-                          <b>Usuario:</b>
+                          <b>Usuario:</b>&nbsp;
                           <%=h @user.name -%>
                           <%= f.hidden_field :user1_id, :value => @user.id %>
                         </p>
                         <p>
                         <div id="new_friend">
-                            <b>Nombre Amigo:</b>
+                            <b>Nombre Amigo: </b>&nbsp;
                             <%= f.text_field :user2_id, :style => 'display:none;' %>
                             <input id="user_name" name="user_name" type="text" size="40" />
                             <button id="button_save">Grabar</button>
@@ -184,33 +232,83 @@
                         </p>
                       <% end %>
                         
-                        <p>&nbsp;</p>
-                        <p>
-                          <h3>Amigos dados de alta que podrá utilizar en sus partidos:</h3>
-                        </p>
-                      
-                        
-                      <div class="friends">
-                        <ol>
-                          <% @friendsofmine.each do |fr| %>
-                          <li>
-                            <ul class="ul-form" style="vertical-align:middle; height: 20px;border-bottom: 1px gray dashed;">
-                              <li class="li-label" style="margin-top: 10px;">
-                                <%=h fr.user.name%>
-                              </li>
-                              <li class="li-field" style="text-align: right; margin-top: 5px;">
-                                <%= link_to 'Borrar', fr, :confirm => '¿Está seguro?', :method => :delete %>
-                                <a title="Borrar" href="#" onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/privacy_friends/<%= fr.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;">
-                                   <img src="/images/icon-delete.png" alt="Borrar" />
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
-                          <% end %>
-                        </ol>
-                      </div>
+                      <div id="friends">
 
+                        <div id="friends_left">
+                          <p>&nbsp;</p>
+                          <p>
+                            <h3>Son mis amigos y los podré utilizar en mis partidos:</h3>
+                          </p>
+                          <ol class="myfriends">
+                            <% @friendsofmine.each do |fr| 
+                                user1 = User.find(fr.user1_id)
+                                user2 = User.find(fr.user2_id)
+                            %>
+                            <li style="margin-left: 20px;">
+                              <ul class="ul-form" style="vertical-align:middle; height: 20px;border-bottom: 1px gray dashed;">
+                                <% if fr.allowed==1 %>
+                                <li class="li-label friendallowed" style="width: 180px; text-align: left;margin-top: 10px;">
+                                  <%=h user2.name %>
+                                </li>
+                                <li class="li-field" style="width: 160px; text-align: right; margin-top: 5px;">
+                                  <a title="Borrar" href="#" onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/privacy_friends/<%= fr.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;">
+                                     <img src="/images/icon-delete.png" alt="Borrar" />
+                                  </a>
+                                </li>
+                                <% else %>
+                                <li class="li-label friendnoallowed" style="width: 180px; text-align: left;margin-top: 10px;">
+                                  <%=h user2.name %>
+                                </li>
+                                <li class="li-field friendnoallowed" style="width: 160px; text-align: right; margin-top: 10px;">
+                                  Pdte. Confirmar
+                                </li>
+                                <% end %>
+                              </ul>
+                            </li>
+                            <% end %>
+                          </ol>
+                        </div>
+
+                        <div id="friends_right">
+                          <p>&nbsp;</p>
+                          <p>
+                            <h3>Soy amigo de ellos y me podrán utilizar en sus partidos:</h3>
+                          </p>
+
+                          <ol class="friendofsomebody">
+                            <% @friendofsomeone.each do |fr|
+                                user1 = User.find(fr.user1_id)
+                                user2 = User.find(fr.user2_id)
+                            %>
+                            <li style="margin-left: 20px;">
+                              <ul class="ul-form" style="vertical-align:middle; height: 20px;border-bottom: 1px gray dashed;">
+                                <% if fr.allowed==1 %>
+                                <li class="li-label friendallowed" style="width: 180px; text-align:left;margin-top: 10px;">
+                                  <%=h user1.name%>
+                                </li>
+                                <li class="li-field" style="width: 160px; text-align: right; margin-top: 5px;">
+                                  <a title="Borrar" href="#" onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/privacy_friends/<%= fr.id %>';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;">
+                                     <img src="/images/icon-delete.png" alt="Borrar" />
+                                  </a>
+                                </li>
+                                <% else %>
+                                <li class="li-label friendnoallowed" style="width: 180px; text-align:left;margin-top: 10px;">
+                                  <%=h user1.name %> (Pdte. Confirmar)
+                                </li>
+                                <li class="li-field" style="width: 160px; text-align: right; margin-top: 5px;">
+                                  <a title="Confirmar" href="#" onclick="if (confirm('¿Está seguro?')) { document.location.href='/privacy_friends/<%= fr.id %>/allow'; };return false;">
+                                     <img src="/images/icon-edit.png" alt="Confirmar" />
+                                  </a>
+                                </li>
+                                <% end %>
+                              </ul>
+                            </li>
+                            <% end %>
+                          </ol>
+
+                        </div>
                         
+                      </div>
 
                     </fieldset>
 

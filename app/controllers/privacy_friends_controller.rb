@@ -7,6 +7,9 @@
 class PrivacyFriendsController < ApplicationController
   # GET /privacy_friends
   # GET /privacy_friends.xml
+
+  before_filter :current_menu
+  
   def index
     @privacy_friends = PrivacyFriend.all
 
@@ -32,7 +35,8 @@ class PrivacyFriendsController < ApplicationController
   def new
     @user = User.find(params[:id])
     @privacy_friend = PrivacyFriend.new
-    @friendsofmine = PrivacyFriend.my_friends(@user.id)
+    @friendsofmine = PrivacyFriend.my_friends_pending(@user.id)
+    @friendofsomeone = PrivacyFriend.friend_of_someone(@user.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -49,12 +53,24 @@ class PrivacyFriendsController < ApplicationController
   # POST /privacy_friends.xml
   def create
     @privacy_friend = PrivacyFriend.new(params[:privacy_friend])
+    @privacy_friend.allowed = 0
 
     respond_to do |format|
       if @privacy_friend.save
-        flash[:notice] = 'PrivacyFriend was successfully created.'
-        format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
-        format.xml  { render :xml => @privacy_friend, :status => :created, :location => @privacy_friend }
+
+        @privacy_inverted = PrivacyFriend.new
+        @privacy_inverted.allowed = 1
+        @privacy_inverted.user1_id = @privacy_friend.user2_id
+        @privacy_inverted.user2_id = @privacy_friend.user1_id
+
+        if @privacy_inverted.save
+          flash[:notice] = 'PrivacyFriend was successfully created.'
+          format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
+          format.xml  { render :xml => @privacy_friend, :status => :created, :location => @privacy_friend }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @privacy_friend.errors, :status => :unprocessable_entity }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @privacy_friend.errors, :status => :unprocessable_entity }
@@ -79,6 +95,24 @@ class PrivacyFriendsController < ApplicationController
     end
   end
 
+    # PUT /privacy_friends/1
+  # PUT /privacy_friends/1.xml
+  def allow
+    @privacy_friend = PrivacyFriend.find(params[:id])
+    @privacy_friend.allowed = 1
+    
+    respond_to do |format|
+      if @privacy_friend.update_attributes(params[:privacy_friend])
+        flash[:notice] = 'PrivacyFriend was successfully updated.'
+        format.html { redirect_to(@privacy_friend) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @privacy_friend.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /privacy_friends/1
   # DELETE /privacy_friends/1.xml
   def destroy
@@ -90,4 +124,12 @@ class PrivacyFriendsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+private
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => '', 'courses' => '', 'charts' => '', 'personaldata' => 'current'}
+  end
+
+
 end

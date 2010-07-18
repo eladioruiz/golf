@@ -254,7 +254,7 @@ private
   end
 
   def current_menu
-    @current_menu = {'init' => '', 'matches' => 'current', 'courses' => '', 'charts' => ''}
+    @current_menu = {'init' => '', 'matches' => 'current', 'courses' => '', 'charts' => '', 'personaldata' => ''}
   end
 
   def order_result

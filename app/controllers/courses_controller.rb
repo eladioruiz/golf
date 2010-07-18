@@ -100,7 +100,7 @@ class CoursesController < ApplicationController
 private
 
   def current_menu
-    @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => ''}
+    @current_menu = {'init' => '', 'matches' => '', 'courses' => 'current', 'charts' => '', 'personaldata' => ''}
   end
 
 end

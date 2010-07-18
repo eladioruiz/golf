@@ -12,7 +12,23 @@ class PrivacyFriend < ActiveRecord::Base
                                 {
                                   :select =>      "* ",
                                   :from   =>      "privacy_friends",
+                                  :conditions =>  ["allowed=1 and privacy_friends.user1_id=?",userID]
+                                }
+                           }
+
+  named_scope :my_friends_pending, lambda { |userID|
+                                {
+                                  :select =>      "* ",
+                                  :from   =>      "privacy_friends",
                                   :conditions =>  ["privacy_friends.user1_id=?",userID]
+                                }
+                           }
+
+  named_scope :friend_of_someone, lambda { |userID|
+                                {
+                                  :select =>      "* ",
+                                  :from   =>      "privacy_friends",
+                                  :conditions =>  ["privacy_friends.user2_id=?",userID]
                                 }
                            }
 

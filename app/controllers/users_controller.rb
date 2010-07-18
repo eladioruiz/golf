@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
+
+  before_filter :current_menu
   
   # GET /users
   def index
@@ -55,4 +57,12 @@ class UsersController < ApplicationController
 
     render :json => @users, :template => 'users/find_like_by_name.html.erb'
   end
+
+private
+
+  def current_menu
+    @current_menu = {'init' => '', 'matches' => '', 'courses' => '', 'charts' => '', 'personaldata' => 'current'}
+  end
+
+
 end

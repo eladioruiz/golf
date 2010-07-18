@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100424181031) do
+ActiveRecord::Schema.define(:version => 20100717134612) do
 
   create_table "audit_trails", :force => true do |t|
     t.integer  "user_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
     t.integer  "trees_in_play"
     t.string   "location_latitude"
     t.string   "location_longitude"
+    t.integer  "privacy_type_id",                     :default => 1
   end
 
   create_table "dummies", :force => true do |t|
@@ -123,10 +124,11 @@ ActiveRecord::Schema.define(:version => 20100424181031) do
   end
 
   create_table "privacy_friends", :force => true do |t|
-    t.integer  "user1_id",   :null => false
-    t.integer  "user2_id",   :null => false
+    t.integer  "user1_id",                  :null => false
+    t.integer  "user2_id",                  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "allowed",    :default => 0
   end
 
   create_table "privacy_types", :force => true do |t|
