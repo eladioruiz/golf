@@ -207,6 +207,17 @@
     end
 %>
 
+<script type="text/javascript">
+    $(function() {
+        $("#button_help").button({
+            icons: {
+                primary: 'ui-icon-help'
+            },
+            text: false
+        });
+    });
+</script>
+
 
 </head>
 
@@ -227,9 +238,11 @@
                       <div id="user">
                         <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)
                         <!--<br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>-->
+                        
                       </div>
                       <div id="logout">
                         <a href="/logout" alt="Logout"><img src="/images/logout.gif" border="0" alt="Logout" /></a>
+                        <p style="margin-left: 50px;">¿Necesita ayuda para empezar a utilizar My Golf Card?&nbsp;<button title="Ayuda" id="button_help" onclick="">Ayuda</button></p>
                       </div>
                     </div> <!-- end: user_info -->
                     <div class="footer_header">

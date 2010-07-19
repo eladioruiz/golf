@@ -1,41 +1,67 @@
-<script type="text/javascript">
-    $(function() {
-        $("#button_help").button({
-            icons: {
-                primary: 'ui-icon-help'
-            },
-            text: false
-        });
-    });
-</script>
+<style>
+  #button_help {
+  }
+
+  #internal_text {
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+  }
+
+  #internal_text ul {
+   list-style-type: none; 
+   margin: 0px;
+   padding: 0px;
+  }
+
+  #internal_text li {
+   margin: 0px;
+   padding: 0px;
+   height: 25px;
+  }
+</style>
 
             <div id="internal_text">
                 <div class="text_box" id="textbox_2_2">
                     <h2><a href="matches">PARTIDOS</a></h2>
                     <div id="internal_text">
-                      <div id="stats_resume">
-                        Nº Partidos : <%= @stats_num_matches %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
-                      </div>
-                      <div id="stats_resume">
-                        Media golpes (últimos 10) : <%= @stats_stroke_average_10 %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
-                      </div>
-                      <div id="stats_resume">
-                        Partidos jugados último mes : <%= @stats_last_month %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
-                      </div>
-                      <div id="stats_resume">
-                        Media partidos mes : xxx <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
-                      </div>
+                      <ul>
+                        <li>
+                          <div id="stats_resume">
+                            Nº Partidos : <%= @stats_num_matches %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
+                          </div>
+                        </li>
+                        <li>
+                          <div id="stats_resume">
+                            Media golpes : <%= @stats_strokes_average %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
+                          </div>
+                        </li>
+                        <li>
+                          <div id="stats_resume">
+                            Partidos jugados último mes : <%= @stats_last_month %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
+                          </div>
+                        </li>
+                        <li>
+                          <div id="stats_resume">
+                            Media partidos mes : xxx <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                          </div>
+                        </li>
+                      </ul>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
                     <h2>RESUMEN</h2>
                     <div id="internal_text">
-                      <div id="stats_resume">
-                        <a href="/privacy_friends/<%= @user.id %>/new">Amigos :</a> 10 <button id="button_help" onclick="">Ayuda</button>
-                      </div>
-                      <div id="stats_resume">
-                        
-                      </div>
+                      <ul>
+                        <li>
+                            <a href="/privacy_friends/<%= @user.id %>/new">Amigos</a> : <%= @stats_friends %>&nbsp;(<%= @stats_friends_pending %>&nbsp;pendientes)
+                        </li>
+                        <li>
+                          <div id="stats_resume">
+                            
+                          </div>
+                        </li>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
@@ -70,7 +96,7 @@
               </div>
 
               <div id="matches-dialog2" style="display:none" title="Más información">
-                <p>Media de golpes en sus últimos 10 partidos.</p>
+                <p>Media de golpes de todos sus partidos introducidos .</p>
               </div>
 
               <div id="matches-dialog3" style="display:none" title="Más información">

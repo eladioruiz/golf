@@ -13,8 +13,13 @@ class HomeController < ApplicationController
     @limits = "100000000"
     @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_month
     @stats_last_month = @matches.length
+    @stats_strokes_average = Card.strokes_average(session[:user_id])
 
     @user = current_user
+
+    # => RESUME
+    @stats_friends = PrivacyFriend.my_friends(session[:user_id]).length
+    @stats_friends_pending = PrivacyFriend.my_friends_pending(session[:user_id]).length.to_i() - @stats_friends.to_i()
 
     # => Courses
     @stats_num_courses = Course.all.size

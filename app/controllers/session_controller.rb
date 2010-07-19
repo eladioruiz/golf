@@ -17,6 +17,8 @@ class SessionController < ApplicationController
       cookies[:userID] = {:value => self.current_user.id}
       flash[:notice] = "Logged in successfully"
     else
+      @user = User.new
+      flash[:notice] = "Usuario y/o password incorrectas."
       render :action => 'new'
     end
   end

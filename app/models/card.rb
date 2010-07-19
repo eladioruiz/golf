@@ -36,4 +36,15 @@ class Card < ActiveRecord::Base
     self.strokes_total = @strokes_total
     self.save
   end
+
+  def self.strokes_average(pUserId)
+    sql = "select user_id, avg(suma*(18/holes)) as media from strokes_per_match where user_id=" + pUserId.to_s() + " group by user_id;"
+    cs = self.find_by_sql(sql)
+
+    unless cs[0].nil?
+      return cs[0].media
+    else
+      return 0
+    end
+  end
 end
