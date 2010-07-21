@@ -7,11 +7,11 @@
 
     <div class="row">
       <label for="password" class="c_label">Password</label>
-      <%= password_field_tag 'password' %>
+      <%= password_field_tag 'password' %>&nbsp;<%= flash[:notice] %>&nbsp;
     </div>
     <div class="row">
       <label class="c_label">&nbsp;</label>
-      <%= submit_tag 'Entrar', 'class' => 'submit'  %>&nbsp;<a href="#" onClick="alert('Acción no implementada actualmente.\n')"><%= flash[:notice] %>&nbsp;¿Recuperar contrase&ntilde;a?</a>
+      <%= submit_tag 'Entrar', 'class' => 'submit'  %>&nbsp;<a href="#" onClick="alert('Acción no implementada actualmente.\n')">¿Desea recuperar su contrase&ntilde;a?</a>
     </div>
   <% end -%>
 </div>

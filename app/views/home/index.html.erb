@@ -44,7 +44,7 @@
                         </li>
                         <li>
                           <div id="stats_resume">
-                            Media partidos mes : xxx <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                            Media partidos mes : <%= @stats_month_average %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
                           </div>
                         </li>
                       </ul>
@@ -83,7 +83,7 @@
                         M&aacute;s jugado : <%= @stats_most_used_course %>
                       </div>
                       <div id="stats_resume">
-                        &Uacute;ltimo introducido : <%= @stats_last_inserted_course %>
+                        &Uacute;ltimo : <%= @stats_last_inserted_course %>
                       </div>
                     </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->

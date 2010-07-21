@@ -1,19 +1,18 @@
 class HomeController < ApplicationController
   before_filter :login_required
 
+  include ActionView::Helpers::NumberHelper
+
+
   # GET /home
   def index
     # ## STATS
 
     # => Matches
-    @stats_num_matches = Player.find_all_by_user_id(current_user.id).size
-    @stats_stroke_average_10 = 10
-    
-    @ordering = "date_hour_match DESC"
-    @limits = "100000000"
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_month
-    @stats_last_month = @matches.length
-    @stats_strokes_average = Card.strokes_average(session[:user_id])
+    @stats_num_matches = Stat.num_matches(session[:user_id])
+    @stats_last_month = Stat.matches_last_month(session[:user_id])
+    @stats_strokes_average = number_with_precision(Stat.strokes_average(session[:user_id]),:precision => 2)
+    @stats_month_average =  number_with_precision(Stat.matches_average(session[:user_id]),:precision => 2)
 
     @user = current_user
 
@@ -22,8 +21,8 @@ class HomeController < ApplicationController
     @stats_friends_pending = PrivacyFriend.my_friends_pending(session[:user_id]).length.to_i() - @stats_friends.to_i()
 
     # => Courses
-    @stats_num_courses = Course.all.size
-    @stats_last_inserted_course = Course.last.name + " (" + Course.last.address + ")"
+    @stats_num_courses = Course.all.length
+    @stats_last_inserted_course = Course.last.name
     @stats_most_used_course = Match.most_used_course.first.course.name + " (" + Match.most_used_course.first.num_used + " veces)"
   end
 

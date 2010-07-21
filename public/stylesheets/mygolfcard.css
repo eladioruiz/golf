@@ -31,6 +31,7 @@ a.visited {
 .content_wrapper{
     float: left;
     width: 100%;
+    margin-top: 10px;
     /*border: yellow solid 5px;*/
     /*background-color: #fff*/
 }
@@ -73,6 +74,11 @@ a.visited {
 body {
     padding: 0px;
     margin: 0px;
+    background: #2e3436 url('../images/06022010_1024.jpg') no-repeat fixed top center;
+    font-size: 8pt;
+    /*font-family: verdana, arial, helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
+    color: white;
 
 }
 .wrapper_header{
@@ -84,6 +90,10 @@ body {
     width: 100%;
     /*background-color: #f4f4f4;*/
     height: 0px;
+    margin-left: 50px;
+    font-size: 10pt;
+    /*font-family: verdana, arial, helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
 }
 .wrapbranding{
     float: left;
@@ -91,7 +101,7 @@ body {
     /*background-color: #cfcfcf*/
 }
 .branding{
-    margin-left: 50%;
+    margin-left: 40%;
     /*background-color: #afeeee;*/
     height: 80px;
     margin-top: 0px;
@@ -123,14 +133,16 @@ body {
     height: 80px;
     padding-left: 25px;
 }
+
 .user_info{
     float: left;
-    width: 50%;
+    width: 60%;
     margin-left: -100%;
     /*background-color: #98fb98;*/
     height: 80px;
     padding-left: 25px;
 }
+
 .footer_header{
     float: left;
     width: 100%;
@@ -140,12 +152,6 @@ body {
 
 /* ------------------ ELADIO -------------- */
 body {
-    background: #2e3436 url('../images/06022010_1024.jpg') no-repeat fixed top center;
-    font-size: 8pt;
-    /*font-family: verdana, arial, helvetica, sans-serif;*/
-    font-family: "Avant Garde", "Century Gothic", sans-serif;
-
-    color: white;
 }
 
 /* ------------------ FORMS ---------------- */
@@ -339,7 +345,9 @@ div.row .submit {
     margin-top: 0px;
     margin-left: 15px;
     float: left;
-    
+    font-size: 10pt;
+    /*font-family: verdana, arial, helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
 }
 
 #user {
@@ -445,6 +453,17 @@ a.masinfo:link {
     font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
     /* margin: 10px; */
+}
+
+.text_box h2
+{
+    color: white;
+    font-size: 20px;
+    font-weight: normal;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: "Avant Garde", "Century Gothic", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .text_box h2 a

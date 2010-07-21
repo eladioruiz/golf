@@ -55,7 +55,8 @@ class PrivacyFriendsController < ApplicationController
     @privacy_friend = PrivacyFriend.new(params[:privacy_friend])
     @privacy_friend.allowed = 0
 
-    respond_to do |format|
+    if PrivacyFriend.find_by_sql('select * from privacy_friends where user1_id=' + @privacy_friend.user1_id.to_s() + ' and user2_id=' + @privacy_friend.user2_id.to_s()).length==0
+
       if @privacy_friend.save
 
         @privacy_inverted = PrivacyFriend.new
@@ -63,18 +64,26 @@ class PrivacyFriendsController < ApplicationController
         @privacy_inverted.user1_id = @privacy_friend.user2_id
         @privacy_inverted.user2_id = @privacy_friend.user1_id
 
-        if @privacy_inverted.save
-          flash[:notice] = 'PrivacyFriend was successfully created.'
-          format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
-          format.xml  { render :xml => @privacy_friend, :status => :created, :location => @privacy_friend }
+        if PrivacyFriend.find_by_sql('select * from privacy_friends where user1_id=' + @privacy_inverted.user1_id.to_s() + ' and user2_id=' + @privacy_inverted.user2_id.to_s()).length==0
+
+          if @privacy_inverted.save
+            flash[:notice] = 'PrivacyFriend was successfully created.'
+            redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
+          else
+            flash[:notice] = 'Error al añadir un nuevo amigo.'
+            render :action => "new"
+          end
         else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @privacy_friend.errors, :status => :unprocessable_entity }
+          flash[:notice] = 'Ya eres su amigo.'
+          redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
         end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @privacy_friend.errors, :status => :unprocessable_entity }
+        flash[:notice] = 'Error al añadir un nuevo amigo.'
+        render :action => "new"
       end
+    else
+      flash[:notice] = 'Ya es tu amigo.'
+      redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
     end
   end
 
@@ -104,7 +113,7 @@ class PrivacyFriendsController < ApplicationController
     respond_to do |format|
       if @privacy_friend.update_attributes(params[:privacy_friend])
         flash[:notice] = 'PrivacyFriend was successfully updated.'
-        format.html { redirect_to(@privacy_friend) }
+        format.html { redirect_to('/privacy_friends/' + @privacy_friend.user2_id.to_s() + '/new') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

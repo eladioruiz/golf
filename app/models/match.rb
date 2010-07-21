@@ -53,6 +53,7 @@ class Match < ActiveRecord::Base
   #  all(:limit => 10, :order => 'strokes_total DESC')
   #end
 
+
   def available_users
     User.all - users
   end
