@@ -31,7 +31,7 @@
                     </div>
                     <div class="wrapbranding">
                         <div class="branding">
-                            <h1>My Golf Card</h1>
+                            <h1>My Golf Card<span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();' >BETA</a></span></h1>
                             <h2>Tarjetas y Puntuaciones</h2>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                         <h2>My Golf Card</h2>
                         <div id="internal_text" class="presentation">
                             <ul>
-                                <li>¿Conoce ya My Golf Card? ¿Le han hablado sus compa&ntilde;eros de esta nueva web de golf? ¿Desea una <a id="dialog4" href="javascript:;" onclick='$("#dialog-modal5").dialog();'>cuenta gratuita</a> en My Golf Card?</li>
+                                <li>¿Conoce ya My Golf Card? ¿Le han hablado sus compa&ntilde;eros de esta nueva web de golf?</li>
                                 <li>Si no es as&iacute; no se preocupe, en cuatro preguntas va a entender la nueva forma de continuar disfrutando del golf cuando esté de vuelta en casa conectándose a My Golf Card:</li>
                                 <li>
                                     <ol>
@@ -79,34 +79,41 @@
 
         <div class="demo">
 
-          <div id="dialog-modal1" style="display:none" title="Más información">
+          <div id="dialog-modal1" style="display:none" title="Más información de My Golf Card">
             <p>Los que primero solemos sacar de la bolsa de palos los aficionados al gof antes de empezar un buen partido es la consabida tarjeta para apuntar nuestros golpes o los de nuestros compañeros.</p>
             <p>Y por supuesto, en el "Hoyo 19" hacemos recuento a ver si hoy "se nos ha dado mejor". En cualquier caso, una vez acabado este primero momento de emoción, las tarjetas se convierten en otro trozo de cartón con el que no sabemos qué hacer.</p>
             <p>Y tampoco tenemos normalmente una manera sencilla de almacenar estas tarjetas, ya sea de una forma física o en el mundo de internet, de una forma electrónica y accesible desde todo el mundo.</p>
             <p>MyGolfCard le permite guardar de forma electrónica sus tajetas en Internet y consultarlas en cualquier momento. ¡Ya puede deshacerse del cartón!</p>
           </div>
 
-          <div id="dialog-modal2" style="display:none" title="Más información">
+          <div id="dialog-modal2" style="display:none" title="Más información My Golf Card">
             <p>Hoy en día cada vez son más las personas que disfrutan de parte de su tiempo libre compartiendo experiencias, viviencias y otras cosas dentro de una red social.</p>
             <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dió muy bien.</p>
             <p>En MygolfCard no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
           </div>
 
-           <div id="dialog-modal3" style="display:none" title="Más información">
+           <div id="dialog-modal3" style="display:none" title="Más información My Golf Card">
             <p>Ya sabemos que el golf es un deporte que se juega "contra uno mismo", pero ¿a quién no le gusta comprar su puntuación con las de los compañeros de partido?</p>
             <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el aprtido anterior no se nos dió muy bien.</p>
             <p>En MygolfCard no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
           </div>
 
-           <div id="dialog-modal4" style="display:none" title="Más información">
+           <div id="dialog-modal4" style="display:none" title="Más información My Golf Card">
             <p>Y después de todo nuestro esfuerzo durante el juego, la concentración que hemos puesto hoy y la sensación de haber jugado un "gran partido"... ¿cómo lo hemos hecho realmente?</p>
             <p>¿Hemos "pinchado" en algún hoyo? ¿Mantenemos una regularidad en nuestro últimos partidos? ¿En qué campo solemos jugar más?</p>
             <p>En MygolfCard podrá consultar y analizar toda esta información, porque tendrá disponibles una serie de estadísticas que le permitirá saber cómo evoluciona su juego.</p>
             <p>¿Y no es eso lo que todos los golfistas pretendemos? ¿Saber si conseguimos dominar este juego traidor y a la vez encantador?</p>
           </div>
 
-          <div id="dialog-modal5" style="display:none" title="¿Desea una cuenta en MyGolfCard?">
+          <div id="dialog-modal5" style="display:none" title="¿Desea crear una cuenta en My Golf Card?">
             <%= render :partial => 'layouts/signup' %>
+          </div>
+
+          <div id="beta-modal1" style="display:none" title="My Golf Card - ¿Por qu&eacute; BETA?">
+            <p>¿Por qu&eacute; BETA?<br>La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
+            <p>Y entonces, ¿por qu&eacute; está ya online?<br>Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.<br>
+                Entonces pensamos, ¿vamos a hacerles esperar unos meses m&aacute;s a que todo est&eacute; acabado? No, preferimos que Vd. empiece a familiarizarse, utilizar y disfrutar de My Golf Card mientras nosotros pulimos, mejoramos y ampliamos nuestra idea inicial.
+            </p>
           </div>
 
         </div> <!-- demo -->

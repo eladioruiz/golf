@@ -1,0 +1,122 @@
+<style>
+  .ayuda-li {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .ayuda-li-head {
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .ayuda-li-body {
+   font-size: 14px;
+   margin-left: 10px;
+  }
+
+</style>
+
+<script>
+  $(function () {
+    $("#pto_1").click(function() {$("#pto_1_view").toggle();});
+    $("#pto_2").click(function() {$("#pto_2_view").toggle();});
+    $("#pto_3").click(function() {$("#pto_3_view").toggle();});
+    $("#pto_4").click(function() {$("#pto_4_view").toggle();});
+  });
+</script>
+
+<h1>Ayuda con My Golf Card</h1>
+<!--<h3>Contacte con nosotros para obtener m&aacute;s ayuda.</h3>-->
+<%= flash[:notice] %>
+<ol>
+  <li>
+    <div class="ayuda-li">
+      <div class="ayuda-li-head" id="pto_1">
+        ¿Qui&eacute;re compartir su informaci&oacute;n con compañeros de partido?
+      </div>
+      <div class="ayuda-li-body" style="display:none;" id="pto_1_view">
+        <p>
+        Si desea utilizar My Golf Card como punto de reunión con sus compañeros y compartir con ellos sus partidos, al mismo tiempo que registra las tarjetas de todo el grupo, el primer paso que debe dar es buscar a sus compañeros y añadirlos a su lista personal de <i>amigos</i>.<br>
+        </p>
+        <p>
+        Para ello es imprescindible que sus compañeros sean usuarios registrados de My Golf Card, es decir, deben tener asignado un usuario y una password en My Golf Card.
+        Si no lo están, primero deberá pedirles que se registren o registrales Vd. con su permiso.
+        </p>
+        <p>
+        La búsqueda de compañeros se realiza desde la opción de <i>Datos Personales</i> haciendo click sobre el botón "Amigos".
+        </p>
+        <p>
+          <ol>
+            <li>Busque a su compañero por su nombre, selecci&oacute;ne el correcto y a&ntilde;&aacute;dalo.</li>
+            <li>Inmediatamente, Vd. pasa a ser amigo del usuario que ha añadido. Es decir, ese usuario puede utilizarle a Vd. en sus partidos.</li>
+            <li>Al mismo tiempo, Vd. queda pendiente de que su nuevo <i>amigo</i> le permita utilizarle en sus partidos.</li>
+            <li>De forma totalmente an&aacute;loga, pero desde el punto de vista contrario: si alg&uacute;n compañero suyo desea tenerle como amigo, Vd. verá una solicitud de amistad pendiente de confirmar, al mismo tiempo que podrá utilizarle automáticamente en sus partidos.
+          </ol>
+        </p>
+      </div>
+      <p></p>
+    </div>
+  </li>
+  <li>
+    <div class="ayuda-li">
+      <div class="ayuda-li-head" id="pto_2">
+        Registre sus partidos.
+      </div>
+      <div class="ayuda-li-body" style="display:none;" id="pto_2_view">
+        <p>
+        Para registrar sus partidos, ya sea de forma individual o con sus compañeros, debe seleccionar en el menú superior la opción "Partidos".
+        Una vez alli, podr&aacute; ver todos sus partidos registrados o registrar un partido "Nuevo" por medio del botón correspondiente.
+        </p>
+        <p>
+          Tambi&eacute;n podrá acceder directamente a crear un partido nuevo desde los "Accesos Directos" de la p&aacute;gina principal.
+        </p>
+        <p>
+          Introduzca el campo, la fecha y hora de su partido y los jugadores que han participado en ese partido. Como hemos comentado en el punto anterior, si tiene <i>amigos</i> registrados, podr&aacute; utilizarlos en este momento.
+        </p>
+      </div>
+      <p></p>
+    </div>
+  </li>
+  <li>
+    <div class="ayuda-li">
+      <div class="ayuda-li-head" id="pto_3">
+        Y con el partido registrado, ahora vamos con la tarjeta de golpes.
+      </div>
+      <div class="ayuda-li-body" style="display:none;" id="pto_3_view">
+        <p>Una vez que tenemos un partido registrado, podemos introducir los golpes que hemos hecho en cada uno de los hoyos.</p>
+        <p>Con esta informaci&oacute;n ya puede sacar el m&aacute;ximo rendimiento a My Golf Card ya que ser&aacute; capaz de realizar gráficos y calcular estadísticas sobre su juego habitual.
+        <p>Adem&aacute;s con su informaci&oacute;n contribuye tambi&eacute;n a mejorar las estad&iacute;sticas globales de My Golf Card.
+      </div>
+      <p></p>
+    </div>
+  </li>
+  <li>
+    <div class="ayuda-li">
+      <div class="ayuda-li-head" id="pto_4">
+        ¿De qu&eacute; sirve toda la información que hemos introducido? ¿Qu&eacute; podemos saber de nuestro juego?
+      </div>
+      <div class="ayuda-li-body" style="display:none;" id="pto_4_view">
+        <p>La opci&oacute;n de "Estad&iacute;sticas" le permitirá analizar su juego mediante el conjunto de estad&iacute;sticas y gr&aacute;ficas obtenidas a partir de los datos de sus partidos y tarjetas.</p>
+        <p>Cuanta m&aacute;s informaci&oacute;n introduzca en My Golf Card, m&aacute;s representativa será la información anal&iacute;tica que obtenga.</p>
+      </div>
+      <p></p>
+    </div>
+  </li>
+  <li>
+    <div class="ayuda-li">
+      <div class="ayuda-li-head" id="pto_5">
+        Para cualquier duda o sugerencia, <a id="dialog1" href="javascript:;" onclick='$("#ayuda-pto-5").dialog();' >contacte</a> con nosotros y le responderemos lo más r&aacute;pidamente posible.
+      </div>
+      <p></p>
+    </div>
+  </li>
+</ol>
+
+<div class="demo">
+
+  <div id="ayuda-pto-5" style="display:none" title="My Golf Card - Más información">
+    <%= render :partial => 'layouts/contact' %>
+  </div>
+
+</div>

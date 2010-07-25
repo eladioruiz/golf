@@ -13,6 +13,22 @@ a.visited {
     color: white;
 }
 
+.beta {
+    color: yellow;
+    vertical-align: super;
+    font-size: 11px;
+    font-family: Verdana;
+    text-decoration: none;
+}
+
+.beta a {
+    color: yellow;
+    vertical-align: super;
+    font-size: 11px;
+    font-family: Verdana;
+    text-decoration: none;
+}
+
 /* ------------------ LAYOUT ---------------- */
 .wrapper{
     width: 1024px;

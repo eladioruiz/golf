@@ -22,89 +22,153 @@
   }
 </style>
 
+<script>
+  $(document).ready(function(){
+    $("#new_match").button({
+      icons: {
+          primary: 'ui-icon-document'
+      },
+      text: true
+    });
+  });
+</script>
+
             <div id="internal_text">
                 <div class="text_box" id="textbox_2_2">
-                    <h2><a href="matches">PARTIDOS</a></h2>
-                    <div id="internal_text">
-                      <ul>
-                        <li>
-                          <div id="stats_resume">
-                            Nº Partidos : <%= @stats_num_matches %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
-                          </div>
-                        </li>
-                        <li>
-                          <div id="stats_resume">
-                            Media golpes : <%= @stats_strokes_average %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
-                          </div>
-                        </li>
-                        <li>
-                          <div id="stats_resume">
-                            Partidos jugados último mes : <%= @stats_last_month %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
-                          </div>
-                        </li>
-                        <li>
-                          <div id="stats_resume">
-                            Media partidos mes : <%= @stats_month_average %> <a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
-                          </div>
-                        </li>
-                      </ul>
-                    </div> <!-- end: internal_text -->
+                  <table width="100%">
+                    <tr>
+                      <td><h2><a href="matches">PARTIDOS</a></h2></td>
+                      <td width="120px;"><button id="new_match" style="font-size: 12px;">Nuevo Partido</button></td>
+                    </tr>
+                  </table>
+                  <div id="internal_text">
+                    <ul>
+                      <li>
+                        <div id="stats_resume">
+                          Nº Partidos : <%= @stats_num_matches %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          Media golpes : <%= @stats_strokes_average %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          Partidos jugados último mes : <%= @stats_last_month %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          Media partidos mes : <%= @stats_month_average %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                    <h2>RESUMEN</h2>
-                    <div id="internal_text">
-                      <ul>
-                        <li>
-                            <a href="/privacy_friends/<%= @user.id %>/new">Amigos</a> : <%= @stats_friends %>&nbsp;(<%= @stats_friends_pending %>&nbsp;pendientes)
-                        </li>
-                        <li>
-                          <div id="stats_resume">
-                            
-                          </div>
-                        </li>
-                    </div> <!-- end: internal_text -->
+                  <h2>DATOS PERSONALES & AMIGOS</h2>
+                  <div id="internal_text">
+                    <ul>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
+                          <% if @stats_friends>0 %>
+                            <%= @stats_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                          <% else %>
+                            No tiene amigos registrados.&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                          <% end %>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="/privacy_friends/<%= @user.id %>/new">Solicitudes Pendientes</a> : xxx&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="/privacy_friends/<%= @user.id %>/new">Pdtes. Aprobar</a> : <%= @stats_friends_pending %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="/users/<%= @user.id %>">Datos Personales</a>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                    <h2>ESTADÍSTICAS</h2>
-                    <div id="internal_text">
-                      <a href="/charts/pie_courses">Campos jugados</a>
-                    </div> <!-- end: internal_text -->
-                    <div id="internal_text">
-                      <a href="">Regularidad por campo</a>
-                    </div> <!-- end: internal_text -->
+                  <h2>ESTADÍSTICAS</h2>
+                  <div id="internal_text">
+                    <ul>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="/charts/pie_courses">Campos jugados</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="">Regularidad por campo</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          <a href="">Regularidad por hoyo</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                    <h2><a href="courses">CAMPOS</a></h2>
-                    <div id="internal_text">
-                      <div id="stats_resume">
-                        Campos disponibles : <%= @stats_num_courses %>
-                      </div>
-                      <div id="stats_resume">
-                        M&aacute;s jugado : <%= @stats_most_used_course %>
-                      </div>
-                      <div id="stats_resume">
-                        &Uacute;ltimo : <%= @stats_last_inserted_course %>
-                      </div>
-                    </div> <!-- end: internal_text -->
+                  <h2><a href="courses">CAMPOS</a></h2>
+                  <div id="internal_text">
+                    <div id="stats_resume">
+                      Disponibles : <%= @stats_num_courses %>
+                    </div>
+                    <div id="stats_resume">
+                      M&aacute;s jugado : <%= @stats_most_used_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog1").dialog();' >+ info</a>
+                    </div>
+                    <div id="stats_resume">
+                      &Uacute;ltimo : <%= @stats_last_inserted_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog2").dialog();' >+ info</a>
+                    </div>
+                  </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
             </div>  <!-- end: internal_text -->
 
             <div class="demo">
 
-              <div id="matches-dialog1" style="display:none" title="Más información">
+              <div id="matches-dialog1" style="display:none" title="My Golf Card - Más información">
                 <p>Total de partidos que vd. ha introducido en su ficha.</p>
               </div>
 
-              <div id="matches-dialog2" style="display:none" title="Más información">
-                <p>Media de golpes de todos sus partidos introducidos .</p>
+              <div id="matches-dialog2" style="display:none" title="My Golf Card - Más información">
+                <p>Media de golpes de todos sus partidos introducidos.</p>
+                <p>My Golf Card hace una ponderaci&oacute;n de golpes en los partidos de menos en los que se juegan menos de 18 hoyos para ofrecer una estad&iacute;stica lo más ajustada posible.</p>
               </div>
 
-              <div id="matches-dialog3" style="display:none" title="Más información">
+              <div id="matches-dialog3" style="display:none" title="My Golf Card - Más información">
                 <p>Número total de partidos jugados el último mes.</p>
               </div>
 
-              <div id="matches-dialog4" style="display:none" title="Más información">
+              <div id="matches-dialog4" style="display:none" title="My Golf Card - Más información">
                 <p>Media de partidos jugados al mes con respecto a todos los partidos introducidos.</p>
               </div>
 
+              <div id="user-dialog1" style="display:none" title="My Golf Card - Más información">
+                <p>No tiene amigos registrados como tales.<p/>
+                <p>Esto significa que cuando registre sus partidos, no podrá incluir en ellos a nadie más que a Vd. mismo. Lo mismo ocurrirá cuando quiera registrar las tarjetas de esos partidos.</p>
+                <p>Haga click en el enlace "Amigos" para acceder directamente a la b&uacute;squeda de sus compañeros.</p>
+              </div>
+              
+              <div id="course-dialog1" style="display:none" title="My Golf Card - Más información">
+                <p>Campo en el que más ha jugados según <u>sus</u> partidos registrados en el sistema.<p/>
+                <p>Tambi&eacute;n se recoge el n&uacute;mero de veces jugado.</p>
+              </div>
+
+              <div id="course-dialog2" style="display:none" title="My Golf Card - Más información">
+                <p>&Uacute;ltimo campo introducido en el sistema de My Golf Card.<p/>
+              </div>
+
             </div>
+

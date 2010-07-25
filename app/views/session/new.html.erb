@@ -1,17 +1,17 @@
 <div class="login_box" >
   <% form_tag session_path do -%>
     <div class="row">
-      <label for="login" class="c_label">Login</label>
-      <%= text_field_tag 'login' %>
+      <label for="login" class="c_label">Usuario</label>
+      <%= text_field_tag 'login' %>&nbsp;¿Desea <a id="dialog4" href="javascript:;" onclick='$("#dialog-modal5").dialog();'>registrarse</a> de forma gratuita en My Golf Card?
     </div>
 
     <div class="row">
       <label for="password" class="c_label">Password</label>
-      <%= password_field_tag 'password' %>&nbsp;<%= flash[:notice] %>&nbsp;
+      <%= password_field_tag 'password' %>&nbsp;<span style="color:red"><%= flash[:notice] %></span>&nbsp;
     </div>
     <div class="row">
       <label class="c_label">&nbsp;</label>
-      <%= submit_tag 'Entrar', 'class' => 'submit'  %>&nbsp;<a href="#" onClick="alert('Acción no implementada actualmente.\n')">¿Desea recuperar su contrase&ntilde;a?</a>
+      <%= submit_tag 'Entrar', 'class' => 'submit'  %>&nbsp;¿Desea <a href="#" onClick="alert('Acción no implementada actualmente.\n')">recuperar su contrase&ntilde;a</a>?
     </div>
   <% end -%>
 </div>

@@ -129,7 +129,7 @@ class PrivacyFriendsController < ApplicationController
     @privacy_friend.destroy
 
     respond_to do |format|
-      format.html { redirect_to('/privacy_friends/' + @privacy_friend.user1_id.to_s() + '/new') }
+      format.html { redirect_to('/privacy_friends/' + @privacy_friend.user2_id.to_s() + '/new') }
       format.xml  { head :ok }
     end
   end

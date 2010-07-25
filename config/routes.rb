@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :microsites
+
+  map.resources :contacts
+
   map.resources :rights
 
   map.resources :privacy_friends

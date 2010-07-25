@@ -216,7 +216,9 @@
             text: false
         });
 
-        $("#button_help").click();
+        $("#button_help").click(function () {
+          window.open('/microsites');
+        });
     });
 </script>
 
@@ -227,13 +229,25 @@
         <div class="wrapper">
             <div class="header" style="margin-top:15px;">
                 <div class="wrapper_header">
+                    <% if @audit_controller!='microsites' %>
                     <div class="header_header">
                         &nbsp;<p>¿Necesita ayuda para empezar a utilizar My Golf Card?&nbsp;<button title="Ayuda" id="button_help" onclick="">Ayuda</button></p>
                     </div>
+                    <% end %>
                     <div class="wrapbranding">
                         <div class="branding">
-                            <h1>My Golf Card</h1>
+                            <h1>My Golf Card<span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();'>BETA</a></span></h1>
                             <h2>Tarjetas y Puntuaciones</h2>
+
+                              <div class="demo">
+                                <div id="beta-modal1" style="display:none" title="My Golf Card - ¿Por qu&eacute; BETA?">
+                                  <p>¿Por qu&eacute; BETA?<br>La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
+                                  <p>Y entonces, ¿por qu&eacute; está ya online?<br>Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.<br>
+                                      Entonces pensamos, ¿vamos a hacerles esperar unos meses m&aacute;s a que todo est&eacute; acabado? No, preferimos que Vd. empiece a familiarizarse, utilizar y disfrutar de My Golf Card mientras nosotros pulimos, mejoramos y ampliamos nuestra idea inicial.
+                                  </p>
+                                </div>
+                              </div>
+                            
                         </div>
                     </div>
                     <div class="user_info">

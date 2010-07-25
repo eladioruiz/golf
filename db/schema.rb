@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100717134612) do
+ActiveRecord::Schema.define(:version => 20100725150311) do
 
   create_table "audit_trails", :force => true do |t|
     t.integer  "user_id"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(:version => 20100717134612) do
   end
 
   create_table "charts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "query"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -177,6 +185,26 @@ ActiveRecord::Schema.define(:version => 20100717134612) do
     t.datetime "activated_at"
     t.string   "activation_code"
     t.integer  "privacy_type_id",                                                        :default => 1
+  end
+
+  create_table "vw_aux_strokes_per_match", :id => false, :force => true do |t|
+    t.integer "id",                                                   :default => 0, :null => false
+    t.integer "user_id"
+    t.integer "holes"
+    t.integer "suma",    :limit => 32, :precision => 32, :scale => 0
+  end
+
+  create_table "vw_matches_per_month", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "month"
+    t.integer "counter", :limit => 8, :default => 0, :null => false
+  end
+
+  create_table "vw_strokes_per_match", :id => false, :force => true do |t|
+    t.integer "id",                                                   :default => 0, :null => false
+    t.integer "user_id"
+    t.integer "holes"
+    t.integer "suma",    :limit => 32, :precision => 32, :scale => 0
   end
 
   create_table "vw_user_friends", :id => false, :force => true do |t|
