@@ -84,6 +84,11 @@
                     <ul>
                       <li>
                         <div id="stats_resume">
+                          <a class="label_href" href="/users/<%= @user.id %>/edit">Cambio Password</a>&nbsp;
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
                           <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
                           <% if @stats_friends>0 %>
                             <%= @stats_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog1").dialog();' >+ info</a>
@@ -94,17 +99,12 @@
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones suyas Pdtes. Aprobar</a>&nbsp;:&nbsp;<%= @stats_friends_pending_of_me %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog3").dialog();' >+ info</a>
+                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones suyas pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_friends_pending_of_me %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog3").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones a Vd. Pdtes. Aprobar</a>&nbsp;:&nbsp;<%= @stats_pending_of_any_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog4").dialog();' >+ info</a>
-                        </div>
-                      </li>
-                      <li>
-                        <div id="stats_resume">
-                          <a class="label_href" href="/users/<%= @user.id %>/edit">Cambio Password</a>&nbsp;
+                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones a Vd. pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_pending_of_any_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog4").dialog();' >+ info</a>
                         </div>
                       </li>
 <!--                      <li>

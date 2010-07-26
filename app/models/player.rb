@@ -10,6 +10,8 @@ class Player < ActiveRecord::Base
   belongs_to :tee  # Check it
   has_one :card  # Check it
 
+  before_save :getuserhandicap
+
   after_destroy :log_destroy_action
 
   def log_destroy_action
@@ -20,8 +22,10 @@ class Player < ActiveRecord::Base
     !!self.card
   end
 
-  def self.handicap
-    self.user.handicap
+private
+
+  def getuserhandicap
+    self.handicap = self.user.handicap
   end
 
 end

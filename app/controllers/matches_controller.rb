@@ -15,10 +15,13 @@ class MatchesController < ApplicationController
   def index
 
     @page = params[:page]
+    @course = params[:find_course]
+    @course_filter = course_condition(params[:find_course])
+    #@course_filter = params[:find_course] ? 'course_id=' + params[:find_course].to_s() : 'not course_id is null'
 
     init_query
     @matches = Match.my_matches(session[:user_id],@ordering,@limits)
-    
+ 
     @checked['index'] = " checked='1'"
     @params = params
     
@@ -242,6 +245,7 @@ private
     # Cálculo de totales
     @ordering = "date_hour_match DESC"
     @limits = "100000000"
+    @course_filter = course_condition(params[:find_course])
     @matches = Match.my_matches(session[:user_id],@ordering,@limits)
     @total_pages = (@matches.length / 10.0).ceil
 
@@ -259,8 +263,8 @@ private
 
   def order_result
 
-    if params[:find_courses_value]
-      @course_filter = params[:find_courses_value]
+    if params[:find_course_value]
+      @course_filter = params[:find_course_value]
       @course_filter_name = Course.find(@course_filter).name unless @course_filter.empty?
       @matches_unord = @matches_unord.find_all_by_course_id(@course_filter) unless @course_filter.empty?
     end
@@ -337,5 +341,12 @@ private
       "date_hour_match DESC"
     end
   end
-  
+
+  def course_condition(course_id)
+    if course_id
+      'course_id=' + course_id.to_s()
+    else
+      'not course_id is null'
+    end
+  end
 end

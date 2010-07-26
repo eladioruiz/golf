@@ -99,32 +99,31 @@
 </script>
 
 <script type="text/javascript">
-    $(function() {
-        $(".demo button:first").button({
-            icons: {
-                primary: 'ui-icon-search'
-            },
-            text: true
-        }).next().button({
-            icons: {
-                primary: 'ui-icon-disk'
-            },
-            text: true
-        }).next().button({
-            icons: {
-                primary: 'ui-icon-copy'
-            },
-            text: true
-        });
+  $(function() {
+    $(".demo button:first").button({
+        icons: {
+            primary: 'ui-icon-search'
+        },
+        text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-disk'
+        },
+        text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-copy'
+        },
+        text: true
     });
 
-    $("document").ready(function(){
-      $("#button_save").click(
-        function (event) {
-            $("#form_main").submit();
-        }
-      );
-    });
+    $("#button_save").click(
+      function (event) {
+          $("#form_main").submit();
+      }
+    );
+
+  });
 </script>
 
           <div class="content_tb_header1_wrapper">

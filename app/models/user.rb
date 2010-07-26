@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :name, :login, :email, :password, :password_confirmation
+  attr_accessible :name, :login, :email, :password, :password_confirmation, :handicap
 
 
   named_scope :find_like_by_name, lambda {|descr|

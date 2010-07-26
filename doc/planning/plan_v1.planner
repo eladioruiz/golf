@@ -26,7 +26,7 @@
     </calendar>
   </calendars>
   <tasks>
-    <task id="1" name="mygolfcard" note="" work="3240000" start="20100607T000000Z" end="20101104T120000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="1" name="mygolfcard" note="" work="3643200" start="20100607T000000Z" end="20101123T120000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <task id="2" name="Planificaci&#xF3;n" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="3" name="Modelo de Datos" note="" work="129600" start="20100607T170000Z" end="20100609T120000Z" work-start="20100608T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
@@ -228,7 +228,7 @@
           </predecessors>
         </task>
       </task>
-      <task id="57" name="Alcance versi&#xF3;n II" note="" work="921600" start="20100921T120000Z" end="20101104T120000Z" work-start="20100921T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="57" name="Alcance versi&#xF3;n II" note="" work="1296000" start="20100921T120000Z" end="20101123T120000Z" work-start="20100921T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="54" type="FS"/>
         </predecessors>
@@ -290,20 +290,32 @@
           </predecessors>
           <task id="74" name="Comentarios - &#xBF;Foro?" note="" work="86400" start="20101101T120000Z" end="20101104T120000Z" work-start="20101101T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
-      </task>
-      <task id="75" name="Desarrollo m&#xF3;vil" note="" work="86400" start="20100607T000000Z" end="20100609T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="76" name="An&#xE1;lisis Funcional" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="77" name="Desarrollo IPhone" note="" work="28800" start="20100607T170000Z" end="20100608T170000Z" work-start="20100608T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="75" name="Secci&#xF3;n de Links de inter&#xE9;s" note="" work="86400" start="20101104T120000Z" end="20101109T120000Z" work-start="20101104T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="76" type="FS"/>
+            <predecessor id="1" predecessor-id="73" type="FS"/>
           </predecessors>
+          <task id="76" name="Link a p&#xE1;ginas externas" note="" work="86400" start="20101104T120000Z" end="20101109T120000Z" work-start="20101104T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
         </task>
-        <task id="78" name="Desarrollo Android" note="" work="28800" start="20100608T170000Z" end="20100609T170000Z" work-start="20100609T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="77" name="Internacionalizaci&#xF3;n - Ingl&#xE9;s" note="" work="288000" start="20101109T120000Z" end="20101123T120000Z" work-start="20101109T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="77" type="FS"/>
+            <predecessor id="1" predecessor-id="75" type="FS"/>
           </predecessors>
         </task>
       </task>
+      <task id="78" name="Desarrollo m&#xF3;vil" note="" work="86400" start="20100607T000000Z" end="20100609T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="79" name="An&#xE1;lisis Funcional" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="80" name="Desarrollo IPhone" note="" work="28800" start="20100607T170000Z" end="20100608T170000Z" work-start="20100608T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="79" type="FS"/>
+          </predecessors>
+        </task>
+        <task id="81" name="Desarrollo Android" note="" work="28800" start="20100608T170000Z" end="20100609T170000Z" work-start="20100609T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <predecessors>
+            <predecessor id="1" predecessor-id="80" type="FS"/>
+          </predecessors>
+        </task>
+      </task>
+      <task id="82" name="" note="" work="28800" start="20100607T000000Z" end="20100607T170000Z" work-start="20100607T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
     </task>
   </tasks>
   <resource-groups/>

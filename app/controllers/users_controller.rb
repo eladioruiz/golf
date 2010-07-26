@@ -42,6 +42,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(params[:user])
+      flash[:notice] = 'User was successfully updated.'
+      #render :action => "edit"
+      redirect_to(@user)
+    else
+      render :action => "edit"
+    end
+
+  end
+
   def activate
     self.current_user = params[:activation_code].blank? ? false : User.find_by_activation_code(params[:activation_code])
     if logged_in? && !current_user.active?
