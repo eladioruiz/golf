@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :microsites
+  
 
   map.resources :contacts
 
@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :coursetypes
 
-  map.resources :course_types
 
   # Casos particulares
   map.connect '/matches/week', :controller => 'matches', :action => 'this_week'
@@ -37,6 +36,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/basic_chart', :controller => 'charts', :action => 'basic_chart'
   map.connect '/charts/simple_chart', :controller => 'charts', :action => 'simple_chart'
 
+  map.connect '/microsites/ayuda', :controller => 'microsites', :action => 'ayuda'
+
   map.resources :users
   
   map.resource :session, :controller => 'session'
@@ -44,6 +45,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :holes
 
   map.resources :tees
+
+  map.resources :microsites
 
   map.resources :courses do |course|
     course.resources :course_images

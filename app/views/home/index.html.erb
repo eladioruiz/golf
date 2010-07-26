@@ -20,6 +20,17 @@
    padding: 0px;
    height: 25px;
   }
+
+  .label_href {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .label_href:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
 </style>
 
 <script>
@@ -30,6 +41,7 @@
       },
       text: true
     });
+
   });
 </script>
 
@@ -38,7 +50,7 @@
                   <table width="100%">
                     <tr>
                       <td><h2><a href="matches">PARTIDOS</a></h2></td>
-                      <td width="120px;"><button id="new_match" style="font-size: 12px;">Nuevo Partido</button></td>
+                      <td width="120px;"><button onclick="document.location.href='<%= new_match_path %>'" id="new_match" style="font-size: 12px;">Nuevo Partido</button></td>
                     </tr>
                   </table>
                   <div id="internal_text">
@@ -67,34 +79,39 @@
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                  <h2>DATOS PERSONALES & AMIGOS</h2>
+                  <h2><a href="/users/<%= @user.id %>">DATOS PERSONALES & AMIGOS</a></h2>
                   <div id="internal_text">
                     <ul>
                       <li>
                         <div id="stats_resume">
-                          <a href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
+                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
                           <% if @stats_friends>0 %>
-                            <%= @stats_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                            <%= @stats_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog1").dialog();' >+ info</a>
                           <% else %>
-                            No tiene amigos registrados.&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                            No tiene amigos registrados.&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog2").dialog();' >+ info</a>
                           <% end %>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a href="/privacy_friends/<%= @user.id %>/new">Solicitudes Pendientes</a> : xxx&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones suyas Pdtes. Aprobar</a>&nbsp;:&nbsp;<%= @stats_friends_pending_of_me %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog3").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a href="/privacy_friends/<%= @user.id %>/new">Pdtes. Aprobar</a> : <%= @stats_friends_pending %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#user-dialog1").dialog();' >+ info</a>
+                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones a Vd. Pdtes. Aprobar</a>&nbsp;:&nbsp;<%= @stats_pending_of_any_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog4").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a href="/users/<%= @user.id %>">Datos Personales</a>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                          <a class="label_href" href="/users/<%= @user.id %>/edit">Cambio Password</a>&nbsp;
                         </div>
                       </li>
+<!--                      <li>
+                        <div id="stats_resume">
+                          <a class="label_href" href="/users/<%= @user.id %>">Datos Personales</a>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog5").dialog();' >+ info</a>
+                        </div>
+                      </li> -->
                     </ul>
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
@@ -155,12 +172,35 @@
                 <p>Media de partidos jugados al mes con respecto a todos los partidos introducidos.</p>
               </div>
 
-              <div id="user-dialog1" style="display:none" title="My Golf Card - Más información">
+
+              <div id="friends-dialog1" style="display:none" title="My Golf Card - Más información">
+                <p>N&uacute;mero de amigos que puede utilizar en sus partidos.<p/>
+                <p>Esto significa que cuando registre sus partidos, podrá incluirles en sus partidos adem&aacute;s de a Vd. mismo. </p>
+                <p>Haga click en el enlace "Amigos" para acceder directamente a la b&uacute;squeda de sus compañeros.</p>
+              </div>
+
+              <div id="friends-dialog2" style="display:none" title="My Golf Card - Más información">
                 <p>No tiene amigos registrados como tales.<p/>
                 <p>Esto significa que cuando registre sus partidos, no podrá incluir en ellos a nadie más que a Vd. mismo. Lo mismo ocurrirá cuando quiera registrar las tarjetas de esos partidos.</p>
                 <p>Haga click en el enlace "Amigos" para acceder directamente a la b&uacute;squeda de sus compañeros.</p>
               </div>
               
+              <div id="friends-dialog3" style="display:none" title="My Golf Card - Más información">
+                <p>Solicitudes que Vd. ha realizado a otros usuarios y todavía no han sido aceptadas.<p/>
+                <p>Esto significa que cuando registre sus partidos, no podrá incluir todav&iacute;a en ellos a estos usuarios.</p>
+                <p>Haga click en el enlace "Amigos" para acceder directamente a la b&uacute;squeda de sus compañeros.</p>
+              </div>
+
+              <div id="friends-dialog4" style="display:none" title="My Golf Card - Más información">
+                <p>Solicitudes que len han realizado a Vd. y todav&iacute;a no ha aceptado.<p/>
+                <p>Esto significa que cuando estos usuarios registren sus partidos, no podrá incluirle a Vd.</p>
+                <p>Haga click en el enlace "Amigos" para acceder directamente a la b&uacute;squeda de sus compañeros.</p>
+              </div>
+
+              <div id="friends-dialog5" style="display:none" title="My Golf Card - Más información">
+                <p>Acceso directo a revisar y modificar sus datos personales.<p/>
+              </div>
+
               <div id="course-dialog1" style="display:none" title="My Golf Card - Más información">
                 <p>Campo en el que más ha jugados según <u>sus</u> partidos registrados en el sistema.<p/>
                 <p>Tambi&eacute;n se recoge el n&uacute;mero de veces jugado.</p>

@@ -18,12 +18,14 @@ class HomeController < ApplicationController
 
     # => RESUME
     @stats_friends = PrivacyFriend.my_friends(session[:user_id]).length
-    @stats_friends_pending = PrivacyFriend.my_friends_pending(session[:user_id]).length.to_i() - @stats_friends.to_i()
+    @stats_friends_pending_of_me = PrivacyFriend.my_friends_pending(session[:user_id]).length
+    @stats_pending_of_any_friends = PrivacyFriend.pending_of_any_friends(session[:user_id]).length
 
     # => Courses
     @stats_num_courses = Course.all.length
     @stats_last_inserted_course = Course.last.name
     @stats_most_used_course = Match.most_used_course.first.course.name + " (" + Match.most_used_course.first.num_used + " veces)"
+
   end
 
   def current_menu

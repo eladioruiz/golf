@@ -226,7 +226,7 @@
                             <b>Nombre Amigo: </b>&nbsp;
                             <%= f.text_field :user2_id, :style => 'display:none;' %>
                             <input id="user_name" name="user_name" type="text" size="40" />
-                            <button id="button_save">Grabar</button>
+                            <button id="button_save">A&ntilde;adir</button>
                           </div>
                         </p>
                       <% end %>
@@ -236,7 +236,7 @@
                         <div id="friends_left">
                           <p>&nbsp;</p>
                           <p>
-                            <h3>Son mis amigos y los podré utilizar en mis partidos:</h3>
+                            <h3>Estos amigos me permiten utilizarles en mis partidos:</h3>
                           </p>
                           <ol class="myfriends">
                             <% @friendsofmine.each do |fr| 
@@ -259,7 +259,7 @@
                                   <%=h user2.name %>
                                 </li>
                                 <li class="li-field friendnoallowed" style="width: 160px; text-align: right; margin-top: 10px;">
-                                  Pdte. Confirmar
+                                  Pdte. Confirmarme
                                 </li>
                                 <% end %>
                               </ul>
@@ -271,7 +271,7 @@
                         <div id="friends_right">
                           <p>&nbsp;</p>
                           <p>
-                            <h3>Soy amigo de ellos y me podrán utilizar en sus partidos:</h3>
+                            <h3>A estos amigos les permito utilizarme en sus partidos:</h3>
                           </p>
 
                           <ol class="friendofsomebody">
@@ -292,7 +292,7 @@
                                 </li>
                                 <% else %>
                                 <li class="li-label friendnoallowed" style="width: 180px; text-align:left;margin-top: 10px;">
-                                  <%=h user1.name %> (Pdte. Confirmar)
+                                  <%=h user1.name %> (Pdte. Confirmarle)
                                 </li>
                                 <li class="li-field" style="width: 160px; text-align: right; margin-top: 5px;">
                                   <a title="Confirmar" href="#" onclick="if (confirm('¿Está seguro?')) { document.location.href='/privacy_friends/<%= fr.id %>/allow'; };return false;">

@@ -217,7 +217,7 @@
         });
 
         $("#button_help").click(function () {
-          window.open('/microsites');
+          window.open('/microsites/ayuda');
         });
     });
 </script>
@@ -251,6 +251,7 @@
                         </div>
                     </div>
                     <div class="user_info">
+                      <% if @audit_controller!='microsites' %>
                       <div id="user">
                         <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)
                         <!--<br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>-->
@@ -258,6 +259,7 @@
                       <div id="logout">
                         <a href="/logout" alt="Logout"><img src="/images/logout.gif" border="0" alt="Logout" /></a>                        
                       </div>
+                      <% end %>
                     </div> <!-- end: user_info -->
                     <div class="footer_header">
                         &nbsp;

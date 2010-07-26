@@ -17,6 +17,12 @@
     <script>
       $(document).ready(function(){
         $("#login").focus();
+
+        $("#login").blur(
+          function() {
+            $("#password").focus();
+          }
+        );
       });
     </script>
 
@@ -58,7 +64,8 @@
                                     </ol>
                                 </li>
                                 <li>En My Golf Card se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.</li>
-                                <li>Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este <a id="dialog4" href="javascript:;" onclick='$("#dialog-modal5").dialog();' >enlace</a>.</li>
+                                <li>Darse da alta en My Golf Card es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este <a class="masinfo" id="dialog4" href="javascript:;" onclick='$("#dialog-modal5").dialog();'>enlace</a>.</li>
+                                <li>Si quiere alg&uacute;n detalle m&aacute;s del c&oacute;mo utilizar My Golf Card, pulse este <a class="masinfo" href="/microsites/ayuda" target="_blank">enlace</a> para acceder a la p&aacute;gina general de Ayuda.</li>
                             </ul>
                         </div> <!-- end: internal_text -->
                     </div> <!-- end: text-box -->
@@ -71,9 +78,9 @@
             <div class="right">
                 &nbsp;
             </div>
-            <div class="footer">
+<!--            <div class="footer">
                 <p>&copy 2010 Eladio Ruiz</p>
-            </div>
+            </div> -->
         </div>
 
 

@@ -35,7 +35,7 @@ class PrivacyFriendsController < ApplicationController
   def new
     @user = User.find(params[:id])
     @privacy_friend = PrivacyFriend.new
-    @friendsofmine = PrivacyFriend.my_friends_pending(@user.id)
+    @friendsofmine = PrivacyFriend.my_friends_all(@user.id)
     @friendofsomeone = PrivacyFriend.friend_of_someone(@user.id)
 
     respond_to do |format|
@@ -68,14 +68,14 @@ class PrivacyFriendsController < ApplicationController
 
           if @privacy_inverted.save
             flash[:notice] = 'PrivacyFriend was successfully created.'
-            redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
+            redirect_to('/privacy_friends/' + current_user.id.to_s() + '/new')
           else
             flash[:notice] = 'Error al añadir un nuevo amigo.'
             render :action => "new"
           end
         else
           flash[:notice] = 'Ya eres su amigo.'
-          redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
+          redirect_to('/privacy_friends/' + current_user.id.to_s() + '/new')
         end
       else
         flash[:notice] = 'Error al añadir un nuevo amigo.'
@@ -83,7 +83,7 @@ class PrivacyFriendsController < ApplicationController
       end
     else
       flash[:notice] = 'Ya es tu amigo.'
-      redirect_to('/privacy_friends/' + params[:privacy_friend][:user1_id].to_s() + '/new')
+      redirect_to('/privacy_friends/' + current_user.id.to_s() + '/new')
     end
   end
 
@@ -129,7 +129,7 @@ class PrivacyFriendsController < ApplicationController
     @privacy_friend.destroy
 
     respond_to do |format|
-      format.html { redirect_to('/privacy_friends/' + @privacy_friend.user2_id.to_s() + '/new') }
+      format.html { redirect_to('/privacy_friends/' +current_user.id.to_s() + '/new') }
       format.xml  { head :ok }
     end
   end
