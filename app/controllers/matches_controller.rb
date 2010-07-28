@@ -15,12 +15,12 @@ class MatchesController < ApplicationController
   def index
 
     @page = params[:page]
-    @course = params[:find_course]
-    @course_filter = course_condition(params[:find_course])
+    @course_filter = course_condition(params[:find_course_value])
+    @course_filter_name = Course.find(@course_filter).name unless @course_filter.blank?
     #@course_filter = params[:find_course] ? 'course_id=' + params[:find_course].to_s() : 'not course_id is null'
 
     init_query
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter)
  
     @checked['index'] = " checked='1'"
     @params = params
@@ -50,13 +50,13 @@ class MatchesController < ApplicationController
     # La carga de estas colecciones se hacen para cargar los despleglables
     @courses = Course.all.sort {|a,b| a.name<=>b.name}
     @tees = Tee.all.sort {|a,b| a.barras<=>b.barras}
-    #@users = User.all
+
     @users = current_user.my_friends
     @users << current_user
     @numusers = @users.length
     @numcourses = @courses.length
     @numtees = @tees.length
-    @course_name = "Escriba parte del nombre para empezar la búsqueda"
+    @course_name = ""
     
     # Convierto los objetos en arrays
     @courses.map!{|course| [course.name, course.id]}
@@ -132,26 +132,20 @@ class MatchesController < ApplicationController
 
   # GET /matches/thisweek
   def this_week
+    @course_filter = course_condition(params[:find_course_value])
     init_query
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits).this_week
+
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter).this_week
     @title = 'This Week'
     render :action => 'index'
   end
 
   # GET /matches/lastmonth
   def last_month
-    # Cálculo de totales
-    @ordering = "date_hour_match DESC"
-    @limits = "100000000"
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
-    @total_pages = (@matches.length / 10.0).ceil
+    @course_filter = course_condition(params[:find_course_value])
+    init_query
 
-    unless params.nil?
-        @ordering = calculate_ordering(params[:sidx], params[:sord])
-    end
-
-    @limits = calculate_limit(@page)
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_month
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter).last_month
     @title = 'Last Month'
     @checked['last_month'] = " checked='1'"
 
@@ -170,8 +164,10 @@ class MatchesController < ApplicationController
 
   # GET /matches/lastmatches
   def last_matches
+    @course_filter = course_condition(params[:find_course_value])
     init_query
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits).last_matches
+    
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter).last_matches
     @title = 'Last 10 Matches'
     @checked['last_matches'] = " checked='1'"
 
@@ -190,8 +186,11 @@ class MatchesController < ApplicationController
 
   # GET /matches/bestmatches
   def best_matches
+    @course_filter = course_condition(params[:find_course_value])
     init_query
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits).best_matches
+
+    #@matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter).best_matches
+    @matches = Match.my_best_matches(session[:user_id],@course_filter)
     @title = 'Best 10 Matches'
     @checked['best_matches'] = " checked='1'"
 
@@ -210,8 +209,10 @@ class MatchesController < ApplicationController
 
   # GET /matches/mymatches
   def my_matches
+    @course_filter = course_condition(params[:find_course_value])
     init_query
-    @matches = Match.my_matches(session[:user_id])
+
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter)
     @title = 'My Matches'
     @checked['index'] = " checked='1'"
 
@@ -245,8 +246,8 @@ private
     # Cálculo de totales
     @ordering = "date_hour_match DESC"
     @limits = "100000000"
-    @course_filter = course_condition(params[:find_course])
-    @matches = Match.my_matches(session[:user_id],@ordering,@limits)
+    @course_filter = course_condition(params[:find_course_value])
+    @matches = Match.my_matches(session[:user_id],@ordering,@limits,@course_filter)
     @total_pages = (@matches.length / 10.0).ceil
 
     unless params.nil?
@@ -344,9 +345,10 @@ private
 
   def course_condition(course_id)
     if course_id
-      'course_id=' + course_id.to_s()
+      course_id
     else
-      'not course_id is null'
+      nil
     end
   end
+
 end

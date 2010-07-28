@@ -744,7 +744,9 @@ text-align: center;
 }
 
 .gallery ul.display {
-    background: #572;
+    /*background: #572;*/
+    /*background: #d0f48a;*/
+    background: #b6f9a6;
 }
 
 .gallery ul.display li {
@@ -756,13 +758,14 @@ text-align: center;
     border-right: 1px solid #111;
     border-bottom: 1px solid #333;
     border-left: 1px solid #333;
+    color: #0d6f1f;
 }
 
 .gallery ul.display li a {
-    /*color: #e7ff62;*/
-    color: white;
     text-decoration: none;
     font-style: italic;
+    color: #0d6f1f;
+    font-weight: bold;
 }
 
 .gallery ul.display li .content_block {
@@ -773,14 +776,13 @@ text-align: center;
 .gallery ul.display li .content_block h2 {
     margin: 0;
     padding: 5px;
-    font-weight: normal;
     font-size: 1.1em;
 }
 
 .gallery ul.display li .content_block h2 a {
     margin: 0;
     padding: 5px;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 14px;
 }
 
@@ -808,7 +810,7 @@ text-align: center;
     margin-left: -10px;
     padding: 5px;
     padding-right: 10px;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 17px;
     display: inline-block;
     float:left;

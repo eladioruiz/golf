@@ -5,15 +5,19 @@ class ChartsController < ApplicationController
     headers["content-type"]="text/html";
     @matches_data = []
 
-    courses = Course.all
+    courses = Match.pie_courses(current_user.id)
 
     courses.each do |course|
-      @matches_played = Match.my_matches(current_user.id,"matches.id","1,100000").find_all_by_course_id(course.id).length
+      @matches_played = course.n_times.to_i()
+      @course_name = course.course.name
 
-      @matches_data<<{:course_name=>course.name,:played=>@matches_played}
+      if @matches_played>0
+        @matches_data<<{:course_name=>@course_name,:played=>@matches_played}
+      end
 
     end # end - do
 
+    @title = "Campos Jugados"
   end
 
   def basic_chart

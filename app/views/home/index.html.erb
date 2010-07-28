@@ -140,15 +140,23 @@
                 <div class="text_box" id="textbox_2_2">
                   <h2><a href="courses">CAMPOS</a></h2>
                   <div id="internal_text">
-                    <div id="stats_resume">
-                      Disponibles : <%= @stats_num_courses %>
-                    </div>
-                    <div id="stats_resume">
-                      M&aacute;s jugado : <%= @stats_most_used_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog1").dialog();' >+ info</a>
-                    </div>
-                    <div id="stats_resume">
-                      &Uacute;ltimo : <%= @stats_last_inserted_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog2").dialog();' >+ info</a>
-                    </div>
+                    <ul>
+                      <li>
+                        <div id="stats_resume">
+                          Disponibles : <%= @stats_num_courses %>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          M&aacute;s jugado : <%= @stats_most_used_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog1").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                      <li>
+                        <div id="stats_resume">
+                          &Uacute;ltimo : <%= @stats_last_inserted_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog2").dialog();' >+ info</a>
+                        </div>
+                      </li>
+                    </ul>
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
             </div>  <!-- end: internal_text -->

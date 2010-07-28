@@ -1,10 +1,157 @@
-<%
-#In this example, we show how to connect FusionCharts to a database.
-#For the sake of ease, we've used a database which contains two tables, which are linked to each
-#other.
-# The xml is obtained as a string from builder template.
-str_xml = render "calculate_pie_courses.builder",{:matches_data => @matches_data}
+<style type='text/css'>
+    .content_tb_header1_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header1_content{
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 100%;
+       height: 50px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_header2_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc;*/
+    }
+    .content_tb_header2_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 0px;
+       padding-left: 30px;
+       /*background-color: #828282;*/
+    }
+    .content_tb_content_wrapper {
+       position: relative;
+       float: left;
+       left: 0px;
+       width: 100%;
+       margin-bottom: 5px;
+       /*background-color: #cccccc*/
+    }
+    .content_tb_content_content {
+       position: relative;
+       float: left;
+       right: 5px;
+       width: 100%;
+       height: 150px;
+       /*background-color: #828282*/
+    }
 
-#Create the chart - Pie 3D Chart with data from strXML
-render_chart '/chart/FCF_Pie3D.swf', '', str_xml, 'CoursesPlayedSum', 400, 250, false, false do-%>
-<% end-%>
+    .content_tb_header1_left1 {
+       position: relative;
+       float: left;
+       left: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+    }
+    .content_tb_header1_right {
+       position: relative;
+       float: right;
+       right: 5px;
+       width: 50%;
+       /*background-color: #128281;*/
+       height: 30px;
+       padding-top: 15px;
+       text-align: right;
+    }
+
+    .text_box {
+      height: 500px;
+    }
+</style>
+
+<style>
+  .column_right {
+    position: absolute;
+    top: 0px;
+    left:700px;
+    width: 220px;
+  }
+
+  #CoursesPlayedSumDiv {
+    text-align: left;
+    margin-left: 5px;
+    width: 650px;
+    border: 3px outset gray;
+  }
+  
+</style>
+
+<script>
+  $(function() {
+    $("#accordion").accordion({
+            collapsible: true,
+            active: false
+    });
+  });
+</script>
+
+          <div class="content_tb_header1_wrapper">
+             <div class="content_tb_header1_content">
+                <div class="content_tb_header1_left1">
+                    <h1>Estadísticas - <%= @title -%> </h1>
+                </div> <!-- content_tb_header1_left1 -->
+                <div class="content_tb_header1_right demo">
+                </div> <!-- content_tb_header1_right demo -->
+             </div> <!-- content_tb_header1_content -->
+          </div> <!-- content_tb_header1_wrapper -->
+
+          <div class="content_tb_header2_wrapper">
+             <div class="content_tb_header2_content">
+             </div> <!-- content_tb_header2_content -->
+          </div> <!-- content_tb_header2_wrapper -->
+
+          <div class="content_tb_content_wrapper">
+            <div class="content_tb_content_content">
+
+              <%
+              #In this example, we show how to connect FusionCharts to a database.
+              #For the sake of ease, we've used a database which contains two tables, which are linked to each
+              #other.
+              # The xml is obtained as a string from builder template.
+              str_xml = render "calculate_pie_courses.builder",{:matches_data => @matches_data}
+
+              #Create the chart - Pie 3D Chart with data from strXML
+              render_chart '/chart/FCF_Pie3D.swf', '', str_xml, 'CoursesPlayedSum', 650, 300, false, false do-%>
+              <% end-%>
+ 
+              <div class="column_right">
+                <div id="accordion">
+                  <h3><a href="#">Partidos</a></h3>
+                  <div>
+                    <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+
+                      <li class="row-form">
+                        <label>Regularidad por partidos</label>
+                      </li>
+                      <li class="row-form">
+                        <label>Regularidad por hoyos</label>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <h3><a href="#">Campos</a></h3>
+                  <div id="map">
+                    <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+                      <li class="row-form">
+                        <label><a href="/charts/pie_courses">Campos Jugados</a></label>
+                      </li>
+                    </ul>
+                  </div> <!-- map -->
+                </div> <!-- END div accordion -->
+              </div> <!-- END div column_right -->
+
+            </div> <!-- content_tb_content_content -->
+          </div> <!-- content_tb_content_wrapper -->
