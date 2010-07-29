@@ -21,12 +21,17 @@
    height: 25px;
   }
 
-  .label_href {
+  .label-href {
     text-decoration: none;
     cursor: pointer;
   }
 
-  .label_href:hover {
+  .label-href:visited {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .label-href:hover {
     text-decoration: underline;
     cursor: pointer;
   }
@@ -49,7 +54,7 @@
                 <div class="text_box" id="textbox_2_2">
                   <table width="100%">
                     <tr>
-                      <td><h2><a href="matches">PARTIDOS</a></h2></td>
+                      <td><h2><a href="/matches">PARTIDOS</a></h2></td>
                       <td width="120px;"><button onclick="document.location.href='<%= new_match_path %>'" id="new_match" style="font-size: 12px;">Nuevo Partido</button></td>
                     </tr>
                   </table>
@@ -57,88 +62,106 @@
                     <ul>
                       <li>
                         <div id="stats_resume">
-                          Nº Partidos : <%= @stats_num_matches %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
+                          Nº Partidos : <%= @stats_num_matches %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#matches-dialog1").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          Media golpes : <%= @stats_strokes_average %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
+                          Media golpes : <%= @stats_strokes_average %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#matches-dialog2").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          Partidos jugados último mes : <%= @stats_last_month %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
+                          Partidos jugados último mes : <%= @stats_last_month %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#matches-dialog3").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          Media partidos mes : <%= @stats_month_average %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
+                          Media partidos mes : <%= @stats_month_average %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#matches-dialog4").dialog();' >+ info</a>
                         </div>
                       </li>
                     </ul>
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                  <h2><a href="/users/<%= @user.id %>">DATOS PERSONALES & AMIGOS</a></h2>
+                  <table>
+                    <tr>
+                      <td>
+                        <h2><a href="/users/<%= @user.id %>">DATOS PERSONALES & AMIGOS</a></h2>
+                      </td>
+                    </tr>
+                  </table>
                   <div id="internal_text">
                     <ul>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/users/<%= @user.id %>/edit">Cambio Password</a>&nbsp;
+                          <a class="label-href" href="/users/<%= @user.id %>/edit">Cambio Password</a>&nbsp;
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
+                          <a class="label-href" href="/privacy_friends/<%= @user.id %>/new">Amigos</a> :
                           <% if @stats_friends>0 %>
-                            <%= @stats_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog1").dialog();' >+ info</a>
+                            <%= @stats_friends %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#friends-dialog1").dialog();' >+ info</a>
                           <% else %>
-                            No tiene amigos registrados.&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog2").dialog();' >+ info</a>
+                            No tiene amigos registrados.&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#friends-dialog2").dialog();' >+ info</a>
                           <% end %>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones suyas pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_friends_pending_of_me %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog3").dialog();' >+ info</a>
+                          <a class="label-href" href="/privacy_friends/<%= @user.id %>/new">Peticiones suyas pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_friends_pending_of_me %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#friends-dialog3").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/privacy_friends/<%= @user.id %>/new">Peticiones a Vd. pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_pending_of_any_friends %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog4").dialog();' >+ info</a>
+                          <a class="label-href" href="/privacy_friends/<%= @user.id %>/new">Peticiones a Vd. pdtes. aprobar</a>&nbsp;:&nbsp;<%= @stats_pending_of_any_friends %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#friends-dialog4").dialog();' >+ info</a>
                         </div>
                       </li>
 <!--                      <li>
                         <div id="stats_resume">
-                          <a class="label_href" href="/users/<%= @user.id %>">Datos Personales</a>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog5").dialog();' >+ info</a>
+                          <a class="label-href" href="/users/<%= @user.id %>">Datos Personales</a>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#friends-dialog5").dialog();' >+ info</a>
                         </div>
                       </li> -->
                     </ul>
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                  <h2>ESTADÍSTICAS</h2>
+                  <table>
+                    <tr>
+                      <td>
+                        <h2>ESTADÍSTICAS</h2>
+                      </td>
+                    </tr>
+                  </table>
                   <div id="internal_text">
                     <ul>
                       <li>
                         <div id="stats_resume">
-                          <a href="/charts/pie_courses">Campos jugados</a>
+                          <a class="label-href" href="/charts/pie_courses">Campos jugados</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a href="">Regularidad por campo</a>
+                          <a class="label-href" href="javascript:alert('Opción no implementada en este momento. Disculpe las molestias.');">Regularidad por campo</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          <a href="">Regularidad por hoyo</a>
+                          <a class="label-href" href="javascript:alert('Opción no implementada en este momento. Disculpe las molestias.');">Regularidad por hoyo</a>
                         </div>
                       </li>
                     </ul>
                   </div> <!-- end: internal_text -->
                 </div> <!-- end: text-box -->
                 <div class="text_box" id="textbox_2_2">
-                  <h2><a href="courses">CAMPOS</a></h2>
+                  <table>
+                    <tr>
+                      <td>
+                        <h2><a href="/courses">CAMPOS</a></h2>
+                      </td>
+                    </tr>
+                  </table>
                   <div id="internal_text">
                     <ul>
                       <li>
@@ -148,12 +171,12 @@
                       </li>
                       <li>
                         <div id="stats_resume">
-                          M&aacute;s jugado : <%= @stats_most_used_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog1").dialog();' >+ info</a>
+                          M&aacute;s jugado : <%= @stats_most_used_course %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#course-dialog1").dialog();' >+ info</a>
                         </div>
                       </li>
                       <li>
                         <div id="stats_resume">
-                          &Uacute;ltimo : <%= @stats_last_inserted_course %>&nbsp;<a id="dialog1" href="javascript:;" onclick='$("#course-dialog2").dialog();' >+ info</a>
+                          &Uacute;ltimo : <%= @stats_last_inserted_course %>&nbsp;<a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#course-dialog2").dialog();' >+ info</a>
                         </div>
                       </li>
                     </ul>

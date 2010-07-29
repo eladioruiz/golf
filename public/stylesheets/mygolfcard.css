@@ -449,21 +449,21 @@ div.row .submit {
     margin-bottom: 10px;
 }
 
+/*
 .text_box a:link {
     color: white;
     font-style: italic;
     font-size: 14px;
     font-weight: normal;
-    /*font-family: Arial, Helvetica, sans-serif;*/
     font-family: "Avant Garde", "Century Gothic", sans-serif;
     font-weight: bold;
-    /* margin: 10px; */
 }
+*/
 
 a.masinfo:link {
     color: white;
     font-style: italic;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
    /*font-family: Arial, Helvetica, sans-serif;*/
     font-family: "Avant Garde", "Century Gothic", sans-serif;

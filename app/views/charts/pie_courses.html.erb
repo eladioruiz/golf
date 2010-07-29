@@ -109,13 +109,18 @@
           </div> <!-- content_tb_header1_wrapper -->
 
           <div class="content_tb_header2_wrapper">
-             <div class="content_tb_header2_content">
-             </div> <!-- content_tb_header2_content -->
+            <div class="content_tb_header2_content">
+              <form>
+                <label>Fecha Inicio:</label>&nbsp;<%= date_select :date_hour_match_start, :order => [:day, :month, :year] %>&nbsp;
+                <label>Fecha Hasta:</label>&nbsp;<%= date_select :date_hour_match_end, :order => [:day, :month, :year] %>&nbsp;
+              </form>
+            </div> <!-- content_tb_header2_content -->
           </div> <!-- content_tb_header2_wrapper -->
 
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content">
 
+              <p>&nbsp;</p>
               <%
               #In this example, we show how to connect FusionCharts to a database.
               #For the sake of ease, we've used a database which contains two tables, which are linked to each
