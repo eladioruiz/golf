@@ -95,7 +95,22 @@
             collapsible: true,
             active: false
     });
+
+    $("#button_filter").button({
+        icons: {
+            primary: 'ui-icon-search'
+        },
+        text: true
+    });
+
+    $("#button_filter").click(
+      function (event) {
+        $("#form_main").submit();
+      }
+    );
+
   });
+  
 </script>
 
           <div class="content_tb_header1_wrapper">
@@ -110,15 +125,16 @@
 
           <div class="content_tb_header2_wrapper">
             <div class="content_tb_header2_content">
-              <form>
-                <label>Fecha Inicio:</label>&nbsp;<%= date_select :date_hour_match_start, :order => [:day, :month, :year] %>&nbsp;
-                <label>Fecha Hasta:</label>&nbsp;<%= date_select :date_hour_match_end, :order => [:day, :month, :year] %>&nbsp;
-              </form>
             </div> <!-- content_tb_header2_content -->
           </div> <!-- content_tb_header2_wrapper -->
 
           <div class="content_tb_content_wrapper">
             <div class="content_tb_content_content">
+              <% form_tag('/charts/pie_courses', :id => 'form_main') do  %>
+                <label>Fecha Inicio:</label>&nbsp;<%= select_date @startDate, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => 2005, :end_year => 1.years.from_now.year(), :prefix => 'startDate' %>&nbsp;
+                <label>Fecha Hasta:</label>&nbsp;<%= select_date @endDate, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => 2005, :prefix => 'endDate' %>&nbsp;
+                <button id="button_filter">Filtrar</button>
+              <% end %>
 
               <p>&nbsp;</p>
               <%

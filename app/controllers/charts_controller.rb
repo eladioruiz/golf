@@ -3,9 +3,24 @@ class ChartsController < ApplicationController
   
   def pie_courses
     headers["content-type"]="text/html";
+
+    @stat = Stat.new
+    
     @matches_data = []
 
-    courses = Match.pie_courses(current_user.id)
+    if (!params[:startDate])
+      @startDate = '2000/01/01'.to_date();
+    else
+      @startDate = (params[:startDate][:year].to_s() + "/" + params[:startDate][:month].to_s() + "/" + params[:startDate][:day].to_s()).to_date();
+    end
+
+    if (!params[:endDate])
+      @endDate = Date.today(0)
+    else
+      @endDate = (params[:endDate][:year].to_s() + "/" + params[:endDate][:month].to_s() + "/" + params[:endDate][:day].to_s()).to_date();
+    end
+
+    courses = Match.pie_courses(current_user.id,@startDate,@endDate)
 
     courses.each do |course|
       @matches_played = course.n_times.to_i()

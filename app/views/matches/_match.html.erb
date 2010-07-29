@@ -22,7 +22,7 @@
                               <%= f.label "Fecha/Hora:" %>
                             </li>
                             <li class="li-field" style="width:350px">
-                              <%= f.datetime_select :date_hour_match, :order => [:day, :month, :year] %>
+                              <%= f.datetime_select :date_hour_match, :order => [:day, :month, :year],  :use_month_numbers => true %>
                             </li>
                           </ul>
                         </li>

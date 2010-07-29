@@ -57,11 +57,12 @@ class Match < ActiveRecord::Base
                                   :group => "course_id ",
                                   :order => "count(*) DESC "
 
-  named_scope   :pie_courses, lambda {|userID|
+  named_scope   :pie_courses, lambda {|userID,startDate,endDate|
                                 {
-                                  :select     => '*',
-                                  :from       => 'vw_stats_courses',
-                                  :conditions => ['user_id=?',userID]
+                                  :select     => 'players.user_id AS user_id, matches.course_id AS course_id,count(0) AS n_times',
+                                  :joins      => 'inner join players on((matches.id = players.match_id))',
+                                  :conditions => ['user_id=? and (date_hour_match BETWEEN ? AND ?)',userID,startDate,endDate],
+                                  :group      => 'players.user_id, matches.course_id'
                                 }
                               }
 
