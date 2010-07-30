@@ -5,4 +5,5 @@
 # Comments::
 
 class Contact < ActiveRecord::Base
+  attr_accessor :redirection
 end

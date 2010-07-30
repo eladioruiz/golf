@@ -22,6 +22,8 @@
 <p><label for="password">Consulta/Sugerencia</label><br/>
 <%= f.text_area :query, :cols => 28, :rows => 5 %></p>
 
+<%= f.hidden_field :redirection, :value => @redirect %>
+
 <button class="demo" id="button_save" onclick="">Enviar</button>
 <% end -%>
 

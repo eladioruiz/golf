@@ -232,7 +232,7 @@
           <div class="content_tb_content_wrapper">
                <div class="content_tb_content_content">
 
-                    <div  class="gallery">
+                    <div class="gallery">
                         <table width="100%" cellpadding="0" cellspacing="0" id="tb1" border="1">
                             <tr >
                                 <td>
@@ -260,6 +260,19 @@
                             </tr>
                         </table>
                     </div> <!-- gallery -->
+
+                    <p>
+                      Si no encuentra un campo y desea que esté disponible en My Golf Card, por favor, env&iacute;e una solicitud es  <a id="dialog1" href="javascript:;" onclick='$("#dialog-contact").dialog();' >este formulario</a>. Gracias por su colaboraci&oacute;n;
+                    </p>
+
+                    <div class="demo">
+
+                      <div id="dialog-contact" style="display:none" title="My Golf Card - Más información">
+                        <%= render :partial => 'layouts/contact' %>
+                      </div>
+
+                    </div>
+
 
                  </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->

@@ -11,7 +11,9 @@ class CoursesController < ApplicationController
   # GET /courses
   def index
     page = params[:page] || 1
-    @courses = Course.all
+    @courses  = Course.all
+    @contact  = Contact.new
+    @redirect = '/courses'
 
     @new_allowed = Right.action_allowed?(current_user.id, 'courses', 'new')
 
