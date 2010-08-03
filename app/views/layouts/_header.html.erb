@@ -58,17 +58,17 @@
 <%
   if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
 %>
-        $("a.remove")
+        $(".remove")
         .click(MatchHelper.onRemovePlayer);
 
         $("form p a.add_player")
         .click(MatchHelper.onAddPlayer);
-
+/*
+        $("a.remove")
+        .click(MatchHelper.onRemovePlayer);
+*/
         $("#button_add")
         .click(MatchHelper.onAddPlayer);
-
-        $("#button_remove")
-        .click(MatchHelper.onRemovePlayer);
 
 <%
   end
