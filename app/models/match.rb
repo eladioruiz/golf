@@ -10,7 +10,7 @@ class Match < ActiveRecord::Base
   has_many :players, :dependent => :destroy  # Pending check it
   has_many :users, :through => :players, :order => 'players.id'  # Check it
 
-  validates_presence_of     :course_id, :dae_hour_match, :holes
+  validates_presence_of     :course_id, :date_hour_match, :holes
 
   accepts_nested_attributes_for :players, :users, :allow_destroy => :true #, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }  # Check it
 
