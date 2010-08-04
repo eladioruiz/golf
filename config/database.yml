@@ -21,6 +21,7 @@ development:
   database: golf_development
   pool: 5
   username: root
+  password: 0364sa
   socket: /var/run/mysqld/mysqld.sock
   #socket: /opt/local/var/run/mysql5/mysqld.sock
 
