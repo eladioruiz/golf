@@ -93,7 +93,7 @@ class MatchesController < ApplicationController
       flash[:notice] = 'Match was successfully created.'
       redirect_to(@match)
     else
-      render :action => "new"
+      render :action => "index"
     end
   end
 
