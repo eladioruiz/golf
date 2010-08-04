@@ -30,7 +30,7 @@ class CoursesController < ApplicationController
     @course_images = @course.images
 
     @course_map = GMap.new("map")
-    @course_map.control_init(:large_map => false,:map_type => true)
+    @course_map.control_init(:large_map => true,:map_type => true)
     @coordinates = [@course.location_latitude,@course.location_longitude]
     @course_map.center_zoom_init(@coordinates, 12)
     @course_map.overlay_init(GMarker.new(@coordinates,:title => @course.name, :info_window => @course.name))
