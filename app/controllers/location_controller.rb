@@ -35,7 +35,7 @@ class LocationController < ApplicationController
     # www.mygolfcard.es => ABQIAAAArY0YLQLROMFjY013kjH03xRBDHnb3bza1JRZQvJuX_hSE_IbCxSvGFVULxef8w3sF3Y45KlYzd1erg
     # dev.mygolfcard.es => ABQIAAAArY0YLQLROMFjY013kjH03xQMMeIXQUaBI2XMV44zdwgO36Uk7xQurmAjUrHMilGbuVRhB29AoGSKtQ
     # localhost:3000 => ABQIAAAArY0YLQLROMFjY013kjH03xTJQa0g3IQ9GZqIMmInSLzwtGDKaBTGgno8Rw_245czFEW9TYW7uOZ40Q
-    gg = GoogleGeocode.new("ABQIAAAArY0YLQLROMFjY013kjH03xTJQa0g3IQ9GZqIMmInSLzwtGDKaBTGgno8Rw_245czFEW9TYW7uOZ40Q")
+    gg = GoogleGeocode.new("ABQIAAAArY0YLQLROMFjY013kjH03xQMMeIXQUaBI2XMV44zdwgO36Uk7xQurmAjUrHMilGbuVRhB29AoGSKtQ")
     gg_locate = gg.locate(new_location)
 
     @debug = "2"

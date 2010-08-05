@@ -130,7 +130,8 @@ ActionController::Routing::Routes.draw do |map|
   #map.root :controller => "session", :action => "new"
   
 #=======
-  map.root :controller => "home", :action => "index"
+  # ERL 05/08/2010 map.root :controller => "home", :action => "index"
+  map.root :controller => "session", :action => "new"
 
   map.connect ':controller/:id/:action'
   map.connect ':controller/:id/:action.:format'
