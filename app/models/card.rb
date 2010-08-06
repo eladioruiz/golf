@@ -10,6 +10,8 @@ class Card < ActiveRecord::Base
   has_many :card_strokes, :dependent => :destroy, :order => 'card_strokes.hole_id' # Check it
   has_many :holes, :through => :card_strokes, :order => 'card_strokes.hole_id'
 
+  after_destroy :cascade_delete
+
   accepts_nested_attributes_for :card_strokes, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   def add_strokes_per_hole(pHole,pStrokes,pPutts)
@@ -37,4 +39,13 @@ class Card < ActiveRecord::Base
     self.save
   end
 
+private
+
+  def cascade_delete
+    cs = CardStroke.find_all_by_card_id(self.id)
+
+    cs.each do |c|
+      c.destroy
+    end
+  end
 end

@@ -10,6 +10,8 @@ class Match < ActiveRecord::Base
   has_many :players, :dependent => :destroy  # Pending check it
   has_many :users, :through => :players, :order => 'players.id'  # Check it
 
+  after_destroy :cascade_delete
+
   validates_presence_of     :course_id, :date_hour_match, :holes
 
   accepts_nested_attributes_for :players, :users, :allow_destroy => :true #, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }  # Check it
@@ -86,4 +88,13 @@ class Match < ActiveRecord::Base
     self.course.name + ' - ' + self.date_hour_match.strftime('%d/%m/%Y - %H:%M') 
   end
 
+private
+
+  def cascade_delete
+    ps = Player.find_all_by_match_id(self.id)
+
+    ps.each do |p|
+      p.destroy
+    end
+  end
 end

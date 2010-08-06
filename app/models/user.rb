@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :privacy_friends, :dependent => :destroy
   has_many :users, :through => :privacy_friends
   has_many :players
+  has_many :matches, :through => :players, :order => 'players.id'  # Check it
 
   #named_scope :allowed,
 
