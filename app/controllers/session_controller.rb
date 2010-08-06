@@ -13,7 +13,7 @@ class SessionController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
       cookies[:userID] = {:value => self.current_user.id}
       flash[:notice] = "Logged in successfully"
     else
@@ -28,6 +28,6 @@ class SessionController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "Se ha desconectado correctamente."
-    redirect_back_or_default('/')
+    redirect_back_or_default('/home')
   end
 end

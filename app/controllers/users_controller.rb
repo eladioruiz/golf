@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user.save
     if @user.errors.empty?
       self.current_user = @user
-      redirect_back_or_default('/')
+      redirect_back_or_default('/home')
       flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       current_user.activate
       flash[:notice] = "Signup complete!"
     end
-    redirect_back_or_default('/')
+    redirect_back_or_default('/home')
   end
 
   def public_users
