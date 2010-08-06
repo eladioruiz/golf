@@ -154,15 +154,6 @@
   // Show forms
   $( 'form.cmxform' ).show().end();
 
-  $("#user_name").autocomplete({
-    source: "/users/publicusers",
-    minLength: 2,
-    select: function(event, ui) {
-      $("#privacy_friend_user2_id").val(ui.item.id);
-      $("#button_save").focus();
-    }
-  });
-
 }
 </script>
 
@@ -181,14 +172,22 @@
             },
             text: true
         });
-    });
 
-    $("document").ready(function(){
-      $("#button_save").click(
-        function (event) {
-            $("#form_main").submit();
-        }
-      );
+        $("#button_save").click(
+          function (event) {
+              $("#form_main").submit();
+          }
+        );
+
+        $("#user_name").autocomplete({
+          source: "/users/publicusers",
+          minLength: 2,
+          select: function(event, ui) {
+            $("#privacy_friend_user2_id").val(ui.item.id);
+            $("#button_save").focus();
+          }
+        });
+
     });
 </script>
 
@@ -210,27 +209,24 @@
 
           <div class="content_tb_content_wrapper">
                <div class="content_tb_content_content cmxform demo">
-
+                 <% form_for(@privacy_friend, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
                     <fieldset style="height:350px;">
                       <legend>Buscando amigos</legend>
 
-                      <% form_for(@privacy_friend, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
-
-                        <p>
-                          <b>Usuario:</b>&nbsp;
-                          <%=h @user.name -%>
-                          <%= f.hidden_field :user1_id, :value => @user.id %>
-                        </p>
-                        <p>
+                      <p>
+                        <b>Usuario:</b>&nbsp;
+                        <%=h @user.name -%>
+                        <%= f.hidden_field :user1_id, :value => @user.id %>
+                      </p>
+                      <p>
                         <div id="new_friend">
-                            <b>Nombre Amigo: </b>&nbsp;
-                            <%= f.text_field :user2_id, :style => 'display:none;' %>
-                            <input id="user_name" name="user_name" type="text" size="40" />
-                            <button id="button_save">A&ntilde;adir</button>
-                          </div>
-                        </p>
-                      <% end %>
-                        
+                          <b>Nombre Amigo: </b>&nbsp;
+                          <%= f.text_field :user2_id, :style => 'display:none;' %>
+                          <input id="user_name" name="user_name" type="text" size="40" />
+                          <button id="button_save">A&ntilde;adir</button>
+                        </div>
+                      </p>
+                      
                       <div id="friends">
 
                         <div id="friends_left">
@@ -310,6 +306,6 @@
                       </div>
 
                     </fieldset>
-
+<% end %>
                 </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->

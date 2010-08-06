@@ -71,6 +71,17 @@
       height: 450px;
     }
 
+    .remove {
+      font-family: segoe ui, Arial, sans-serif; 
+      font-size: 1em;
+      margin-right: .1em;
+      padding: .5em;
+      text-decoration: none !important;
+      cursor: pointer;
+      text-align: center;
+      zoom: 1;
+      overflow: visible;
+    }
 </style>
 
 <script>
@@ -139,6 +150,12 @@
         function(event) {
           event.preventDefault();
         })
+
+      $(".remove").click(
+        function(event) {
+          event.preventDefault();
+        })
+        
     });
 </script>
 

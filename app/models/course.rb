@@ -12,12 +12,18 @@ class Course < ActiveRecord::Base
 
   after_create :create_holes, :if => :new_record?
 
+  attr_reader :url_google
+
   named_scope :find_like_by_name, lambda {|descr|
                                     {
                                       :select     => "courses.id, courses.name as value, courses.name as label ",
                                       :conditions => ["name like ?", descr]
                                     }
                                   }
+
+  def url_google
+    (self.nil? || self.location_latitude.blank?) ? "" : "http://maps.google.com/maps?saddr=&daddr=" + self.location_latitude + "," + self.location_longitude
+  end
 
   def create_holes
     (1..n_holes).each do |i|

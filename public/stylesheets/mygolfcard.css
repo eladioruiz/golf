@@ -41,7 +41,7 @@ a.visited {
     margin-left:18px;
     /*background-color: #afeeee;
     border: yellow solid 1px; */
-    height: 500px;
+    height: 650px;
     filter:alpha(opacity=80);
     -moz-opacity: 0.8;
     opacity: 0.8;
@@ -960,6 +960,7 @@ form.cmxform fieldset {
 form.cmxform legend {
     padding: 0 2px;
     font-weight: bold;
+    color: white;
 }
 
 form.cmxform label {
@@ -988,6 +989,7 @@ form.cmxform fieldset fieldset {
 form.cmxform fieldset fieldset legend {
     padding: 0 0 5px;
     font-weight: normal;
+    color: white;
 }
 
 form.cmxform fieldset fieldset label {
@@ -1082,6 +1084,7 @@ form.cmxform fieldset fieldset label {
       font-weight: bold;
       font-size: 14px;
       font-style: italic;
+      color: white;
   }
 
   div.cmxform label {
@@ -1110,6 +1113,7 @@ form.cmxform fieldset fieldset label {
   div.cmxform fieldset fieldset legend {
       padding: 0 0 5px;
       font-weight: normal;
+      color: white;
   }
 
   div.cmxform fieldset fieldset label {

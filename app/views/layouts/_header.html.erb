@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
-    <meta name="keywords" content="golf, card, tarjeta, online, on-line, gratis, free, golpes, strokes, handicap, campos de golf, golf courses, estadísticas, gráficos, partido de golf, score, marcador" />
+    <meta name="keywords" content="software golf, golf, scorecard, card, tarjeta, online, on-line, gratis, free, golpes, strokes, handicap, campos de golf, golf courses, estadísticas, gráficos, partido de golf, score, marcador, puntuación" />
     <meta name="description" content="mygolfcard es una aplicación inline gratuíta que le permite almacenar las tarjetas de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
     <title>My Golf Card</title>
 
@@ -58,17 +58,17 @@
 <%
   if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
 %>
-        $("a.remove")
+        $(".remove")
         .click(MatchHelper.onRemovePlayer);
 
         $("form p a.add_player")
         .click(MatchHelper.onAddPlayer);
-
+/*
+        $("a.remove")
+        .click(MatchHelper.onRemovePlayer);
+*/
         $("#button_add")
         .click(MatchHelper.onAddPlayer);
-
-        $("#button_remove")
-        .click(MatchHelper.onRemovePlayer);
 
 <%
   end
@@ -82,7 +82,7 @@
           // from the DOM.
           // Useful for carousels with MANY items.
 
-          //itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
+          itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
           itemLoadCallback: mycarousel_itemLoadCallback
         });
 
@@ -236,7 +236,7 @@
                     <% end %>
                     <div class="wrapbranding">
                         <div class="branding">
-                            <h1><a href="/">My Golf Card</a><span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();'>BETA</a></span></h1>
+                            <h1><a href="/home">My Golf Card</a><span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();'>BETA</a></span></h1>
                             <h2>Tarjetas y Puntuaciones</h2>
 
                               <div class="demo">

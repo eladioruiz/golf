@@ -36,10 +36,8 @@ class CardsController < ApplicationController
     @n_holes = Match.find(params[:match_id]).holes
     @holes = Hole.find_all_by_course_id(Match.find(params[:match_id]).course.id)
 
-    @i = 0
-    @holes.each do |hole|
-      @card.card_strokes[@i] = CardStroke.new(:hole_id => hole.id, :strokes => 0, :putts => 0)
-      @i = @i + 1
+    @holes.each_with_index do |hole,index|
+      @card.card_strokes[index] = CardStroke.new(:hole_id => hole.id, :strokes => 0, :putts => 0)
     end
     #@has_card = @card.player.has_card?
   end
