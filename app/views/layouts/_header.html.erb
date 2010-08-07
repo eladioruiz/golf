@@ -201,7 +201,7 @@
 <%
     if @audit_controller=='courses' and @audit_action=='show'
 %>
-      <%=  GMap.header %>
+      <%=  GMap.header(:host => request.host) %>
       <%=  @course_map.to_html unless @course_map.blank? %>
 <%
     end
