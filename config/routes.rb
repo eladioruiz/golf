@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/basic_chart', :controller => 'charts', :action => 'basic_chart'
   map.connect '/charts/simple_chart', :controller => 'charts', :action => 'simple_chart'
 
-  map.connect '/microsites/ayuda', :controller => 'microsites', :action => 'ayuda'
+  map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 
   map.resources :users
   

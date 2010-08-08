@@ -2,7 +2,7 @@ class MicrositesController < ApplicationController
  
   def ayuda
     @contact  = Contact.new
-    @redirect = '/microsites/ayuda'
+    @redirect = '/ayuda'
   end
 
 end
