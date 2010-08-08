@@ -112,23 +112,37 @@
 
 <script type="text/javascript">
     $(function() {
-        $(".demo button:first").button({
-            icons: {
-                primary: 'ui-icon-arrowreturnthick-1-w'
-            },
-            text: true
-        }).next().button({
-            icons: {
-                primary: 'ui-icon-script'
-            },
-            text: true
-        }).next().button({
-            icons: {
-                primary: 'ui-icon-disk'
-            },
-            text: true
-        });
-    
+      $(".demo button:first").button({
+          icons: {
+              primary: 'ui-icon-arrowreturnthick-1-w'
+          },
+          text: true
+      }).next().button({
+          icons: {
+              primary: 'ui-icon-script'
+          },
+          text: true
+      }).next().button({
+          icons: {
+              primary: 'ui-icon-disk'
+          },
+          text: true
+      });
+
+      $("#button_help2").button({
+          icons: {
+              primary: 'ui-icon-help'
+          },
+          text: false
+      });
+
+      $("#button_help2").click(
+        function (event) {
+            $("#matches-dialog1").dialog();
+            event.preventDefault();
+        }
+      );
+
       $("#button_save").click(
         function (event) {
             $("#form_main").submit();
@@ -168,6 +182,7 @@
                   <button onclick="document.location.href='<%= matches_path %>'">Cancelar</button>
                   <button onclick="document.location.href='<%= matches_path %>'">Listado</button>
                   <button id="button_save">Grabar</button>
+                  
                 </div> <!-- content_tb_header1_right demo -->
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->
@@ -184,3 +199,14 @@
 
             </div> <!-- content_tb_content_content -->
           </div> <!-- content_tb_content_wrapper -->
+
+          <div class="demo">
+
+            <div id="matches-dialog1" style="display:none" title="My Golf Card - Más información">
+              <p>Escriba algunos caracteres y el sistema buscará el nombre de los campos que tengan como parte de su nombre el texto que vaya introduciendo.
+                <br>Una vez localizado el que desee, selecci&oacute;nelo haciendo <i>click</i> con el ratón sobre &eacute;l o con el cursor.
+              </p>
+            </div>
+
+          </div>
+

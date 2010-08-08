@@ -200,6 +200,19 @@
       e.preventDefault();
     });
 
+    $("#button_help2").button({
+        icons: {
+            primary: 'ui-icon-help'
+        },
+        text: false
+    });
+
+    $("#button_help2").click(
+      function (event) {
+          $("#matches-dialog1").dialog();
+          event.preventDefault();
+      }
+    );
 
 });
 
@@ -227,6 +240,7 @@
                       <label class="li-label-column">Campo:&nbsp;</label>
                       <input id="course" name="course" type="text" value="">
                       &nbsp;&nbsp;&nbsp;
+                      <button id="button_help2" class="demo">Ayuda</button>
                     </form>
                   </div>
               </div> <!-- course_select content_tb_header2_left1 -->
@@ -284,4 +298,14 @@
 
                  </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->
+
+          <div class="demo">
+
+            <div id="matches-dialog1" style="display:none" title="My Golf Card - Más información">
+              <p>Escriba algunos caracteres y el sistema buscará el nombre de las localidades o campos que tengan como parte de su nombre el texto que vaya introduciendo.
+                <br>Una vez localizado el que desee, selecci&oacute;nelo haciendo <i>click</i> con el ratón sobre &eacute;l o con el cursor.
+              </p>
+            </div>
+
+          </div>
 

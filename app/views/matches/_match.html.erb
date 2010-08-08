@@ -1,4 +1,4 @@
-                  <% form_for(@match, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
+                <% form_for(@match, :html => { :id =>'form_main', :class => "cmxform"}) do |f| %>
                     <%= f.error_messages %>
 
                     <fieldset>
@@ -10,9 +10,10 @@
                             <li class="li-label">
                               <%= f.label "Campo:" %>
                             </li>
-                            <li class="li-field">
+                            <li class="li-field demo" style="display:inline;">
                               <%= f.text_field :course_id, :size => 3, :maxlength => 2, :style => "display:none;" %>
-                              <input id="course_name" name="course_name" type="text" size="40" value="<%= @course_name %>" />
+                              <input title="Introduzca algunos caracteres para empezar la búsqueda" id="course_name" name="course_name" type="text" size="40" value="<%= @course_name %>" />&nbsp;&nbsp;
+                              <button id="button_help2" class="demo">Ayuda</button>
                             </li>
                           </ul>
                         </li>
@@ -45,7 +46,6 @@
                       <%  i = 0
                           f.fields_for :players do |player_form|
                             i = i + 1
-
                       %>
 
                       <div class="playermatch">

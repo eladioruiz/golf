@@ -179,6 +179,20 @@
           }
         );
 
+        $("#button_help2").button({
+            icons: {
+                primary: 'ui-icon-help'
+            },
+            text: false
+        });
+
+        $("#button_help2").click(
+          function (event) {
+              $("#matches-dialog1").dialog();
+              event.preventDefault();
+          }
+        );
+
         $("#user_name").autocomplete({
           source: "/users/publicusers",
           minLength: 2,
@@ -224,6 +238,7 @@
                           <%= f.text_field :user2_id, :style => 'display:none;' %>
                           <input id="user_name" name="user_name" type="text" size="40" />
                           <button id="button_save">A&ntilde;adir</button>
+                          <button id="button_help2" class="demo">Ayuda</button>
                         </div>
                       </p>
                       
@@ -306,6 +321,17 @@
                       </div>
 
                     </fieldset>
-<% end %>
+                  <% end %>
                 </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->
+
+          <div class="demo">
+
+            <div id="matches-dialog1" style="display:none" title="My Golf Card - Más información">
+              <p>Escriba algunos caracteres y el sistema buscará el nombre de los usuarios que tengan como parte de su nombre el texto que vaya introduciendo.
+                <br>Una vez localizado el que desee, selecci&oacute;nelo haciendo <i>click</i> con el ratón sobre &eacute;l o con el cursor.
+              </p>
+            </div>
+
+          </div>
+
