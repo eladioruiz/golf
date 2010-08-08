@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
     @course_map.center_zoom_init(@coordinates, 12)
     @title = '<strong>' + @course.name + '</strong>'
     @title += '<br>' + @course.address.sub('\n', '<br>')
-    @title += '<br> <a href="http://maps.google.com/maps?saddr=&daddr=' + @course.location_latitude + ',' + @course.location_longitude + '" target ="_blank">Ver en página completa<\/a>';
+    @title += '<br> <a href="http://maps.google.com/maps?saddr=&daddr=' + @course.location_latitude + ',' + @course.location_longitude + '" target ="_blank">Ver en página completa<\/a>' unless @course.location_latitude.nil?
 
     @course_map.overlay_init(GMarker.new(@coordinates,:title => @course.name, :info_window => @title))
   end
