@@ -96,8 +96,8 @@ class CoursesController < ApplicationController
   def images
     @course = Course.find(params[:id])
     @images = @course.images
-    @first  = params[:first]
-    @last   = params[:last]
+    @first  = params[:first] || 1
+    @last   = params[:last] || 8
 
     render :file => 'courses/images.xml'
   end

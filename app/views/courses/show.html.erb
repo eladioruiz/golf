@@ -97,54 +97,10 @@
 
   tb_pathToImage = "/images/loading-thickbox.gif";
 
-  function mycarousel_itemLoadCallback(carousel, state)
-  {
-      // Check if the requested items already exist
-      if (carousel.has(carousel.first, carousel.last)) {
-          return;
-      }
-
-      jQuery.get(
-          '/courses/<%= @course.id %>/images',
-          {
-              first: carousel.first,
-              last: carousel.last
-          },
-          function(xml) {
-              mycarousel_itemAddCallback(carousel, carousel.first, carousel.last, xml);
-          },
-          'xml'
-      );
-  };
-
-  function mycarousel_itemAddCallback(carousel, first, last, xml)
-  {
-      // Set the size of the carousel
-      carousel.size(parseInt(jQuery('total', xml).text()));
-
-      jQuery('image', xml).each(function(i) {
-          var item = jQuery(mycarousel_getItemHTML(jQuery(this))).get(0);
-          tb_init(item);
-          //carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text(),jQuery(this).attr('title')));
-          carousel.add(first + i, item);
-      });
-
-  };
-
-  /**
-   * Item html creation helper.
-   */
-  function mycarousel_getItemHTML(elem)
-  {
-      var url = elem.text();
-      var title = elem.attr('title');
-      return '<a href="' + url + '" title="' + title + '" rel="gallery-course"><img src="' + url + '" width="75" height="75" alt="' + title + '" /></a>';
-  };
-
 </script>
 
 <script type="text/javascript">
-	$(function() {
+    $(function() {
           $(".demo button:first").button({
             icons: {
                 primary: 'ui-icon-document'
@@ -171,6 +127,7 @@
             },
             text: true
         });
+
     });
 </script>
 
@@ -295,11 +252,18 @@
                     </fieldset>
                   </div> <!-- end div class:cmxform -->
 
+                  <a name="images"></a>
                   <div class="cmxform"> <!-- Galería de Imágenes -->
                       <fieldset>
-                          <a name="images"><legend>Galer&iacute;a de Im&aacute;genes</legend></a>
-                          <ul id="mycarousel" class="jcarousel-skin-tango">
-                            <!-- The content will be dynamically loaded in here -->
+                          <legend>Galer&iacute;a de Im&aacute;genes</legend>
+                          <ul id="mycarousel" class="jcarousel-skin-tango" >
+                            <%
+                              @course_images.each do |image|
+                            %>
+                            <li>
+                                <a class="thickbox" href="<%= image.fullName -%>" title="<%= image.title -%>" rel="gallery-course"><img src="<%= image.fullName -%>" width="75" height="75" alt="<%= image.title -%>" /></a>
+                            </li>
+                            <% end %>
                           </ul>
                       </fieldset>
                   </div> <!-- end Galería de Imágenes -->

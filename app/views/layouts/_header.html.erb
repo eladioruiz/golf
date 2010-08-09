@@ -10,12 +10,11 @@
     <title>My Golf Card</title>
 
     <%= stylesheet_link_tag 'mygolfcard' %>
-    <%= stylesheet_link_tag 'skin' %>
+    
     <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
     
     <%= javascript_include_tag 'jquery-1.4.2.min' %>
     <%= javascript_include_tag 'jquery.easing.min' %>
-    <%= javascript_include_tag 'jquery.jcarousel.min' %>
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
     <%= javascript_include_tag 'jquery.kwicks-1.5.1' %>
     <%= javascript_include_tag 'match_helpers' %>
@@ -26,7 +25,9 @@
 %>
     <!-- ESPECIFICO SHOW COURSES -->
     <%= stylesheet_link_tag 'thickbox' %>
+    <%= stylesheet_link_tag 'skin' %>
     <%= javascript_include_tag 'thickbox'%>
+    <%= javascript_include_tag 'jquery.jcarousel.min' %>
     <!-- ESPECIFICO SHOW COURSES -->
 <%
     end
@@ -75,24 +76,22 @@
 
   if @audit_controller=='courses' and @audit_action=='show'
 %>
+
         $('#mycarousel').jcarousel({
-          visible: 8,
+          visible: 8
           // Uncomment the following option if you want items
           // which are outside the visible range to be removed
           // from the DOM.
           // Useful for carousels with MANY items.
 
-          itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
-          itemLoadCallback: mycarousel_itemLoadCallback
+          //itemVisibleOutCallback: {onAfterAnimation: function(carousel, item, i, state, evt) { carousel.remove(i); }},
+          //itemLoadCallback: mycarousel_itemLoadCallback
         });
 
-        $(function() {
-            $("#accordion").accordion({
-                    collapsible: true,
-                    active: false
-            });
-	});
-
+        $("#accordion").accordion({
+                collapsible: true,
+                active: false
+        });
 
 <%
   end
@@ -195,6 +194,17 @@
 
 <% end %>
 
+      $("#button_help").button({
+          icons: {
+              primary: 'ui-icon-help'
+          },
+          text: false
+      });
+
+      $("#button_help").click(function () {
+        window.open('/ayuda');
+      });
+
     });
     </script>
 
@@ -206,22 +216,6 @@
 <%
     end
 %>
-
-<script type="text/javascript">
-    $(function() {
-        $("#button_help").button({
-            icons: {
-                primary: 'ui-icon-help'
-            },
-            text: false
-        });
-
-        $("#button_help").click(function () {
-          window.open('/ayuda');
-        });
-    });
-</script>
-
 
 </head>
 

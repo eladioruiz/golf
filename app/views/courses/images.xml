@@ -1,7 +1,5 @@
 <data>
     <total><%= @images.count %></total>
-    <first><%= @first %></first>
-    <last><%= @last %></last>
 <%
     @images.each do |image|
 %>
