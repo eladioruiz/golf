@@ -35,8 +35,14 @@ class UsersController < ApplicationController
     @user.save
     if @user.errors.empty?
       self.current_user = @user
+
+      flash[:notice] = "Gracias por registrarse en My Golf Card!"
+
+      UserMailer.deliver_activation(@user)
+
       redirect_back_or_default('/home')
-      flash[:notice] = "Thanks for signing up!"
+
+
     else
       render :action => 'new'
     end
@@ -71,11 +77,39 @@ class UsersController < ApplicationController
     render :json => @users, :template => 'users/find_like_by_name.html.erb'
   end
 
+  def recover_password
+    @email = params[:user][:email]
+    @user = User.find_by_email(@email)
+
+    if @user
+      @new_password = generate_random_password()
+
+      @user.password = @new_password
+      @user.password_confirmation = @new_password
+      
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Password reseteada correctamente!"
+        UserMailer.deliver_recover_password(@user,@new_password)
+      else
+        flash[:notice] = "La password no se ha podido resetear correctamente!"
+      end
+    else
+      flash[:notice] = "El mail indicado no existe!"
+    end
+
+    redirect_back_or_default('/')
+  end
+
 private
 
   def current_menu
     @current_menu = {'init' => '', 'matches' => '', 'courses' => '', 'charts' => '', 'personaldata' => 'current'}
   end
 
+  def generate_random_password
+    #(1..8).each do
+    #end
+    "fulanitez"
+  end
 
 end

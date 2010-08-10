@@ -26,3 +26,14 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+ActionMailer::Base.smtp_settings = {
+    :tls => true,
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :domain => "mygolfcard.es",
+    :authentication => :plain,
+    :user_name => "admin@mygolfcard.es",
+    :password => "Oidale27"
+  }

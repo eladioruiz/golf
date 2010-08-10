@@ -1,8 +1,8 @@
-Your account has been created.
+<%= @user.name %>, su cuenta se ha creado correctamente.
 
-  Username: <%= @user.login %>
-  Password: <%= @user.password %>
+En este mail le recordamos sus datos de acceso:
 
-Visit this url to activate your account:
+URL: <%= @url %>
+Usuario: <%= @user.login %>
 
-  <%= @url %>
+Gracias por utilizar My Golf Card.

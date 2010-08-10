@@ -1,0 +1,28 @@
+<script>
+  $(function() {
+    $(".demo button:first").button({
+        icons: {
+            primary: 'ui-icon-disk'
+        },
+        text: true
+    });
+
+    $("#button_save").click(
+      function (event) {
+          $("#form_main").submit();
+    });
+  })
+</script>
+
+<%= error_messages_for :user %>
+<% form_for @user, :html => { :id => 'form_main', :class => "cmxform demo"}, :url => '/users/recover_password' do |f| -%>
+
+<p>
+  My Golf Card no almacena su contraseña de forma visible. Si contin&uacute;a con esta opci&oacute;n, se resetear&aacute; su contraseña con una aleatoria que le será enviada por mail para que pueda entrar a My Golf Card y cambiarla por la que desee.
+</p>
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
+
+<button class="demo" id="button_save" onclick="">Grabar</button>
+<% end -%>
+
