@@ -35,6 +35,22 @@ class ChartsController < ApplicationController
     @title = "Campos Jugados"
   end
 
+  def regularity_strokes
+    @course = Course.new
+    headers["content-type"]="text/html";
+
+    stats_regularity = Stat.regularity_strokes(1,current_user.id)
+    @regularity_data = []
+
+    unless stats_regularity.empty?
+      stats_regularity.each do |stat|
+        @regularity_data<<{:date_hour_match=>stat.date_hour_match,:strokes=>stat.strokes_total}
+      end
+    end
+
+    @title = "Regularidad en su juego"
+  end
+
   def basic_chart
 
   end

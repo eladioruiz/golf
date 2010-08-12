@@ -1,0 +1,97 @@
+<%= render :partial => 'layouts/header' %>
+
+        <div class="content_wrapper">
+
+            <%= render :partial => 'layouts/navigationbar' %>
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+        <style>
+          .column_right {
+            position: absolute;
+            top: -50px;
+            left:700px;
+            width: 220px;
+          }
+
+        </style>
+
+        <script>
+          $(function() {
+            $("#accordion").accordion({
+                    collapsible: true,
+                    active: false
+            });
+
+            $("#button_filter").button({
+                icons: {
+                    primary: 'ui-icon-search'
+                },
+                text: true
+            });
+
+            $("#button_filter").click(
+              function (event) {
+                $("#form_main").submit();
+              }
+            );
+
+          });
+
+        </script>
+
+                  <div class="content_tb_header1_wrapper">
+                     <div class="content_tb_header1_content">
+                        <div class="content_tb_header1_left1">
+                            <h1>Estadísticas - <%= @title -%> </h1>
+                        </div> <!-- content_tb_header1_left1 -->
+                        <div class="content_tb_header1_right demo">
+                        </div> <!-- content_tb_header1_right demo -->
+                     </div> <!-- content_tb_header1_content -->
+                  </div> <!-- content_tb_header1_wrapper -->
+
+                  <div class="content_tb_header2_wrapper">
+                    <div class="content_tb_header2_content">
+                    </div> <!-- content_tb_header2_content -->
+                  </div> <!-- content_tb_header2_wrapper -->
+
+                  <div class="content_tb_content_wrapper">
+                    <div class="content_tb_content_content">
+                      <%= yield %>
+
+                      <div class="column_right">
+                        <div id="accordion">
+                          <h3><a href="#">Partidos</a></h3>
+                          <div>
+                            <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+
+                              <li class="row-form">
+                                <label><a href="/charts/regularity_strokes">Regularidad por partidos</a></label>
+                              </li>
+                              <li class="row-form">
+                                <label>Regularidad por hoyos</label>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <h3><a href="#">Campos</a></h3>
+                          <div id="map">
+                            <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+                              <li class="row-form">
+                                <label><a href="/charts/pie_courses">Campos Jugados</a></label>
+                              </li>
+                            </ul>
+                          </div> <!-- map -->
+                        </div> <!-- END div accordion -->
+                      </div> <!-- END div column_right -->
+
+                    </div> <!-- content_tb_content_content -->
+                  </div> <!-- content_tb_content_wrapper -->
+          
+                </div> <!-- end: text-box -->
+            </div>  <!-- end: main_content -->
+
+        </div>  <!-- end: content_wrapper -->
+
+<%= render :partial => 'layouts/footer' %>
+
