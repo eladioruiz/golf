@@ -13,6 +13,7 @@ class SessionController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
+      AuditTrail.create(:user_id => current_user.id, :controller => 'session', :action => 'new')
       redirect_back_or_default('/home')
       cookies[:userID] = {:value => self.current_user.id}
       flash[:notice] = "Logged in successfully"

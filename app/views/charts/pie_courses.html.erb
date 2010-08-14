@@ -70,77 +70,26 @@
     .text_box {
       height: 500px;
     }
+
+
+    #CoursesPlayedSumDiv {
+      text-align: left;
+      margin-left: 5px;
+      width: 650px;
+      border: 3px outset gray;
+    }
+
 </style>
 
-<style>
-  .column_right {
-    position: absolute;
-    top: 0px;
-    left:700px;
-    width: 220px;
-  }
-
-  #CoursesPlayedSumDiv {
-    text-align: left;
-    margin-left: 5px;
-    width: 650px;
-    border: 3px outset gray;
-  }
-  
-</style>
-
-<script>
-  $(function() {
-    $("#accordion").accordion({
-            collapsible: true,
-            active: false
-    });
-
-    $("#button_filter").button({
-        icons: {
-            primary: 'ui-icon-search'
-        },
-        text: true
-    });
-
-    $("#button_filter").click(
-      function (event) {
-        $("#form_main").submit();
-      }
-    );
-
-  });
-  
-</script>
-
-          <div class="content_tb_header1_wrapper">
-             <div class="content_tb_header1_content">
-                <div class="content_tb_header1_left1">
-                    <h1>Estadísticas - <%= @title -%> </h1>
-                </div> <!-- content_tb_header1_left1 -->
-                <div class="content_tb_header1_right demo">
-                </div> <!-- content_tb_header1_right demo -->
-             </div> <!-- content_tb_header1_content -->
-          </div> <!-- content_tb_header1_wrapper -->
-
-          <div class="content_tb_header2_wrapper">
-            <div class="content_tb_header2_content">
-            </div> <!-- content_tb_header2_content -->
-          </div> <!-- content_tb_header2_wrapper -->
-
-          <div class="content_tb_content_wrapper">
-            <div class="content_tb_content_content">
-              <% form_tag('/charts/pie_courses', :id => 'form_main') do  %>
+              <% form_tag('/charts/pie_courses', :id => 'form_main') do %>
                 <label>Fecha Inicio:</label>&nbsp;<%= select_date @startDate, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => 2005, :end_year => 1.years.from_now.year(), :prefix => 'startDate' %>&nbsp;
                 <label>Fecha Hasta:</label>&nbsp;<%= select_date @endDate, :order => [:day, :month, :year], :use_month_numbers => true, :start_year => 2005, :prefix => 'endDate' %>&nbsp;
                 <button id="button_filter">Filtrar</button>
               <% end %>
 
               <p>&nbsp;</p>
+              <p>&nbsp;</p>
               <%
-              #In this example, we show how to connect FusionCharts to a database.
-              #For the sake of ease, we've used a database which contains two tables, which are linked to each
-              #other.
               # The xml is obtained as a string from builder template.
               str_xml = render "calculate_pie_courses.builder",{:matches_data => @matches_data}
 
@@ -148,31 +97,3 @@
               render_chart '/chart/FCF_Pie3D.swf', '', str_xml, 'CoursesPlayedSum', 650, 300, false, false do-%>
               <% end-%>
  
-              <div class="column_right">
-                <div id="accordion">
-                  <h3><a href="#">Partidos</a></h3>
-                  <div>
-                    <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
-
-                      <li class="row-form">
-                        <label>Regularidad por partidos</label>
-                      </li>
-                      <li class="row-form">
-                        <label>Regularidad por hoyos</label>
-                      </li>
-                    </ul>
-
-                  </div>
-                  <h3><a href="#">Campos</a></h3>
-                  <div id="map">
-                    <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
-                      <li class="row-form">
-                        <label><a href="/charts/pie_courses">Campos Jugados</a></label>
-                      </li>
-                    </ul>
-                  </div> <!-- map -->
-                </div> <!-- END div accordion -->
-              </div> <!-- END div column_right -->
-
-            </div> <!-- content_tb_content_content -->
-          </div> <!-- content_tb_content_wrapper -->

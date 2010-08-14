@@ -35,12 +35,62 @@ class ChartsController < ApplicationController
     @title = "Campos Jugados"
   end
 
-  def basic_chart
+  def regularity_strokes
+    @course = Course.new
+    headers["content-type"]="text/html";
 
+    if params[:course]
+      @course_id = params[:course][:id] || 0
+    else
+      @course_id = 0
+    end
+    @course_name = Course.find(@course_id).name unless @course_id==0
+
+    stats_regularity = Stat.regularity_strokes(@course_id,current_user.id)
+    @regularity_data = []
+
+    unless stats_regularity.empty?
+      stats_regularity.each do |stat|
+        @regularity_data<<{:date_hour_match=>stat.date_hour_match,:strokes=>stat.strokes_total}
+      end
+    end
+
+    @title = "Regularidad en su juego"
   end
 
-  def simple_chart
+  def regularity_per_hole
+    @course = Course.new
+    headers["content-type"]="text/html";
 
+    if params[:course]
+      @course_id = params[:course][:id] || 0
+      @course = Course.find(@course_id)
+    else
+      @course_id = 0
+    end
+    @course_name = ''
+    @course_name = Course.find(@course_id).name unless @course_id==0
+
+    if params[:hole]
+      @hole_id = params[:hole][:id] || 0
+    else
+      @hole_id = 0
+    end
+    @hole_number = 0
+    @hole_number = Hole.find(@hole_id).number unless @hole_id==0
+
+    @holes = @course.holes
+
+    stats_regularity = Stat.regularity_per_hole(@hole_id,current_user.id)
+    @regularity_data = []
+
+    unless stats_regularity.empty?
+      stats_regularity.each do |stat|
+        @regularity_data<<{:date_hour_match => stat.date_hour_match,:strokes => stat.strokes}
+      end
+    end
+
+    @title = "Regularidad por Hoyo"
   end
 
   def current_menu

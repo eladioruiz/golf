@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rows>
+    <page><%= @page -%></page>
+    <total><%= @total_pages -%></total>
+    <records><%= @records -%></records>
+    <limits><%= @limits -%></limits>
+<%
+    @courses.each do |course|
+%>
+        <row id="<%= course.id -%>">
+            <cell><%=h course.id %></cell>
+            <cell><![CDATA[<%=h course.name %>]]></cell>
+            <cell></cell>
+        </row>
+<%
+    end
+%>
+</rows>

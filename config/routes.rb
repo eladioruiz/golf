@@ -24,6 +24,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/courses/findlikebyname', :controller => 'courses', :action => 'find_like_by_name'
 
+  map.connect '/holes/findlikebynumber', :controller => 'holes', :action => 'find_like_by_number'
+
   map.connect '/users/publicusers', :controller => 'users', :action => 'public_users'
   map.connect '/users/recover_password', :controller => 'users', :action => 'recover_password'
 
@@ -34,8 +36,8 @@ ActionController::Routing::Routes.draw do |map|
   #map.connect '/home', :controller => 'home', :action => 'index'
 
   map.connect '/charts/pie_courses', :controller => 'charts', :action => 'pie_courses'
-  map.connect '/charts/basic_chart', :controller => 'charts', :action => 'basic_chart'
-  map.connect '/charts/simple_chart', :controller => 'charts', :action => 'simple_chart'
+  map.connect '/charts/regularity_strokes', :controller => 'charts', :action => 'regularity_strokes'
+  map.connect '/charts/regularity_per_hole', :controller => 'charts', :action => 'regularity_per_hole'
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 

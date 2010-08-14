@@ -76,8 +76,8 @@
   .column_right {
     position: relative;
     top: -418px;
-    left: 662px;
-    width: 250px;
+    left: 642px;
+    width: 277px;
   }
 
   /**
@@ -127,6 +127,15 @@
             },
             text: true
         });
+
+        var progress_key = '4c62c2cd67217';
+        $("#pb_ability").progressBar(<%= @course.ability_recommended %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#pb_maintance").progressBar(<%= @course.maintance %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#pb_relief").progressBar(<%= @course.relief %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#pb_wind").progressBar(<%= @course.wind %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#pb_water").progressBar(<%= @course.water_in_play %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#pb_trees").progressBar(<%= @course.trees_in_play %>, {max:10, showText:false, textFormat: 'fraction', barImage: {0:  '/images/progressbg_green.gif', 4: '/images/progressbg_orange.gif', 7: '/images/progressbg_red.gif'}});
+        $("#uploadprogressbar").progressBar();
 
     });
 </script>
@@ -243,7 +252,7 @@
                                 <label>Long. Blancas:</label>
                               </li>
                               <li class="li-field-column">
-                                <%=h @course.length_white %>
+                                <%=h @course.length_white %>                                
                               </li>
                             </div>
                           </ul>
@@ -275,7 +284,7 @@
                         <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
 
                           <li class="row-form">
-                            <label class="label-accordion">Fundado en (año):</label>
+                            <label class="label-accordion">Año Fundaci&oacute;n:</label>
                             <%= @course.founded %>
                           </li>
                           <li class="row-form">
@@ -288,28 +297,27 @@
                           </li>
                           <li class="row-form">
                             <label class="label-accordion">Habilidad:</label>
-                            <%= @course.ability_recommended %>/10
+                            <span class="progressBar" id="pb_ability" title="<%= @course.ability_recommended.to_s + '/10' %>">%= @course.ability_recommended %>/10</span>
                           </li>
                           <li class="row-form">
                             <label class="label-accordion">Mantenimiento:</label>
-                            <%= @course.maintance %>/10
+                            <span class="progressBar" id="pb_maintance" title="<%= @course.maintance.to_s + '/10' %>"><%= @course.maintance %>/10</span>
                           </li>
                           <li class="row-form">
                             <label class="label-accordion">Relieve:</label>
-                            <%= @course.relief %>/10
+                            <span class="progressBar" id="pb_relief" title="<%= @course.relief.to_s + '/10' %>"><%= @course.relief %>/10</span>
                           </li>
                           <li class="row-form">
                             <label class="label-accordion">Viento:</label>
-                            <%= @course.wind %>/10
+                            <span class="progressBar" id="pb_wind" title="<%= @course.wind.to_s + '/10' %>"><%= @course.wind %>/10</span>
                           </li>
-
                           <li class="row-form">
                             <label class="label-accordion">Agua:</label>
-                            <%= @course.water_in_play %>/10
+                            <span class="progressBar" id="pb_water" title="<%= @course.water_in_play.to_s + '/10' %>"><%= @course.water_in_play %>/10</span>
                           </li>
                           <li class="row-form">
                             <label class="label-accordion">&Aacute;rboles:</label>
-                            <%= @course.trees_in_play %>/10
+                            <span class="progressBar" id="pb_trees" title="<%= @course.trees_in_play.to_s + '/10' %>"><%= @course.trees_in_play %>/10</span>
                           </li>
                         </ul>
 

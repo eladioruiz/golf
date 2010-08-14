@@ -8,5 +8,13 @@ class Hole < ActiveRecord::Base
   belongs_to :course  # Check it
   has_many :card_strokes, :dependent => :destroy  # Check it
   has_many :cards, :through => :card_strokes
+
+  named_scope :find_like_by_number, lambda {|course,num|
+                                    {
+                                      :select     => "holes.id, holes.number as value, holes.number as label ",
+                                      :conditions => ["course_id = ? and number like ?", course, num]
+                                    }
+                                  }
+
   
 end

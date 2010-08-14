@@ -3,20 +3,18 @@
 <table>
   <tr>
     <th>Course</th>
-    <th>Tee</th>
     <th>Par</th>
     <th>Handicap</th>
-    <th>Lenght</th>
+    <th>Length</th>
     <th>Enabled</th>
   </tr>
 
 <% @holes.each do |hole| %>
   <tr>
     <td><%=h hole.course %></td>
-    <td><%=h hole.tee %></td>
     <td><%=h hole.par %></td>
     <td><%=h hole.handicap %></td>
-    <td><%=h hole.lenght %></td>
+    <td><%=h hole.length_yellow %></td>
     <td><%=h hole.enabled %></td>
     <td><%= link_to 'Show', hole %></td>
     <td><%= link_to 'Edit', edit_hole_path(hole) %></td>
