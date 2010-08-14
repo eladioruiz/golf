@@ -1,9 +1,9 @@
 
 xml = Builder::XmlMarkup.new
-xml.graph(      :caption      => "Regularidad por Hoyo" ,
+xml.graph(      :caption      => "Regularidad por Partidos" ,
                 :subCaption   => subCaption ,
-                :yAxisMaxValue=>"120" ,
-                :yAxisMinValue=>"30" ,
+                :yAxisMaxValue=>"12" ,
+                :yAxisMinValue=>"1" ,
                 :xAxixName => "Fecha",
                 :yAxixName => "Golpes",
                 :rotateNames=>1 ,

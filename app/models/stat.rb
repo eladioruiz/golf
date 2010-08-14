@@ -39,4 +39,13 @@ class Stat
 
     return cs
   end
+
+  def self.regularity_per_hole(pHoleId,pUserId)
+    sql = "select strokes, matches.date_hour_match from card_strokes inner join cards on cards.id=card_strokes.card_id inner join players on cards.player_id=players.id inner join matches on (players.match_id=matches.id and cards.player_id=players.id) where user_id=" + pUserId.to_s() + " and hole_id=" + pHoleId.to_s() + " order by matches.date_hour_match"
+    cs = Card.find_by_sql(sql)
+
+    return cs
+  end
+
+
 end

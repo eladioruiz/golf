@@ -1,11 +1,5 @@
 <%= render :partial => 'layouts/header' %>
 
-        <div class="content_wrapper">
-
-            <%= render :partial => 'layouts/navigationbar' %>
-
-            <div class="main_content">
-                <div id="text_box_1_1" class="text_box">
         <style>
           .column_right {
             position: absolute;
@@ -14,6 +8,9 @@
             width: 220px;
           }
 
+          #graph {
+            
+          }
         </style>
 
         <script>
@@ -40,6 +37,13 @@
 
         </script>
 
+        <div class="content_wrapper">
+
+            <%= render :partial => 'layouts/navigationbar' %>
+
+            <div class="main_content">
+                <div id="text_box_1_1" class="text_box">
+
                   <div class="content_tb_header1_wrapper">
                      <div class="content_tb_header1_content">
                         <div class="content_tb_header1_left1">
@@ -57,8 +61,9 @@
 
                   <div class="content_tb_content_wrapper">
                     <div class="content_tb_content_content">
-                      <%= yield %>
-
+                      <div id="graph">
+                        <%= yield %>
+                      </div>
                       <div class="column_right">
                         <div id="accordion">
                           <h3><a href="#">Partidos</a></h3>
@@ -69,7 +74,7 @@
                                 <label><a href="/charts/regularity_strokes">Regularidad por partidos</a></label>
                               </li>
                               <li class="row-form">
-                                <label>Regularidad por hoyos</label>
+                                <label><a href="/charts/regularity_per_hole">Regularidad por hoyos</a></label>
                               </li>
                             </ul>
 

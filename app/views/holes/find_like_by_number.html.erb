@@ -1,0 +1,9 @@
+[ {"id": "0", "label": "<< Número >>", "value": "<< Número >>"}
+<%
+  @holes.each do |hole|
+%>
+    , {"id": "<%=h hole.id -%>", "label": "<%=h hole.label -%>", "value": "<%=h hole.value -%>"}
+<%
+  end
+%>
+]

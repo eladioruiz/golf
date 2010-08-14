@@ -14,16 +14,59 @@
                 }
               );
 
-              $("#course_name").autocomplete({
-                      source: "/courses/findlikebyname",
-                      minLength: 2,
-                      select: function(event, ui) {
-                        $("#course_id").val(ui.item.id);
+              $("#hole_id").change(
+                function (event) {
+                  $("#form_main").submit();
+                }
+              );
 
-                      }
+              $("#course_name").autocomplete({
+                source: "/courses/findlikebyname",
+                minLength: 2,
+                select: function(event, ui) {
+                  $("#course_id").val(ui.item.id);
+                  $.ajax({
+                    url: '/holes',
+                    dataType: 'json',
+                    data: {course_id: ui.item.id},
+                    success:  function(json){
+                                LlenarCombo(json, $("#hole_id")[0]);
+                              }
+                  });
+                }
               });
 
+              PosicionarCombo(<%= @hole_number %>,$("#hole_id")[0]);
             });
+
+            function VaciarCombo(combo) {
+              while(combo.length > 0){
+                combo.remove(combo.length-1);
+              }
+            };
+
+            function LlenarCombo(json,combo) {
+              VaciarCombo(combo);
+              combo.options[0] = new Option('Seleccione un hoyo', '');
+              for(var i=0;i<json.length;i++){
+                combo.options[combo.length] = new Option(json[i].number, json[i].id);
+              }
+            };
+
+            function PosicionarCombo(value,combo) {
+              var i=0;
+              var bExit = false;
+              while (i<combo.length && !bExit) {
+                if (combo.options[i].text == value) {
+                  combo.selectedIndex = i;
+                  bExit = true;
+                }
+                else {
+                  ++i;
+                }
+              }
+            };
+            
         </script>
 
         <style type='text/css'>
@@ -99,7 +142,7 @@
               height: 550px;
             }
 
-            #RegularityStrokes {
+            #RegularityHoles {
               text-align: left;
               width: 850px;
               border: 3px outset gray;
@@ -107,7 +150,7 @@
               padding-left: 0px;
             }
 
-            #RegularityStrokesDiv {
+            #RegularityHolesDiv {
               text-align: left;
               width: 850px;
               margin-left: 0px;
@@ -116,9 +159,12 @@
 
         </style>
 
-                      <% form_tag('/charts/regularity_strokes', :id => 'form_main') do  %>
-                        <%= text_field :course, :id, :size => 3, :maxlength => 2, :style => "display:none;" %>
+                      <% form_tag('/charts/regularity_per_hole', :id => 'form_main') do  %>
+                        <%= label "course", "id", "Campo:" %>
+                        <%= text_field :course, :id, :value => @course_id, :size => 3, :maxlength => 2, :style => "display:none;" %>
                         <input title="Introduzca algunos caracteres para empezar la búsqueda" id="course_name" name="course_name" type="text" size="40" value="<%= @course_name %>" />&nbsp;&nbsp;
+                        <%= label "hole", "id", "Hoyo:" %>
+                        <%= select "hole", "id", @holes.collect {|h| [h.number, h.id]}, :selected => "5" %>
                         <button id="button_help2" class="demo">Ayuda</button>
                         <button id="button_filter">Filtrar</button>
                       <% end %>
@@ -131,10 +177,10 @@
                       #For the sake of ease, we've used a database which contains two tables, which are linked to each
                       #other.
                       # The xml is obtained as a string from builder template.
-                      str_xml = render "calculate_regularity_strokes.builder",{:regularity_data => @regularity_data, :subCaption => @course_name}
+                      str_xml = render "calculate_regularity_per_hole.builder",{:regularity_data => @regularity_data, :subCaption => @course_name + ' - ' + @hole_number.to_s() + ' hole'}
 
                       #Create the chart - Pie 3D Chart with data from strXML
-                      render_chart '/chart/FCF_Line.swf', '', str_xml, 'RegularityStrokes', 850, 350, false, false do-%>
+                      render_chart '/chart/FCF_Line.swf', '', str_xml, 'RegularityHoles', 850, 350, false, false do-%>
                       <% end-%>
 
                       <div class="demo">

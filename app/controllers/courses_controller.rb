@@ -19,7 +19,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       format.html { render :action => 'index'} # index.html.erb
-      format.xml  { render :xml => @matches, :file => 'matches/index.xml' }
+      format.xml  { render :xml => @courses, :file => 'courses/index.xml' }
       format.json { render :json => @courses }
     end
   end
