@@ -1,6 +1,0 @@
-<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="<%= @chart.width %>" height="<%= @chart.height %>" id="<%= @chart.type %>" >
-   <param name="movie" value="../charts/FCF_<%= @chart.type %>.swf" />
-   <param name="FlashVars" value="&dataURL=<%= @chart.fileData %>.xml&chartWidth=<%= @chart.width %>&chartHeight=<%= @chart.height %>">
-   <param name="quality" value="high" />
-   <embed src="../charts/FCF_<%= @chart.type %>.swf" flashVars="&dataURL=Data.xml&chartWidth=<%= @chart.width %>&chartHeight=<%= @chart.height %>" quality="high" width="<%= @chart.width %>" height="<%= @chart.height %>" name="<%= @chart.type %>" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object>
