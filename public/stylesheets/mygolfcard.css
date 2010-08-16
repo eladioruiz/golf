@@ -286,7 +286,8 @@ div.row .submit {
 
 .kwicks li{
     float: left;
-    width: 154px;
+    /*width: 154px;*/
+    width: 187px;
     height: 25px;
     margin-right: 5px;
 }

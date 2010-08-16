@@ -13,6 +13,7 @@
 <%= error_messages_for :contact %>
 <% form_for @contact, :html => { :id => 'form_main', :class => "cmxform demo"}, :url => contacts_path do |f| -%>
 
+
 <p><label for="name">Nombre</label><br/>
 <%= f.text_field :name, :size => 30, :maxlength => 255 %></p>
 
@@ -24,6 +25,15 @@
 
 <%= f.hidden_field :redirection, :value => @redirect %>
 
+<%= recaptcha_tags(:ajax=>true) %>
+
+<script>
+var RecaptchaOptions = {
+   theme : 'white',
+   lang: 'es'
+};
+</script>
+<br>
 <button class="demo" id="button_save" onclick="">Enviar</button>
 <% end -%>
 
