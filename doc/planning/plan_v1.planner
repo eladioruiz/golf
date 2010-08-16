@@ -127,7 +127,7 @@
             </predecessors>
           </task>
         </task>
-        <task id="33" name="Inicio" note="" work="86400" start="20100714T120000Z" end="20100719T120000Z" work-start="20100714T120000Z" percent-complete="80" priority="0" type="normal" scheduling="fixed-work">
+        <task id="33" name="Inicio" note="" work="86400" start="20100714T120000Z" end="20100719T120000Z" work-start="20100714T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="30" type="FS"/>
           </predecessors>
@@ -137,7 +137,7 @@
               <predecessor id="1" predecessor-id="34" type="FS"/>
             </predecessors>
           </task>
-          <task id="36" name="Definir opciones finales" note="" work="28800" start="20100716T120000Z" end="20100719T120000Z" work-start="20100716T120000Z" percent-complete="50" priority="0" type="normal" scheduling="fixed-work">
+          <task id="36" name="Definir opciones finales" note="" work="28800" start="20100716T120000Z" end="20100719T120000Z" work-start="20100716T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="35" type="FS"/>
             </predecessors>
@@ -148,12 +148,12 @@
             <predecessor id="1" predecessor-id="33" type="FS"/>
           </predecessors>
         </task>
-        <task id="38" name="Datos Personales" note="" work="115200" start="20100720T120000Z" end="20100726T120000Z" work-start="20100720T120000Z" percent-complete="75" priority="0" type="normal" scheduling="fixed-work">
+        <task id="38" name="Datos Personales" note="" work="115200" start="20100720T120000Z" end="20100726T120000Z" work-start="20100720T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="37" type="FS"/>
           </predecessors>
           <task id="39" name="Modificaci&#xF3;n Datos" note="" work="28800" start="20100720T120000Z" end="20100721T120000Z" work-start="20100720T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="40" name="Recuperaci&#xF3;n password" note="" work="28800" start="20100721T120000Z" end="20100722T120000Z" work-start="20100721T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="40" name="Recuperaci&#xF3;n password" note="" work="28800" start="20100721T120000Z" end="20100722T120000Z" work-start="20100721T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="39" type="FS"/>
             </predecessors>
@@ -169,12 +169,12 @@
             </predecessors>
           </task>
         </task>
-        <task id="43" name="Stats" note="" work="230400" start="20100726T120000Z" end="20100805T120000Z" work-start="20100726T120000Z" percent-complete="20" priority="0" type="normal" scheduling="fixed-work">
+        <task id="43" name="Stats" note="" work="230400" start="20100726T120000Z" end="20100805T120000Z" work-start="20100726T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
             <predecessor id="1" predecessor-id="38" type="FS"/>
           </predecessors>
-          <task id="44" name="Definir 2-3 b&#xE1;sicas" note="" work="144000" start="20100726T120000Z" end="20100802T120000Z" work-start="20100726T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-          <task id="45" name="Estilos" note="" work="86400" start="20100802T120000Z" end="20100805T120000Z" work-start="20100802T120000Z" percent-complete="40" priority="0" type="normal" scheduling="fixed-work">
+          <task id="44" name="Definir 2-3 b&#xE1;sicas" note="" work="144000" start="20100726T120000Z" end="20100802T120000Z" work-start="20100726T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
+          <task id="45" name="Estilos" note="" work="86400" start="20100802T120000Z" end="20100805T120000Z" work-start="20100802T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="44" type="FS"/>
             </predecessors>

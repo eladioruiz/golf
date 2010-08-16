@@ -81,7 +81,7 @@ class UsersController < ApplicationController
     @find_by = params[:term]
     @users = User.find_like_by_name('%' + @find_by + '%')
 
-    render :json => @users, :template => 'users/find_like_by_name.html.erb'
+    render :json => @users #, :template => 'users/find_like_by_name.html.erb'
   end
 
   def recover_password

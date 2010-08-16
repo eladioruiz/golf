@@ -26,7 +26,7 @@
                 select: function(event, ui) {
                   $("#course_id").val(ui.item.id);
                   $.ajax({
-                    url: '/holes',
+                    url: '/holes/getholes',
                     dataType: 'json',
                     data: {course_id: ui.item.id},
                     success:  function(json){
