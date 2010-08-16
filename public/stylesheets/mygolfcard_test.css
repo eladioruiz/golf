@@ -1193,3 +1193,12 @@ form.cmxform fieldset fieldset label {
     text-align: right;
 }
 
+.tooltip {
+  display:none;
+  background:transparent url(/images/white.png);
+  font-size:11px;
+  height:60px;
+  width:160px;
+  padding:25px;
+  color:#000;
+}
