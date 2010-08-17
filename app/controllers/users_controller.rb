@@ -26,24 +26,31 @@ class UsersController < ApplicationController
   end
 
   def create
-    cookies.delete :auth_token
-    # protects against session fixation attacks, wreaks havoc with 
-    # request forgery protection.
-    # uncomment at your own risk
-    # reset_session
-    @user = User.new(params[:user])
-    @user.save
-    if @user.errors.empty?
-      self.current_user = @user
 
-      flash[:notice] = "Gracias por registrarse en My Golf Card!"
+    if verify_recaptcha
+      cookies.delete :auth_token
+      # protects against session fixation attacks, wreaks havoc with
+      # request forgery protection.
+      # uncomment at your own risk
+      # reset_session
+      @user = User.new(params[:user])
+      @user.save
+      if @user.errors.empty?
+        self.current_user = @user
 
-      UserMailer.deliver_activation(@user)
+        flash[:notice] = "Gracias por registrarse en My Golf Card!"
 
-      redirect_back_or_default('/home')
+        UserMailer.deliver_activation(@user)
+
+        redirect_back_or_default('/home')
 
 
+      else
+        flash[:notice] = "El registro en My Golf Card no ha sido correcto!"
+        render :action => 'new'
+      end
     else
+      flash[:notice] = "Error en las palabras tecleadas!"
       render :action => 'new'
     end
   end
@@ -74,7 +81,7 @@ class UsersController < ApplicationController
     @find_by = params[:term]
     @users = User.find_like_by_name('%' + @find_by + '%')
 
-    render :json => @users, :template => 'users/find_like_by_name.html.erb'
+    render :json => @users #, :template => 'users/find_like_by_name.html.erb'
   end
 
   def recover_password

@@ -286,7 +286,8 @@ div.row .submit {
 
 .kwicks li{
     float: left;
-    width: 154px;
+    /*width: 154px;*/
+    width: 187px;
     height: 25px;
     margin-right: 5px;
 }
@@ -1197,3 +1198,22 @@ form.cmxform fieldset fieldset label {
     text-align: right;
 }
 
+.tooltip {
+  display:none;
+  background:transparent url(/images/white.png);
+  font-size:12px;
+  height:30px;
+  width:120px;
+  padding:15px;
+  color:#fff;
+}
+
+.tooltip.bottom {
+	background:url(/images/white_bottom.png);
+	padding-top:40px;
+	height:55px;
+}
+
+.tooltip.bottom {
+	background:url(/images/white_bottom.png);
+}

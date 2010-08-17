@@ -13,6 +13,14 @@ class HolesController < ApplicationController
 
   end
 
+  def get_holes
+    @course_id = params[:course_id]
+    @holes = Hole.get_holes_by_course_id(@course_id)
+
+    render :json => @holes
+
+  end
+
   # GET /holes/1
   def show
     @hole = Hole.find(params[:id])

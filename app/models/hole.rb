@@ -16,5 +16,11 @@ class Hole < ActiveRecord::Base
                                     }
                                   }
 
+  named_scope :get_holes_by_course_id, lambda {|course|
+                                    {
+                                      :select     => "holes.id as id, holes.number as number",
+                                      :conditions => ["course_id = ? ", course]
+                                    }
+                                  }
   
 end

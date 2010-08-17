@@ -35,6 +35,16 @@
 <p><label for="handicap">Handicap</label><br/>
 <%= f.text_field :handicap %></p>
 
+<%= recaptcha_tags(:ajax=>true) %>
+
+<script>
+var RecaptchaOptions = {
+   theme : 'white',
+   lang: 'es'
+};
+</script>
+<br>
+
 <button class="demo" id="button_save" onclick="">Grabar</button>
 <% end -%>
 

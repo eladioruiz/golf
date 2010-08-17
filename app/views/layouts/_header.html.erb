@@ -9,11 +9,12 @@
     <meta name="description" content="mygolfcard es una aplicación web gratuíta que le permite almacenar las tarjetas con la puntuación de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
     <title>My Golf Card - Tarjetas de Golf On-line Gratis - Marcadores, Estadísticas, Gráficos</title>
 
-    <%= stylesheet_link_tag 'mygolfcard' %>
+    <%= stylesheet_link_tag 'mygolfcard_test' %>
     
     <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
     
     <%= javascript_include_tag 'jquery-1.4.2.min' %>
+    <%= javascript_include_tag 'jquery.tools.min' %>
     <%= javascript_include_tag 'jquery.easing.min' %>
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
     <%= javascript_include_tag 'jquery.kwicks-1.5.1' %>
@@ -55,7 +56,20 @@
         $('.kwicks').kwicks({
             min : 110,
             spacing : 10
-        }); */  
+        }); */
+
+            $(".tip[title]").tooltip({
+
+               // tweak the position
+               offset: [10, 2],
+
+               // use the "slide" effect
+               effect: 'slide'
+
+            // add dynamic plugin with optional configuration for bottom edge
+            }).dynamic({ bottom: { direction: 'down', bounce: true } });;
+
+
 
 <%
   if @audit_controller=='matches' and (@audit_action=='new' or @audit_action=='edit')
@@ -230,29 +244,29 @@
                     </div>
                     <% end %>
                     <div class="wrapbranding">
-                        <div class="branding">
-                            <h1><a href="/home">My Golf Card</a><span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();'>BETA</a></span></h1>
-                            <h2>Tarjetas y Puntuaciones</h2>
+                      <div class="branding">
+                        <h1><a href="/home">My Golf Card</a><span class="beta"><a id="dialog1" href="javascript:;" onclick='$("#beta-modal1").dialog();'>BETA</a></span></h1>
+                        <h2>Tarjetas y Puntuaciones</h2>
 
-                              <div class="demo">
-                                <div id="beta-modal1" style="display:none" title="My Golf Card - ¿Por qu&eacute; BETA?">
-                                  <p><strong>¿Por qu&eacute; BETA?</strong><br>La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
-                                  <p><strong>Y entonces, ¿por qu&eacute; está ya online?</strong><br>Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.</p>
-                                  <p>Entonces pensamos, <strong>¿vamos a hacerles esperar unos meses m&aacute;s a que todo est&eacute; acabado?</strong> No, preferimos que Vd. empiece a familiarizarse, utilizar y disfrutar de My Golf Card mientras nosotros pulimos, mejoramos y ampliamos nuestra idea inicial.
-                                  </p>
-                                </div>
-                              </div>
-                            
-                        </div>
+                          <div class="demo">
+                            <div id="beta-modal1" style="display:none" title="My Golf Card - ¿Por qu&eacute; BETA?">
+                              <p><strong>¿Por qu&eacute; BETA?</strong><br>La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
+                              <p><strong>Y entonces, ¿por qu&eacute; está ya online?</strong><br>Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.</p>
+                              <p>Entonces pensamos, <strong>¿vamos a hacerles esperar unos meses m&aacute;s a que todo est&eacute; acabado?</strong> No, preferimos que Vd. empiece a familiarizarse, utilizar y disfrutar de My Golf Card mientras nosotros pulimos, mejoramos y ampliamos nuestra idea inicial.
+                              </p>
+                            </div>
+                          </div>
+                      </div>
                     </div>
                     <div class="user_info">
                       <% if @audit_controller!='microsites' %>
+                      <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)&nbsp;&nbsp;&nbsp;<a href="/logout" alt="Logout"><img src="/images/logout.gif" border="0" alt="Logout" /></a>
                       <div id="user">
-                        <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)
+                        
                         <!--<br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>-->
                       </div>
                       <div id="logout">
-                        <a href="/logout" alt="Logout"><img src="/images/logout.gif" border="0" alt="Logout" /></a>                        
+                                                
                       </div>
                       <% end %>
                     </div> <!-- end: user_info -->

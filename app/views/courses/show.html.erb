@@ -1,4 +1,5 @@
 <style type='text/css'>
+
     .content_tb_header1_wrapper {
        position: relative;
        float: left;
@@ -296,27 +297,27 @@
                             <%= @course.course_type.description %>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">Habilidad:</label>
+                            <label class="label-accordion tip" title="<strong>Habilidad</strong>:<br><i>nivel</i> recomendado en una escala del 1 al 10">Habilidad:</label>
                             <span class="progressBar" id="pb_ability" title="<%= @course.ability_recommended.to_s + '/10' %>">%= @course.ability_recommended %>/10</span>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">Mantenimiento:</label>
+                            <label class="label-accordion tip" title="<strong>Mantenimiento</strong>:<br>Puntuación de 1 a 10 del mantenimiento del campo">Mantenimiento:</label>
                             <span class="progressBar" id="pb_maintance" title="<%= @course.maintance.to_s + '/10' %>"><%= @course.maintance %>/10</span>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">Relieve:</label>
+                            <label class="label-accordion tip" title="<strong>Relieve</strong>:<br>Importancia del relieve (desniveles, etc) en el campo en una escala del 1 al 10">Relieve:</label>
                             <span class="progressBar" id="pb_relief" title="<%= @course.relief.to_s + '/10' %>"><%= @course.relief %>/10</span>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">Viento:</label>
+                            <label class="label-accordion tip" title="<strong>Viento</strong>:<br>Relevancia del viento en el juego en una escala del 1 al 10">Viento:</label>
                             <span class="progressBar" id="pb_wind" title="<%= @course.wind.to_s + '/10' %>"><%= @course.wind %>/10</span>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">Agua:</label>
+                            <label class="label-accordion tip" title="<strong>Agua</strong>:<br>Relevancia de obstáculos de agua en el campo en una escala del 1 al 10">Agua:</label>
                             <span class="progressBar" id="pb_water" title="<%= @course.water_in_play.to_s + '/10' %>"><%= @course.water_in_play %>/10</span>
                           </li>
                           <li class="row-form">
-                            <label class="label-accordion">&Aacute;rboles:</label>
+                            <label class="label-accordion tip" title="<strong>Árboles</strong>:<br>Relevancia de los árboles del campo sobre el juego en una escala del 1 al 10">&Aacute;rboles:</label>
                             <span class="progressBar" id="pb_trees" title="<%= @course.trees_in_play.to_s + '/10' %>"><%= @course.trees_in_play %>/10</span>
                           </li>
                         </ul>

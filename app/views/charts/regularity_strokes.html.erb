@@ -19,7 +19,7 @@
                       minLength: 2,
                       select: function(event, ui) {
                         $("#course_id").val(ui.item.id);
-
+                        $("#form_main").submit();
                       }
               });
 
@@ -117,10 +117,11 @@
         </style>
 
                       <% form_tag('/charts/regularity_strokes', :id => 'form_main') do  %>
+                        <%= label "course", "id", "Campo:" %>
                         <%= text_field :course, :id, :size => 3, :maxlength => 2, :style => "display:none;" %>
                         <input title="Introduzca algunos caracteres para empezar la búsqueda" id="course_name" name="course_name" type="text" size="40" value="<%= @course_name %>" />&nbsp;&nbsp;
                         <button id="button_help2" class="demo">Ayuda</button>
-                        <button id="button_filter">Filtrar</button>
+                        <!--<button id="button_filter">Filtrar</button>-->
                       <% end %>
 
                       <p>&nbsp;</p>

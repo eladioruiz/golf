@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/courses/findlikebyname', :controller => 'courses', :action => 'find_like_by_name'
 
   map.connect '/holes/findlikebynumber', :controller => 'holes', :action => 'find_like_by_number'
+  map.connect '/holes/getholes', :controller => 'holes', :action => 'get_holes'
 
   map.connect '/users/publicusers', :controller => 'users', :action => 'public_users'
   map.connect '/users/recover_password', :controller => 'users', :action => 'recover_password'
