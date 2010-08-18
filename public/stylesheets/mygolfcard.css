@@ -160,14 +160,15 @@ body {
     padding-left: 25px;
 }
 
+/*
 .user_info{
     float: left;
     width: 60%;
     margin-left: -100%;
-    /*background-color: #98fb98;*/
     height: 80px;
     padding-left: 25px;
 }
+*/
 
 .footer_header{
     float: left;
@@ -373,7 +374,6 @@ div.row .submit {
     margin-left: 15px;
     float: left;
     font-size: 10pt;
-    /*font-family: verdana, arial, helvetica, sans-serif;*/
     font-family: "Avant Garde", "Century Gothic", sans-serif;
 }
 

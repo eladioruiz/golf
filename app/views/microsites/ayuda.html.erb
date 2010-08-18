@@ -28,7 +28,7 @@
 
 <h1>Ayuda con <strong>My Golf Card</strong></h1>
 <!--<h3>Contacte con nosotros para obtener m&aacute;s ayuda.</h3>-->
-<%= flash[:envio] %>
+<span style="color:red"><%= flash[:envio] %></span>
 
 <ol>
   <p  class="ayuda-li">
@@ -114,7 +114,7 @@
   <li>
     <div class="ayuda-li">
       <div class="ayuda-li-head" id="pto_5">
-        Para cualquier duda o sugerencia, <a id="dialog1" href="javascript:;" onclick='$("#ayuda-pto-5").dialog({width: 340});' >contacte</a> con nosotros y le responderemos lo más r&aacute;pidamente posible.
+        Para cualquier duda o sugerencia, <a id="dialog1" href="javascript:;" onclick='$("#dialog-contact").show();' >contacte</a> con nosotros y le responderemos lo más r&aacute;pidamente posible.
       </div>
       <p></p>
     </div>
@@ -127,15 +127,15 @@
     <br>* La mencionada p&aacute;gina inicial, <i>HOME</i>, presenta un resumen de su actividad dentro de <strong><strong>My Golf Card</strong></strong> para que de un vistazo vea su situación general. Después ya podrá pasar por encima de cada opci&oacute;n y hacer <i>click</i> para acceder a las funcionalidades m&aacute;s concretas.
     <br>* Por todo <strong>My Golf Card</strong> encontrar&aacute; botones para realizar diferentes acciones, algunos con un texto expl&iacute;cativo dentro de los mismos, y otros sin &eacute;l. En cualquier caso, colocando el cursor encima de ellos, se mostrará un pequeño texto que le indicar&aacute; la acci&oacute;n que realiza ese botón. Tambi&eacute;n observe que se utilizan los mismos iconos para las mismas acciones, de esta forma, al poco tiempo de usarlo ya sabr&aacute; que acci&oacute;n llevan asociadas sin dudarlo.
     <br>* Hay algunos campos de texto que esperan que introduzca algunos caracteres para ofrecerle los valores que se ajusten a ellos.
-    <br>* El objetivo principal de <strong>My Golf Card</strong> es que Vd. se sienta a gusto y utilice cuanto más mejor esta web, por lo que para cualquier duda o sugerencia, <a id="dialog1" href="javascript:;" onclick='$("#ayuda-pto-5").dialog({width: 340});' >contacte</a> con nosotros y le responderemos lo más r&aacute;pidamente posible.
+    <br>* El objetivo principal de <strong>My Golf Card</strong> es que Vd. se sienta a gusto y utilice cuanto más mejor esta web, por lo que para cualquier duda o sugerencia, <a id="dialog1" href="javascript:;" onclick='$("#dialog-contact").show();' >contacte</a> con nosotros y le responderemos lo más r&aacute;pidamente posible.
   </p>
 
 </ol>
 
 <div class="demo">
 
-  <div id="ayuda-pto-5" style="display:none" title="<strong>My Golf Card</strong> - Contactar">
+
     <%= render :partial => 'layouts/contact' %>
-  </div>
+
 
 </div>
