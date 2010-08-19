@@ -9,6 +9,13 @@
         text: true
     });
 
+
+    $("#button_save").click(
+      function (event) {
+          $("#loading").show();
+          $("#form_main").submit();
+    });
+    
   })
 </script>
 
@@ -37,7 +44,12 @@ var RecaptchaOptions = {
 <%= recaptcha_tags(:ajax=>true) %>
 
 <br>
-<button class="demo" id="button_save" onclick="">Enviar</button>
+<button class="demo" id="button_save" >Enviar</button>
 <% end -%>
 
+<div id="loading" style="display:none; position: absolute; top: 100px; left:130px;">
+  <img src="/images/loading.gif" border="0">
+</div>
+
   </div><div class="ui-resizable-handle ui-resizable-n" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-e" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-s" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-w" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004; -moz-user-select: none;" unselectable="on"></div></div>
+
