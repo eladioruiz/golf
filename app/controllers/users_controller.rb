@@ -115,7 +115,8 @@ private
   def generate_random_password
     #(1..8).each do
     #end
-    "fulanitez"
+    ActiveSupport::SecureRandom.base64(6)
+
   end
 
 end
