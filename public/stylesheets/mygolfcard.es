@@ -85,26 +85,52 @@ body {
 .wrapper_header{
     width: 100%;
     margin: 0 auto;
-}
-.header_header{
+    position: relative;
     float: left;
     width: 100%;
-    /*background-color: #f4f4f4;*/
+    left: 0%;
+}
+.header_header{
+    position: relative;
+    float: left;
+    width: 100%;
+    left: 0%;
     height: 0px;
-    margin-left: 50px;
     font-size: 10pt;
     /*font-family: verdana, arial, helvetica, sans-serif;*/
     font-family: "Avant Garde", "Century Gothic", sans-serif;
+    text-align: left;
+    margin-left: 585px;
+}
+.wrapbranding{
+   position: relative;
+   float: left;
+   left: 0.00%;
+   width: 40.00%;
+   text-align: center;
 }
 
-.wrapbranding{
-    float: left;
-    width: 100%;
-    /*background-color: #cfcfcf*/
+.login_box{
+   float: right;
+   position: relative;
+
+   right: 0%;
+   width: 48%;
+   margin-left: -100%;
+   left: 0px;
+}
+
+.user_info{
+   float: right;
+   right: 0%;
+   width: 48%;
+   text-align: right;
+   font-size: 12px;
+   margin-right: 35px;
 }
 
 .branding{
-    margin-left: 40%;
+
     /*background-color: #afeeee;*/
     height: 80px;
     margin-top: 0px;
@@ -118,7 +144,6 @@ body {
     font-size: 36px;
     letter-spacing:-1px;
     padding: 0px;
-    text-align:right;
     text-decoration: none;
 }
 
@@ -147,40 +172,17 @@ body {
     font-weight: bold;
     color: #666;
     font-size: 1.5em;
-    float:right;
-    text-align:left;
     margin: 0px;
 }
-.login_box{
-    float: left;
-    width: 50%;
-    margin-left: -100%;
-    /*background-color: #98fb98;*/
-    height: 80px;
-    padding-left: 25px;
-}
-
-/*
-.user_info{
-    float: left;
-    width: 60%;
-    margin-left: -100%;
-    height: 80px;
-    padding-left: 25px;
-}
-*/
 
 .footer_header{
-    float: left;
-    width: 100%;
-    /*background-color: #a1f4f4;*/
-    height: 0px;
+   position: relative;
+   float: left;
+   left: 0.00%;
+   width: 100.00%;
 }
 
 /* ------------------ ELADIO -------------- */
-body {
-}
-
 /* ------------------ FORMS ---------------- */
 
 input, select, button {
@@ -369,13 +371,6 @@ div.row .submit {
 
 
 /* --- User Info ----------------------------------------------------------- */
-#user_info {
-    margin-top: 0px;
-    margin-left: 15px;
-    float: left;
-    font-size: 10pt;
-    font-family: "Avant Garde", "Century Gothic", sans-serif;
-}
 
 #user {
     float: left;
@@ -1202,19 +1197,9 @@ form.cmxform fieldset fieldset label {
 .tooltip {
   display:none;
   background:transparent url(/images/white.png);
-  font-size:12px;
-  height:30px;
-  width:120px;
-  padding:15px;
-  color:#fff;
-}
-
-.tooltip.bottom {
-	background:url(/images/white_bottom.png);
-	padding-top:40px;
-	height:55px;
-}
-
-.tooltip.bottom {
-	background:url(/images/white_bottom.png);
+  font-size:11px;
+  height:60px;
+  width:160px;
+  padding:25px;
+  color:#000;
 }

@@ -76,9 +76,9 @@
 <style>
   .column_right {
     position: relative;
-    top: -418px;
-    left: 642px;
-    width: 277px;
+    top: -218px;
+    left: 622px;
+    width: 290px;
   }
 
   /**
@@ -259,6 +259,48 @@
                           </ul>
                         </li>
                       </ol>
+
+                      <div class="column_right">
+                        <div id="accordion">
+                          <h3><a href="#">Datos adicionales Campo</a></h3>
+                          <div>
+                            <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
+                              <li class="row-form">
+                                <label class="label-accordion">Año Fundaci&oacute;n:</label>&nbsp;<%= @course.founded -%>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion">Diseñador:</label>&nbsp;<%= @course.designer -%>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion">Tipo de Campo:</label>&nbsp;<%= @course.course_type.description -%>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Habilidad</strong>:<br><i>nivel</i> recomendado en una escala del 1 al 10">Habilidad:</label>&nbsp;<span class="progressBar" id="pb_ability" title="<%= @course.ability_recommended.to_s + '/10' %>">%= @course.ability_recommended %>/10</span>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Mantenimiento</strong>:<br>Puntuación de 1 a 10 del mantenimiento del campo">Mantenimiento:</label>&nbsp;<span class="progressBar" id="pb_maintance" title="<%= @course.maintance.to_s + '/10' %>"><%= @course.maintance %>/10</span>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Relieve</strong>:<br>Importancia del relieve (desniveles, etc) en el campo en una escala del 1 al 10">Relieve:</label>&nbsp;<span class="progressBar" id="pb_relief" title="<%= @course.relief.to_s + '/10' %>"><%= @course.relief %>/10</span>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Viento</strong>:<br>Relevancia del viento en el juego en una escala del 1 al 10">Viento:</label>&nbsp;<span class="progressBar" id="pb_wind" title="<%= @course.wind.to_s + '/10' %>"><%= @course.wind %>/10</span>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Agua</strong>:<br>Relevancia de obstáculos de agua en el campo en una escala del 1 al 10">Agua:</label>&nbsp;<span class="progressBar" id="pb_water" title="<%= @course.water_in_play.to_s + '/10' %>"><%= @course.water_in_play %>/10</span>
+                              </li>
+                              <li class="row-form">
+                                <label class="label-accordion tip" title="<strong>Árboles</strong>:<br>Relevancia de los árboles del campo sobre el juego en una escala del 1 al 10">&Aacute;rboles:</label>&nbsp;<span class="progressBar" id="pb_trees" title="<%= @course.trees_in_play.to_s + '/10' %>"><%= @course.trees_in_play %>/10</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <h3><a href="#">Mapa Google</a></h3>
+                          <div id="map">
+
+                          </div> <!-- map -->
+                        </div> <!-- END div accordion -->
+                      </div> <!-- END div column_right -->
+
                     </fieldset>
                   </div> <!-- end div class:cmxform -->
 
@@ -278,57 +320,6 @@
                       </fieldset>
                   </div> <!-- end Galería de Imágenes -->
 
-                  <div class="column_right">
-                    <div id="accordion">
-                      <h3><a href="#">Datos adicionales Campo</a></h3>
-                      <div>
-                        <ul class="ul-accordion" style="margin-top:-10px;line-height: 1.5;">
-
-                          <li class="row-form">
-                            <label class="label-accordion">Año Fundaci&oacute;n:</label>
-                            <%= @course.founded %>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion">Diseñador:</label>
-                            <%= @course.designer %>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion">Tipo de Campo:</label>
-                            <%= @course.course_type.description %>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Habilidad</strong>:<br><i>nivel</i> recomendado en una escala del 1 al 10">Habilidad:</label>
-                            <span class="progressBar" id="pb_ability" title="<%= @course.ability_recommended.to_s + '/10' %>">%= @course.ability_recommended %>/10</span>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Mantenimiento</strong>:<br>Puntuación de 1 a 10 del mantenimiento del campo">Mantenimiento:</label>
-                            <span class="progressBar" id="pb_maintance" title="<%= @course.maintance.to_s + '/10' %>"><%= @course.maintance %>/10</span>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Relieve</strong>:<br>Importancia del relieve (desniveles, etc) en el campo en una escala del 1 al 10">Relieve:</label>
-                            <span class="progressBar" id="pb_relief" title="<%= @course.relief.to_s + '/10' %>"><%= @course.relief %>/10</span>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Viento</strong>:<br>Relevancia del viento en el juego en una escala del 1 al 10">Viento:</label>
-                            <span class="progressBar" id="pb_wind" title="<%= @course.wind.to_s + '/10' %>"><%= @course.wind %>/10</span>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Agua</strong>:<br>Relevancia de obstáculos de agua en el campo en una escala del 1 al 10">Agua:</label>
-                            <span class="progressBar" id="pb_water" title="<%= @course.water_in_play.to_s + '/10' %>"><%= @course.water_in_play %>/10</span>
-                          </li>
-                          <li class="row-form">
-                            <label class="label-accordion tip" title="<strong>Árboles</strong>:<br>Relevancia de los árboles del campo sobre el juego en una escala del 1 al 10">&Aacute;rboles:</label>
-                            <span class="progressBar" id="pb_trees" title="<%= @course.trees_in_play.to_s + '/10' %>"><%= @course.trees_in_play %>/10</span>
-                          </li>
-                        </ul>
-
-                      </div>
-                      <h3><a href="#">Mapa Google</a></h3>
-                      <div id="map">
-
-                      </div> <!-- map -->
-                    </div> <!-- END div accordion -->
-                  </div> <!-- END div column_right -->
                   
                 </div> <!-- content_tb_content_content -->
               </div> <!-- content_tb_content_wrapper -->

@@ -46,11 +46,11 @@ class UsersController < ApplicationController
 
       else
         flash[:notice] = "El registro en My Golf Card no ha sido correcto!"
-        render :action => 'session/new'
+        redirect_back_or_default('/session/new')
       end
     else
-      flash[:notice] = "Error en las palabras tecleadas!"
-      render :action => 'session/new'
+      flash[:notice] = "Error en las palabras tecleadas! Intente el registro de nuevo."
+      redirect_back_or_default('/session/new')
     end
   end
 

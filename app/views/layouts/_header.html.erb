@@ -9,7 +9,7 @@
     <meta name="description" content="mygolfcard es una aplicación web gratuíta que le permite almacenar las tarjetas con la puntuación de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
     <title>My Golf Card - Tarjetas de Golf On-line Gratis - Marcadores, Estadísticas, Gráficos</title>
 
-    <%= stylesheet_link_tag 'mygolfcard_test' %>
+    <%= stylesheet_link_tag 'mygolfcard' %>
     
     <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
     
@@ -217,7 +217,7 @@
       });
 
       $("#button_help").click(function () {
-        window.open('/ayuda');
+        window.open('/ayuda','help');
       });
 
     });
