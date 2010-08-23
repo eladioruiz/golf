@@ -93,6 +93,17 @@ class ChartsController < ApplicationController
     @title = "Regularidad por Hoyo"
   end
 
+  def compare_match
+    headers["content-type"]="text/html";
+
+    @match_id = params[:match_id]
+    @match = Match.find(@match_id)
+    @players = @match.players
+    @holes = @match.holes
+
+    @title = "Regularidad por Hoyo"
+  end
+
   def current_menu
     @current_menu = {'init' => '', 'matches' => '', 'courses' => '', 'charts' => 'current'}
   end

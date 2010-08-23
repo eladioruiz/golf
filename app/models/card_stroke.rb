@@ -10,6 +10,13 @@ class CardStroke < ActiveRecord::Base
 
   named_scope :sort, 'ORDER BY hole_id'
 
+  named_scope :find_by_hole_number, lambda {|hole_number|
+                                          {
+                                            :joins      => ' inner join holes on card_strokes.hole_id=holes.id',
+                                            :conditions => [' holes.number=?', hole_number]
+                                          }
+                                        }
+
   def hole_number
     h = Hole.find_by_id(hole_id)
     h.number

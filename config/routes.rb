@@ -39,6 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/pie_courses', :controller => 'charts', :action => 'pie_courses'
   map.connect '/charts/regularity_strokes', :controller => 'charts', :action => 'regularity_strokes'
   map.connect '/charts/regularity_per_hole', :controller => 'charts', :action => 'regularity_per_hole'
+  map.connect '/charts/compare_match', :controller => 'charts', :action => 'compare_match'
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 
