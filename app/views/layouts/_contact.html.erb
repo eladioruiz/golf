@@ -1,3 +1,5 @@
+<div id="dialog-contact" style="display: none; z-index: 1003; outline: 0px none; position: absolute; height: auto; width: 340px; top: 44.5px; left: 459px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog-contact"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" unselectable="on" style="-moz-user-select: none;"><span class="ui-dialog-title" id="ui-dialog-title-dialog-contact" unselectable="on" style="-moz-user-select: none;"><strong unselectable="on" style="-moz-user-select: none;">My Golf Card</strong> - Contactar</span><a href="#" onClick="$('#dialog-contact').hide();return false;" class="ui-dialog-titlebar-close ui-corner-all" role="button" unselectable="on" style="-moz-user-select: none;"><span class="ui-icon ui-icon-closethick" unselectable="on" style="-moz-user-select: none;">close</span></a></div><div style="width: auto; display: block; min-height: 121px; height: auto;" id="dialog-contact" class="ui-dialog-content ui-widget-content">
+
 <script>
   $(function() {
     $(".demo button:first").button({
@@ -7,6 +9,13 @@
         text: true
     });
 
+
+    $("#button_save").click(
+      function (event) {
+          $("#loading").show();
+          $("#form_main").submit();
+    });
+    
   })
 </script>
 
@@ -25,15 +34,22 @@
 
 <%= f.hidden_field :redirection, :value => @redirect %>
 
-<%= recaptcha_tags(:ajax=>true) %>
-
 <script>
 var RecaptchaOptions = {
    theme : 'white',
    lang: 'es'
 };
 </script>
+
+<%= recaptcha_tags(:ajax=>true) %>
+
 <br>
-<button class="demo" id="button_save" onclick="">Enviar</button>
+<button class="demo" id="button_save" >Enviar</button>
 <% end -%>
+
+<div id="loading" style="display:none; position: absolute; top: 100px; left:130px;">
+  <img src="/images/loading.gif" border="0">
+</div>
+
+  </div><div class="ui-resizable-handle ui-resizable-n" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-e" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-s" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-w" unselectable="on" style="-moz-user-select: none;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003; -moz-user-select: none;" unselectable="on"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004; -moz-user-select: none;" unselectable="on"></div></div>
 

@@ -1016,6 +1016,7 @@ form.cmxform fieldset fieldset label {
     font-weight: bold;
     width: 100px;
     display:inline-block;
+    vertical-align: baseline;
 }
 
 .li-field {

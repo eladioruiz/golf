@@ -195,7 +195,7 @@
               <predecessor id="1" predecessor-id="48" type="FS"/>
             </predecessors>
           </task>
-          <task id="50" name="Revisi&#xF3;n presentaci&#xF3;n tarjeta" note="" work="28800" start="20100812T120000Z" end="20100813T120000Z" work-start="20100812T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+          <task id="50" name="Revisi&#xF3;n presentaci&#xF3;n tarjeta" note="" work="28800" start="20100812T120000Z" end="20100813T120000Z" work-start="20100812T120000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
             <predecessors>
               <predecessor id="1" predecessor-id="49" type="FS"/>
             </predecessors>

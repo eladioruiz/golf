@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def create
 
-    if verify_recaptcha
+    if verify_recaptcha #-- ERL hasta que consigamos que funcione recaptcha
       cookies.delete :auth_token
       # protects against session fixation attacks, wreaks havoc with
       # request forgery protection.
@@ -39,19 +39,18 @@ class UsersController < ApplicationController
         self.current_user = @user
 
         flash[:notice] = "Gracias por registrarse en My Golf Card!"
-
+        
         UserMailer.deliver_activation(@user)
 
         redirect_back_or_default('/home')
 
-
       else
         flash[:notice] = "El registro en My Golf Card no ha sido correcto!"
-        render :action => 'new'
+        redirect_back_or_default('/session/new')
       end
     else
-      flash[:notice] = "Error en las palabras tecleadas!"
-      render :action => 'new'
+      flash[:notice] = "Error en las palabras tecleadas! Intente el registro de nuevo."
+      redirect_back_or_default('/session/new')
     end
   end
 
@@ -116,7 +115,8 @@ private
   def generate_random_password
     #(1..8).each do
     #end
-    "fulanitez"
+    ActiveSupport::SecureRandom.base64(6)
+
   end
 
 end

@@ -9,7 +9,7 @@
     <meta name="description" content="mygolfcard es una aplicación web gratuíta que le permite almacenar las tarjetas con la puntuación de sus partidos online, con la posibilidad de recuperarlas en cualquier momento y lugar a través de una conexión a internet. Con mygolfcard podrá introducir las tarjetas también de sus compañeros de partido y obtener toda una colección de grafícos y estadísticas que le permitirán analizar su juego a través de todas sus tarjetas." />
     <title>My Golf Card - Tarjetas de Golf On-line Gratis - Marcadores, Estadísticas, Gráficos</title>
 
-    <%= stylesheet_link_tag 'mygolfcard_test' %>
+    <%= stylesheet_link_tag 'mygolfcard' %>
     
     <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
     
@@ -47,7 +47,7 @@
     end
 %>
 
-    <script>
+    <script type="text/javascript">
     // Place your application-specific JavaScript functions and classes here
     // This file is automatically included by javascript_include_tag :defaults
     $(document).ready(function(){
@@ -217,7 +217,7 @@
       });
 
       $("#button_help").click(function () {
-        window.open('/ayuda');
+        window.open('/ayuda','help');
       });
 
     });
@@ -250,28 +250,28 @@
 
                           <div class="demo">
                             <div id="beta-modal1" style="display:none" title="My Golf Card - ¿Por qu&eacute; BETA?">
-                              <p><strong>¿Por qu&eacute; BETA?</strong><br>La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
-                              <p><strong>Y entonces, ¿por qu&eacute; está ya online?</strong><br>Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.</p>
+                              <p><strong>¿Por qu&eacute; BETA?</strong><br />La raz&oacute;n por la que denominamos BETA a esta versión de My Golf Card es que, aunque estamos convencidos de que le va a resultar tremendamente &uacute;til, todav&iacute;a no tiene todas las funcionalidades que tenemos pensadas para ella.</p>
+                              <p><strong>Y entonces, ¿por qu&eacute; está ya online?</strong><br />Esta ser&iacute;a la siguiente pregunta l&oacute;gica, ¿no es cierto? Pues porque queremos que empiece a introducir cuanto antes sus partidos, sus tarjetas, sus amigos. Esta es la informaci&oacute;n b&aacute;sica para My Golf Card y cualquier funcionalidad posterior se basará en esta información.</p>
                               <p>Entonces pensamos, <strong>¿vamos a hacerles esperar unos meses m&aacute;s a que todo est&eacute; acabado?</strong> No, preferimos que Vd. empiece a familiarizarse, utilizar y disfrutar de My Golf Card mientras nosotros pulimos, mejoramos y ampliamos nuestra idea inicial.
                               </p>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
+                            </div>  <!-- end: beta-modal1 -->
+                          </div>  <!-- eSind: demo -->
+                      </div>  <!-- end: branding -->
+                    </div>  <!-- end: wrapbranding -->
                     <div class="user_info">
                       <% if @audit_controller!='microsites' %>
-                      <%= @user_name %> (HCP : <%= format_handicap(@user_handicap) %>)&nbsp;&nbsp;&nbsp;<a href="/logout" alt="Logout"><img src="/images/logout.gif" border="0" alt="Logout" /></a>
+                      <%= @user_name -%> (HCP : <%= format_handicap(@user_handicap) -%>)&nbsp;&nbsp;&nbsp;<a href="/logout" title="Desconectar"><img src="/images/logout.gif" alt="Desconectar" border="0" /></a>
                       <div id="user">
                         
                         <!--<br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>-->
-                      </div>
+                      </div>  <!-- end: user -->
                       <div id="logout">
                                                 
-                      </div>
+                      </div>  <!-- end: logout -->
                       <% end %>
                     </div> <!-- end: user_info -->
                     <div class="footer_header">
                         &nbsp;
-                    </div>
-                </div>
-            </div>
+                    </div> <!-- end: footer_header -->
+                </div> <!-- end: wrapper_header -->
+            </div>  <!-- end: header -->

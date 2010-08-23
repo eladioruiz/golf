@@ -15,7 +15,7 @@ module Recaptcha
         html << %{</script>\n}
       end
       if options[:ajax]
-        html << %{<div id="dynamic_recaptcha"></div>}
+        html << %{<div id="dynamic_recaptcha"><!-- PRUEBA -->CAPTCHA IMAGE&nbsp;</div>}
         html << %{<script type="text/javascript" src="#{uri}/js/recaptcha_ajax.js"></script>\n}
         html << %{<script type="text/javascript">\n}
         html << %{  Recaptcha.create('#{key}', document.getElementById('dynamic_recaptcha')#{options[:display] ? ',RecaptchaOptions' : ''});}

@@ -44,7 +44,7 @@ class UserMailer < ActionMailer::Base
 
   protected
     def setup_email(user)
-      if user.class=='User'
+      if user.class.to_s=='User'
         @recipients  = "#{user.email}"
         @body[:user] = user
       end

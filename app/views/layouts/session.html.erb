@@ -10,7 +10,7 @@
     <meta name="google-site-verification" content="xyGBHBp2FHhv2HLWxAz14UXbXSCS9xQkCzliBj6rK-4" />
 
     <title>My Golf Card - Tarjetas de Golf On-line Gratis - Marcadores, Estadísticas, Gráficos</title>
-    <%= stylesheet_link_tag 'mygolfcard_test' %>
+    <%= stylesheet_link_tag 'mygolfcard' %>
     <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
     <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min.js' %>
@@ -60,13 +60,13 @@
                                     <ol>
                                         <li>¿Es un aficionado al golf y no sabe d&oacute;nde guardar las tarjetas con la puntuaci&oacute;n de cada partido? <a class="masinfo" id="dialog1" href="javascript:;" onclick='$("#dialog-modal1").dialog();'>M&aacute;s info</a> </li>
                                         <li>¿Le gustan las redes sociales y compartir sus experiencias? <a class="masinfo" id="dialog2" href="javascript:;" onclick='$("#dialog-modal2").dialog();'>M&aacute;s info</a> </li>
-                                        <li>¿Quiére compartir con sus compañeros de partido los resultados? <a class="masinfo" id="dialog3" href="javascript:;" onclick='$("#dialog-modal3").dialog();'>M&aacute;s info</a> </li>
+                                        <li>¿Quiere compartir con sus compañeros de partido los resultados? <a class="masinfo" id="dialog3" href="javascript:;" onclick='$("#dialog-modal3").dialog();'>M&aacute;s info</a> </li>
                                         <li>¿Es un apasionado de las estad&iacute;sticas y quiere saber c&oacute;mo evoluciona su juego? <a class="masinfo" id="dialog4" href="javascript:;" onclick='$("#dialog-modal4").dialog();'>M&aacute;s info</a></li>
                                     </ol>
                                 </li>
                                 <li>En <strong>My Golf Card</strong> se unen todos estos ingredientes para permitirle conjugar su pasión por el golf y sus ganas de compartir en la red sus ”mejores golpes”.</li>
                                 <li>Darse da alta en <strong>My Golf Card</strong> es totalmente gratuito. Pruébelo desde ahora mismo haciendo clic en este <a class="masinfo" id="dialog4" href="javascript:;" onclick='$("#dialog-modal5").dialog();'>enlace</a>.</li>
-                                <li>Si quiere alg&uacute;n detalle m&aacute;s de c&oacute;mo utilizar <strong>My Golf Card</strong>, pulse este <a class="masinfo" href="/ayuda" target="_blank">enlace</a> para acceder a la p&aacute;gina general de <strong>Ayuda</strong>.</li>
+                                <li>Si quiere alg&uacute;n detalle m&aacute;s de c&oacute;mo utilizar <strong>My Golf Card</strong>, pulse este <a class="masinfo" href="/ayuda" target="help">enlace</a> para acceder a la p&aacute;gina general de <strong>Ayuda</strong>.</li>
                             </ul>
                         </div> <!-- end: internal_text -->
                     </div> <!-- end: text-box -->
@@ -87,35 +87,33 @@
 
         <div class="demo">
 
-          <div id="dialog-modal1" style="display:none" title="Más información de <strong>My Golf Card</strong>">
+          <div id="dialog-modal1" style="display:none" title="My Golf Card - Más información">
             <p>Los que primero solemos sacar de la bolsa de palos los aficionados al gof antes de empezar un buen partido es la consabida tarjeta para apuntar nuestros golpes o los de nuestros compañeros.</p>
             <p>Y por supuesto, en el "Hoyo 19" hacemos recuento de marcadores a ver si hoy "se nos ha dado mejor". En cualquier caso, una vez acabado este primero momento de emoción, las tarjetas se convierten en otro trozo de cartón con el que no sabemos qué hacer.</p>
             <p>Y tampoco tenemos normalmente una manera sencilla de almacenar estas tarjetas, ya sea de una forma física o en el mundo de internet, de una forma electrónica y accesible desde todo el mundo.</p>
-            <p><strong>My Golf Card</strong> le permite guardar de forma electrónica sus tajetas en Internet y consultarlas en cualquier momento. ¡Ya puede deshacerse del cartón!</p>
+            <p><strong>My Golf Card</strong> le permite guardar de forma electrónica sus tarjetas en Internet y consultarlas en cualquier momento. ¡Ya puede deshacerse del cartón!</p>
           </div>
 
-          <div id="dialog-modal2" style="display:none" title="Más información <strong>My Golf Card</strong>">
-            <p>Hoy en día cada vez son más las personas que disfrutan de parte de su tiempo libre compartiendo experiencias, viviencias y otras cosas dentro de una red social.</p>
-            <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dió muy bien.</p>
-            <p>En <strong>My Golf Card</strong> no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
+          <div id="dialog-modal2" style="display:none" title="My Golf Card - Más información">
+            <p>Hoy en día cada vez son más las personas que disfrutan de parte de su tiempo libre compartiendo experiencias, vivencias y otras cosas dentro de una red social.</p>
+            <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dio muy bien.</p>
+            <p>En <strong>My Golf Card</strong> no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de <strong>My Golf Card</strong>.</p>
           </div>
 
-           <div id="dialog-modal3" style="display:none" title="Más información <strong>My Golf Card</strong>">
+           <div id="dialog-modal3" style="display:none" title="My Golf Card - Más información">
             <p>Ya sabemos que el golf es un deporte que se juega "contra uno mismo", pero ¿a quién no le gusta comprar su puntuación con las de los compañeros de partido?</p>
-            <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el aprtido anterior no se nos dió muy bien.</p>
-            <p>En <strong>My Golf Card</strong> no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de MyGolfCard.</p>
+            <p>A los aficionados al golf nos pasa especialmente con nuestros partidos. Para bien o para mal, nos encanta compartir esa "tarjeta especial" que hemos hecho hoy, especialmente si el partido anterior no se nos dio muy bien.</p>
+            <p>En <strong>My Golf Card</strong> no sólo podrá registrar los golpes de su partido, si no también compartirlo con quién desee: sus compañeros de partido, sus amigos o toda la comunidad de <strong>My Golf Card</strong>.</p>
           </div>
 
-           <div id="dialog-modal4" style="display:none" title="Más información <strong>My Golf Card</strong>">
+           <div id="dialog-modal4" style="display:none" title="My Golf Card - Más información">
             <p>Y después de todo nuestro esfuerzo durante el juego, la concentración que hemos puesto hoy y la sensación de haber jugado un "gran partido"... ¿cómo lo hemos hecho realmente?</p>
-            <p>¿Hemos "pinchado" en algún hoyo? ¿Mantenemos una regularidad en nuestro últimos partidos? ¿En qué campo solemos jugar más?</p>
+            <p>¿Hemos "pinchado" en algún hoyo? ¿Mantenemos una regularidad en nuestros últimos partidos? ¿En qué campo solemos jugar más?</p>
             <p>En <strong>My Golf Card</strong> podrá consultar y analizar toda esta información, porque tendrá disponibles una serie de estadísticas que le permitirá saber cómo evoluciona su juego.</p>
             <p>¿Y no es eso lo que todos los golfistas pretendemos? ¿Saber si conseguimos dominar este juego traidor y a la vez encantador?</p>
           </div>
 
-          <div id="dialog-modal5" style="display:none" title="¿Desea crear una cuenta en <strong>My Golf Card</strong>?">
-            <%= render :partial => 'layouts/signup' %>
-          </div>
+          <%= render :partial => 'layouts/signup' %>
 
           <div id="dialog-modal6" style="display:none" title="¿Desea resetear la password de su cuenta en <strong>My Golf Card</strong>?">
             <%= render :partial => 'layouts/reset_pass' %>
