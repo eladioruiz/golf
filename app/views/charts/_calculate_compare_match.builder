@@ -1,6 +1,6 @@
 
 xml = Builder::XmlMarkup.new
-xml.graph(  :caption            =>'Partido comparado',
+xml.graph(  :caption            =>'<u>Partido comparado</u>: ' + match.course.name + ' ' + format_date(match.date_hour_match),
             :xAxisName          =>'Hoyos',
             :yAxisName          =>'Golpes',
             :hovercapbg         =>'FFECAA',
@@ -14,7 +14,7 @@ xml.graph(  :caption            =>'Partido comparado',
             :yaxisminvalue      =>'0',
             :yaxismaxvalue      =>'12',
             :lineThickness      =>'2',
-            :rotateNames        =>'1') do
+            :rotateNames        =>'0') do
 
   xml.categories do
     for i in (1..holes)
