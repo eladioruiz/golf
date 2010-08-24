@@ -1,18 +1,18 @@
 set :application, "My Golf Card"
 set :repository,  "git@github.com:eladioruiz/golf.git"
-set :branch, "dev"
+set :branch, "master"
 
 set :scm, "git"
-set :deploy_to, "/var/www/devgolf"
+set :deploy_to, "/var/www/golf"
 # no funciona en esta version de CAPISTRANO set :copy_exclude ["/config/database.yml"]
 
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => true }
 set :user, "admusr"
 
-role :web, "dev.mygolfcard.es"             # Your HTTP server, Apache/etc
-role :app, "dev.mygolfcard.es"                          # This may be the same as your `Web` server
-role :db,  "dev.mygolfcard.es", :primary => true # This is where Rails migrations will run
+role :web, "www.mygolfcard.es"             # Your HTTP server, Apache/etc
+role :app, "www.mygolfcard.es"                          # This may be the same as your `Web` server
+role :db,  "www.mygolfcard.es", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
