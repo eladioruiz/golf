@@ -53,14 +53,14 @@
        position: relative;
        float: left;
        left: 5px;
-       width: 50%;
+       width: 45%;
        /*background-color: #128281;*/
     }
     .content_tb_header1_right {
        position: relative;
        float: right;
        right: 5px;
-       width: 50%;
+       width: 55%;
        /*background-color: #128281;*/
        height: 30px;
        padding-top: 15px;
@@ -125,6 +125,11 @@
                 primary: 'ui-icon-print'
             },
             text: true
+        }).next().button({
+            icons: {
+                primary: 'ui-icon-transferthick-e-w'
+            },
+            text: true
         });
     });
 
@@ -155,6 +160,7 @@
 
                   <button onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); };return false;">Borrar</button>
                   <button onclick="alert('Esta opción no está disponible actualmente. Disculpe las molestias.');">Imprimir</button>
+                  <a class="thickbox" href='/charts/<%= @match.id %>/compare_match?KeepThis=true&TB_iframe=true&height=400&width=600'>Comparar</a>
                 </div> <!-- content_tb_header1_right demo -->
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->

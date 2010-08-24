@@ -96,12 +96,14 @@ class ChartsController < ApplicationController
   def compare_match
     headers["content-type"]="text/html";
 
-    @match_id = params[:match_id]
+    @match_id = params[:id]
     @match = Match.find(@match_id)
     @players = @match.players
     @holes = @match.holes
 
     @title = "Regularidad por Hoyo"
+
+    render :layout => false
   end
 
   def current_menu

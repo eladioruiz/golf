@@ -144,6 +144,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:id/:action.:format'
 
 #>>>>>>> 2ec3d9d35656f91a1dad08e4e5737a3fad207701
-  #map.connect ':controller/:action/:id'
+  
   #map.connect ':controller/:action/:id.:format'
 end

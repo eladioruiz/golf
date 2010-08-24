@@ -53,14 +53,14 @@
        position: relative;
        float: left;
        left: 5px;
-       width: 50%;
+       width: 45%;
        /*background-color: #128281;*/
     }
     .content_tb_header1_right {
        position: relative;
        float: right;
        right: 5px;
-       width: 50%;
+       width: 55%;
        /*background-color: #128281;*/
        height: 30px;
        padding-top: 15px;
@@ -100,6 +100,11 @@
             primary: 'ui-icon-calculator'
         },
         text: true
+    }).next().button({
+        icons: {
+            primary: 'ui-icon-transferthick-e-w'
+        },
+        text: true
     });
 
     jQuery("#list_players").jqGrid({
@@ -127,14 +132,14 @@
                         var card_id = cl[0];
                         var player_id = cl[1];
                         if (cl[0]!='0') {
-                          se = "<a title=\"Ver Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "'\"><img src='../images/icon-search.png' border='0'></a>";
-                          ed = "<a title=\"Editar Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/edit'\"><img src='../images/icon-edit.png' border='0'></a>";
-                          dl = "<a title=\"Borrar Tarjeta Jugador\" href=\"delete#\" onclick=\"\"><img src='../images/icon-delete.png' border='0'></a>";
-                          ca = "<a title=\"Ver Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/print'\"><img src='../images/icon-card.png' border='0'></a>";
+                          se = "<a title=\"Ver Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "'\"><img src='../images/icon-search2.png' border='0'></a>";
+                          ed = "<a title=\"Editar Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/edit'\"><img src='../images/icon-edit2.png' border='0'></a>";
+                          dl = "<a title=\"Borrar Tarjeta Jugador\" href=\"delete#\" onclick=\"\"><img src='../images/icon-delete2.png' border='0'></a>";
+                          ca = "<a title=\"Ver Tarjeta Jugador\" href=\"#\" onclick=\"document.location.href='/cards/" + card_id + "/print'\"><img src='../images/icon-card2.png' border='0'></a>";
                           nw = "";
                         }
                         else {
-                          nw = "<a href=\"/matches/<%= @match.id %>/players/" + player_id + "/cards/new\" onclick=\"document.location.href='/matches/<%= @match.id %>/players/" + player_id + "/cards/new'\"><img src='../images/icon-document.png' border='0'></a>";
+                          nw = "<a href=\"/matches/<%= @match.id %>/players/" + player_id + "/cards/new\" onclick=\"document.location.href='/matches/<%= @match.id %>/players/" + player_id + "/cards/new'\"><img src='../images/icon-document2.png' border='0'></a>";
                           se = "";
                           ed = "";
                           dl = "";
@@ -160,6 +165,7 @@
                   <button onclick="document.location.href='<%= edit_match_path(@match) %>'">Editar</button>
                   <button onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;">Borrar</button>
                   <button onclick="document.location.href='<%= print_match_path(@match) %>'">Tarjeta</button>
+                  <a class="thickbox" href='/charts/<%= @match.id %>/compare_match?KeepThis=true&TB_iframe=true&height=400&width=600'>Comparar</a>
                 </div> <!-- content_tb_header1_right demo -->
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->
@@ -180,11 +186,14 @@
                       <%= render :partial => 'info_match_graph' %>
 
                       <p>
-                      <div style="margin-left: 37px"> <!-- jqgrid -->
-                        <table id="list_players"></table>
-                        <div id="pager_players"></div>
-                      </div> <!-- jqgrid -->
-                      
+                        <div style="margin-left: 37px"> <!-- jqgrid -->
+                          <table id="list_players"></table>
+                          <div id="pager_players"></div>
+                        </div> <!-- jqgrid -->
+                      </p>
+
+                      <p><a class="thickbox" href="/charts/<%= @match.id %>/compare_match?KeepThis=true&TB_iframe=true&height=410&width=610&modal=true" title="Comparativa entre Jugadores">Click Here</a></p>
+
                     </fieldset>
                   </div> <!-- end div class:cmxform -->
 

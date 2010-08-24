@@ -19,9 +19,15 @@
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
     <%= javascript_include_tag 'jquery.kwicks-1.5.1' %>
     <%= javascript_include_tag 'match_helpers' %>
-    <%= javascript_include_tag 'FusionCharts'%>
+    
 
 <%
+    if @audit_controller=='charts'
+%>
+    <%= javascript_include_tag 'FusionCharts'%>
+<%
+    end
+
     if @audit_controller=='courses' and @audit_action=='show'
 %>
     <!-- ESPECIFICO SHOW COURSES -->
@@ -42,6 +48,9 @@
     <%= stylesheet_link_tag 'ui.jqgrid.css' %>
     <%= javascript_include_tag 'grid.locale-sp.js'%>
     <%= javascript_include_tag 'jquery.jqGrid.min.js'%>
+    <%= stylesheet_link_tag 'thickbox' %>
+    <%= stylesheet_link_tag 'skin' %>
+    <%= javascript_include_tag 'thickbox'%>
     <!-- ESPECIFICO MATCHES -->
 <%
     end
@@ -58,16 +67,16 @@
             spacing : 10
         }); */
 
-            $(".tip[title]").tooltip({
+        $(".tip[title]").tooltip({
 
-               // tweak the position
-               offset: [10, 2],
+           // tweak the position
+           offset: [10, 2],
 
-               // use the "slide" effect
-               effect: 'slide'
+           // use the "slide" effect
+           effect: 'slide'
 
-            // add dynamic plugin with optional configuration for bottom edge
-            }).dynamic({ bottom: { direction: 'down', bounce: true } });;
+        // add dynamic plugin with optional configuration for bottom edge
+        }).dynamic({ bottom: { direction: 'down', bounce: true } });;
 
 
 

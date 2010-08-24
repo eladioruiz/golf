@@ -1,7 +1,8 @@
+<%= javascript_include_tag 'FusionCharts'%>
               <%
               # The xml is obtained as a string from builder template.
               str_xml = render "calculate_compare_match.builder",{:players => @players, :holes => @holes}
 
               #Create the chart - LIne Chart with data from strXML MultiSerie
-              render_chart '/chart/FCF_MSLine.swf', '', str_xml, 'CompareStrokes', 650, 450, false, false do-%>
+              render_chart '/chart/FCF_MSLine.swf', '', str_xml, 'CompareStrokes', 600, 400, false, false do-%>
               <% end-%>
