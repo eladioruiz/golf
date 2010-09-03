@@ -4,11 +4,11 @@ class ApiController < ApplicationController
     @user = params[:user] || "eladio"
     @pass = params[:password] || "ruiz"
 
-    @user = User.authenticate("eladioruiz", "Oidale27")
+    @user = User.authenticate(@user, @password)
 
     if @user.nil?
       @error_code = "-1"
-      @token = "NILL"
+      @token = ""
     else
       @error_code = "0"
       @token = calculatetoken(@user.login,@pass)
