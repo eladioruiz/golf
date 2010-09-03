@@ -1,19 +1,19 @@
 class ApiController < ApplicationController
 
   def authentication
-    @user = params[:user] || "eladio"
-    @pass = params[:password] || "ruiz"
+    @login = params[:login] || "eladio"
+    @password = params[:password] || "ruiz"
 
-    @user = User.authenticate(@user, @password)
+    @user = User.authenticate(@login, @password)
 
     if @user.nil?
       @error_code = "-1"
       @token = ""
     else
       @error_code = "0"
-      @token = calculatetoken(@user.login,@pass)
+      @token = calculatetoken(@user.login,@password)
     end
-    @res = {"error_code" => @error_code, "token" => @token}
+    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password}
 
     respond_to do |format|
       format.json { render :json => @res }
