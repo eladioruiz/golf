@@ -1,5 +1,7 @@
 class ApiController < ApplicationController
 
+  protect_from_forgery :only => [:create, :update, :destroy]
+
   def authentication
     @login = params[:login] || "eladio"
     @password = params[:password] || "ruiz"

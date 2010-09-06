@@ -44,7 +44,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 
-  map.connect '/api/authentication', :controller => 'api', :action => 'authentication'
+  map.connect '/api/authentication', :controller => 'api', :action => 'authentication', :conditions => {:method => :post}
+
 
   map.resources :users
   
