@@ -14,7 +14,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :coursetypes
 
-
+  map.resources :contacts
+  
   # Casos particulares
   map.connect '/matches/week', :controller => 'matches', :action => 'this_week'
   map.connect '/matches/lastmonth', :controller => 'matches', :action => 'last_month'
@@ -42,6 +43,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/compare_match', :controller => 'charts', :action => 'compare_match'
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
+
+  map.connect '/api/authentication', :controller => 'api', :action => 'authentication', :conditions => {:method => :post}
+
 
   map.resources :users
   
