@@ -26,11 +26,9 @@ class ApiController < ApplicationController
     @token = params[:token]
     
     @courses = nil
-    @courses = Course.all if @token
+    @courses = Course.all #if @token
 
-    respond_to do |format|
-      format.json { render :json => @courses }
-    end
+    render :json => @courses.to_json(:only => [:id, :name])
   end
 
   def infocourse
