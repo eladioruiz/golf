@@ -22,6 +22,27 @@ class ApiController < ApplicationController
     end
   end
 
+  def getcourses
+    @token = params[:token]
+    
+    @courses = nil
+    @courses = Course.all if @token
+
+    respond_to do |format|
+      format.json { render :json => @courses }
+    end
+  end
+
+  def infocourse
+    @token = params[:token]
+
+    @course_id = params[:course_id]
+
+    @course = Course.find(@course_id)
+    respond_to do |format|
+      format.json { render :json => @course }
+    end
+  end
 private
 
   def calculatetoken(login, password)
