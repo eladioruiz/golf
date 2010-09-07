@@ -11,15 +11,52 @@ class ApiController < ApplicationController
     if @user.nil?
       @error_code = "-1"
       @token = ""
+      @user_id = "0"
     else
       @error_code = "0"
       @token = calculatetoken(@user.login,@password)
+      @user_id = @user.id.to_s
     end
-    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password}
+    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id}
 
     respond_to do |format|
       format.json { render :json => @res }
     end
+  end
+
+  def getcourses
+    @token = params[:token]
+    
+    @courses = nil
+    @courses = Course.all if @token
+
+    render :json => @courses.to_json(:only => [:id, :name])
+  end
+
+  def infocourse
+    @token = params[:token]
+
+    @course_id = params[:course_id]
+
+    @course = nil
+    @course = Course.find(@course_id) if @token
+    respond_to do |format|
+      format.json { render :json => @course }
+    end
+  end
+  
+  def getmatches
+    @token = params[:token]
+    @user_id = params[:user_id]
+
+    @ordering = "date_hour_match DESC"
+    @limits = "50"
+    @course_filter = nil
+
+    @matches = nil
+    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)
+      
+    render :json => @matches.to_json(:only => [:course_name, :date_hour])
   end
 
 private
