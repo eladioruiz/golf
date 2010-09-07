@@ -56,7 +56,7 @@ class ApiController < ApplicationController
     @matches = nil
     @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)
       
-    render :json => @matches.to_json(:only => [:course_name, :date_hour_match])
+    render :json => @matches.to_json(:only => [:course_name, :date_hour])
   end
 
 private

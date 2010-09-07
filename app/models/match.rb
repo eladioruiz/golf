@@ -28,7 +28,7 @@ class Match < ActiveRecord::Base
   named_scope :my_matches_android,
                               lambda { |userID,ordering,limits,course|
                                 {
-                                  :select =>      "courses.name as course_name, matches.date_hour_match ",
+                                  :select =>      "courses.name as course_name, date_format(matches.date_hour_match,'%d/%m/%Y %H:%i') as date_hour ",
                                   :joins =>       "inner join players on matches.id=players.match_id inner join users on players.user_id=users.id inner join courses on matches.course_id=courses.id ",
                                   :conditions =>  !!course.blank? ?  ["users.id=?",userID] : ["users.id=? and course_id=?",userID,course] ,
                                   :order =>       ordering,
