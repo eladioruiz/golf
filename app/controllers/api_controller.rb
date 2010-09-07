@@ -28,7 +28,7 @@ class ApiController < ApplicationController
     @token = params[:token]
     
     @courses = nil
-    @courses = Course.all #if @token
+    @courses = Course.all if @token
 
     render :json => @courses.to_json(:only => [:id, :name])
   end
@@ -38,11 +38,27 @@ class ApiController < ApplicationController
 
     @course_id = params[:course_id]
 
-    @course = Course.find(@course_id)
+    @course = nil
+    @course = Course.find(@course_id) if @token
     respond_to do |format|
       format.json { render :json => @course }
     end
   end
+  
+  def getmatches
+    @token = params[:token]
+    @user_id = params[:user_id]
+
+    @ordering = "date_hour_match DESC"
+    @limits = "50"
+    @course_filter = nil
+
+    @matches = nil
+    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)
+      
+    render :json => @matches.to_json(:only => [:course_name, :date_hour_match])
+  end
+
 private
 
   def calculatetoken(login, password)

@@ -25,6 +25,17 @@ class Match < ActiveRecord::Base
                                 }
                               }
 
+  named_scope :my_matches_android,
+                              lambda { |userID,ordering,limits,course|
+                                {
+                                  :select =>      "courses.name as course_name, matches.date_hour_match ",
+                                  :joins =>       "inner join players on matches.id=players.match_id inner join users on players.user_id=users.id inner join courses on matches.course_id=courses.id ",
+                                  :conditions =>  !!course.blank? ?  ["users.id=?",userID] : ["users.id=? and course_id=?",userID,course] ,
+                                  :order =>       ordering,
+                                  :limit =>       limits
+                                }
+                              }
+
   named_scope :this_week,     :conditions => ["date_hour_match BETWEEN ? AND ?" ,
                                         Time.now.beginning_of_week,
                                         Time.now.end_of_week]
