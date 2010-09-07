@@ -11,11 +11,13 @@ class ApiController < ApplicationController
     if @user.nil?
       @error_code = "-1"
       @token = ""
+      @user_id = "0"
     else
       @error_code = "0"
       @token = calculatetoken(@user.login,@password)
+      @user_id = @user.id.to_s
     end
-    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password}
+    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id}
 
     respond_to do |format|
       format.json { render :json => @res }
