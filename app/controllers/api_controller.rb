@@ -30,7 +30,7 @@ class ApiController < ApplicationController
     @courses = nil
     @courses = Course.all if @token
 
-    render :json => @courses.to_json(:only => [:id, :name])
+    render :json => @courses.to_json(:only => [:id, :name, :address])
   end
 
   def infocourse
@@ -56,7 +56,7 @@ class ApiController < ApplicationController
     @matches = nil
     @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)
       
-    render :json => @matches.to_json(:only => [:course_name, :date_hour])
+    render :json => @matches.to_json(:only => [:match_id, :course_name, :date_hour])
   end
 
 private
