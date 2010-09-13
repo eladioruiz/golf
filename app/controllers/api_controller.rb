@@ -67,11 +67,17 @@ class ApiController < ApplicationController
     @friends = PrivacyFriend.my_friends(@user)
 
     if !@friends.nil?
-      @friends_aux = @friends.map { |f| f.user.name}
-      @friends_aux << @user.name
-    end
+      @friends_aux = Array.new(@friends.size+1, Hash.new)
 
-    render :json => @friends_aux.sort.to_json()
+#      @friends_aux = []
+      @friends.each_with_index { |f,i|
+        @friends_aux[i+1] = {:id => f.user.id, :name => f.user.name }
+      }
+      @friends_aux[0] = {:id => @user_id, :name => @user.name }
+      
+    end
+    
+    render :json => @friends_aux.to_json()
   end
 
 private

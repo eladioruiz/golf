@@ -48,8 +48,8 @@ class MatchesController < ApplicationController
     @player = @match.players.build if @match.players.empty?
     
     # La carga de estas colecciones se hacen para cargar los despleglables
-    @courses = Course.all.sort {|a,b| a.name<=>b.name}
-    @tees = Tee.all.sort {|a,b| a.barras<=>b.barras}
+    @courses = Course.all.sort {|a,b| a.name <=> b.name}
+    @tees = Tee.all.sort {|a,b| a.barras <=> b.barras}
 
     @users = current_user.my_friends
     @users << current_user

@@ -11,8 +11,9 @@ class PrivacyFriend < ActiveRecord::Base
   named_scope :my_friends, lambda { |userID|
                                 {
                                   :select =>      "* ",
-                                  :from   =>      "privacy_friends",
-                                  :conditions =>  ["allowed=1 and privacy_friends.user1_id=?",userID]
+                                  :joins =>      "inner join users on users.id = privacy_friends.user2_id",
+                                  :conditions =>  ["allowed=1 and privacy_friends.user1_id=?",userID],
+                                  :order => "users.name"
                                 }
                            }
 
