@@ -59,6 +59,21 @@ class ApiController < ApplicationController
     render :json => @matches.to_json(:only => [:match_id, :course_name, :date_hour])
   end
 
+  def getfriends
+    @token = params[:token]
+    @user_id = params[:user_id]
+
+    @user = User.find(@user_id)
+    @friends = PrivacyFriend.my_friends(@user)
+
+    if !@friends.nil?
+      @friends_aux = @friends.map { |f| f.user.name}
+      @friends_aux << @user.name
+    end
+
+    render :json => @friends_aux.sort.to_json()
+  end
+
 private
 
   def calculatetoken(login, password)
