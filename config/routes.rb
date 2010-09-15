@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/api/getcourse', :controller => 'api', :action => 'infocourse'
   map.connect '/api/getmatches', :controller => 'api', :action => 'getmatches'
   map.connect '/api/getfriends', :controller => 'api', :action => 'getfriends'
+  map.connect '/api/getinfoholes', :controller => 'api', :action => 'getinfoholes'
 
   map.resources :users
   

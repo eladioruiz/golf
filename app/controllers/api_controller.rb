@@ -54,7 +54,7 @@ class ApiController < ApplicationController
     @course_filter = nil
 
     @matches = nil
-    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)
+    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)  if @token
       
     render :json => @matches.to_json(:only => [:match_id, :course_name, :date_hour])
   end
@@ -63,8 +63,9 @@ class ApiController < ApplicationController
     @token = params[:token]
     @user_id = params[:user_id]
 
-    @user = User.find(@user_id)
-    @friends = PrivacyFriend.my_friends(@user)
+    @friends = nil
+    @user = User.find(@user_id)  
+    @friends = PrivacyFriend.my_friends(@user) if @token
 
     if !@friends.nil?
       @friends_aux = Array.new(@friends.size+1, Hash.new)
@@ -76,9 +77,23 @@ class ApiController < ApplicationController
       @friends_aux[0] = {:id => @user_id, :name => @user.name }
       
     end
-    
+
     render :json => @friends_aux.to_json()
   end
+
+  def getinfoholes
+    @course_id  = params[:course_id]
+    @token      = params[:token]
+
+    @holes = nil
+    if @token
+      @course     = Course.find(@course_id)
+      @holes      = @course.holes
+    end
+
+    render :json => @holes.to_json()
+  end
+
 
 private
 
