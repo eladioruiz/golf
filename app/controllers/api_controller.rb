@@ -30,7 +30,7 @@ class ApiController < ApplicationController
     @user_id  = params[:user_id]
     
     @courses = nil
-    @courses = Course.all if User.rightToken(@token, @user_id);
+    @courses = Course.all if User.righttoken(@token, @user_id);
 
     render :json => @courses.to_json(:only => [:id, :name, :address])
   end
@@ -42,7 +42,7 @@ class ApiController < ApplicationController
     @course_id = params[:course_id]
 
     @course = nil
-    @course = Course.find(@course_id) if User.rightToken(@token, @user_id);
+    @course = Course.find(@course_id) if User.righttoken(@token, @user_id);
     respond_to do |format|
       format.json { render :json => @course }
     end
@@ -57,7 +57,7 @@ class ApiController < ApplicationController
     @course_filter = nil
 
     @matches = nil
-    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)  if User.rightToken(@token, @user_id);
+    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)  if User.righttoken(@token, @user_id);
       
     render :json => @matches.to_json(:only => [:match_id, :course_name, :date_hour])
   end
@@ -68,7 +68,7 @@ class ApiController < ApplicationController
 
     @friends = nil
     @user = User.find(@user_id)  
-    @friends = PrivacyFriend.my_friends(@user) if User.rightToken(@token, @user_id);
+    @friends = PrivacyFriend.my_friends(@user) if User.righttoken(@token, @user_id);
 
     if !@friends.nil?
       @friends_aux = Array.new(@friends.size+1, Hash.new)
@@ -90,7 +90,7 @@ class ApiController < ApplicationController
     @user_id    = params[:user_id]
 
     @holes = nil
-    if User.rightToken(@token, @user_id);
+    if User.righttoken(@token, @user_id);
       @course     = Course.find(@course_id)
       @holes      = @course.holes
     end
