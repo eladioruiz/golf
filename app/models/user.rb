@@ -39,6 +39,20 @@ class User < ActiveRecord::Base
     u && u.authenticated?(password) ? u : nil
   end
 
+  # Generate a token for api access
+  def self.generatetoken(login, password)
+    @salt = Time.now.strftime('%Y%m%d') # Date.strptime('%Y%m%d')
+    Digest::SHA1.hexdigest("--#{@salt}--" + login.concat(password) + "--")
+  end
+
+  # check if token parameter is a real one
+  def self.righttoken(token, user_id)
+    true
+
+    # Hay que guardar el token junto con el id de usuario generado y consultar ...
+    # ... en esa tabla si no ha expirado todavía el permiso
+  end
+
   # Encrypts some data with the salt.
   def self.encrypt(password, salt)
     Digest::SHA1.hexdigest("--#{salt}--#{password}--")

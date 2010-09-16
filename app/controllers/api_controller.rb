@@ -3,7 +3,7 @@ class ApiController < ApplicationController
   protect_from_forgery :only => [:create, :update, :destroy]
 
   def authentication
-    @login = params[:login] || "eladio"
+    @login    = params[:login] || "eladio"
     @password = params[:password] || "ruiz"
 
     @user = User.authenticate(@login, @password)
@@ -14,7 +14,8 @@ class ApiController < ApplicationController
       @user_id = "0"
     else
       @error_code = "0"
-      @token = calculatetoken(@user.login,@password)
+      # @token = calculatetoken(@user.login,@password)
+      @token = User.generatetoken(@user.login,@password)
       @user_id = @user.id.to_s
     end
     @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id}
@@ -25,47 +26,49 @@ class ApiController < ApplicationController
   end
 
   def getcourses
-    @token = params[:token]
+    @token    = params[:token]
+    @user_id  = params[:user_id]
     
     @courses = nil
-    @courses = Course.all if @token
+    @courses = Course.all if User.rightToken(@token, @user_id);
 
     render :json => @courses.to_json(:only => [:id, :name, :address])
   end
 
   def infocourse
-    @token = params[:token]
+    @token    = params[:token]
+    @user_id  = params[:user_id]
 
     @course_id = params[:course_id]
 
     @course = nil
-    @course = Course.find(@course_id) if @token
+    @course = Course.find(@course_id) if User.rightToken(@token, @user_id);
     respond_to do |format|
       format.json { render :json => @course }
     end
   end
   
   def getmatches
-    @token = params[:token]
-    @user_id = params[:user_id]
+    @token    = params[:token]
+    @user_id  = params[:user_id]
 
     @ordering = "date_hour_match DESC"
     @limits = "50"
     @course_filter = nil
 
     @matches = nil
-    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)  if @token
+    @matches = Match.my_matches_android(@user_id,@ordering,@limits,@course_filter)  if User.rightToken(@token, @user_id);
       
     render :json => @matches.to_json(:only => [:match_id, :course_name, :date_hour])
   end
 
   def getfriends
-    @token = params[:token]
+    @token   = params[:token]
     @user_id = params[:user_id]
 
     @friends = nil
     @user = User.find(@user_id)  
-    @friends = PrivacyFriend.my_friends(@user) if @token
+    @friends = PrivacyFriend.my_friends(@user) if User.rightToken(@token, @user_id);
 
     if !@friends.nil?
       @friends_aux = Array.new(@friends.size+1, Hash.new)
@@ -84,9 +87,10 @@ class ApiController < ApplicationController
   def getinfoholes
     @course_id  = params[:course_id]
     @token      = params[:token]
+    @user_id    = params[:user_id]
 
     @holes = nil
-    if @token
+    if User.rightToken(@token, @user_id);
       @course     = Course.find(@course_id)
       @holes      = @course.holes
     end
@@ -94,10 +98,4 @@ class ApiController < ApplicationController
     render :json => @holes.to_json()
   end
 
-
-private
-
-  def calculatetoken(login, password)
-    Digest::SHA1.hexdigest("--2788--" + login.concat(password) + "--")
-  end
 end
