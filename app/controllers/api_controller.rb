@@ -111,4 +111,19 @@ class ApiController < ApplicationController
 
     render :json => @res.to_json()
   end
+
+  def getstrokes
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+    @match_id = params[:match_id]
+    @player_id = params[:player_id]
+
+    @card = nil
+    @card = Card.find_by_player_id(@player_id)  if User.righttoken(@token, @user_id);
+    @strokes = CardStroke.find_all_by_card_id(@card.id)
+
+    @res = @strokes.map {|st| {:hole_id => st.hole_id, :hole_number => st.hole.number, :strokes => st.strokes, :putts => st.putts}}.sort{|a,b| a[:hole_number] <=> b[:hole_number]}
+
+    render :json => @res.to_json()
+  end
 end
