@@ -98,4 +98,17 @@ class ApiController < ApplicationController
     render :json => @holes.to_json()
   end
 
+  def getmatch
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+    @match_id = params[:match_id]
+
+    @match = nil
+    @match = Match.find(@match_id)  if User.righttoken(@token, @user_id);
+    @players = Player.find_all_by_match_id(@match_id)
+
+    @res = {:match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match, :players => @players.map {|p| {:user_name => p.user.name, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id}}}
+
+    render :json => @res.to_json()
+  end
 end
