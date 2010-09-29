@@ -48,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/api/getcourses',      :controller => 'api', :action => 'getcourses',      :conditions => {:method => :post}
   map.connect '/api/getcourse',       :controller => 'api', :action => 'infocourse',      :conditions => {:method => :post}
   map.connect '/api/getmatches',      :controller => 'api', :action => 'getmatches',      :conditions => {:method => :post}
-  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch',        :conditions => {:method => :post}
+  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch'#,        :conditions => {:method => :post}
   map.connect '/api/getfriends',      :controller => 'api', :action => 'getfriends',      :conditions => {:method => :post}
   map.connect '/api/getinfoholes',    :controller => 'api', :action => 'getinfoholes',    :conditions => {:method => :post}
   map.connect '/api/getstrokes',      :controller => 'api', :action => 'getstrokes',      :conditions => {:method => :post}

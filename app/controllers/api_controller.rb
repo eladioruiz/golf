@@ -107,7 +107,7 @@ class ApiController < ApplicationController
     @match = Match.find(@match_id)  if User.righttoken(@token, @user_id);
     @players = Player.find_all_by_match_id(@match_id)
 
-    @res = {:match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match, :players => @players.map {|p| {:user_name => p.user.name, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id}}}
+    @res = {:match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match, :holes => @match.holes, :players => @players.map {|p| {:user_name => p.user.name, :handicap => p.handicap.nil? ? 0 : p.handicap, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id, :card_1 => p.card.strokes_first_9, :card_2 => p.card.strokes_second_9, :card_total => p.card.strokes_total}}}
 
     render :json => @res.to_json()
   end
@@ -120,9 +120,10 @@ class ApiController < ApplicationController
 
     @card = nil
     @card = Card.find_by_player_id(@player_id)  if User.righttoken(@token, @user_id);
-    @strokes = CardStroke.find_all_by_card_id(@card.id)
+    @strokes = CardStroke.find_all_by_card_id(@card.id) unless @card.nil?
 
-    @res = @strokes.map {|st| {:hole_id => st.hole_id, :hole_number => st.hole.number, :strokes => st.strokes, :putts => st.putts}}.sort{|a,b| a[:hole_number] <=> b[:hole_number]}
+    @res = nil
+    @res = @strokes.map {|st| {:hole_id => st.hole_id, :hole_number => st.hole.number, :strokes => st.strokes, :putts => st.putts}}.sort{|a,b| a[:hole_number] <=> b[:hole_number]} unless @strokes.nil?
 
     render :json => @res.to_json()
   end
