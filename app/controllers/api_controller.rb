@@ -127,4 +127,17 @@ class ApiController < ApplicationController
 
     render :json => @res.to_json()
   end
+
+  def uploadmatchform
+    render :file => 'api/uploadmatchform.html'
+  end
+
+  def uploadmatch
+    um = UploadMatch.new
+    um.save(params[:upload])
+    um.parseMatch
+
+    @res = {:match_id => um.match_id.to_s()}
+    render :json => @res.to_json()
+  end
 end
