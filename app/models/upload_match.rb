@@ -11,22 +11,21 @@ class UploadMatch
   attr_accessor :error
 
   def initialize
-    @error = "KK"
+    @error = ""
   end
 
-  def save(upload)
-    name =  upload['datafile'].original_filename
-    directory = "public/Data/android"
+  def save(filename,data)
+    directory = "public/Data/android/"
+    name      = filename
     # create the file path
     @filename = File.join(directory, name)
     # write the file
-    File.open(@filename, "wb") { |f| f.write(upload['datafile'].read) }
+    File.open(@filename, "wb") { |f| f.write(data) }
   end
 
 
   def parseMatch
     @match_id = "0"
-    @error = "KK"
     
     unless @filename.nil?
 #      @xml_code = Nokogiri::XML(File.new(filename))

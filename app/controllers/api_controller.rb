@@ -134,7 +134,7 @@ class ApiController < ApplicationController
 
   def uploadmatch
     um = UploadMatch.new
-    um.save(params[:upload])
+    um.save(params[:filename],params[:data])
     um.parseMatch
 
     @res = {:match_id => um.match_id.to_s()}
