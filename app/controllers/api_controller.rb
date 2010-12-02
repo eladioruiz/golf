@@ -107,7 +107,7 @@ class ApiController < ApplicationController
     @match = Match.find(@match_id)  if User.righttoken(@token, @user_id);
     @players = Player.find_all_by_match_id(@match_id)
 
-    @res = {:match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match.strftime("%d/%m/%Y %H:%I"), :holes => @match.holes, :players => @players.map {|p| {:user_name => p.user.name, :handicap => p.handicap.nil? ? 0 : p.handicap, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id, :card_1 => p.card.strokes_first_9, :card_2 => p.card.strokes_second_9, :card_total => p.card.strokes_total}}}
+    @res = {:match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match.strftime("%d/%m/%Y %I:%M"), :holes => @match.holes, :players => @players.map {|p| {:user_name => p.user.name, :handicap => p.handicap.nil? ? 0 : p.handicap, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id, :card_1 => p.card.strokes_first_9, :card_2 => p.card.strokes_second_9, :card_total => p.card.strokes_total}}}
 
     render :json => @res.to_json()
   end
