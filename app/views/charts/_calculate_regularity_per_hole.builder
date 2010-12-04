@@ -1,6 +1,6 @@
 
 xml = Builder::XmlMarkup.new
-xml.graph(      :caption      => "Regularidad por Partidos" ,
+xml.graph(      :caption      => "Regularidad por Hoyo" ,
                 :subCaption   => subCaption ,
                 :yAxisMaxValue=>"12" ,
                 :yAxisMinValue=>"1" ,
