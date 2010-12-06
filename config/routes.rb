@@ -41,14 +41,15 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/charts/regularity_strokes', :controller => 'charts', :action => 'regularity_strokes'
   map.connect '/charts/regularity_per_hole', :controller => 'charts', :action => 'regularity_per_hole'
   map.connect '/charts/compare_match', :controller => 'charts', :action => 'compare_match'
+  map.connect '/charts/graphs_match', :controller => 'charts', :action => 'graphs_match'
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 
   map.connect '/api/authentication',  :controller => 'api', :action => 'authentication',  :conditions => {:method => :post}
   map.connect '/api/getcourses',      :controller => 'api', :action => 'getcourses',      :conditions => {:method => :post}
   map.connect '/api/getcourse',       :controller => 'api', :action => 'infocourse',      :conditions => {:method => :post}
-  map.connect '/api/getmatches',      :controller => 'api', :action => 'getmatches',      :conditions => {:method => :post}
-  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch',        :conditions => {:method => :post}
+  map.connect '/api/getmatches',      :controller => 'api', :action => 'getmatches'#,      :conditions => {:method => :post}
+  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch'#,        :conditions => {:method => :post}
   map.connect '/api/getfriends',      :controller => 'api', :action => 'getfriends',      :conditions => {:method => :post}
   map.connect '/api/getinfoholes',    :controller => 'api', :action => 'getinfoholes',    :conditions => {:method => :post}
   map.connect '/api/getstrokes',      :controller => 'api', :action => 'getstrokes',      :conditions => {:method => :post}

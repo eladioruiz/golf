@@ -106,6 +106,32 @@ class ChartsController < ApplicationController
     render :layout => false
   end
 
+  def compare_acumulate_match
+    headers["content-type"]="text/html";
+
+    @match_id = params[:id]
+    @match = Match.find(@match_id)
+    @players = @match.players
+    @holes = @match.holes
+
+    @title = "Regularidad Acumulada por Hoyo"
+
+    render :layout => false
+  end
+
+  def graphs_match
+    headers["content-type"]="text/html";
+
+    @match_id = params[:id]
+    @match = Match.find(@match_id)
+    @players = @match.players
+    @holes = @match.holes
+
+    @title = "Regularidad por Hoyo"
+
+    render :layout => false
+  end
+
   def current_menu
     @current_menu = {'init' => '', 'matches' => '', 'courses' => '', 'charts' => 'current'}
   end

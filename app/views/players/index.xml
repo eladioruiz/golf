@@ -17,6 +17,7 @@
             <cell><%=h format_nil(card.strokes_first_9,'-') -%></cell>
             <cell><%=h format_nil(card.strokes_second_9,'-') -%></cell>
             <cell><%=h format_nil(card.strokes_total,'-') -%></cell>
+            <cell><![CDATA[<a id="prueba" class="link_dummy2" title="Comparar Tarjeta" href="/charts/<%= card.match_id%>/graphs_match?KeepThis=true&TB_iframe=true&height=460&width=610&modal=true" onClick="$('#compare_aux').attr('href',$(this).attr('href'));$('#compare_aux').click();return false;"><img src="../images/icon-compare.png" border="0"></a>]]></cell>
             <cell></cell>
         </row>
 <%
