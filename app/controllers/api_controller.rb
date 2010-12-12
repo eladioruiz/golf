@@ -112,6 +112,26 @@ class ApiController < ApplicationController
     render :json => @res.to_json()
   end
 
+  def deletematch
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+    @match_id = params[:match_id]
+
+    @match = nil
+    @itemsdeleted = 0
+    if User.righttoken(@token, @user_id) and Match.exists?(@match_id)
+      @match = Match.find(@match_id)  if User.righttoken(@token, @user_id);
+      @players = Player.find_all_by_match_id(@match_id)
+      @itemsdeleted = Match.delete(@match_id)   and @match;
+
+      @res = {:itemsdeleted => @itemsdeleted, :match_id => @match.id, :course_name => @match.course.name, :date_hour_match => @match.date_hour_match.strftime("%d/%m/%Y %I:%M"), :holes => @match.holes, :players => @players.map {|p| {:user_name => p.user.name, :handicap => p.handicap.nil? ? 0 : p.handicap, :tee => p.tee.barras, :user_id => p.user_id, :player_id => p.id, :card_1 => p.card.nil? ? "0" : format_nil(p.card.strokes_first_9,0), :card_2 => p.card.nil? ? "0" : format_nil(p.card.strokes_second_9,0), :card_total => p.card.nil? ? 0 : format_nil(p.card.strokes_total,0)}}}
+    else
+      @res = {:itemsdeleted => @itemsdeleted, :match_id => @match_id}
+    end
+
+    render :json => @res.to_json()
+  end
+
   def getstrokes
     @token    = params[:token]
     @user_id  = params[:user_id]
