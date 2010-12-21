@@ -161,6 +161,18 @@ class ApiController < ApplicationController
     render :json => @res.to_json()
   end
 
+  def newuser
+    @token          = params[:token]
+    @user_name      = params[:user_name]
+    @user_email     = params[:user_email]
+    @user_login     = params[:user_login]
+    @user_password  = params[:user_name]
+    @user_handicap  = params[:user_handicap]
+
+    @user = User.new({:name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :handicap => @user_handicap});
+    @user.save
+  end
+
 private
 
   def format_nil(value,default)
