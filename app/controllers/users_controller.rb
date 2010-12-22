@@ -35,7 +35,9 @@ class UsersController < ApplicationController
       # reset_session
       @user = User.new(params[:user])
       @user.save
+      
       if @user.errors.empty?
+        auth_token = User.generatetoken(@user.login, @user.password)
         self.current_user = @user
 
         flash[:notice] = "Gracias por registrarse en My Golf Card!"

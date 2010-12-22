@@ -162,15 +162,24 @@ class ApiController < ApplicationController
   end
 
   def newuser
-    @token          = params[:token]
     @user_name      = params[:user_name]
     @user_email     = params[:user_email]
     @user_login     = params[:user_login]
-    @user_password  = params[:user_name]
+    @user_password  = params[:user_password]
     @user_handicap  = params[:user_handicap]
 
-    @user = User.new({:name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :handicap => @user_handicap});
+    @auth_token = User.generatetoken(@user_login, @user_password)
+    
+    @user = User.new({:name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :password_confirmation => @user_password, :handicap => @user_handicap, :auth_token => @auth_token});
     @user.save
+
+    if @user.errors.empty?
+      @res = {:auth_token => @auth_token, :user_id => @user.id, :name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :handicap => @user_handicap}
+    else
+      @res= nil
+    end
+    
+    render :json => @res.to_json()
   end
 
 private

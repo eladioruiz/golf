@@ -56,7 +56,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/api/getstrokes',      :controller => 'api', :action => 'getstrokes',      :conditions => {:method => :post}
   map.connect '/api/uploadmatch',     :controller => 'api', :action => 'uploadmatch',     :conditions => {:method => :post}
   map.connect '/api/uploadmatchform', :controller => 'api', :action => 'uploadmatchform', :conditions => {:method => :post}
-  map.connect '/api/newuser',         :controller => 'api', :action => 'newuser',         :conditions => {:method => :post}
+  map.connect '/api/newuser',         :controller => 'api', :action => 'newuser'#,         :conditions => {:method => :post}
 
   map.resources :users
   
