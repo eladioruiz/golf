@@ -170,7 +170,7 @@ class ApiController < ApplicationController
 
     @auth_token = User.generatetoken(@user_login, @user_password)
     
-    @user = User.new({:name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :password_confirmation => @user_password, :handicap => @user_handicap, :auth_token => @auth_token});
+    @user = User.new({:name => @user_name, :email => @user_email, :login => @user_login, :password => @user_password, :password_confirmation => @user_password, :handicap => @user_handicap, :auth_token => @auth_token});
     @user.save
 
     if @user.errors.empty?
