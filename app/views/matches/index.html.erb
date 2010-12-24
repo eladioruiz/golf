@@ -185,6 +185,8 @@
       return false;      
     });
 
+    
+
     jQuery("#list_matches").jqGrid({
       url:'/matches/<%= @userID %>/<%= @audit_action %>.xml?q=1&find_course_value=<%= @course_filter %>',
       datatype: "xml",
@@ -207,9 +209,9 @@
       multiselect: false,
       subGrid : true,
       subGridUrl: '/players.xml?q=2',
-      subGridModel: [{  name : ['Jugador','Handicap','Tee','Golpes 1º','Golpes 2º','Golpes Totales'],
-                        width : [300,80,80,80,80,80],
-                        align : ['left','center','center','center','center','center']
+      subGridModel: [{  name : ['Jugador','Handicap','Tee','Golpes 1º','Golpes 2º','Golpes Totales','Act'],
+                        width : [300,80,80,80,80,80,60],
+                        align : ['left','center','center','center','center','center','center']
                       }],
       gridComplete: function() {
                       var ids = jQuery("#list_matches").jqGrid('getDataIDs');
@@ -219,10 +221,10 @@
                         dl = "<a title='Borrar Partido' href='#' onclick=\"if (confirm('¿Está seguro?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '/matches/" + cl + "';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;\"><img src='../images/icon-delete2.png' border='0'></a>";
                         se = "<a title='Ver Partido' href='#' onclick=\"document.location.href='/matches/" + cl + "'\"><img src='../images/icon-search2.png' border='0'></a>";
                         ca = "<a title='Ver Tarjeta' href='#' onclick=\"document.location.href='/matches/" + cl + "/print'\"><img src='../images/icon-card2.png' border='0'></a>";
-                        cp = "<a id='prueba' class='link_dummy' title='Comparar Tarjeta' href='/charts/" + cl + "/compare_match?KeepThis=true&TB_iframe=true&height=410&width=610&modal=true'\"><img src='../images/icon-compare.png' border='0'></a>";
+                        cp = "<a id='prueba' class='link_dummy' title='Comparar Tarjeta' href='/charts/" + cl + "/graphs_match?KeepThis=true&TB_iframe=true&height=460&width=610&modal=true'\"><img src='../images/icon-compare.png' border='0'></a>";
                         jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca+cp});
                       }
-                      $(".link_dummy").click(function () {$("#compare_aux").attr("href",$(this).attr('href'));$("#compare_aux").click();return false;})
+                      $(".link_dummy").click(function () {alert("k2");$("#compare_aux").attr("href",$(this).attr('href'));$("#compare_aux").click();return false;})
                     }
     });
     //jQuery("#list_matches").jqGrid('navGrid',"#pages_matches",{edit:false,add:false,del:false});

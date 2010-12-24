@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   #named_scope :allowed,
 
   # Virtual attribute for the unencrypted password
-  attr_accessor :password
+  attr_accessor :password, :auth_token
 
   validates_presence_of     :login, :email, :name
   validates_presence_of     :password,                   :if => :password_required?

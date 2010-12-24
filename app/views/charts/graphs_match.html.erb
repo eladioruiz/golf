@@ -1,0 +1,46 @@
+        <%= javascript_include_tag 'jquery-1.4.2.min' %>
+        <%= javascript_include_tag 'jquery.tools.min' %>
+        <%= javascript_include_tag 'jquery.easing.min' %>
+        <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
+        <%= stylesheet_link_tag 'south-street/jquery-ui-1.8rc3.custom.css' %>
+        <script>
+	$(function() {
+		$( "#tabs" ).tabs({
+			ajaxOptions: {
+				error: function( xhr, status, index, anchor ) {
+					$( anchor.hash ).html(
+						"Couldn't load this tab. We'll try to fix this as soon as possible. " +
+						"If this wouldn't be a demo." );
+				}
+			}
+		});
+	});
+	</script>
+
+        <style>
+          .ui-helper-reset {
+            font-size: 50%;
+            line-height: 1.3;
+            list-style: none outside none;
+            text-decoration: none;
+        }
+        .ui-tabs .ui-tabs-panel {
+            background: none repeat scroll 0 0 transparent;
+            border: 0 none;
+            display: block;
+            padding: 0;
+        }
+        </style>
+
+        <%= javascript_include_tag 'FusionCharts'%>
+        <div class="demo">
+          <div id="tabs">
+            <ul>
+              <li><a href="/charts/<%= @match_id %>/compare_match">Comparativa<br>Golpes</a></li>
+              <li><a href="/charts/<%= @match_id %>/compare_acumulate_match">Comparativa<br>Acumulado</a></li>
+            </ul>
+          </div>
+        </div><!-- End demo -->
+
+
+             
