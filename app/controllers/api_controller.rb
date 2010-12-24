@@ -174,7 +174,7 @@ class ApiController < ApplicationController
     @user.save
 
     if @user.errors.empty?
-      @res = {:auth_token => @auth_token, :user_id => @user.id, :name => @user_name, :email => @user_email, :login => @user_email, :password => @user_password, :handicap => @user_handicap}
+      @res = {:auth_token => @auth_token, :user_id => @user.id, :user_name => @user_name, :user_email => @user_email, :user_login => @user_email, :user_password => @user_password, :user_handicap => @user_handicap}
     else
       @res= nil
     end
