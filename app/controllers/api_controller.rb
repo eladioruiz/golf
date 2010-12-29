@@ -10,15 +10,16 @@ class ApiController < ApplicationController
 
     if @user.nil?
       @error_code = "-1"
-      @token = ""
-      @user_id = "0"
+      @token      = ""
+      @user_id    = "0"
+      @user_name  = ""
     else
       @error_code = "0"
-      # @token = calculatetoken(@user.login,@password)
-      @token = User.generatetoken(@user.login,@password)
-      @user_id = @user.id.to_s
+      @token      = User.generatetoken(@user.login,@password)
+      @user_id    = @user.id.to_s
+      @user_name  = @user_name
     end
-    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id}
+    @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id, "user_name" => @user_name}
 
     respond_to do |format|
       format.json { render :json => @res }
@@ -179,6 +180,42 @@ class ApiController < ApplicationController
       @res= nil
     end
     
+    render :json => @res.to_json()
+  end
+
+  def myfriends
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+
+    @friends = nil
+    @friends = PrivacyFriend.my_friends_all(@user_id)  if User.righttoken(@token, @user_id);
+
+    @res = @friends.map {|fr| {:user1_id => fr.user1_id, :user1_name => User.find(fr.user1_id).name, :user2_id => fr.user2_id, :user2_name => User.find(fr.user2_id).name}}.sort{|a,b| a[:user1_name] <=> b[:user1_name]} unless @friends.nil?
+
+    render :json => @res.to_json()
+  end
+
+  def myfriendspending
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+
+    @friends = nil
+    @friends = PrivacyFriend.my_friends_pending(@user_id)  if User.righttoken(@token, @user_id);
+
+    @res = @friends.map {|fr| {:user1_id => fr.user1_id, :user1_name => User.find(fr.user1_id).name, :user2_id => fr.user2_id, :user2_name => User.find(fr.user2_id).name}}.sort{|a,b| a[:user1_name] <=> b[:user1_name]} unless @friends.nil?
+
+    render :json => @res.to_json()
+  end
+
+  def pendingofanyfriends
+    @token    = params[:token]
+    @user_id  = params[:user_id]
+
+    @friends = nil
+    @friends = PrivacyFriend.pending_of_any_friends(@user_id)  if User.righttoken(@token, @user_id);
+
+    @res = @friends.map {|fr| {:user1_id => fr.user1_id, :user1_name => User.find(fr.user1_id).name, :user2_id => fr.user2_id, :user2_name => User.find(fr.user2_id).name}}.sort{|a,b| a[:user1_name] <=> b[:user1_name]} unless @friends.nil?
+
     render :json => @res.to_json()
   end
 
