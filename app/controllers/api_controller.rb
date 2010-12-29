@@ -17,7 +17,7 @@ class ApiController < ApplicationController
       @error_code = "0"
       @token      = User.generatetoken(@user.login,@password)
       @user_id    = @user.id.to_s
-      @user_name  = @user_name
+      @user_name  = @user.name
     end
     @res = {"error_code" => @error_code, "token" => @token, "login" => @login, "password" => @password, "user_id" => @user_id, "user_name" => @user_name}
 
