@@ -224,7 +224,7 @@
                         cp = "<a id='prueba' class='link_dummy' title='Comparar Tarjeta' href='/charts/" + cl + "/graphs_match?KeepThis=true&TB_iframe=true&height=460&width=610&modal=true'\"><img src='../images/icon-compare.png' border='0'></a>";
                         jQuery("#list_matches").jqGrid('setRowData',ids[i],{act:se+ed+dl+ca+cp});
                       }
-                      $(".link_dummy").click(function () {alert("k2");$("#compare_aux").attr("href",$(this).attr('href'));$("#compare_aux").click();return false;})
+                      $(".link_dummy").click(function () {$("#compare_aux").attr("href",$(this).attr('href'));$("#compare_aux").click();return false;})
                     }
     });
     //jQuery("#list_matches").jqGrid('navGrid',"#pages_matches",{edit:false,add:false,del:false});
