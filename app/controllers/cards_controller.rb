@@ -106,7 +106,7 @@ class CardsController < ApplicationController
     @holes = @match.course.holes
     @players = Player.find_all_by_id(@card.player_id)
 
-    render :action => "../layouts/print"
+    render :template => "layouts/print"
   end
 
   def current_menu
