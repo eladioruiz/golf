@@ -225,18 +225,26 @@
                             card = player.card
                             card_strokes = card.card_strokes
 
-                            card_strokes.each do |card_stroke| %>
+                            ptos_stableford = 0
+                            ptos_stableford_1 = 0
+                            card_strokes.each do |card_stroke|
+
+                              if card_stroke.hole.number==10 then
+                                ptos_stableford_1 = ptos_stableford
+                                
+                              %>
+                              <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%><BR><%= format_nil(ptos_stableford,'-') -%>&nbsp;</td>
                         <%
-                              if card_stroke.hole.number==10 then %>
-                              <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%>&nbsp;</td>
-                        <%
-                              end %>
+                                ptos_stableford = 0
+                              end
+                              ptos_stableford += card_stroke.points_stableford
+                        %>
                           <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
                             <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
                           </td>
                         <%    end   %>
-                          <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%>&nbsp;</td>
-                          <td class="totals"><%= format_nil(card.strokes_total,'-') -%>&nbsp;</td>
+                          <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%><BR><%= format_nil(ptos_stableford,'-') -%>&nbsp;</td>
+                          <td class="totals"><%= format_nil(card.strokes_total,'-') -%><BR><%= format_nil(ptos_stableford + ptos_stableford_1,'-') -%>&nbsp;</td>
                         <% else %> 
                           <td class="totals" colspan="21">No está creada la tarjeta todav&iacute;a.</td>
                         <% end %>
