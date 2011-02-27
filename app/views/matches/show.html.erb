@@ -165,7 +165,7 @@
                   <button onclick="document.location.href='<%= edit_match_path(@match) %>'">Editar</button>
                   <button onclick="if (confirm('¿Está seguro?')) { var f = document.createElement('form');f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = '<%= match_path(@match)  %> ';var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method');m.setAttribute('value', 'delete'); f.appendChild(m); var at = document.createElement('input'); at.setAttribute('type', 'hidden'); at.setAttribute('name', 'authenticity_token'); at.setAttribute('value', '<%= form_authenticity_token %>'); f.appendChild(at); f.submit(); };return false;">Borrar</button>
                   <button onclick="document.location.href='<%= print_match_path(@match) %>'">Tarjeta</button>
-                  <a class="thickbox" href='/charts/<%= @match.id %>/compare_match?KeepThis=true&TB_iframe=true&height=400&width=600'>Comparar</a>
+                  <a class="thickbox" href='/charts/<%= @match.id %>/graphs_match?KeepThis=true&TB_iframe=true&height=400&width=600'>Comparar</a>
                 </div> <!-- content_tb_header1_right demo -->
              </div> <!-- content_tb_header1_content -->
           </div> <!-- content_tb_header1_wrapper -->
