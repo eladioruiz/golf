@@ -70,6 +70,15 @@
     .text_box {
       height: 700px;
     }
+
+    .stableford {
+      display: block;
+    }
+
+    .medal_play {
+      display: block;
+    }
+
 </style>
 
 <script>
@@ -95,6 +104,11 @@
 
   // Show forms
   $( 'form.cmxform' ).show().end();
+
+  $( "#radio" ).buttonset();
+
+  $('.stableford').hide();
+  $('.medal_play').show();
 }
 </script>
 
@@ -180,6 +194,11 @@
 
                  <fieldset style="padding-top:15px;">
                     <legend>Tarjeta</legend>
+                      <div id="radio">
+                              <input type="radio" onclick="$('.stableford').hide();$('.medal_play').show();" id="radio1" name="radio" checked="checked" /><label for="radio1">MedalPlay</label>
+                              <input type="radio" onclick="$('.stableford').show();$('.medal_play').hide();" id="radio2" name="radio" /><label for="radio2">Stableford</label>
+                              <input type="radio" onclick="$('.stableford').show();$('.medal_play').show();" id="radio3" name="radio" /><label for="radio3">Ambos</label>
+                      </div>
                     <!--
                     <p>
                     <table border="2" cellpadding="3" cellspacing="0" width="100%" class="card" >
@@ -227,24 +246,29 @@
 
                             ptos_stableford = 0
                             ptos_stableford_1 = 0
+                            
                             card_strokes.each do |card_stroke|
 
                               if card_stroke.hole.number==10 then
                                 ptos_stableford_1 = ptos_stableford
                                 
                               %>
-                              <td class="totals"><%= format_nil(card.strokes_first_9,'-') -%><BR><%= format_nil(ptos_stableford,'-') -%>&nbsp;</td>
+                        <td class="totals"><div id="strk" class="medal_play"><%= format_nil(card.strokes_first_9,'-') -%></div><div id="points" class="stableford"><%= format_nil(ptos_stableford,'-') -%></div></td>
                         <%
                                 ptos_stableford = 0
                               end
-                              ptos_stableford += card_stroke.points_stableford
+
+                              if !card_stroke.nil?
+                                ptos_stableford += card_stroke.points_stableford
+                              end 
+
                         %>
                           <td class="card_player_info" id="hole_<%= card_stroke.hole.number %>">
                             <%= render :partial => 'layouts/hole_player_info', :locals => {:card_stroke => card_stroke}   %>
                           </td>
                         <%    end   %>
-                          <td class="totals"><%= format_nil(card.strokes_second_9,'-') -%><BR><%= format_nil(ptos_stableford,'-') -%>&nbsp;</td>
-                          <td class="totals"><%= format_nil(card.strokes_total,'-') -%><BR><%= format_nil(ptos_stableford + ptos_stableford_1,'-') -%>&nbsp;</td>
+                          <td class="totals"><div id="strk" class="medal_play"><%= format_nil(card.strokes_second_9,'-') -%></div><div id="points" class="stableford"><%= format_nil(ptos_stableford,'-') -%></div></td>
+                          <td class="totals"><div id="strk" class="medal_play"><%= format_nil(card.strokes_total,'-') -%></div><div id="points" class="stableford"><%= format_nil(ptos_stableford + ptos_stableford_1,'-') -%></div></td>
                         <% else %> 
                           <td class="totals" colspan="21">No está creada la tarjeta todav&iacute;a.</td>
                         <% end %>

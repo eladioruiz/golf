@@ -20,14 +20,23 @@ class CardStroke < ActiveRecord::Base
                                         }
 
   def hole_number
+    num = 0
+
     h = Hole.find_by_id(hole_id)
-    h.number
+    num = h.number unless h.nil?
+
+    num
   end
   
   def points_stableford
+    aps           = 0
+    strk          = 0
+    hole_par      = 0
+    strk_allowd   = 0
+
     aps           = self.points_stableford_per_hole
     strk          = self.strokes
-    hole_par      = self.hole.par
+    hole_par      = self.hole.par unless self.hole.nil?
     strk_allowed  = aps + hole_par
     
     points = 0
@@ -56,7 +65,7 @@ class CardStroke < ActiveRecord::Base
   def points_stableford_per_hole
     aps = 0
     aps = add_points_stableford
-    hole_handicap = self.hole.handicap
+    hole_handicap = self.hole.handicap unless self.hole.nil?
     if hole_handicap <= last_hole_stableford
         aps = aps + 1
     end
@@ -69,9 +78,9 @@ class CardStroke < ActiveRecord::Base
     hand = 0
     n_holes = 0
 
-    p = self.card.player unless self.card.nil?
-    hand = p.handicap unless p.nil?
-    n_holes = self.card.match.holes unless card.match.nil?
+    p = self.card.player unless self.card.player.nil?
+    hand = p.handicap unless p.handicap.nil?
+    n_holes = self.card.match.holes unless card.match.holes.nil?
 
     if n_holes.to_i!=0
       hand.to_i / n_holes.to_i
