@@ -32,15 +32,14 @@ class CardStroke < ActiveRecord::Base
     aps           = 0
     strk          = 0
     hole_par      = 0
-    strk_allowd   = 0
+    strk_allowed  = 0
+    points        = 0
 
     aps           = self.points_stableford_per_hole
     strk          = self.strokes
     hole_par      = self.hole.par unless self.hole.nil?
     strk_allowed  = aps + hole_par
     
-    points = 0
-
     if strk > strk_allowed + 1
       points = 0
     elsif strk == strk_allowed + 1
