@@ -261,11 +261,7 @@
                               if card_stroke.nil? then
                                   ptos_stableford += 0
                               else
-                                  if card_stroke.attribute?("points_stableford") then
-                                  ptos_stableford += 0
-                                else
                                   ptos_stableford += card_stroke.points_stableford unless card_stroke.points_stableford.nil?
-                                end
                               end 
 
                         %>
