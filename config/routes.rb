@@ -45,21 +45,21 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/ayuda', :controller => 'microsites', :action => 'ayuda'
 
-  map.connect '/api/authentication',  :controller => 'api', :action => 'authentication',      :conditions => {:method => :post}
-  map.connect '/api/getcourses',      :controller => 'api', :action => 'getcourses',          :conditions => {:method => :post}
-  map.connect '/api/getcourse',       :controller => 'api', :action => 'infocourse',          :conditions => {:method => :post}
-  map.connect '/api/getmatches',      :controller => 'api', :action => 'getmatches',          :conditions => {:method => :post}
-  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch',            :conditions => {:method => :post}
-  map.connect '/api/deletematch',     :controller => 'api', :action => 'deletematch',         :conditions => {:method => :post}
-  map.connect '/api/getfriends',      :controller => 'api', :action => 'getfriends',          :conditions => {:method => :post}
-  map.connect '/api/getinfoholes',    :controller => 'api', :action => 'getinfoholes',        :conditions => {:method => :post}
-  map.connect '/api/getstrokes',      :controller => 'api', :action => 'getstrokes',          :conditions => {:method => :post}
-  map.connect '/api/uploadmatch',     :controller => 'api', :action => 'uploadmatch',         :conditions => {:method => :post}
-  map.connect '/api/uploadmatchform', :controller => 'api', :action => 'uploadmatchform',     :conditions => {:method => :post}
-  map.connect '/api/newuser',         :controller => 'api', :action => 'newuser',             :conditions => {:method => :post}
-  map.connect '/api/myfriends',       :controller => 'api', :action => 'myfriends',           :conditions => {:method => :post}
-  map.connect '/api/friendspending',  :controller => 'api', :action => 'myfriendspending',    :conditions => {:method => :post}
-  map.connect '/api/pendingoffriends',:controller => 'api', :action => 'pendingofanyfriends', :conditions => {:method => :post}
+  map.connect '/api/authentication',  :controller => 'api', :action => 'authentication'#,      :conditions => {:method => :post}
+  map.connect '/api/getcourses',      :controller => 'api', :action => 'getcourses'#,          :conditions => {:method => :post}
+  map.connect '/api/getcourse',       :controller => 'api', :action => 'infocourse'#,          :conditions => {:method => :post}
+  map.connect '/api/getmatches',      :controller => 'api', :action => 'getmatches'#,          :conditions => {:method => :post}
+  map.connect '/api/getmatch',        :controller => 'api', :action => 'getmatch'#,            :conditions => {:method => :post}
+  map.connect '/api/deletematch',     :controller => 'api', :action => 'deletematch'#,         :conditions => {:method => :post}
+  map.connect '/api/getfriends',      :controller => 'api', :action => 'getfriends'#,          :conditions => {:method => :post}
+  map.connect '/api/getinfoholes',    :controller => 'api', :action => 'getinfoholes'#,        :conditions => {:method => :post}
+  map.connect '/api/getstrokes',      :controller => 'api', :action => 'getstrokes'#,          :conditions => {:method => :post}
+  map.connect '/api/uploadmatch',     :controller => 'api', :action => 'uploadmatch'#,         :conditions => {:method => :post}
+  map.connect '/api/uploadmatchform', :controller => 'api', :action => 'uploadmatchform'#,     :conditions => {:method => :post}
+  map.connect '/api/newuser',         :controller => 'api', :action => 'newuser'#,             :conditions => {:method => :post}
+  map.connect '/api/myfriends',       :controller => 'api', :action => 'myfriends'#,           :conditions => {:method => :post}
+  map.connect '/api/friendspending',  :controller => 'api', :action => 'myfriendspending'#,    :conditions => {:method => :post}
+  map.connect '/api/pendingoffriends',:controller => 'api', :action => 'pendingofanyfriends'#, :conditions => {:method => :post}
 
   map.resources :users
   

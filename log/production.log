@@ -1,0 +1,1470 @@
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 127.0.0.1 at 2011-07-30 13:03:34) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 130ms (View: 49, DB: 77) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2011-07-30 13:03:44) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 58ms (View: 9, DB: 46) | 200 OK [http://localhost/]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2011-07-30 13:03:52) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"7591uTDuK+QrfkQ4Or5UQOJnPyYNmpuKcq4D87bxYUY=", "login"=>"eladioruiz", "password"=>"Oidale27"}
+Redirected to http://localhost/home
+Completed in 541ms (DB: 535) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2011-07-30 13:03:53) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 178ms (View: 107, DB: 49) | 200 OK [http://localhost/home]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-07-30 13:03:59) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering rescues/layout (not_found)
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2011-07-30 13:04:02) [GET]
+Rendering template within layouts/application
+Rendering matches/index
+Completed in 220ms (View: 15, DB: 193) | 200 OK [http://localhost/matches]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-07-30 13:04:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering rescues/layout (not_found)
+
+
+Processing MatchesController#index to xml (for 127.0.0.1 at 2011-07-30 13:04:03) [GET]
+  Parameters: {"nd"=>"1312023843149", "sord"=>"desc", "id"=>"1", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "find_course_value"=>"", "sidx"=>"date_hour_match"}
+Rendering matches/index.xml
+Completed in 89ms (View: 33, DB: 49) | 200 OK [http://localhost/matches/1/index.xml?q=1&find_course_value=&_search=false&nd=1312023843149&rows=10&page=1&sidx=date_hour_match&sord=desc]
+
+
+Processing MatchesController#print (for 127.0.0.1 at 2011-07-30 13:04:06) [GET]
+  Parameters: {"id"=>"22"}
+Rendering template within layouts/application
+Rendering layouts/print
+Completed in 343ms (View: 191, DB: 146) | 200 OK [http://localhost/matches/22/print]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:04:06) [GET]
+  Parameters: {"id"=>"1"}
+Completed in 139ms (View: 1, DB: 116) | 200 OK [http://localhost/course_images/1/show]
+Streaming file public/images/courses/1/map.jpg
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2011-07-30 13:04:11) [GET]
+Redirected to http://localhost/home
+Completed in 69ms (DB: 60) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2011-07-30 13:04:11) [GET]
+Redirected to http://localhost/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 60ms (DB: 57) | 302 Found [http://localhost/home]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2011-07-30 13:04:11) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 78ms (View: 7, DB: 69) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2011-07-30 13:12:04) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"9SivzWuDwrX2KfI4D4VoDgm/90HYn7ZG5Q2mlvzyHg8=", "login"=>"eladioruiz", "password"=>"Oidale27"}
+Redirected to http://localhost/home
+Completed in 90ms (DB: 83) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2011-07-30 13:12:04) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 221ms (View: 4, DB: 69) | 200 OK [http://localhost/home]
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2011-07-30 13:12:08) [GET]
+Rendering template within layouts/application
+Rendering courses/index
+Completed in 97ms (View: 32, DB: 53) | 200 OK [http://localhost/courses]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:09) [GET]
+  Parameters: {"id"=>"6"}
+Completed in 88ms (View: 0, DB: 67) | 200 OK [http://localhost/course_images/6/show]
+Streaming file public/images/courses/2/map.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:09) [GET]
+  Parameters: {"id"=>"1"}
+Completed in 43ms (View: 0, DB: 37) | 200 OK [http://localhost/course_images/1/show]
+Streaming file public/images/courses/1/map.jpg
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2011-07-30 13:12:10) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering courses/show
+Completed in 103ms (View: 26, DB: 72) | 200 OK [http://localhost/courses/1]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:10) [GET]
+  Parameters: {"id"=>"2"}
+Completed in 51ms (View: 0, DB: 44) | 200 OK [http://localhost/course_images/2/show]
+Streaming file public/images/courses/1/hoyo02.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:10) [GET]
+  Parameters: {"id"=>"3"}
+Completed in 47ms (View: 0, DB: 42) | 200 OK [http://localhost/course_images/3/show]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:10) [GET]
+  Parameters: {"id"=>"4"}
+Completed in 108ms (View: 0, DB: 81) | 200 OK [http://localhost/course_images/4/show]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:10) [GET]
+  Parameters: {"id"=>"5"}
+Completed in 158ms (View: 0, DB: 133) | 200 OK [http://localhost/course_images/5/show]
+Streaming file public/images/courses/1/hoyo06.jpg
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2011-07-30 13:12:17) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering courses/show
+Completed in 129ms (View: 30, DB: 88) | 200 OK [http://localhost/courses/1]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:17) [GET]
+  Parameters: {"id"=>"2"}
+Completed in 113ms (View: 0, DB: 108) | 200 OK [http://localhost/course_images/2/show]
+Streaming file public/images/courses/1/hoyo05.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:17) [GET]
+  Parameters: {"id"=>"3"}
+Completed in 151ms (View: 0, DB: 146) | 200 OK [http://localhost/course_images/3/show]
+Streaming file public/images/courses/1/hoyo02.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:32) [GET]
+  Parameters: {"id"=>"4"}
+Completed in 116ms (View: 0, DB: 111) | 200 OK [http://localhost/course_images/4/show]
+Streaming file public/images/courses/1/hoyo02_2.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:32) [GET]
+  Parameters: {"id"=>"5"}
+Completed in 174ms (View: 0, DB: 169) | 200 OK [http://localhost/course_images/5/show]
+Streaming file public/images/courses/1/hoyo02_2.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:12:32) [GET]
+  Parameters: {"id"=>"1"}
+Completed in 186ms (View: 0, DB: 181) | 200 OK [http://localhost/course_images/1/show]
+Streaming file public/images/courses/1/map.jpg
+
+
+Processing CoursesController#index (for 127.0.0.1 at 2011-07-30 13:26:42) [GET]
+Rendering template within layouts/application
+Rendering courses/index
+Completed in 96ms (View: 34, DB: 54) | 200 OK [http://localhost/courses]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:42) [GET]
+  Parameters: {"id"=>"6"}
+Completed in 145ms (View: 0, DB: 68) | 200 OK [http://localhost/course_images/6/show]
+Streaming file public/images/courses/2/map.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:42) [GET]
+  Parameters: {"id"=>"1"}
+Completed in 108ms (View: 0, DB: 102) | 200 OK [http://localhost/course_images/1/show]
+Streaming file public/images/courses/1/map.jpg
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/application
+Rendering courses/show
+Completed in 136ms (View: 30, DB: 101) | 200 OK [http://localhost/courses/2]
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"7"}
+Completed in 89ms (View: 0, DB: 83) | 200 OK [http://localhost/course_images/7/show]
+Streaming file public/images/courses/2/hoyo16.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"8"}
+Completed in 61ms (View: 1, DB: 56) | 200 OK [http://localhost/course_images/8/show]
+Streaming file public/images/courses/2/hoyo17.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"14"}
+Completed in 66ms (View: 3, DB: 51) | 200 OK [http://localhost/course_images/14/show]
+Streaming file public/images/courses/2/hoyo18_4.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"9"}
+Completed in 71ms (View: 0, DB: 62) | 200 OK [http://localhost/course_images/9/show]
+Streaming file public/images/courses/2/hoyo17_2.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:44) [GET]
+  Parameters: {"id"=>"10"}
+Completed in 62ms (View: 0, DB: 57) | 200 OK [http://localhost/course_images/10/show]
+Streaming file public/images/courses/2/hoyo17_3.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:45) [GET]
+  Parameters: {"id"=>"11"}
+Completed in 63ms (View: 0, DB: 58) | 200 OK [http://localhost/course_images/11/show]
+Streaming file public/images/courses/2/hoyo18.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:45) [GET]
+  Parameters: {"id"=>"12"}
+Completed in 64ms (View: 0, DB: 56) | 200 OK [http://localhost/course_images/12/show]
+Streaming file public/images/courses/2/hoyo18_2.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:45) [GET]
+  Parameters: {"id"=>"13"}
+Completed in 73ms (View: 0, DB: 54) | 200 OK [http://localhost/course_images/13/show]
+Streaming file public/images/courses/2/hoyo18_3.jpg
+
+
+Processing CourseImagesController#show (for 127.0.0.1 at 2011-07-30 13:26:45) [GET]
+  Parameters: {"id"=>"6"}
+Completed in 61ms (View: 0, DB: 56) | 200 OK [http://localhost/course_images/6/show]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing HomeController#index (for 127.0.0.1 at 2011-07-30 13:27:21) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 161ms (View: 18, DB: 112) | 200 OK [http://localhost/home]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-07-30 13:27:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering rescues/layout (not_found)
+
+
+Processing PrivacyFriendsController#new (for 127.0.0.1 at 2011-07-30 13:27:25) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering privacy_friends/new
+Completed in 209ms (View: 117, DB: 80) | 200 OK [http://localhost/privacy_friends/1/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2011-07-30 13:27:28) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/application
+Rendering users/show
+Completed in 81ms (View: 8, DB: 63) | 200 OK [http://localhost/users/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2011-07-30 13:27:31) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 116ms (View: 4, DB: 101) | 200 OK [http://localhost/home]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing MicrositesController#ayuda (for 65.52.110.65 at 2011-07-30 18:26:59) [GET]
+Rendering template within layouts/microsites
+Rendering microsites/ayuda
+Completed in 82ms (View: 23, DB: 48) | 200 OK [http://mygolfcard.es/ayuda]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-07-30 18:59:55) [GET]
+
+ActionController::RoutingError (No route matches "/info.html" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-07-30 19:00:32) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 76ms (View: 25, DB: 44) | 200 OK [http://mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-07-30 19:02:05) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 108ms (View: 25, DB: 71) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-07-30 19:02:05) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 113ms (View: 24, DB: 79) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-07-30 19:02:05) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 107ms (View: 28, DB: 65) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-07-30 19:02:05) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 124ms (View: 23, DB: 88) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing SessionController#new (for 66.249.71.135 at 2011-07-30 22:13:50) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 151ms (View: 7, DB: 140) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing SessionController#new (for 66.249.71.135 at 2011-07-30 22:31:55) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 108ms (View: 7, DB: 96) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing MicrositesController#ayuda (for 66.249.71.135 at 2011-07-30 22:56:37) [GET]
+Rendering template within layouts/microsites
+Rendering microsites/ayuda
+Completed in 105ms (View: 36, DB: 59) | 200 OK [http://www.mygolfcard.es/ayuda]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-09-13 20:12:03) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 270ms (View: 65, DB: 243) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-09-13 23:53:36) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 151ms (View: 19, DB: 121) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing ApiController#authentication (for 192.168.1.30 at 2011-09-13 23:56:41) [GET]
+Completed in 89ms (View: 1, DB: 82) | 200 OK [http://www.mygolfcard.es/api/authentication]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#create (for 192.168.1.30 at 2011-09-15 19:32:47) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"eTz07j/ZMhUDKStq4nyYJTw2LUKRN7IvWsMvUgmO5mo=", "login"=>"eladioruiz", "password"=>"eladioruiz"}
+Rendering template within layouts/session
+Rendering session/new
+Completed in 159ms (View: 17, DB: 130) | 200 OK [http://www.mygolfcard.es/session]
+
+
+Processing SessionController#create (for 192.168.1.30 at 2011-09-15 19:32:55) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"eTz07j/ZMhUDKStq4nyYJTw2LUKRN7IvWsMvUgmO5mo=", "login"=>"eladioruiz", "password"=>"eladioruiz"}
+Rendering template within layouts/session
+Rendering session/new
+Completed in 54ms (View: 7, DB: 41) | 200 OK [http://www.mygolfcard.es/session]
+
+
+Processing SessionController#create (for 192.168.1.30 at 2011-09-15 19:33:04) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"eTz07j/ZMhUDKStq4nyYJTw2LUKRN7IvWsMvUgmO5mo=", "login"=>"eladioruiz", "password"=>"Oidale27"}
+Redirected to http://www.mygolfcard.es/home
+Completed in 107ms (DB: 99) | 302 Found [http://www.mygolfcard.es/session]
+
+
+Processing HomeController#index (for 192.168.1.30 at 2011-09-15 19:33:04) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 187ms (View: 102, DB: 65) | 200 OK [http://www.mygolfcard.es/home]
+
+
+Processing ApiController#authentication (for 192.168.1.30 at 2011-09-15 19:53:44) [GET]
+  Parameters: {"login"=>"eladioruiz", "password"=>"Oidale27"}
+Completed in 60ms (View: 1, DB: 52) | 200 OK [http://www.mygolfcard.es/api/authentication?login=eladioruiz&password=Oidale27]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 127.0.0.1 at 2011-09-15 20:18:49) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 115ms (View: 38, DB: 67) | 200 OK [http://localhost/]
+
+
+Processing ApiController#authentication (for 127.0.0.1 at 2011-09-15 20:19:59) [GET]
+  Parameters: {"login"=>"eladioruiz", "password"=>"Oidale27"}
+Completed in 46ms (View: 1, DB: 34) | 200 OK [http://localhost/api/authentication?login=eladioruiz&password=Oidale27]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing ApiController#authentication (for 192.168.1.30 at 2011-09-15 20:26:00) [GET]
+  Parameters: {"login"=>"eladioruiz", "password"=>"Oidale27"}
+Completed in 66ms (View: 1, DB: 50) | 200 OK [http://192.168.1.30/api/authentication?login=eladioruiz&password=Oidale27]
+
+
+Processing ApiController#authentication (for 192.168.1.30 at 2011-09-15 20:26:30) [POST]
+  Parameters: {"login"=>"eladioruiz", "password"=>"Oidale27"}
+Completed in 51ms (View: 1, DB: 48) | 200 OK [http://192.168.1.30/api/authentication]
+
+
+Processing ApiController#getcourses (for 192.168.1.30 at 2011-09-15 20:26:46) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2"}
+Completed in 80ms (View: 0, DB: 71) | 200 OK [http://192.168.1.30/api/getcourses]
+
+
+Processing ApiController#getmatches (for 192.168.1.30 at 2011-09-15 20:26:58) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "user_id"=>"1"}
+Completed in 54ms (View: 0, DB: 47) | 200 OK [http://192.168.1.30/api/getmatches]
+
+
+Processing ApiController#getmatches (for 192.168.1.30 at 2011-09-15 20:34:14) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "user_id"=>"1"}
+Completed in 58ms (View: 0, DB: 50) | 200 OK [http://192.168.1.30/api/getmatches]
+
+
+Processing ApiController#getmatch (for 192.168.1.30 at 2011-09-15 20:34:22) [POST]
+  Parameters: {"token"=>"", "match_id"=>"22", "user_id"=>"0"}
+Completed in 85ms (View: 0, DB: 53) | 200 OK [http://192.168.1.30/api/getmatch]
+
+
+Processing ApiController#getmatch (for 192.168.1.30 at 2011-09-15 20:34:32) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "user_id"=>"1"}
+Completed in 57ms (View: 0, DB: 48) | 200 OK [http://192.168.1.30/api/getmatch]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:34:35) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 169ms (View: 0, DB: 63) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:34:36) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 76ms (View: 0, DB: 63) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:34:38) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 80ms (View: 0, DB: 67) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:34:39) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 81ms (View: 0, DB: 69) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:35:22) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 65ms (View: 0, DB: 53) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:35:23) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 77ms (View: 0, DB: 65) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:35:24) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 80ms (View: 0, DB: 68) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-15 20:35:26) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 79ms (View: 0, DB: 65) | 200 OK [http://192.168.1.30/api/getstrokes]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-09-18 19:08:53) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 144ms (View: 38, DB: 94) | 200 OK [http://192.168.1.30/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 188.165.248.204 at 2011-09-18 20:11:16) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 113ms (View: 21, DB: 82) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 95.169.240.45 at 2011-09-20 16:42:12) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 177ms (View: 61, DB: 107) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing SessionController#new (for 95.169.240.54 at 2011-09-20 16:45:39) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 54ms (View: 7, DB: 42) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 66.249.68.141 at 2011-09-20 17:27:19) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 79ms (View: 20, DB: 50) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 66.232.100.247 at 2011-09-20 20:37:06) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 215ms (View: 88, DB: 115) | 200 OK [http://www.mygolfcard.es/]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing ApiController#getmatches (for 192.168.1.30 at 2011-09-21 20:24:36) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "user_id"=>"1"}
+Completed in 107ms (View: 0, DB: 93) | 200 OK [http://192.168.1.30/api/getmatches]
+
+
+Processing ApiController#getmatch (for 192.168.1.30 at 2011-09-21 20:24:41) [POST]
+  Parameters: {"token"=>"", "match_id"=>"22", "user_id"=>"0"}
+Completed in 186ms (View: 0, DB: 134) | 200 OK [http://192.168.1.30/api/getmatch]
+
+
+Processing ApiController#getmatch (for 192.168.1.30 at 2011-09-21 20:24:46) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "user_id"=>"1"}
+Completed in 62ms (View: 0, DB: 51) | 200 OK [http://192.168.1.30/api/getmatch]
+
+
+Processing ApiController#getinfoholes (for 192.168.1.30 at 2011-09-21 20:24:47) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "course_id"=>"1"}
+Completed in 100ms (View: 0, DB: 77) | 200 OK [http://192.168.1.30/api/getinfoholes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-21 20:24:47) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 210ms (View: 0, DB: 86) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-21 20:24:47) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 74ms (View: 0, DB: 59) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-21 20:24:48) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 115ms (View: 0, DB: 102) | 200 OK [http://192.168.1.30/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 192.168.1.30 at 2011-09-21 20:24:48) [POST]
+  Parameters: {"token"=>"ca9c6a1de6762f27e10cda231872495708a287e2", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 71ms (View: 1, DB: 58) | 200 OK [http://192.168.1.30/api/getstrokes]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing ApiController#getcourses (for 192.168.1.30 at 2011-09-21 20:48:29) [GET]
+Completed in 76ms (View: 1, DB: 59) | 200 OK [http://www.mygolfcard.es/api/getcourses]
+
+
+Processing ApiController#authentication (for 46.222.4.20 at 2011-09-21 20:51:30) [POST]
+  Parameters: {"login"=>"eladioruiz", "password"=>"Oidale27"}
+Completed in 76ms (View: 1, DB: 66) | 200 OK [http://www.mygolfcard.es/api/authentication]
+
+
+Processing ApiController#getcourses (for 46.222.4.20 at 2011-09-21 20:51:32) [GET]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893"}
+Completed in 86ms (View: 0, DB: 79) | 200 OK [http://www.mygolfcard.es/api/getcourses?token=cf531510dcd7e85e50cd95069e05c2248a949893]
+
+
+Processing ApiController#getmatches (for 46.222.4.20 at 2011-09-21 20:51:38) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1"}
+Completed in 61ms (View: 0, DB: 50) | 200 OK [http://www.mygolfcard.es/api/getmatches]
+
+
+Processing ApiController#getmatch (for 46.222.4.20 at 2011-09-21 20:51:44) [POST]
+  Parameters: {"token"=>"", "match_id"=>"22", "user_id"=>"0"}
+Completed in 97ms (View: 0, DB: 76) | 200 OK [http://www.mygolfcard.es/api/getmatch]
+
+
+Processing ApiController#getmatch (for 46.222.4.20 at 2011-09-21 20:51:47) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "user_id"=>"1"}
+Completed in 96ms (View: 0, DB: 84) | 200 OK [http://www.mygolfcard.es/api/getmatch]
+
+
+Processing ApiController#getinfoholes (for 46.222.4.20 at 2011-09-21 20:51:49) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "course_id"=>"1"}
+Completed in 198ms (View: 0, DB: 85) | 200 OK [http://www.mygolfcard.es/api/getinfoholes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:51:50) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 87ms (View: 0, DB: 70) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:51:51) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 95ms (View: 0, DB: 80) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:51:53) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 76ms (View: 0, DB: 61) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:51:54) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 69ms (View: 0, DB: 54) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:13) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 76ms (View: 1, DB: 61) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:14) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 93ms (View: 0, DB: 78) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:15) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 96ms (View: 0, DB: 82) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:16) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 96ms (View: 0, DB: 81) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:21) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"42", "user_id"=>"1"}
+Completed in 88ms (View: 0, DB: 74) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:22) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"43", "user_id"=>"1"}
+Completed in 85ms (View: 0, DB: 71) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:23) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"44", "user_id"=>"1"}
+Completed in 90ms (View: 0, DB: 78) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getstrokes (for 46.222.4.20 at 2011-09-21 20:52:25) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "match_id"=>"22", "player_id"=>"45", "user_id"=>"1"}
+Completed in 72ms (View: 0, DB: 57) | 200 OK [http://www.mygolfcard.es/api/getstrokes]
+
+
+Processing ApiController#getcourses (for 46.222.4.20 at 2011-09-21 20:52:59) [GET]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893"}
+Completed in 92ms (View: 0, DB: 83) | 200 OK [http://www.mygolfcard.es/api/getcourses?token=cf531510dcd7e85e50cd95069e05c2248a949893]
+
+
+Processing ApiController#infocourse (for 46.222.4.20 at 2011-09-21 20:53:05) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1", "course_id"=>"1"}
+Completed in 52ms (View: 1, DB: 47) | 200 OK [http://www.mygolfcard.es/api/getcourse]
+
+
+Processing ApiController#infocourse (for 46.222.4.20 at 2011-09-21 20:53:11) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1", "course_id"=>"5"}
+Completed in 41ms (View: 2, DB: 36) | 200 OK [http://www.mygolfcard.es/api/getcourse]
+
+
+Processing ApiController#infocourse (for 46.222.4.20 at 2011-09-21 20:53:15) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1", "course_id"=>"8"}
+Completed in 82ms (View: 2, DB: 74) | 200 OK [http://www.mygolfcard.es/api/getcourse]
+
+
+Processing ApiController#getmatches (for 46.222.4.20 at 2011-09-21 20:53:19) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1"}
+Completed in 159ms (View: 74, DB: 78) | 200 OK [http://www.mygolfcard.es/api/getmatches]
+
+
+Processing ApiController#getcourses (for 46.222.4.20 at 2011-09-21 20:53:24) [GET]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893"}
+Completed in 52ms (View: 0, DB: 44) | 200 OK [http://www.mygolfcard.es/api/getcourses?token=cf531510dcd7e85e50cd95069e05c2248a949893]
+
+
+Processing ApiController#getfriends (for 46.222.4.20 at 2011-09-21 20:53:25) [POST]
+  Parameters: {"token"=>"cf531510dcd7e85e50cd95069e05c2248a949893", "user_id"=>"1"}
+Completed in 90ms (View: 0, DB: 81) | 200 OK [http://www.mygolfcard.es/api/getfriends]
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-09-21 20:59:30) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 127ms (View: 75, DB: 46) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing SessionController#create (for 192.168.1.30 at 2011-09-21 20:59:32) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "login"=>"eladioruiz", "password"=>"Oidale27"}
+Redirected to http://www.mygolfcard.es/home
+Completed in 90ms (DB: 85) | 302 Found [http://www.mygolfcard.es/session]
+
+
+Processing HomeController#index (for 192.168.1.30 at 2011-09-21 20:59:32) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 119ms (View: 18, DB: 87) | 200 OK [http://www.mygolfcard.es/home]
+
+
+Processing MatchesController#new (for 192.168.1.30 at 2011-09-21 20:59:35) [GET]
+Rendering template within layouts/application
+Rendering matches/new
+Completed in 105ms (View: 23, DB: 68) | 200 OK [http://www.mygolfcard.es/matches/new]
+
+
+Processing CoursesController#find_like_by_name (for 192.168.1.30 at 2011-09-21 20:59:38) [GET]
+  Parameters: {"term"=>"rac"}
+Rendering courses/find_like_by_name.html.erb
+Completed in 68ms (View: 2, DB: 60) | 200 OK [http://www.mygolfcard.es/courses/findlikebyname?term=rac]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 20:59:38) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-anim_basic_16x16.gif" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:00:03) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"09", "holes"=>"18", "date_hour_match(5i)"=>"24", "players_attributes"=>{"0"=>{"_delete"=>"0", "user_id"=>"2", "tee_id"=>"2"}, "1"=>{"_delete"=>"0", "user_id"=>"3", "tee_id"=>"1"}, "2"=>{"_delete"=>"0", "user_id"=>"1", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"18"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: _delete):
+  app/controllers/matches_controller.rb:90:in `new'
+  app/controllers/matches_controller.rb:90:in `create'
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/500.html (500 Internal Server Error)
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:00:39) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"09", "holes"=>"18", "date_hour_match(5i)"=>"24", "players_attributes"=>{"0"=>{"_delete"=>"0", "user_id"=>"2", "tee_id"=>"2"}, "1"=>{"_delete"=>"0", "user_id"=>"3", "tee_id"=>"1"}, "2"=>{"_delete"=>"0", "user_id"=>"1", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"18"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: _delete):
+  app/controllers/matches_controller.rb:90:in `new'
+  app/controllers/matches_controller.rb:90:in `create'
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/500.html (500 Internal Server Error)
+
+
+Processing HomeController#index (for 192.168.1.30 at 2011-09-21 21:00:42) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 92ms (View: 3, DB: 81) | 200 OK [http://www.mygolfcard.es/home]
+
+
+Processing MatchesController#index (for 192.168.1.30 at 2011-09-21 21:00:45) [GET]
+Rendering template within layouts/application
+Rendering matches/index
+Completed in 101ms (View: 10, DB: 83) | 200 OK [http://www.mygolfcard.es/matches]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:00:45) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing MatchesController#index to xml (for 192.168.1.30 at 2011-09-21 21:00:45) [GET]
+  Parameters: {"nd"=>"1316631645508", "sord"=>"desc", "id"=>"1", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "find_course_value"=>"", "sidx"=>"date_hour_match"}
+Rendering matches/index.xml
+Completed in 205ms (View: 101, DB: 94) | 200 OK [http://www.mygolfcard.es/matches/1/index.xml?q=1&find_course_value=&_search=false&nd=1316631645508&rows=10&page=1&sidx=date_hour_match&sord=desc]
+
+
+Processing MatchesController#new (for 192.168.1.30 at 2011-09-21 21:00:51) [GET]
+Rendering template within layouts/application
+Rendering matches/new
+Completed in 92ms (View: 17, DB: 64) | 200 OK [http://www.mygolfcard.es/matches/new]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:00:55) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-anim_basic_16x16.gif" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing CoursesController#find_like_by_name (for 192.168.1.30 at 2011-09-21 21:00:55) [GET]
+  Parameters: {"term"=>"ra"}
+Rendering courses/find_like_by_name.html.erb
+Completed in 84ms (View: 1, DB: 78) | 200 OK [http://www.mygolfcard.es/courses/findlikebyname?term=ra]
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:01:18) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"19", "holes"=>"18", "date_hour_match(5i)"=>"00", "players_attributes"=>{"0"=>{"_delete"=>"0", "user_id"=>"1", "tee_id"=>"1"}, "1"=>{"_delete"=>"0", "user_id"=>"2", "tee_id"=>"2"}, "2"=>{"_delete"=>"0", "user_id"=>"3", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"18"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: _delete):
+  app/controllers/matches_controller.rb:90:in `new'
+  app/controllers/matches_controller.rb:90:in `create'
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/500.html (500 Internal Server Error)
+
+
+Processing MatchesController#index (for 192.168.1.30 at 2011-09-21 21:03:36) [GET]
+Rendering template within layouts/application
+Rendering matches/index
+Completed in 56ms (View: 4, DB: 46) | 200 OK [http://www.mygolfcard.es/matches]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:03:36) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing MatchesController#index to xml (for 192.168.1.30 at 2011-09-21 21:03:36) [GET]
+  Parameters: {"nd"=>"1316631816901", "sord"=>"desc", "id"=>"1", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "find_course_value"=>"", "sidx"=>"date_hour_match"}
+Rendering matches/index.xml
+Completed in 90ms (View: 13, DB: 72) | 200 OK [http://www.mygolfcard.es/matches/1/index.xml?q=1&find_course_value=&_search=false&nd=1316631816901&rows=10&page=1&sidx=date_hour_match&sord=desc]
+
+
+Processing MatchesController#new (for 192.168.1.30 at 2011-09-21 21:03:39) [GET]
+Rendering template within layouts/application
+Rendering matches/new
+Completed in 67ms (View: 16, DB: 42) | 200 OK [http://www.mygolfcard.es/matches/new]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:03:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-anim_basic_16x16.gif" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing CoursesController#find_like_by_name (for 192.168.1.30 at 2011-09-21 21:03:44) [GET]
+  Parameters: {"term"=>"RACE"}
+Rendering courses/find_like_by_name.html.erb
+Completed in 99ms (View: 1, DB: 93) | 200 OK [http://www.mygolfcard.es/courses/findlikebyname?term=RACE]
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:03:50) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"19", "holes"=>"18", "date_hour_match(5i)"=>"03", "players_attributes"=>{"0"=>{"_delete"=>"0", "user_id"=>"2", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"21"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: _delete):
+  app/controllers/matches_controller.rb:90:in `new'
+  app/controllers/matches_controller.rb:90:in `create'
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/500.html (500 Internal Server Error)
+
+
+Processing CoursesController#find_like_by_name (for 192.168.1.30 at 2011-09-21 21:13:34) [GET]
+  Parameters: {"term"=>"ra"}
+Rendering courses/find_like_by_name.html.erb
+Completed in 59ms (View: 1, DB: 55) | 200 OK [http://www.mygolfcard.es/courses/findlikebyname?term=ra]
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:13:37) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"19", "holes"=>"18", "date_hour_match(5i)"=>"03", "players_attributes"=>{"0"=>{"_delete"=>"0", "user_id"=>"2", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"21"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: _delete):
+  app/controllers/matches_controller.rb:90:in `new'
+  app/controllers/matches_controller.rb:90:in `create'
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/500.html (500 Internal Server Error)
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing SessionController#new (for 192.168.1.30 at 2011-09-21 21:23:51) [GET]
+Rendering template within layouts/session
+Rendering session/new
+Completed in 101ms (View: 17, DB: 70) | 200 OK [http://www.mygolfcard.es/]
+
+
+Processing SessionController#create (for 192.168.1.30 at 2011-09-21 21:23:54) [POST]
+  Parameters: {"commit"=>"Entrar", "authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "login"=>"eladioruiz", "password"=>"Oidale27"}
+Redirected to http://www.mygolfcard.es/home
+Completed in 127ms (DB: 119) | 302 Found [http://www.mygolfcard.es/session]
+
+
+Processing HomeController#index (for 192.168.1.30 at 2011-09-21 21:23:54) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 118ms (View: 17, DB: 71) | 200 OK [http://www.mygolfcard.es/home]
+
+
+Processing MatchesController#index (for 192.168.1.30 at 2011-09-21 21:23:56) [GET]
+Rendering template within layouts/application
+Rendering matches/index
+Completed in 191ms (View: 13, DB: 89) | 200 OK [http://www.mygolfcard.es/matches]
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:23:57) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing MatchesController#index to xml (for 192.168.1.30 at 2011-09-21 21:23:57) [GET]
+  Parameters: {"nd"=>"1316633037045", "sord"=>"desc", "id"=>"1", "q"=>"1", "page"=>"1", "_search"=>"false", "rows"=>"10", "find_course_value"=>"", "sidx"=>"date_hour_match"}
+Rendering matches/index.xml
+Completed in 100ms (View: 16, DB: 78) | 200 OK [http://www.mygolfcard.es/matches/1/index.xml?q=1&find_course_value=&_search=false&nd=1316633037045&rows=10&page=1&sidx=date_hour_match&sord=desc]
+
+
+Processing MatchesController#new (for 192.168.1.30 at 2011-09-21 21:23:59) [GET]
+Rendering template within layouts/application
+Rendering matches/new
+Completed in 114ms (View: 26, DB: 79) | 200 OK [http://www.mygolfcard.es/matches/new]
+WARNING: geokit-rails requires the Geokit gem. You either don't have the gem installed,
+or you haven't told Rails to require it. If you're using a recent version of Rails: 
+  config.gem "geokit" # in config/environment.rb
+and of course install the gem: sudo gem install geokit
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:24:02) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-anim_basic_16x16.gif" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing CoursesController#find_like_by_name (for 192.168.1.30 at 2011-09-21 21:24:02) [GET]
+  Parameters: {"term"=>"ra"}
+Rendering courses/find_like_by_name.html.erb
+Completed in 64ms (View: 2, DB: 53) | 200 OK [http://www.mygolfcard.es/courses/findlikebyname?term=ra]
+
+
+Processing MatchesController#create (for 192.168.1.30 at 2011-09-21 21:24:22) [POST]
+  Parameters: {"authenticity_token"=>"et9I+wPMw/wQJWO2JcnAIRr/w9fIn6F6PZ71JxttLO0=", "course_name"=>"Club Jarama RACE", "match"=>{"date_hour_match(4i)"=>"09", "holes"=>"18", "date_hour_match(5i)"=>"24", "players_attributes"=>{"0"=>{"user_id"=>"1", "_destroy"=>"0", "tee_id"=>"1"}, "1"=>{"user_id"=>"2", "_destroy"=>"0", "tee_id"=>"2"}, "2"=>{"user_id"=>"3", "_destroy"=>"0", "tee_id"=>"1"}}, "date_hour_match(1i)"=>"2011", "date_hour_match(2i)"=>"9", "course_id"=>"1", "date_hour_match(3i)"=>"18"}}
+Redirected to http://www.mygolfcard.es/matches/50
+Completed in 151ms (DB: 139) | 302 Found [http://www.mygolfcard.es/matches]
+
+
+Processing MatchesController#show (for 192.168.1.30 at 2011-09-21 21:24:22) [GET]
+  Parameters: {"id"=>"50"}
+Rendering template within layouts/application
+Rendering matches/show
+Completed in 94ms (View: 17, DB: 74) | 200 OK [http://www.mygolfcard.es/matches/50]
+
+
+Processing CourseImagesController#show (for 192.168.1.30 at 2011-09-21 21:24:23) [GET]
+  Parameters: {"id"=>"1"}
+Completed in 150ms (View: 0, DB: 125) | 200 OK [http://www.mygolfcard.es/course_images/1/show]
+Streaming file public/images/courses/1/map.jpg
+
+
+Processing ApplicationController#index (for 192.168.1.30 at 2011-09-21 21:24:23) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/south-street/images/ui-bg_gloss-wave_100_369D47_500x100.png" with {:method=>:get}):
+  passenger (3.0.7) lib/phusion_passenger/rack/request_handler.rb:96:in `process_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:513:in `accept_and_process_next_request'
+  passenger (3.0.7) lib/phusion_passenger/abstract_request_handler.rb:274:in `main_loop'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:321:in `start_request_handler'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `send'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/utils.rb:479:in `safe_fork'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:270:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:180:in `start'
+  passenger (3.0.7) lib/phusion_passenger/classic_rails/application_spawner.rb:149:in `start'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:219:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:132:in `lookup_or_add'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:214:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:82:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:213:in `spawn_rails_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:132:in `spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/spawn_manager.rb:275:in `handle_spawn_application'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `__send__'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:357:in `server_main_loop'
+  passenger (3.0.7) lib/phusion_passenger/abstract_server.rb:206:in `start_synchronously'
+  passenger (3.0.7) helper-scripts/passenger-spawn-server:99
+
+Rendering /home/eladioruiz/personal/desarrollo/RoR/golf/public/404.html (404 Not Found)
+
+
+Processing PlayersController#index to xml (for 192.168.1.30 at 2011-09-21 21:24:23) [GET]
+  Parameters: {"nd"=>"1316633063356", "sord"=>"asc", "id"=>"50", "q"=>"2", "page"=>"1", "_search"=>"false", "rows"=>"4", "sidx"=>"player_name"}
+Rendering players/index.xml
+Completed in 150ms (View: 9, DB: 134) | 200 OK [http://www.mygolfcard.es/players.xml?q=2&id=50&_search=false&nd=1316633063356&rows=4&page=1&sidx=player_name&sord=asc]

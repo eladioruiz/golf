@@ -18,7 +18,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: golf_development
+  database: golf
   pool: 5
   username: root
   password: 0364sa
@@ -32,7 +32,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: golf_test
+  database: golf
   pool: 5
   username: root
   socket: /var/run/mysqld/mysqld.sock
