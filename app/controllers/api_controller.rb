@@ -26,6 +26,14 @@ class ApiController < ApplicationController
     end
   end
 
+  def getconnection
+    @res = {"connection" => "OK"}
+
+    respond_to do |format|
+      format.json { render :json => @res }
+    end
+  end
+
   def getcourses
     @token    = params[:token]
     @user_id  = params[:user_id]
@@ -78,7 +86,7 @@ class ApiController < ApplicationController
       @friends.each_with_index { |f,i|
         @friends_aux[i+1] = {:id => f.user.id, :name => f.user.name }
       }
-      @friends_aux[0] = {:id => @user_id, :name => @user.name }
+      @friends_aux[0] = {:id => @user_id.to_i, :name => @user.name }
       
     end
 
