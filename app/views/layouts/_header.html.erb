@@ -248,8 +248,7 @@
             <div class="header">
                 <div class="wrapper_header">
                     <% if @audit_controller!='microsites' %>
-                    <div class="header_header">
-                        &nbsp;<p>¿Necesita ayuda para empezar a utilizar My Golf Card?&nbsp;<button title="Ayuda" id="button_help" onclick="">Ayuda</button></p>
+                    <div class="header_header">&nbsp;<p>¿Necesita ayuda para empezar a utilizar My Golf Card?&nbsp;<button title="Ayuda" id="button_help" onclick="">Ayuda</button></p>
                     </div>
                     <% end %>
                     <div class="wrapbranding">
@@ -267,15 +266,11 @@
                           </div>  <!-- eSind: demo -->
                       </div>  <!-- end: branding -->
                     </div>  <!-- end: wrapbranding -->
-                    <div class="user_info">
-                      <% if @audit_controller!='microsites' %>
-                      <%= @user_name -%> (HCP : <%= format_handicap(@user_handicap) -%>)&nbsp;&nbsp;&nbsp;<a href="/logout" title="Desconectar"><img src="/images/logout.gif" alt="Desconectar" border="0" /></a>
+                    <div class="user_info"><% if @audit_controller!='microsites' %><%= @user_name -%> (HCP : <%= format_handicap(@user_handicap) -%>)&nbsp;&nbsp;&nbsp;<a href="/logout" title="Desconectar"><img src="/images/logout.gif" alt="Desconectar" border="0" /></a>
                       <div id="user">
-                        
                         <!--<br><%= @audit_controller + ' - ' + @audit_action + ' - ' + @action_allowed.to_s %>-->
                       </div>  <!-- end: user -->
                       <div id="logout">
-                                                
                       </div>  <!-- end: logout -->
                       <% end %>
                     </div> <!-- end: user_info -->
